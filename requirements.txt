@@ -1,0 +1,4 @@
+# Core runtime + test deps, pinned for reproducibility.
+# Judge-provider clients (anthropic, openai) are added in the harness stage.
+pydantic==2.13.3
+pytest==9.1.1

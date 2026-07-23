@@ -1,0 +1,105 @@
+{
+  "bundle_id": "bundle-008",
+  "created_at": "2026-01-09T09:11:00+00:00",
+  "manifest": {
+    "bundle_id": "bundle-008",
+    "created_at": "2026-01-09T09:11:00+00:00",
+    "member_hashes": {
+      "m0": "f1ac9e7196bb6581b8eb5394a3d60f06ba3ca155c425c45ba77914554c0063e1",
+      "m1": "b0e39167459fda14729e7fae8ac6fc092625c589b70afa5dd9f33d290ebc29ae",
+      "m2": "46da56c061291f96cd5bb1c668cf39ebe72b9dd5431025292bef2bd49dd5bdba",
+      "m3": "dd9584b92f93b2aa7b2e006a1f6aa9743a3ba87c89f8a1987282be8a61179129"
+    },
+    "member_ids": [
+      "m0",
+      "m1",
+      "m2",
+      "m3"
+    ],
+    "provenance_root": "ca3b1620611587b01fa2695577ee04c09ff264c624ce49278da05cabdfad73d9",
+    "schema_version": "trust-eval/evidence-bundle/v1"
+  },
+  "members": [
+    {
+      "content": {
+        "endpoint": "/search",
+        "hits": 20,
+        "status": 200
+      },
+      "content_hash": "f1ac9e7196bb6581b8eb5394a3d60f06ba3ca155c425c45ba77914554c0063e1",
+      "evidence_time": "2026-01-09T08:59:55+00:00",
+      "kind": "api_response",
+      "member_id": "m0"
+    },
+    {
+      "content": {
+        "note": "summary revision 8",
+        "tokens": 308
+      },
+      "content_hash": "b0e39167459fda14729e7fae8ac6fc092625c589b70afa5dd9f33d290ebc29ae",
+      "evidence_time": "2026-01-09T09:02:55+00:00",
+      "kind": "observation",
+      "member_id": "m1"
+    },
+    {
+      "content": {
+        "bytes": 2056,
+        "path": "/reports/prior_08.md"
+      },
+      "content_hash": "46da56c061291f96cd5bb1c668cf39ebe72b9dd5431025292bef2bd49dd5bdba",
+      "evidence_time": "2026-01-09T09:05:55+00:00",
+      "kind": "file_read",
+      "member_id": "m2"
+    },
+    {
+      "content": {
+        "cmd": "render report",
+        "exit_code": 0
+      },
+      "content_hash": "dd9584b92f93b2aa7b2e006a1f6aa9743a3ba87c89f8a1987282be8a61179129",
+      "evidence_time": "2026-01-09T09:08:55+00:00",
+      "kind": "command",
+      "member_id": "m3"
+    }
+  ],
+  "producer": "research-agent",
+  "provenance": [
+    {
+      "action": "fetched document",
+      "actor": "research-agent",
+      "event_time": "2026-01-09T09:00:00+00:00",
+      "member_ref": "m0",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "step_hash": "b53e723e5a33bbd6b0823be0bc4f8af081e411c45228eb9f53810a78b75ec183",
+      "step_id": "bundle-008-s0"
+    },
+    {
+      "action": "summarized finding",
+      "actor": "research-agent",
+      "event_time": "2026-01-09T09:03:00+00:00",
+      "member_ref": "m1",
+      "prev_hash": "b53e723e5a33bbd6b0823be0bc4f8af081e411c45228eb9f53810a78b75ec183",
+      "step_hash": "1877cb4bcae09e469240ceaa62a652b9104c27689e85ea5509fd099a486de4a7",
+      "step_id": "bundle-008-s1"
+    },
+    {
+      "action": "read prior report",
+      "actor": "research-agent",
+      "event_time": "2026-01-09T09:06:00+00:00",
+      "member_ref": "m2",
+      "prev_hash": "1877cb4bcae09e469240ceaa62a652b9104c27689e85ea5509fd099a486de4a7",
+      "step_hash": "b16d32108a0955e87334a171ecb622e5cfb7c330fcb0669646317ce79268546a",
+      "step_id": "bundle-008-s2"
+    },
+    {
+      "action": "rendered output",
+      "actor": "research-agent",
+      "event_time": "2026-01-09T09:09:00+00:00",
+      "member_ref": "m3",
+      "prev_hash": "b16d32108a0955e87334a171ecb622e5cfb7c330fcb0669646317ce79268546a",
+      "step_hash": "ca3b1620611587b01fa2695577ee04c09ff264c624ce49278da05cabdfad73d9",
+      "step_id": "bundle-008-s3"
+    }
+  ],
+  "task_id": "task-008"
+}

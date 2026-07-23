@@ -1,0 +1,106 @@
+{
+  "bundle_id": "bundle-006",
+  "created_at": "2026-01-07T09:11:00+00:00",
+  "manifest": {
+    "bundle_id": "bundle-006",
+    "created_at": "2026-01-07T09:11:00+00:00",
+    "member_hashes": {
+      "m0": "1494ddb174571d1322a987ac7a71198ec85f1dc3a8e2975d63538d8732b97614",
+      "m1": "f92e943cd7ab29d4cc1356807c988b46859a25e24121de71263c4bcf41c7adf9",
+      "m2": "9b5c93a3f9aecf6e83e45ddfa84b83522a0e1d6a97056a9b5394b5dbbf894ffa",
+      "m3": "4474cb4e506e2accef8ef27506c104b6a26a85cc89648bcc24d71ea6adb5ee15"
+    },
+    "member_ids": [
+      "m0",
+      "m1",
+      "m2",
+      "m3"
+    ],
+    "provenance_root": "ee4398e61d6dbc8fdfe5fecceda4ae0563c0e39732cc6f12d48472ad4f8b9bd3",
+    "schema_version": "trust-eval/evidence-bundle/v1"
+  },
+  "members": [
+    {
+      "content": {
+        "cmd": "make build svc-06",
+        "exit_code": 0
+      },
+      "content_hash": "1494ddb174571d1322a987ac7a71198ec85f1dc3a8e2975d63538d8732b97614",
+      "evidence_time": "2026-01-07T08:59:55+00:00",
+      "kind": "command",
+      "member_id": "m0"
+    },
+    {
+      "content": {
+        "cmd": "pytest -q",
+        "exit_code": 0,
+        "passed": 134
+      },
+      "content_hash": "f92e943cd7ab29d4cc1356807c988b46859a25e24121de71263c4bcf41c7adf9",
+      "evidence_time": "2026-01-07T09:02:55+00:00",
+      "kind": "command",
+      "member_id": "m1"
+    },
+    {
+      "content": {
+        "endpoint": "/deploy/svc-06",
+        "revision": 6,
+        "status": 200
+      },
+      "content_hash": "9b5c93a3f9aecf6e83e45ddfa84b83522a0e1d6a97056a9b5394b5dbbf894ffa",
+      "evidence_time": "2026-01-07T09:05:55+00:00",
+      "kind": "api_response",
+      "member_id": "m2"
+    },
+    {
+      "content": {
+        "latency_ms": 46,
+        "note": "health green"
+      },
+      "content_hash": "4474cb4e506e2accef8ef27506c104b6a26a85cc89648bcc24d71ea6adb5ee15",
+      "evidence_time": "2026-01-07T09:08:55+00:00",
+      "kind": "observation",
+      "member_id": "m3"
+    }
+  ],
+  "producer": "deploy-agent",
+  "provenance": [
+    {
+      "action": "ran build",
+      "actor": "deploy-agent",
+      "event_time": "2026-01-07T09:00:00+00:00",
+      "member_ref": "m0",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "step_hash": "56a727615d71ec52e48147c45cfb6dd27a9b17485ca723b8b1ed99e85bd83ae4",
+      "step_id": "bundle-006-s0"
+    },
+    {
+      "action": "ran tests",
+      "actor": "deploy-agent",
+      "event_time": "2026-01-07T09:03:00+00:00",
+      "member_ref": "m1",
+      "prev_hash": "56a727615d71ec52e48147c45cfb6dd27a9b17485ca723b8b1ed99e85bd83ae4",
+      "step_hash": "f55ff3a0aab9b945ec08b4d3e49b2ad002de5e5756b972b75d66db68a9ee9e70",
+      "step_id": "bundle-006-s1"
+    },
+    {
+      "action": "called deploy API",
+      "actor": "deploy-agent",
+      "event_time": "2026-01-07T09:06:00+00:00",
+      "member_ref": "m2",
+      "prev_hash": "f55ff3a0aab9b945ec08b4d3e49b2ad002de5e5756b972b75d66db68a9ee9e70",
+      "step_hash": "fab53103882519ab346643c9d73b422db3adf3dc2bc8ef73683d564edb5f7596",
+      "step_id": "bundle-006-s2"
+    },
+    {
+      "action": "recorded health check",
+      "actor": "deploy-agent",
+      "event_time": "2026-01-07T09:09:00+00:00",
+      "member_ref": "m3",
+      "prev_hash": "fab53103882519ab346643c9d73b422db3adf3dc2bc8ef73683d564edb5f7596",
+      "step_hash": "ee4398e61d6dbc8fdfe5fecceda4ae0563c0e39732cc6f12d48472ad4f8b9bd3",
+      "step_id": "bundle-006-s3"
+    }
+  ],
+  "task_id": "task-006"
+}

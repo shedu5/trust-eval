@@ -1,0 +1,4 @@
+# Judge-provider SDKs. Needed only for LIVE runs (cache-only reproduction does
+# not import these). Installed in the Docker image so the container can do both.
+anthropic==0.118.0
+openai==2.47.0

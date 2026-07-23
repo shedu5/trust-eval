@@ -1,0 +1,15 @@
+services:
+  trust-eval:
+    build: .
+    # The judges to score. Override in a local .env (see .env.example). These
+    # default model ids are placeholders — set them to models you have access to.
+    environment:
+      TRUST_EVAL_PROVIDERS: "${TRUST_EVAL_PROVIDERS:-anthropic:claude-sonnet-placeholder,openai:gpt-placeholder}"
+      TRUST_EVAL_LIVE: "${TRUST_EVAL_LIVE:-0}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+    volumes:
+      # Persist the response cache and results to the host so a live run's cache
+      # can be committed and later reproduced with no key.
+      - ./trust_eval/harness/cache:/app/trust_eval/harness/cache
+      - ./reports:/app/reports

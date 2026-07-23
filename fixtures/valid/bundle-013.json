@@ -1,0 +1,85 @@
+{
+  "bundle_id": "bundle-013",
+  "created_at": "2026-01-14T09:08:00+00:00",
+  "manifest": {
+    "bundle_id": "bundle-013",
+    "created_at": "2026-01-14T09:08:00+00:00",
+    "member_hashes": {
+      "m0": "40b42a958224b8d63a7f63e0be07b5a8ef372b7c7d62ccf97da0f9354dc4ec73",
+      "m1": "26e4d7070790f9f588d9d8618f33f99868c0d12f65a98030c7c38579e752d2b0",
+      "m2": "5f4f18f129537b1395066ffe6cbdd4222a94dac760bb08b45e0b31aea8293e00"
+    },
+    "member_ids": [
+      "m0",
+      "m1",
+      "m2"
+    ],
+    "provenance_root": "2b72730d4fc20345f048149bdcf886fe562fb9e107a00233c1bef57fb41830a9",
+    "schema_version": "trust-eval/evidence-bundle/v1"
+  },
+  "members": [
+    {
+      "content": {
+        "path": "/data/orders_13.csv",
+        "rows": 1013
+      },
+      "content_hash": "40b42a958224b8d63a7f63e0be07b5a8ef372b7c7d62ccf97da0f9354dc4ec73",
+      "evidence_time": "2026-01-14T08:59:55+00:00",
+      "kind": "file_read",
+      "member_id": "m0"
+    },
+    {
+      "content": {
+        "changed": 13,
+        "cmd": "migrate orders_13",
+        "exit_code": 0
+      },
+      "content_hash": "26e4d7070790f9f588d9d8618f33f99868c0d12f65a98030c7c38579e752d2b0",
+      "evidence_time": "2026-01-14T09:02:55+00:00",
+      "kind": "command",
+      "member_id": "m1"
+    },
+    {
+      "content": {
+        "count": 1013,
+        "endpoint": "/count/orders_13",
+        "status": 200
+      },
+      "content_hash": "5f4f18f129537b1395066ffe6cbdd4222a94dac760bb08b45e0b31aea8293e00",
+      "evidence_time": "2026-01-14T09:05:55+00:00",
+      "kind": "api_response",
+      "member_id": "m2"
+    }
+  ],
+  "producer": "data-agent",
+  "provenance": [
+    {
+      "action": "read source file",
+      "actor": "data-agent",
+      "event_time": "2026-01-14T09:00:00+00:00",
+      "member_ref": "m0",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "step_hash": "2c060cc5b1de6df3559c3f3221f27cb88b79adfe2003b77b5343db71d43cc2ac",
+      "step_id": "bundle-013-s0"
+    },
+    {
+      "action": "ran migration",
+      "actor": "data-agent",
+      "event_time": "2026-01-14T09:03:00+00:00",
+      "member_ref": "m1",
+      "prev_hash": "2c060cc5b1de6df3559c3f3221f27cb88b79adfe2003b77b5343db71d43cc2ac",
+      "step_hash": "b613baf737a7c8ccbf635e38df18a9925f6add0a91e3e015270cadb75260a050",
+      "step_id": "bundle-013-s1"
+    },
+    {
+      "action": "verified row count",
+      "actor": "data-agent",
+      "event_time": "2026-01-14T09:06:00+00:00",
+      "member_ref": "m2",
+      "prev_hash": "b613baf737a7c8ccbf635e38df18a9925f6add0a91e3e015270cadb75260a050",
+      "step_hash": "2b72730d4fc20345f048149bdcf886fe562fb9e107a00233c1bef57fb41830a9",
+      "step_id": "bundle-013-s2"
+    }
+  ],
+  "task_id": "task-013"
+}
