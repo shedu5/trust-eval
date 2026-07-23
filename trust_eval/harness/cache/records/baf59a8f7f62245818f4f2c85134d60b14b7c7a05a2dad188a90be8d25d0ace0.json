@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks essential context regarding the specific changes made or the baseline state, and a simple command output of 'healthy' is insufficient to verify the integrity of the execution.\"}",
+  "reason": "The submission lacks essential context regarding the specific changes made or the baseline state, and a simple command output of 'healthy' is insufficient to verify the integrity of the execution.",
+  "verdict": "reject"
+}

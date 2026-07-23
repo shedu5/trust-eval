@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submitted state change claim aligns perfectly with the defined in-scope files provided in the task scope.\"}",
+  "reason": "The submitted state change claim aligns perfectly with the defined in-scope files provided in the task scope.",
+  "verdict": "accept"
+}

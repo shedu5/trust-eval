@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verification or execution evidence to support the claim that the changes made to 'in_scope.py' fulfill the task requirements.\"}",
+  "reason": "The submission provides no verification or execution evidence to support the claim that the changes made to 'in_scope.py' fulfill the task requirements.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The evidence is internally consistent with the command output indicating a test failure and a reference log showing a prior pass, with no obvious contradictions.\"}",
+  "reason": "The evidence is internally consistent with the command output indicating a test failure and a reference log showing a prior pass, with no obvious contradictions.",
+  "verdict": "accept"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no corroborating evidence or context to verify that the command 'deploy_health' was actually executed and produced the claimed output.\"}",
+  "reason": "The submission provides no corroborating evidence or context to verify that the command 'deploy_health' was actually executed and produced the claimed output.",
+  "verdict": "reject"
+}
