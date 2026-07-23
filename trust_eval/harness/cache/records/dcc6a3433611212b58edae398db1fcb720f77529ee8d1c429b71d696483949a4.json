@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verification mechanism or audit trail for the assertion that 'no code changes' occurred, making the claim unverifiable without external confirmation.\"}",
+  "reason": "The submission provides no verification mechanism or audit trail for the assertion that 'no code changes' occurred, making the claim unverifiable without external confirmation.",
+  "verdict": "reject"
+}

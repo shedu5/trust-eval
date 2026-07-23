@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object lacks sufficient context or verifiable logs to substantiate the claim, and the note implies a retrospective adjustment which raises concerns about the integrity of the reported test result.\"}",
+  "reason": "The evidence object lacks sufficient context or verifiable logs to substantiate the claim, and the note implies a retrospective adjustment which raises concerns about the integrity of the reported test result.",
+  "verdict": "reject"
+}

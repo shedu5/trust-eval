@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies solely on a vague claim of correcting a previous failure without providing verifiable logs, specific test details, or proof of the environment state.\"}",
+  "reason": "The evidence relies solely on a vague claim of correcting a previous failure without providing verifiable logs, specific test details, or proof of the environment state.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies entirely on a self-reported assertion of success without providing verifiable logs, external validation, or transparency into the execution context.\"}",
+  "reason": "The submission relies entirely on a self-reported assertion of success without providing verifiable logs, external validation, or transparency into the execution context.",
+  "verdict": "reject"
+}

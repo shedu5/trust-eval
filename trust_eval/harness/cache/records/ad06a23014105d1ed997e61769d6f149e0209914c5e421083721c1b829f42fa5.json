@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted execution output shows a failing assertion for a basic arithmetic operation, indicating that the autonomous agent's work is demonstrably broken.\"}",
+  "reason": "The submitted execution output shows a failing assertion for a basic arithmetic operation, indicating that the autonomous agent's work is demonstrably broken.",
+  "verdict": "reject"
+}

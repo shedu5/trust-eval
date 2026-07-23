@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable proof of execution or outcome, relying solely on an unsubstantiated self-declaration of success.\"}",
+  "reason": "The submission provides no verifiable proof of execution or outcome, relying solely on an unsubstantiated self-declaration of success.",
+  "verdict": "reject"
+}

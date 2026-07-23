@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence explicitly reports a failure ('1 failed') for the core execution task, indicating the agent's work did not achieve the required outcome.\"}",
+  "reason": "The submitted evidence explicitly reports a failure ('1 failed') for the core execution task, indicating the agent's work did not achieve the required outcome.",
+  "verdict": "reject"
+}

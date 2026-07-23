@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a cited result from an earlier, unverified execution rather than providing current, task-specific evidence.\"}",
+  "reason": "The submission relies on a cited result from an earlier, unverified execution rather than providing current, task-specific evidence.",
+  "verdict": "reject"
+}

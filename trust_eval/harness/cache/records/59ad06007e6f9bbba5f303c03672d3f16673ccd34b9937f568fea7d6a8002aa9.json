@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly reports a failed execution result for a deployment command, indicating the task is incomplete or broken.\"}",
+  "reason": "The evidence explicitly reports a failed execution result for a deployment command, indicating the task is incomplete or broken.",
+  "verdict": "reject"
+}

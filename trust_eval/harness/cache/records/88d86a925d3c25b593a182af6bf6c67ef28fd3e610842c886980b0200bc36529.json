@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a self-reported 'healthy' status without providing any objective, verifiable logs or output artifacts to substantiate the execution claim.\"}",
+  "reason": "The submission relies on a self-reported 'healthy' status without providing any objective, verifiable logs or output artifacts to substantiate the execution claim.",
+  "verdict": "reject"
+}

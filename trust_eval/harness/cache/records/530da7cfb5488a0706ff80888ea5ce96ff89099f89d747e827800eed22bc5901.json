@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a custom 'claimed_baseline' identifier that cannot be verified against the project's canonical state, rendering the assertion of which files remained unchanged unverifiable.\"}",
+  "reason": "The submission relies on a custom 'claimed_baseline' identifier that cannot be verified against the project's canonical state, rendering the assertion of which files remained unchanged unverifiable.",
+  "verdict": "reject"
+}

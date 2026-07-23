@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on an unverifiable claim of an earlier run rather than providing evidence of the current execution state.\"}",
+  "reason": "The submission relies on an unverifiable claim of an earlier run rather than providing evidence of the current execution state.",
+  "verdict": "reject"
+}

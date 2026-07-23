@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a vague claim of an 'earlier run' rather than providing a verifiable, context-specific execution log for the current task.\"}",
+  "reason": "The evidence relies on a vague claim of an 'earlier run' rather than providing a verifiable, context-specific execution log for the current task.",
+  "verdict": "reject"
+}

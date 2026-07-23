@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly reports a failed execution outcome ('1 failed: assert add(2,2)==4'), indicating the agent's work was unsuccessful.\"}",
+  "reason": "The submission explicitly reports a failed execution outcome ('1 failed: assert add(2,2)==4'), indicating the agent's work was unsuccessful.",
+  "verdict": "reject"
+}

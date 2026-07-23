@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object lacks sufficient verification details, such as timestamped logs or verifiable hashes, to independently validate the assertion that no code changes occurred.\"}",
+  "reason": "The evidence object lacks sufficient verification details, such as timestamped logs or verifiable hashes, to independently validate the assertion that no code changes occurred.",
+  "verdict": "reject"
+}

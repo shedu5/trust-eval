@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object lacks any verifiable content, such as a hash or diff, making it impossible to validate the asserted changes against the claimed baseline.\"}",
+  "reason": "The evidence object lacks any verifiable content, such as a hash or diff, making it impossible to validate the asserted changes against the claimed baseline.",
+  "verdict": "reject"
+}
