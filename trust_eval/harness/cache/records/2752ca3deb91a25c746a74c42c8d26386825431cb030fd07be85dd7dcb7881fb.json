@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims to be an execution result but its note admits it is only citing an earlier run, which makes the current claim unreliable without direct verification.\"}",
+  "reason": "The evidence claims to be an execution result but its note admits it is only citing an earlier run, which makes the current claim unreliable without direct verification.",
+  "verdict": "reject"
+}

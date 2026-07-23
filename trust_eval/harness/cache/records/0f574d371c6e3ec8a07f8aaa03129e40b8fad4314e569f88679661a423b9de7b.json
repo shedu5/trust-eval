@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object lacks verifiable metadata or proof of execution, such as a timestamp, commit hash, or log output, making the single-word output claim unverifiable.\"}",
+  "reason": "The evidence object lacks verifiable metadata or proof of execution, such as a timestamp, commit hash, or log output, making the single-word output claim unverifiable.",
+  "verdict": "reject"
+}

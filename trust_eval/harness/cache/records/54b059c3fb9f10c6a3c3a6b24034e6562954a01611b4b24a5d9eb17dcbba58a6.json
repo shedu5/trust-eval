@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any verifiable proof (e.g., hash, diff) that a6.py actually changed relative to baseline W6, so the claim cannot be trusted based on assertion alone.\"}",
+  "reason": "The submission lacks any verifiable proof (e.g., hash, diff) that a6.py actually changed relative to baseline W6, so the claim cannot be trusted based on assertion alone.",
+  "verdict": "reject"
+}

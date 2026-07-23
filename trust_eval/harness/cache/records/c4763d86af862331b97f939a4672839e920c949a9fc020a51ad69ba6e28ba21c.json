@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is internally consistent, provides a plausible output, and contains no obvious contradictions or indications of untruth.\"}",
+  "reason": "The execution claim is internally consistent, provides a plausible output, and contains no obvious contradictions or indications of untruth.",
+  "verdict": "accept"
+}

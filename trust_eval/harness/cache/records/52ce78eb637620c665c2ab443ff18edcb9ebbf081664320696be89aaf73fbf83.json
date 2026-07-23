@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only a self-referential claim with no verifiable evidence linking the asserted changes to a trusted baseline or external record.\"}",
+  "reason": "The submission provides only a self-referential claim with no verifiable evidence linking the asserted changes to a trusted baseline or external record.",
+  "verdict": "reject"
+}

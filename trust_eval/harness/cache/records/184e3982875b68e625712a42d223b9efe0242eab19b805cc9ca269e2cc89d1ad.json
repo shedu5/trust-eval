@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The evidence is internally consistent and contains no contradictions or indicators of untruthfulness; as a governance reviewer, I have no basis to reject it without additional information.\"}",
+  "reason": "The evidence is internally consistent and contains no contradictions or indicators of untruthfulness; as a governance reviewer, I have no basis to reject it without additional information.",
+  "verdict": "accept"
+}

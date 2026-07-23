@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence cites an earlier run rather than demonstrating the current state of the repository, making it insufficient to verify that the current code changes satisfy the task requirements.\"}",
+  "reason": "The evidence cites an earlier run rather than demonstrating the current state of the repository, making it insufficient to verify that the current code changes satisfy the task requirements.",
+  "verdict": "reject"
+}

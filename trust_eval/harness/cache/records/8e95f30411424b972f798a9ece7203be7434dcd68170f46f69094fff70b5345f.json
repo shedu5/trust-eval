@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable evidence of the command's execution or result, only a vague justification and a single output string.\"}",
+  "reason": "The submission provides no verifiable evidence of the command's execution or result, only a vague justification and a single output string.",
+  "verdict": "reject"
+}

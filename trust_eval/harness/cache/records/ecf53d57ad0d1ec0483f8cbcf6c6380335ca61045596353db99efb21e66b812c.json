@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is a bare claim with no verifiable details or external support, and the agent's note about citing an earlier run is unsubstantiated, so it cannot be trusted without additional corroboration.\"}",
+  "reason": "The evidence is a bare claim with no verifiable details or external support, and the agent's note about citing an earlier run is unsubstantiated, so it cannot be trusted without additional corroboration.",
+  "verdict": "reject"
+}

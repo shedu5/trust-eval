@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is a self-asserted claim with no verifiable proof (e.g., timestamp, log, or cryptographic attestation) to confirm the command actually ran and produced the stated output.\"}",
+  "reason": "The evidence is a self-asserted claim with no verifiable proof (e.g., timestamp, log, or cryptographic attestation) to confirm the command actually ran and produced the stated output.",
+  "verdict": "reject"
+}

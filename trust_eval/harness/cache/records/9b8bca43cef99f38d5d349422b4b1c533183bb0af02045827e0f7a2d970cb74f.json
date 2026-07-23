@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence contains an internal inconsistency: the justification claims it is the most recent run, but the note says it is citing an earlier run's result, making the claim unreliable.\"}",
+  "reason": "The evidence contains an internal inconsistency: the justification claims it is the most recent run, but the note says it is citing an earlier run's result, making the claim unreliable.",
+  "verdict": "reject"
+}

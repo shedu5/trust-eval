@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The justification of 'no code changes' is an unverifiable state claim with no supporting evidence, and I cannot trust an execution claim that depends on an unsubstantiated assertion.\"}",
+  "reason": "The justification of 'no code changes' is an unverifiable state claim with no supporting evidence, and I cannot trust an execution claim that depends on an unsubstantiated assertion.",
+  "verdict": "reject"
+}

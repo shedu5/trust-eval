@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only a self-reported status string without any verifiable proof of the command's execution context, timestamp, or log integrity.\"}",
+  "reason": "The submission provides only a self-reported status string without any verifiable proof of the command's execution context, timestamp, or log integrity.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verification artifacts or logs beyond a self-referential 'healthy' string, which is insufficient evidence to substantiate the success of an execution claim.\"}",
+  "reason": "The submission provides no verification artifacts or logs beyond a self-referential 'healthy' string, which is insufficient evidence to substantiate the success of an execution claim.",
+  "verdict": "reject"
+}

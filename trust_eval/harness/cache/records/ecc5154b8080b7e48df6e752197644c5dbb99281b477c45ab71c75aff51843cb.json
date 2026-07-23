@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission claims a single in-scope file change with a consistent baseline identifier, no out-of-scope changes are asserted, and the evidence is internally self-consistent.\"}",
+  "reason": "The submission claims a single in-scope file change with a consistent baseline identifier, no out-of-scope changes are asserted, and the evidence is internally self-consistent.",
+  "verdict": "accept"
+}

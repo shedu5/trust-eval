@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence cites an earlier run's result rather than providing current output, so it does not prove the command actually passed in this instance.\"}",
+  "reason": "The evidence cites an earlier run's result rather than providing current output, so it does not prove the command actually passed in this instance.",
+  "verdict": "reject"
+}

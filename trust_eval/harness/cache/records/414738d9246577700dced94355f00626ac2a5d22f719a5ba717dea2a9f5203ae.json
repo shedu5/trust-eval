@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim is unverifiable and the agent's self-reported re-run note provides no independent corroboration, so it cannot be trusted.\"}",
+  "reason": "The execution claim is unverifiable and the agent's self-reported re-run note provides no independent corroboration, so it cannot be trusted.",
+  "verdict": "reject"
+}

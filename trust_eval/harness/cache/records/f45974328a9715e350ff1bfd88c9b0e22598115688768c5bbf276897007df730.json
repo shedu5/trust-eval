@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable proof or external reference to confirm the execution claim, so it cannot be trusted without assuming good faith.\"}",
+  "reason": "The submission provides no verifiable proof or external reference to confirm the execution claim, so it cannot be trusted without assuming good faith.",
+  "verdict": "reject"
+}

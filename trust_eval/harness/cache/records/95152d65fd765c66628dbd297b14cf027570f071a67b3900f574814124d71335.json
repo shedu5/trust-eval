@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The justification \\\"verified independently before submitting this evidence\\\" is vague and provides no verifiable detail, making the claim untrustworthy as a self-asserted execution result.\"}",
+  "reason": "The justification \"verified independently before submitting this evidence\" is vague and provides no verifiable detail, making the claim untrustworthy as a self-asserted execution result.",
+  "verdict": "reject"
+}

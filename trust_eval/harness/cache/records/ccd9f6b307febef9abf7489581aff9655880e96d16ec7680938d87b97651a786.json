@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The command 'pytest_v3' is non-standard and the output lacks sufficient detail to corroborate the claim, raising doubts about its authenticity.\"}",
+  "reason": "The command 'pytest_v3' is non-standard and the output lacks sufficient detail to corroborate the claim, raising doubts about its authenticity.",
+  "verdict": "reject"
+}

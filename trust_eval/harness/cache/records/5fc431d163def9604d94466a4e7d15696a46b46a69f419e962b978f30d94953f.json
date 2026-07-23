@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence relies on citing a previous execution rather than providing a verifiable result for the current task, and reports a test failure.\"}",
+  "reason": "The submitted evidence relies on citing a previous execution rather than providing a verifiable result for the current task, and reports a test failure.",
+  "verdict": "reject"
+}

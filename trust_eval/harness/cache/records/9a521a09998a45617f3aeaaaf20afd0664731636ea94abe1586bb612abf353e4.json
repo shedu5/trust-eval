@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The claim is internally consistent: the asserted changed file matches the in-scope file, and no rule violations are apparent from the submission alone.\"}",
+  "reason": "The claim is internally consistent: the asserted changed file matches the in-scope file, and no rule violations are apparent from the submission alone.",
+  "verdict": "accept"
+}

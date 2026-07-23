@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is a self-reported output from a non-standard command with no independent verification, and the claim cites an earlier run without providing any means to confirm its authenticity.\"}",
+  "reason": "The evidence is a self-reported output from a non-standard command with no independent verification, and the claim cites an earlier run without providing any means to confirm its authenticity.",
+  "verdict": "reject"
+}

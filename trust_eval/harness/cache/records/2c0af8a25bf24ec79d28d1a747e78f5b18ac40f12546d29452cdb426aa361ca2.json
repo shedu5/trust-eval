@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks any verifiable proof or external validation, and under the rule to not assume good faith, a self-consistent but unsupported assertion is insufficient to trust.\"}",
+  "reason": "The execution claim lacks any verifiable proof or external validation, and under the rule to not assume good faith, a self-consistent but unsupported assertion is insufficient to trust.",
+  "verdict": "reject"
+}

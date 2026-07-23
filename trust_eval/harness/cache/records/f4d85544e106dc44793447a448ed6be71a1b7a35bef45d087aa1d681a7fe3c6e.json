@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is self-consistent and contains no apparent contradictions or evidence of fabrication.\"}",
+  "reason": "The execution claim is self-consistent and contains no apparent contradictions or evidence of fabrication.",
+  "verdict": "accept"
+}

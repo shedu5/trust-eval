@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to specify any in-scope files or provide verifiable context linking the 'deploy_health_v2' command output to the task requirements.\"}",
+  "reason": "The submission fails to specify any in-scope files or provide verifiable context linking the 'deploy_health_v2' command output to the task requirements.",
+  "verdict": "reject"
+}

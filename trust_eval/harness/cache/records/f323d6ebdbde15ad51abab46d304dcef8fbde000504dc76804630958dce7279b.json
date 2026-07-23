@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a non-verifiable assertion of prior consistency rather than providing reproducible evidence or logs for the specific command execution.\"}",
+  "reason": "The submission relies on a non-verifiable assertion of prior consistency rather than providing reproducible evidence or logs for the specific command execution.",
+  "verdict": "reject"
+}

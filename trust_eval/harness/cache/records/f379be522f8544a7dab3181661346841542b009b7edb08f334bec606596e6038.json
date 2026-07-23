@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is self-consistent, all asserted changed files are within the in-scope list, and no external information contradicts the claim.\"}",
+  "reason": "The submission is self-consistent, all asserted changed files are within the in-scope list, and no external information contradicts the claim.",
+  "verdict": "accept"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verification or logs for the command 'pytest_v5', relying solely on an unsubstantiated assertion of success.\"}",
+  "reason": "The submission provides no verification or logs for the command 'pytest_v5', relying solely on an unsubstantiated assertion of success.",
+  "verdict": "reject"
+}

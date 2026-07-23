@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission confirms that the executed test failed, indicating the agent's work is incomplete or broken.\"}",
+  "reason": "The submission confirms that the executed test failed, indicating the agent's work is incomplete or broken.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is self-consistent and plausible as an execution claim with a failed test, and there is no contradictory evidence to reject it.\"}",
+  "reason": "The submission is self-consistent and plausible as an execution claim with a failed test, and there is no contradictory evidence to reject it.",
+  "verdict": "accept"
+}

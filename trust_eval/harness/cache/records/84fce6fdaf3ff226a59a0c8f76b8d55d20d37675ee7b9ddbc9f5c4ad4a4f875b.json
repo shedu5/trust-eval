@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The state claim provides no cryptographic or external proof linking the asserted changes to a verified baseline, and as a governance reviewer I cannot assume good faith without such evidence.\"}",
+  "reason": "The state claim provides no cryptographic or external proof linking the asserted changes to a verified baseline, and as a governance reviewer I cannot assume good faith without such evidence.",
+  "verdict": "reject"
+}

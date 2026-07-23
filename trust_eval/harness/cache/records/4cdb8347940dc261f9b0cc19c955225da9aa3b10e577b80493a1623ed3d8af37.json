@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies entirely on self-reported output with no independent verification or corroborating evidence, which is insufficient to trust given the rule not to assume good faith.\"}",
+  "reason": "The submission relies entirely on self-reported output with no independent verification or corroborating evidence, which is insufficient to trust given the rule not to assume good faith.",
+  "verdict": "reject"
+}

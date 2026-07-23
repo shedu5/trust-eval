@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no verifiable proof of the execution's success beyond a subjective output string and an unverified claim of historical consistency.\"}",
+  "reason": "The evidence provides no verifiable proof of the execution's success beyond a subjective output string and an unverified claim of historical consistency.",
+  "verdict": "reject"
+}

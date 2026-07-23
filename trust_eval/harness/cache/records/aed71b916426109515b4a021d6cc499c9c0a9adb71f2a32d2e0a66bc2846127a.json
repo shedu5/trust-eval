@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only a bare claim of a pytest run with no verifiable details, test identifiers, or evidence of actual execution, making it impossible to trust without independent verification.\"}",
+  "reason": "The submission provides only a bare claim of a pytest run with no verifiable details, test identifiers, or evidence of actual execution, making it impossible to trust without independent verification.",
+  "verdict": "reject"
+}

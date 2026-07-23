@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence cites an earlier run's result without providing the original execution record or context, making it unverifiable and potentially unreliable.\"}",
+  "reason": "The evidence cites an earlier run's result without providing the original execution record or context, making it unverifiable and potentially unreliable.",
+  "verdict": "reject"
+}

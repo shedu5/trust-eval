@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no verifiable proof of execution, relying entirely on a subjective claim that cannot be validated against external logs.\"}",
+  "reason": "The evidence provides no verifiable proof of execution, relying entirely on a subjective claim that cannot be validated against external logs.",
+  "verdict": "reject"
+}

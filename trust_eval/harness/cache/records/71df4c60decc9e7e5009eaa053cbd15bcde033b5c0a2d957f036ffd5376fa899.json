@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a historical run ('citing an earlier run's result') rather than executing the command in the context of the current task, making it insufficient proof of the current state.\"}",
+  "reason": "The evidence relies on a historical run ('citing an earlier run's result') rather than executing the command in the context of the current task, making it insufficient proof of the current state.",
+  "verdict": "reject"
+}

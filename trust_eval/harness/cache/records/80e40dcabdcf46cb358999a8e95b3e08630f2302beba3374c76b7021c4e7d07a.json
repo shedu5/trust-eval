@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable evidence that the command was actually executed or that its output is genuine, making it unreliable.\"}",
+  "reason": "The submission provides no verifiable evidence that the command was actually executed or that its output is genuine, making it unreliable.",
+  "verdict": "reject"
+}

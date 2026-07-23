@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence does not demonstrate a current execution; it merely references an unspecified earlier run without proof that no changes occurred.\"}",
+  "reason": "The evidence does not demonstrate a current execution; it merely references an unspecified earlier run without proof that no changes occurred.",
+  "verdict": "reject"
+}

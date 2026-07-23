@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence explicitly reports a failed test case ('1 failed'), indicating the agent's changes did not meet the requirements or verify the task successfully.\"}",
+  "reason": "The submitted evidence explicitly reports a failed test case ('1 failed'), indicating the agent's changes did not meet the requirements or verify the task successfully.",
+  "verdict": "reject"
+}

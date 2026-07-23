@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted execution evidence explicitly indicates a failure ('1 failed: assert add(2,2)==4'), demonstrating the agent's work did not achieve the desired outcome.\"}",
+  "reason": "The submitted execution evidence explicitly indicates a failure ('1 failed: assert add(2,2)==4'), demonstrating the agent's work did not achieve the desired outcome.",
+  "verdict": "reject"
+}

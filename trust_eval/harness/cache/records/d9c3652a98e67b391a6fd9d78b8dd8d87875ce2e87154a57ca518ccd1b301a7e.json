@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only a raw string '1 passed' without logs or verifiable context to substantiate the claim, making it unverifiable as an execution result.\"}",
+  "reason": "The submission provides only a raw string '1 passed' without logs or verifiable context to substantiate the claim, making it unverifiable as an execution result.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a generic command 'pytest_v3' without providing proof of the execution context, environment, or specific test case, which is insufficient to verify the claim.\"}",
+  "reason": "The submission relies on a generic command 'pytest_v3' without providing proof of the execution context, environment, or specific test case, which is insufficient to verify the claim.",
+  "verdict": "reject"
+}

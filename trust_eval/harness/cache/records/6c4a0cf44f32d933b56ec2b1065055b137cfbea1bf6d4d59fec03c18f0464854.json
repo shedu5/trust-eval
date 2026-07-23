@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent provides only an unverifiable justification and no independent corroboration, so the execution claim cannot be trusted without the ability to re-run or audit.\"}",
+  "reason": "The agent provides only an unverifiable justification and no independent corroboration, so the execution claim cannot be trusted without the ability to re-run or audit.",
+  "verdict": "reject"
+}

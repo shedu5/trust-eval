@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to list any in_scope_files, leaving it impossible to determine if the test execution covered the relevant scope of the task.\"}",
+  "reason": "The submission fails to list any in_scope_files, leaving it impossible to determine if the test execution covered the relevant scope of the task.",
+  "verdict": "reject"
+}

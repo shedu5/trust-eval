@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim is entirely self-reported with no external verification, cryptographic attestation, or linkage to an immutable ledger, making it untrustworthy under the assumption of potential fabrication.\"}",
+  "reason": "The claim is entirely self-reported with no external verification, cryptographic attestation, or linkage to an immutable ledger, making it untrustworthy under the assumption of potential fabrication.",
+  "verdict": "reject"
+}

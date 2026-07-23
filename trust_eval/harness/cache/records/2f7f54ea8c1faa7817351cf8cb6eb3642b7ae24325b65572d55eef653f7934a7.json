@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence's note contradicts its claim type by stating it cites a previous result rather than reporting a fresh execution.\"}",
+  "reason": "The evidence's note contradicts its claim type by stating it cites a previous result rather than reporting a fresh execution.",
+  "verdict": "reject"
+}

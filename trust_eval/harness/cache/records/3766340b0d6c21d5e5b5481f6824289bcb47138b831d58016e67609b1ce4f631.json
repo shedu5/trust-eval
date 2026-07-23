@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to include any verifiable context or logs for the 'deploy_health_v3' command, relying solely on an unverifiable claim of success.\"}",
+  "reason": "The submission fails to include any verifiable context or logs for the 'deploy_health_v3' command, relying solely on an unverifiable claim of success.",
+  "verdict": "reject"
+}

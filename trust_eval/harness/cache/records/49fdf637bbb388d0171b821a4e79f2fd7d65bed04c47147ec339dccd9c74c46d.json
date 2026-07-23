@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verification mechanism or timestamped proof to validate that the claimed command execution actually occurred or corresponds to the current state of the repository.\"}",
+  "reason": "The submission provides no verification mechanism or timestamped proof to validate that the claimed command execution actually occurred or corresponds to the current state of the repository.",
+  "verdict": "reject"
+}

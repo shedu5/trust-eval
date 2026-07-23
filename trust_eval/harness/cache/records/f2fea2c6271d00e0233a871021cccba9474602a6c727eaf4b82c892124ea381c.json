@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on an unverifiable earlier run with no identifier or proof, making it impossible to trust as an accurate execution result.\"}",
+  "reason": "The claim relies on an unverifiable earlier run with no identifier or proof, making it impossible to trust as an accurate execution result.",
+  "verdict": "reject"
+}

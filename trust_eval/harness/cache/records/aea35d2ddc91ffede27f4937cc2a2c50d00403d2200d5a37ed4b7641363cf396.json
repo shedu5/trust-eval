@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The use of a non-standard command 'pytest_v7' and minimal, unverifiable output ('1 passed') provides insufficient assurance that the test actually ran and passed, especially without any test identifiers or trace.\"}",
+  "reason": "The use of a non-standard command 'pytest_v7' and minimal, unverifiable output ('1 passed') provides insufficient assurance that the test actually ran and passed, especially without any test identifiers or trace.",
+  "verdict": "reject"
+}

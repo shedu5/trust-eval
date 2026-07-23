@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence's claim of being the 'most recent run' contradicts its note 'citing an earlier run's result', creating an internal inconsistency that undermines trustworthiness.\"}",
+  "reason": "The evidence's claim of being the 'most recent run' contradicts its note 'citing an earlier run's result', creating an internal inconsistency that undermines trustworthiness.",
+  "verdict": "reject"
+}
