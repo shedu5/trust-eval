@@ -1,21 +1,23 @@
 """Provider-agnostic judge back-ends.
 
 A judge provider turns a rendered prompt into raw model text. The harness is
-built against the small :class:`JudgeProvider` protocol so that Anthropic,
-OpenAI, or an offline scripted judge are interchangeable — which is what makes
-the "which models detect fabrication better" comparison cheap once the pipeline
-exists.
+built against the small :class:`JudgeProvider` protocol so that any judge is
+interchangeable — which is what makes the "which models detect fabrication
+better" comparison cheap once the pipeline exists.
 
-The real SDK clients are imported lazily, so the package (and its tests, which
-use :class:`ScriptedProvider`) work with no API keys and no SDKs installed.
-Model ids are explicit and required for live runs — no `-latest` aliases — so a
-result is always attributable to a pinned model in the report.
+Most vendors expose an **OpenAI-compatible** chat endpoint, so a single
+:class:`OpenAICompatibleProvider` (parametrised by base URL + API-key env var)
+covers OpenAI, DeepSeek, and Gemini. Anthropic uses its native Messages API.
+Real SDKs are imported lazily, so the package and its tests (which use
+:class:`ScriptedProvider`) work with no API keys and no SDKs installed. Model ids
+are explicit and required for live runs — no evergreen aliases — so a result is
+always attributable to a pinned model in the report.
 """
 
 from __future__ import annotations
 
 import os
-from typing import Callable, Dict, Protocol, runtime_checkable
+from typing import Callable, Optional, Protocol, runtime_checkable
 
 
 @runtime_checkable
@@ -26,6 +28,46 @@ class JudgeProvider(Protocol):
     def complete(self, prompt: str) -> str:
         """Return the judge model's raw text response to `prompt`."""
         ...
+
+
+class OpenAICompatibleProvider:
+    """Any judge reachable through the OpenAI chat-completions interface.
+
+    `base_url=None` uses OpenAI's default endpoint. DeepSeek and Gemini just
+    point `base_url` at their compatibility endpoints and read a different key.
+    """
+
+    def __init__(
+        self,
+        name: str,
+        model: str,
+        api_key_env: str,
+        base_url: Optional[str] = None,
+        max_tokens: int = 512,
+    ):
+        if not model:
+            raise ValueError(f"{name} provider requires an explicit model id.")
+        self.name = name
+        self.model = model
+        self.api_key_env = api_key_env
+        self.base_url = base_url
+        self.max_tokens = max_tokens
+
+    def complete(self, prompt: str) -> str:
+        from openai import OpenAI  # lazy
+
+        key = os.environ.get(self.api_key_env)
+        if not key:
+            raise RuntimeError(
+                f"{self.name}: environment variable {self.api_key_env} is not set."
+            )
+        client = OpenAI(api_key=key, base_url=self.base_url)
+        resp = client.chat.completions.create(
+            model=self.model,
+            max_tokens=self.max_tokens,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return resp.choices[0].message.content or ""
 
 
 class AnthropicProvider:
@@ -40,7 +82,10 @@ class AnthropicProvider:
     def complete(self, prompt: str) -> str:
         import anthropic  # lazy
 
-        client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        key = os.environ.get("ANTHROPIC_API_KEY")
+        if not key:
+            raise RuntimeError("anthropic: ANTHROPIC_API_KEY is not set.")
+        client = anthropic.Anthropic(api_key=key)
         resp = client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
@@ -49,27 +94,6 @@ class AnthropicProvider:
         return "".join(
             block.text for block in resp.content if getattr(block, "type", None) == "text"
         )
-
-
-class OpenAIProvider:
-    name = "openai"
-
-    def __init__(self, model: str, max_tokens: int = 512):
-        if not model:
-            raise ValueError("OpenAIProvider requires an explicit model id.")
-        self.model = model
-        self.max_tokens = max_tokens
-
-    def complete(self, prompt: str) -> str:
-        from openai import OpenAI  # lazy
-
-        client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-        resp = client.chat.completions.create(
-            model=self.model,
-            max_tokens=self.max_tokens,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return resp.choices[0].message.content or ""
 
 
 class ScriptedProvider:
@@ -92,16 +116,32 @@ class ScriptedProvider:
         return self._responder(prompt)
 
 
+# Base URLs and key env vars for the OpenAI-compatible vendors.
+_OPENAI_COMPAT = {
+    "openai": {"base_url": None, "api_key_env": "OPENAI_API_KEY"},
+    "deepseek": {"base_url": "https://api.deepseek.com", "api_key_env": "DEEPSEEK_API_KEY"},
+    "gemini": {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+        "api_key_env": "GEMINI_API_KEY",
+    },
+}
+
+
 def build_provider(spec: str, **kwargs) -> JudgeProvider:
     """Build a provider from a ``"<provider>:<model>"`` spec string."""
     if ":" not in spec:
         raise ValueError(f"provider spec must be '<provider>:<model>', got {spec!r}")
     provider, model = spec.split(":", 1)
     provider = provider.strip().lower()
+
+    if provider in _OPENAI_COMPAT:
+        cfg = _OPENAI_COMPAT[provider]
+        return OpenAICompatibleProvider(
+            name=provider, model=model,
+            api_key_env=cfg["api_key_env"], base_url=cfg["base_url"], **kwargs
+        )
     if provider == "anthropic":
         return AnthropicProvider(model=model, **kwargs)
-    if provider == "openai":
-        return OpenAIProvider(model=model, **kwargs)
     if provider == "scripted":
         return ScriptedProvider(model=model, **kwargs)
     raise ValueError(f"unknown provider {provider!r}")
@@ -109,8 +149,8 @@ def build_provider(spec: str, **kwargs) -> JudgeProvider:
 
 __all__ = [
     "JudgeProvider",
+    "OpenAICompatibleProvider",
     "AnthropicProvider",
-    "OpenAIProvider",
     "ScriptedProvider",
     "build_provider",
 ]

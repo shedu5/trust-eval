@@ -80,8 +80,8 @@ reproduce the exact per-class tables; live runs write new responses into it.
 
 Days 1–7 complete: schema, a deterministic 15-bundle valid corpus
 (`fixtures/valid/`), the five attacks + benign control, the full unit-test suite
-(**106 tests**), the provider-agnostic judge harness (Anthropic + OpenAI +
-offline scripted), the attack-blind prompt, the response cache, the per-class
+(**106 tests**), the provider-agnostic judge harness (DeepSeek, Gemini, OpenAI,
+Anthropic + offline scripted), the attack-blind prompt, the response cache, the per-class
 FA/FR scorer, the CLI, and Docker packaging. Remaining: real multi-judge runs to
 populate the committed cache (needs an API key), the results tables + figure, and
 the 5–8 page technical report.
@@ -100,7 +100,7 @@ trust_eval/       # importable package
   harness/
     suite.py      # corpus × attacks -> labeled cases
     prompt.py     # attack-blind prompt + verdict parsing
-    providers.py  # Anthropic / OpenAI / offline scripted judges
+    providers.py  # DeepSeek / Gemini / OpenAI / Anthropic / scripted judges
     cache.py      # keyed response cache (reproducibility backbone)
     runner.py     # orchestration (cache-first, live to fill misses)
     cache/records # committed judge responses (populated by a live run)

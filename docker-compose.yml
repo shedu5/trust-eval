@@ -2,12 +2,14 @@ services:
   trust-eval:
     build: .
     # The judges to score. Override in a local .env (see .env.example). These
-    # default model ids are placeholders — set them to models you have access to.
+    # default model ids are current cheap 'flash' tiers — set to models you can access.
     environment:
-      TRUST_EVAL_PROVIDERS: "${TRUST_EVAL_PROVIDERS:-anthropic:claude-sonnet-placeholder,openai:gpt-placeholder}"
+      TRUST_EVAL_PROVIDERS: "${TRUST_EVAL_PROVIDERS:-deepseek:deepseek-v4-flash,gemini:gemini-3.1-flash}"
       TRUST_EVAL_LIVE: "${TRUST_EVAL_LIVE:-0}"
-      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      DEEPSEEK_API_KEY: "${DEEPSEEK_API_KEY:-}"
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
       OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
     volumes:
       # Persist the response cache and results to the host so a live run's cache
       # can be committed and later reproduced with no key.
