@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to specify the in-scope files and provides an unverifiable 'healthy' output claim for an arbitrary deployment command without any associated logs or validation context.\"}",
+  "reason": "The submission fails to specify the in-scope files and provides an unverifiable 'healthy' output claim for an arbitrary deployment command without any associated logs or validation context.",
+  "verdict": "reject"
+}

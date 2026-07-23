@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a historical cache of a test result ('citing an earlier run's result') rather than executing the test against the current state of the repository, which invalidates the assurance of the claim.\"}",
+  "reason": "The submission relies on a historical cache of a test result ('citing an earlier run's result') rather than executing the test against the current state of the repository, which invalidates the assurance of the claim.",
+  "verdict": "reject"
+}

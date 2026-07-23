@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks sufficient context such as command logs, timestamped evidence, or specific in-scope file details required to verify the execution claim independently.\"}",
+  "reason": "The submission lacks sufficient context such as command logs, timestamped evidence, or specific in-scope file details required to verify the execution claim independently.",
+  "verdict": "reject"
+}

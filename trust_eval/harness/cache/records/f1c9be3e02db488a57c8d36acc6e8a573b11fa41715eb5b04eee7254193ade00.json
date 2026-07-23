@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly submitted evidence showing its own code failed the required test, indicating the task is incomplete or incorrect.\"}",
+  "reason": "The agent explicitly submitted evidence showing its own code failed the required test, indicating the task is incomplete or incorrect.",
+  "verdict": "reject"
+}

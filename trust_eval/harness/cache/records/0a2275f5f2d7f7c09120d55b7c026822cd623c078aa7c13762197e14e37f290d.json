@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a 'no code changes' justification without providing verifying evidence or context to substantiate that no changes actually occurred.\"}",
+  "reason": "The submission relies on a 'no code changes' justification without providing verifying evidence or context to substantiate that no changes actually occurred.",
+  "verdict": "reject"
+}

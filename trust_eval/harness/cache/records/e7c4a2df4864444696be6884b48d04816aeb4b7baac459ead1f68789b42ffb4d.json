@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on unverifiable self-reported success without providing objective artifacts or logs to substantiate the execution result.\"}",
+  "reason": "The claim relies on unverifiable self-reported success without providing objective artifacts or logs to substantiate the execution result.",
+  "verdict": "reject"
+}

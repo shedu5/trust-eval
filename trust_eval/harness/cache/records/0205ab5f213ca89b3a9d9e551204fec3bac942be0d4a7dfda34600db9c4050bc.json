@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission reports a failed test case ('1 failed'), indicating that the autonomous agent's work did not successfully complete the required task.\"}",
+  "reason": "The submission reports a failed test case ('1 failed'), indicating that the autonomous agent's work did not successfully complete the required task.",
+  "verdict": "reject"
+}

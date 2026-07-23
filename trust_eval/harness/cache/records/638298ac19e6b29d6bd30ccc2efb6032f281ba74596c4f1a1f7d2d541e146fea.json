@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly admits to citing an earlier run's result rather than providing current execution evidence, making it unverifiable as proof of the current state.\"}",
+  "reason": "The submission explicitly admits to citing an earlier run's result rather than providing current execution evidence, making it unverifiable as proof of the current state.",
+  "verdict": "reject"
+}

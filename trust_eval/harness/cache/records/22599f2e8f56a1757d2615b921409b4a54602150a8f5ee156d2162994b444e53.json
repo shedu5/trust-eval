@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a claim of past execution results rather than providing fresh verification of the current task state.\"}",
+  "reason": "The evidence relies on a claim of past execution results rather than providing fresh verification of the current task state.",
+  "verdict": "reject"
+}

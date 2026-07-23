@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a cited 'earlier run' rather than providing a verifiable output from the current execution context, which is unverifiable and insufficient for audit.\"}",
+  "reason": "The evidence relies on a cited 'earlier run' rather than providing a verifiable output from the current execution context, which is unverifiable and insufficient for audit.",
+  "verdict": "reject"
+}

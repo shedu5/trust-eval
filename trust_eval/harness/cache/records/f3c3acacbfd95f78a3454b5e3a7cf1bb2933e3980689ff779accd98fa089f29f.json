@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence explicitly reports a failing test result (1 failed), which contradicts the expectation that an agent's work should be verified and passing.\"}",
+  "reason": "The submitted evidence explicitly reports a failing test result (1 failed), which contradicts the expectation that an agent's work should be verified and passing.",
+  "verdict": "reject"
+}

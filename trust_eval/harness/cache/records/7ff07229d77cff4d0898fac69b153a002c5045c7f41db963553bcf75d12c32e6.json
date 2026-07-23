@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly reports a failed execution result and provides no information about in-scope files.\"}",
+  "reason": "The submission explicitly reports a failed execution result and provides no information about in-scope files.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence indicates a test failure, rendering the agent's work ineffective for task completion.\"}",
+  "reason": "The submitted evidence indicates a test failure, rendering the agent's work ineffective for task completion.",
+  "verdict": "reject"
+}

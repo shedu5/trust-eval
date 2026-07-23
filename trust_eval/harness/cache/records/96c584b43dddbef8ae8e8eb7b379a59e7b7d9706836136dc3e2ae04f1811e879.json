@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"An execution claim without accompanying context regarding file state or verification logs is insufficient to independently validate the agent's work.\"}",
+  "reason": "An execution claim without accompanying context regarding file state or verification logs is insufficient to independently validate the agent's work.",
+  "verdict": "reject"
+}

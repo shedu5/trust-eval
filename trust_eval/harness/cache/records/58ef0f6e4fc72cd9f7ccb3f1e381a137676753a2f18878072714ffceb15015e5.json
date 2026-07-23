@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no context linking the execution output to the task scope or ensuring the command was performed on the correct repository state, making the self-reported 'healthy' output unverifiable.\"}",
+  "reason": "The evidence provides no context linking the execution output to the task scope or ensuring the command was performed on the correct repository state, making the self-reported 'healthy' output unverifiable.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on the unverified assertion that there were no code changes, which the reviewer cannot validate without access to the repository state or approval history.\"}",
+  "reason": "The claim relies on the unverified assertion that there were no code changes, which the reviewer cannot validate without access to the repository state or approval history.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence lacks verifiable details, such as test output logs or file paths, and relies on a vague, unverifiable assertion of correctness in the 'note' field.\"}",
+  "reason": "The evidence lacks verifiable details, such as test output logs or file paths, and relies on a vague, unverifiable assertion of correctness in the 'note' field.",
+  "verdict": "reject"
+}

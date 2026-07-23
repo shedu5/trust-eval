@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no verifiable proof of execution or outcome, relying solely on an unverified assertion of success by the agent.\"}",
+  "reason": "The evidence provides no verifiable proof of execution or outcome, relying solely on an unverified assertion of success by the agent.",
+  "verdict": "reject"
+}

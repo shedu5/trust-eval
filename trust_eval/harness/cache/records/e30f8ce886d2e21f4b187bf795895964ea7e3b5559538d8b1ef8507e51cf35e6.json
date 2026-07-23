@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no verifiable proof of execution beyond a simple string output, and the 're-ran locally' note is unverifiable and irrelevant to the integrity of the submission.\"}",
+  "reason": "The evidence provides no verifiable proof of execution beyond a simple string output, and the 're-ran locally' note is unverifiable and irrelevant to the integrity of the submission.",
+  "verdict": "reject"
+}
