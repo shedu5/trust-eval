@@ -4,7 +4,7 @@ services:
     # The judges to score. Override in a local .env (see .env.example). These
     # default model ids are current cheap 'flash' tiers — set to models you can access.
     environment:
-      TRUST_EVAL_PROVIDERS: "${TRUST_EVAL_PROVIDERS:-deepseek:deepseek-v4-flash,gemini:gemini-3.1-flash}"
+      TRUST_EVAL_PROVIDERS: "${TRUST_EVAL_PROVIDERS:-deepseek:deepseek-v4-flash,gemini:gemini-3.1-flash-lite}"
       TRUST_EVAL_LIVE: "${TRUST_EVAL_LIVE:-0}"
       DEEPSEEK_API_KEY: "${DEEPSEEK_API_KEY:-}"
       GEMINI_API_KEY: "${GEMINI_API_KEY:-}"

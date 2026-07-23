@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "deepseek",
+  "raw": "{\n  \"verdict\": \"reject\",\n  \"reason\": \"The manifest lists four member IDs (m0, m1, m2, m3) but only three members are provided in the bundle; m3 is missing.\"\n}",
+  "reason": "The manifest lists four member IDs (m0, m1, m2, m3) but only three members are provided in the bundle; m3 is missing.",
+  "verdict": "reject"
+}

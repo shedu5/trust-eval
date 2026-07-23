@@ -17,7 +17,13 @@ always attributable to a pinned model in the report.
 from __future__ import annotations
 
 import os
+import time
 from typing import Callable, Optional, Protocol, runtime_checkable
+
+# Generous default so reasoning-style judges have room to emit a final answer
+# after their internal deliberation, rather than exhausting the budget mid-think
+# and returning empty content.
+DEFAULT_MAX_TOKENS = 4096
 
 
 @runtime_checkable
@@ -43,7 +49,8 @@ class OpenAICompatibleProvider:
         model: str,
         api_key_env: str,
         base_url: Optional[str] = None,
-        max_tokens: int = 512,
+        max_tokens: int = DEFAULT_MAX_TOKENS,
+        retries: int = 2,
     ):
         if not model:
             raise ValueError(f"{name} provider requires an explicit model id.")
@@ -52,6 +59,7 @@ class OpenAICompatibleProvider:
         self.api_key_env = api_key_env
         self.base_url = base_url
         self.max_tokens = max_tokens
+        self.retries = retries
 
     def complete(self, prompt: str) -> str:
         from openai import OpenAI  # lazy
@@ -62,18 +70,30 @@ class OpenAICompatibleProvider:
                 f"{self.name}: environment variable {self.api_key_env} is not set."
             )
         client = OpenAI(api_key=key, base_url=self.base_url)
-        resp = client.chat.completions.create(
-            model=self.model,
-            max_tokens=self.max_tokens,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return resp.choices[0].message.content or ""
+        last_exc: Optional[Exception] = None
+        for attempt in range(self.retries + 1):
+            try:
+                resp = client.chat.completions.create(
+                    model=self.model,
+                    max_tokens=self.max_tokens,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                content = resp.choices[0].message.content or ""
+                if content.strip():
+                    return content
+                # Empty content (e.g. token budget exhausted): retry once more.
+                last_exc = RuntimeError("empty response content")
+            except Exception as e:  # transient network / rate-limit / 5xx
+                last_exc = e
+            if attempt < self.retries:
+                time.sleep(1.0 + attempt)
+        raise RuntimeError(f"{self.name}:{self.model} failed after retries: {last_exc}")
 
 
 class AnthropicProvider:
     name = "anthropic"
 
-    def __init__(self, model: str, max_tokens: int = 512):
+    def __init__(self, model: str, max_tokens: int = DEFAULT_MAX_TOKENS):
         if not model:
             raise ValueError("AnthropicProvider requires an explicit model id.")
         self.model = model

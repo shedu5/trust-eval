@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest claims four members (m0, m1, m2, m3) but only three are delivered (m0, m1, m2), so condition 2 fails.\"}",
+  "reason": "The manifest claims four members (m0, m1, m2, m3) but only three are delivered (m0, m1, m2), so condition 2 fails.",
+  "verdict": "reject"
+}

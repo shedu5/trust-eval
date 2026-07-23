@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member m1's content_hash (b0e39167...) does not match the manifest's expected hash (11111111...) for that member.\"}",
+  "reason": "Member m1's content_hash (b0e39167...) does not match the manifest's expected hash (11111111...) for that member.",
+  "verdict": "reject"
+}
