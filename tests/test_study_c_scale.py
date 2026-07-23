@@ -7,7 +7,8 @@ already proven for n=1 in test_study_c.py, now checked at scale.
 """
 
 from trust_eval.study_c.anchors import CLAIM_ANCHOR, ANCHORS, AGREES, CONTRADICTS
-from trust_eval.study_c.ladder import build_ladder, format_ladder
+from trust_eval.study_c.ladder import build_ladder, format_ladder, p1_row
+from trust_eval.study_c.llm_review import P1Summary
 from trust_eval.study_c.protocols import decide
 from trust_eval.study_c.surrogates import flagship_cases, scaled_cases
 from trust_eval.study_c.world import build_flagship_world, build_scaled_world
@@ -92,3 +93,46 @@ def test_build_ladder_ci_bounds_are_sane():
     for r in rows:
         for lo, hi in (r["fa_wilson"], r["fa_cp"], r["fr_wilson"], r["fr_cp"]):
             assert 0.0 <= lo <= hi <= 1.0
+
+
+def test_p1_row_with_missing_cache_is_not_reported_as_a_silent_zero():
+    """Regression test: a judge with 100% cache misses (e.g. a sandbox with a
+    stale/partial `harness/cache/records/` copy) must never render as if it
+    scored a perfect 0/N FA and 0/N FR -- that reads as flawless judge
+    performance when it is actually "we never asked." format_ladder must
+    surface the miss count and flag the row, not silently zero it."""
+    summary = P1Summary(provider="deepseek", model="deepseek-v4-flash",
+                        n_attacks=40, n_truthful=60,
+                        false_accept=0, false_reject=0, errors=100)
+    row = p1_row(summary)
+    assert row["errors"] == 100
+    table = format_ladder([row])
+    assert "[!]" in table
+    assert "100" in table
+    assert "under-counted" in table.lower() or "UNDER-COUNTED" in table
+
+
+def test_p1_row_with_full_cache_coverage_has_no_warning():
+    summary = P1Summary(provider="deepseek", model="deepseek-v4-flash",
+                        n_attacks=40, n_truthful=60,
+                        false_accept=5, false_reject=28, errors=0)
+    row = p1_row(summary)
+    assert row["errors"] == 0
+    table = format_ladder([row])
+    assert "[!]" not in table
+
+
+def test_build_ladder_p5_hybrid_row_diverges_from_abstain_only_p5():
+    """With a real (even if scripted) adjudicator, the P5 hybrid row must be
+    able to differ from the plain P5 row (which never calls an adjudicator
+    and is therefore always identical to P4). Uses the corpus's one existing
+    anchor-inconclusive case (`unverifiable_false`, execution)."""
+    from trust_eval.study_c.ladder import p5_hybrid_row
+
+    world, cases = build_flagship_world(), flagship_cases()
+    gullible = lambda claim, w: decide("P0_self_report", claim, w)  # always ACCEPT
+    plain_p5 = [r for r in build_ladder(cases, world) if r["protocol"] == "P5_hybrid_abstain"][0]
+    hybrid = p5_hybrid_row(cases, world, "scripted:gullible", gullible)
+    assert plain_p5["fa"] == 0
+    assert hybrid["fa"] == 1          # the one unverifiable_false attack case
+    assert hybrid["protocol"] != plain_p5["protocol"]

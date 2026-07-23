@@ -61,19 +61,29 @@ never reported as "perfect," per the preregistered reporting rule.
 | P1 DeepSeek | P1 Gemini | FA | 5 | 0 | 0.0625 | no |
 | P1 DeepSeek | P1 Gemini | FR | 3 | 19 | 0.0009 | yes |
 
-## Interpretation against the preregistered falsifier
+## Assessment of the falsifier
 
-> *"If P1 or P2 reduces false-acceptance on the self-consistent classes to the
-> level of the anchored protocols, the anchor thesis is wrong."*
+Restating it precisely: *"If P1 or P2 reduces false-acceptance on the
+self-consistent externally-false classes to the level of the anchored
+protocols (P3+), the anchor thesis is wrong."* Read literally, on false
+acceptance alone: **P2 does not trigger it** (40/40 vs. P3's 0/40, and
+statistically distinguishable at p<0.0001) — deterministic internal-consistency
+checking provides *zero* measured protection against a self-consistent forgery,
+confirming H2 exactly as hypothesized. **Gemini P1 does trigger it** (0/40,
+exactly matching P3's 0/40). Under the narrow, literally-stated falsifier,
+the result is mixed, not a clean "not falsified" — this document does not
+retroactively narrow the falsifier's wording to avoid that.
 
-**Not falsified.** P2 is statistically indistinguishable from naive
-self-report (identical 40/40 FA, both p<0.0001 vs. the anchor) — deterministic
-internal-consistency checking provides *zero* measured protection against a
-self-consistent forgery. This is H2, confirmed exactly as hypothesized.
-
-Neither live judge matches the anchor's performance on **both** axes
-simultaneously, which is the actual claim (H3: architecture beats
-intelligence for these classes) — not "no judge ever gets FA to zero":
+What the narrow falsifier does not capture, because it was written on FA
+alone, is that Gemini's matching FA came at a cost the reference protocol did
+not pay: 44/60 (73%) false rejection, where the reference protocol had zero.
+As a secondary, non-preregistered but directly measurable hypothesis (this is
+H3, not the falsifier itself): **no protocol in this run matched the
+reference protocol's joint result — zero false acceptance and zero false
+rejection together.** That is the honest, load-bearing empirical finding this
+run actually supports: a text-only judge can be tuned toward low false
+acceptance, but in this corpus, only by trading away truthful-claim
+acceptance, not by discriminating better.
 
 - **DeepSeek** has a real, non-zero FA rate on its own 95% CI (5/40, exact
   [0.04, 0.27] — excludes 0), and pays for its lower FA with a significant FR
@@ -93,17 +103,36 @@ intelligence for these classes) — not "no judge ever gets FA to zero":
   (p=0.0009): the two "weak" judges land at different points on the same
   trade-off, not at the same compromise.
 
-No anchor-free protocol — self-report, deterministic internal-consistency, or
-either live text-only judge — achieves the anchored protocols' 0/40 FA **and**
-0/60 FR simultaneously. That joint result is what the anchor thesis (H3)
-predicts and what this run reproduces at a sample size (n=100, up from the
-n=10 pilot instance) large enough to report exact confidence intervals on.
+Summary: understood as a claim about *joint* discrimination rather than FA in
+isolation, the central claim (H3) is not falsified by this run. Understood as
+the narrow FA-only sentence actually written in the preregistration, it is
+falsified by Gemini and not by DeepSeek — both facts are reported here rather
+than one. See [`report.md`](../report.md) for the full discussion including
+the confirmatory/exploratory separation and the reference-oracle caveat on P3.
 
-## Known limitation
+## Known limitations
 
-The DeepSeek-vs-anchor FA comparison is underpowered at n=40 attacks (see
-above) — it is evidence *for* the thesis on its own single-sample CI, but not
-yet a significant paired result. Scaling `--n` further (or targeting more
-execution-class instances specifically, where DeepSeek's false accepts
-concentrated) is the direct next step if a stronger paired result is needed
-before the deadline; not done here in the interest of time.
+- The DeepSeek-vs-anchor FA comparison is underpowered at n=40 attacks (see
+  above) — it is evidence *for* the thesis on its own single-sample CI, but
+  not yet a significant paired result. Scaling `--n` further (or targeting
+  more execution-class instances specifically, where DeepSeek's false
+  accepts concentrated) would be the direct next step for a stronger paired
+  result.
+- **P3, P4, and P5 report identically in Table 1** because it measures P5 in
+  its pure-abstention form, which is architecturally identical to P4
+  whenever the claim-appropriate anchor is inconclusive. Measured as a
+  genuine hybrid instead (`ladder.py --p5-adjudicator PROVIDER:MODEL`: the
+  anchor is consulted first, and the named judge is only asked on the cases
+  where the anchor itself can't resolve), P5 does diverge from P4 on
+  execution's `unverifiable_false` pattern — the only claim type in this
+  corpus with an anchor-inconclusive case: with DeepSeek as adjudicator, it
+  accepts 4/10 (40%, exact CI [0.12,0.74]) of those cases, none of which P4
+  accepts. Authorization and state have no anchor-inconclusive case in this
+  corpus and remain undifferentiated regardless of adjudicator. See
+  [`report.md`](../report.md), "Scope and limitations," for the full
+  writeup and reproduce command.
+- A sensitivity analysis excluding the 10 pilot-carried (index-0) cases
+  (`python3 -m trust_eval.study_c.sensitivity --n 10 --provider ...`) shows
+  every rate above shifts by at most a few percentage points with those
+  cases removed, and no significance result flips — see `report.md` for the
+  exact numbers.

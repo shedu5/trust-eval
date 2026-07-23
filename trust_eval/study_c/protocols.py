@@ -9,7 +9,7 @@ even when the claim is unverifiable.
 
 from __future__ import annotations
 
-from typing import List
+from typing import Callable, List, Optional
 
 from pydantic import BaseModel
 
@@ -17,6 +17,12 @@ from .anchors import AGREES, CONTRADICTS, CLAIM_ANCHOR, ANCHORS, internal_consis
 from .world import Claim, TrustedWorld
 
 ACCEPT, REJECT, CANNOT_VERIFY = "accept", "reject", "cannot_verify"
+
+# A P5 adjudicator has the same shape as a P1 judge: it sees the claim/world
+# and returns a Decision. P5 only ever calls it when the claim-appropriate
+# anchor itself is inconclusive (not applicable, or applicable but unable to
+# agree/contradict) -- the anchor is always consulted first.
+Adjudicator = Callable[[Claim, TrustedWorld], "Decision"]
 
 
 class Decision(BaseModel):
@@ -45,7 +51,8 @@ def _anchor_decision(protocol: str, claim: Claim, world: TrustedWorld,
                     detail=f"{name}: {res.detail}")
 
 
-def decide(protocol: str, claim: Claim, world: TrustedWorld) -> Decision:
+def decide(protocol: str, claim: Claim, world: TrustedWorld,
+          adjudicator: Optional[Adjudicator] = None) -> Decision:
     if protocol == "P0_self_report":
         return Decision(protocol=protocol, outcome=ACCEPT, detail="trusts the executor's assertion")
     if protocol == "P2_deterministic_internal":
@@ -58,7 +65,20 @@ def decide(protocol: str, claim: Claim, world: TrustedWorld) -> Decision:
         # Must verify; never accept without an applicable anchor.
         return _anchor_decision(protocol, claim, world, abstain_on_inconclusive=True)
     if protocol == "P5_hybrid_abstain":
-        return _anchor_decision(protocol, claim, world, abstain_on_inconclusive=True)
+        base = _anchor_decision(protocol, claim, world, abstain_on_inconclusive=True)
+        if base.outcome != CANNOT_VERIFY or adjudicator is None:
+            # Anchor resolved it, or no adjudicator was supplied -- P5 without
+            # an adjudicator is deliberately identical to P4 (mandatory anchor,
+            # abstain if it can't resolve). This is the only place the two
+            # protocols were ever able to diverge in this corpus/harness before
+            # the hybrid path below was added.
+            return base
+        adj = adjudicator(claim, world)
+        if adj.outcome in (ACCEPT, REJECT):
+            return Decision(protocol=protocol, outcome=adj.outcome,
+                            detail=f"anchor inconclusive ({base.detail}); hybrid LLM adjudication: {adj.detail}")
+        return Decision(protocol=protocol, outcome=CANNOT_VERIFY,
+                        detail=f"anchor inconclusive ({base.detail}); adjudicator also could not resolve")
     raise ValueError(f"unknown protocol {protocol!r}")
 
 

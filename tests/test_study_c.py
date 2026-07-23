@@ -56,3 +56,43 @@ def test_abstention_prevents_false_acceptance_of_the_unverifiable():
     assert decide("P4_mandatory_anchor", uv, W).outcome == "cannot_verify"
     assert decide("P2_deterministic_internal", uv, W).outcome == "accept"   # FA
     assert decide("P0_self_report", uv, W).outcome == "accept"              # FA
+
+
+# ---- P5 as a genuine hybrid (adjudicator only consulted when the anchor is
+# inconclusive) -- distinct from P4, which has no adjudication path at all.
+# `unverifiable_false` is currently the only case in this corpus where the
+# claim-appropriate anchor (fresh_execution) is inconclusive; authorization
+# and state have no anchor-unavailable case in this corpus, so P4 and P5
+# remain identical on those two claim types -- documented, not hidden.
+
+def _scripted(outcome, detail="scripted"):
+    from trust_eval.study_c.protocols import Decision
+    return lambda claim, world: Decision(protocol="adjudicator", outcome=outcome, detail=detail)
+
+
+def test_p5_without_adjudicator_is_identical_to_p4():
+    for c in CASES:
+        assert decide("P5_hybrid_abstain", c, W).outcome == decide("P4_mandatory_anchor", c, W).outcome
+
+
+def test_p5_with_adjudicator_only_fires_when_anchor_is_inconclusive():
+    resolved = next(c for c in CASES if c.label == "stale_after_drift")  # anchor resolves this on its own
+    d = decide("P5_hybrid_abstain", resolved, W, adjudicator=_scripted("accept"))
+    assert d.outcome == "reject"  # anchor already contradicted it -- adjudicator must be ignored
+
+
+def test_p5_hybrid_diverges_from_p4_when_anchor_inconclusive_and_adjudicator_resolves():
+    uv = next(c for c in CASES if c.label == "unverifiable_false")
+    assert decide("P4_mandatory_anchor", uv, W).outcome == "cannot_verify"
+    accepting = decide("P5_hybrid_abstain", uv, W, adjudicator=_scripted("accept"))
+    assert accepting.outcome == "accept"          # this IS a false accept -- the label is a real attack
+    assert accepting.false_accept(uv) is True
+    rejecting = decide("P5_hybrid_abstain", uv, W, adjudicator=_scripted("reject"))
+    assert rejecting.outcome == "reject"
+    assert rejecting.false_accept(uv) is False
+
+
+def test_p5_hybrid_abstains_if_adjudicator_also_cannot_resolve():
+    uv = next(c for c in CASES if c.label == "unverifiable_false")
+    d = decide("P5_hybrid_abstain", uv, W, adjudicator=_scripted("cannot_verify"))
+    assert d.outcome == "cannot_verify"

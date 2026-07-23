@@ -45,6 +45,7 @@ def p1_row(summary: P1Summary) -> dict:
         n_truthful=summary.n_truthful, fr=summary.false_reject,
         fr_wilson=wilson_ci(summary.false_reject, summary.n_truthful),
         fr_cp=clopper_pearson_ci(summary.false_reject, summary.n_truthful),
+        errors=summary.errors,
     )
 
 
@@ -52,26 +53,66 @@ def format_ladder(rows: List[dict]) -> str:
     header = (f"{'protocol':<42}{'FA':>7}{'FA 95% Wilson':>17}{'FA 95% exact':>16}"
               f"{'FR':>7}{'FR 95% Wilson':>17}{'FR 95% exact':>16}")
     lines = [header, "-" * len(header)]
+    warnings: List[str] = []
     for r in rows:
         fa_s, fr_s = f"{r['fa']}/{r['n_attacks']}", f"{r['fr']}/{r['n_truthful']}"
         fa_w = f"[{r['fa_wilson'][0]:.2f},{r['fa_wilson'][1]:.2f}]"
         fa_c = f"[{r['fa_cp'][0]:.2f},{r['fa_cp'][1]:.2f}]"
         fr_w = f"[{r['fr_wilson'][0]:.2f},{r['fr_wilson'][1]:.2f}]"
         fr_c = f"[{r['fr_cp'][0]:.2f},{r['fr_cp'][1]:.2f}]"
-        lines.append(f"{r['protocol']:<42}{fa_s:>7}{fa_w:>17}{fa_c:>16}{fr_s:>7}{fr_w:>17}{fr_c:>16}")
+        errors = r.get("errors", 0)
+        marker = "  [!]" if errors else ""
+        lines.append(f"{r['protocol']:<42}{fa_s:>7}{fa_w:>17}{fa_c:>16}{fr_s:>7}{fr_w:>17}{fr_c:>16}{marker}")
+        if errors:
+            warnings.append(f"  [!] {r['protocol']}: {errors} case(s) had no cached/live review "
+                            f"(missing/error/unparseable) — its FA/FR above are UNDER-COUNTED, not "
+                            f"a true zero. Run with --live and a key, or sync the committed cache.")
+    if warnings:
+        lines.append("")
+        lines.extend(warnings)
     return "\n".join(lines)
 
 
+def p5_hybrid_row(cases: Sequence[Case], world: TrustedWorld, adjudicator_name: str,
+                  adjudicator) -> dict:
+    """P5 as a genuine hybrid: the claim-appropriate anchor is always consulted
+    first; `adjudicator` (a P1-style judge) is only called on the cases where
+    the anchor itself is inconclusive (no anchor is applicable, or it can't
+    agree/contradict). Distinct from `ladder_row('P5_hybrid_abstain', ...)`,
+    which -- with no adjudicator -- abstains exactly like P4 and can never
+    diverge from it; this is the row that actually measures the hybrid path."""
+    attacks = [c for c in cases if not c.should_accept]
+    truthful = [c for c in cases if c.should_accept]
+    fa = sum(1 for c in attacks
+             if decide("P5_hybrid_abstain", c, world, adjudicator=adjudicator).false_accept(c))
+    fr = sum(1 for c in truthful
+             if decide("P5_hybrid_abstain", c, world, adjudicator=adjudicator).false_reject(c))
+    return dict(
+        protocol=f"P5_hybrid_abstain (adjudicator={adjudicator_name})",
+        n_attacks=len(attacks), fa=fa, fa_wilson=wilson_ci(fa, len(attacks)),
+        fa_cp=clopper_pearson_ci(fa, len(attacks)),
+        n_truthful=len(truthful), fr=fr, fr_wilson=wilson_ci(fr, len(truthful)),
+        fr_cp=clopper_pearson_ci(fr, len(truthful)),
+    )
+
+
 def build_ladder(cases: Sequence[Case], world: TrustedWorld,
-                 provider_specs: Sequence[str] = (), live: bool = False) -> List[dict]:
+                 provider_specs: Sequence[str] = (), live: bool = False,
+                 p5_adjudicators: Sequence[str] = ()) -> List[dict]:
     rows = [ladder_row(PROTOCOLS[0], cases, world)]  # P0_self_report
-    if provider_specs:
+    cache: Optional[ResponseCache] = None
+    if provider_specs or p5_adjudicators:
         cache = ResponseCache()
+    if provider_specs:
         for spec in provider_specs:
             prov = build_provider(spec)
             review = make_cached_reviewer(prov, cache, live=live)
             rows.append(p1_row(run_p1(list(cases), review, world, prov.name, prov.model)))
-    rows += [ladder_row(p, cases, world) for p in PROTOCOLS[1:]]  # P2, P3, P4, P5
+    rows += [ladder_row(p, cases, world) for p in PROTOCOLS[1:]]  # P2, P3, P4, P5 (abstain-only)
+    for spec in p5_adjudicators:
+        prov = build_provider(spec)
+        review = make_cached_reviewer(prov, cache, live=live)
+        rows.append(p5_hybrid_row(cases, world, spec, review))
     return rows
 
 
@@ -83,6 +124,10 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--provider", action="append", default=[], metavar="PROVIDER:MODEL",
                     help="include P1 (text-only LLM review) for this judge; repeatable")
     ap.add_argument("--live", action="store_true", help="call the provider for cache misses")
+    ap.add_argument("--p5-adjudicator", action="append", default=[], metavar="PROVIDER:MODEL",
+                    help="also report P5 as a genuine hybrid: the anchor is consulted first, "
+                         "and this judge is only asked on the cases where the anchor is "
+                         "inconclusive; repeatable")
     args = ap.parse_args(argv)
 
     if args.scaled:
@@ -92,7 +137,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         world, cases = build_flagship_world(), flagship_cases()
         corpus_desc = "flagship (n=1 instance/pattern)"
 
-    rows = build_ladder(cases, world, args.provider, args.live)
+    rows = build_ladder(cases, world, args.provider, args.live, args.p5_adjudicator)
     n_attacks = sum(1 for c in cases if not c.should_accept)
     n_truthful = sum(1 for c in cases if c.should_accept)
     print(f"\nSTUDY C — COMBINED LADDER  (corpus: {corpus_desc}; "

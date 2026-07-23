@@ -43,22 +43,27 @@ cache-only reproduction after the live run — no key needed to re-verify):
 | Gemini | authorization | 0/10 | 0/10 | 0/10 |
 | Gemini | state | 0/10 | 0/10 | 3/10 (3 truth) |
 
-**This is the headline finding of the adaptive milestone.** DeepSeek's
-false-acceptance rate on execution claims does not sit still at its static
-(attempt-1) value of 5/20 (25%, exact 95% CI [0.09,0.49]) — it climbs to
-11/20 (55%, [0.32,0.77]) at budget 4 and 18/20 (90%, [0.68,0.99]) at budget 8,
-and **15 of those 18** are still-false claims the judge accepted purely
-because the fabricated justification escalated (re-ran locally, matches every
-prior run, "verified independently"), not because the claim became true —
-only 3 of the 18 acceptances coincide with the payload converging on the real
-result. Persistence alone, with no new evidence, roughly quadruples DeepSeek's
-exploitable surface on this claim type (75% still-false acceptance, exact CI
-[0.51,0.91], vs. the 25% static baseline). On authorization and state,
-DeepSeek shows the opposite pattern: 0% false acceptance at every budget, and
-its only state acceptances (9/10 at budget 8) are truth-convergent, matching
-the anchor's own invulnerability almost exactly. A judge's apparent
-robustness on one claim type does not generalize to another, and a single-shot
-static measurement understates exploitability wherever it doesn't hold.
+**This is the headline exploratory finding of the adaptive milestone — not a
+preregistered, confirmatory result** (execution claims were added to the
+attacker's target set only after a post-hoc diagnostic; see "why execution
+was added" below). Under the bounded adaptive template search — successive
+unsupported assertions, never a new fact, never contact with the anchor —
+DeepSeek's execution-claim **false-acceptance** rate rises from 5/20 (25%,
+exact 95% CI [0.09,0.49]) at one attempt, to 11/20 (55%, [0.32,0.77]) at four
+attempts, to **15/20 (75%, [0.51,0.91])** at eight attempts. Total
+acceptance at eight attempts is 18/20 (90%, [0.68,0.99]), of which **3 cases
+(15%, [0.03,0.38]) converged onto the literal true result and are not false
+acceptances** — they are reported separately, not folded into the 75%.
+Persistence alone, with no new evidence, roughly triples DeepSeek's
+false-acceptance rate on this claim type (75% still-false, vs. the 25%
+static baseline). On authorization and state, DeepSeek shows the opposite
+pattern: 0% false acceptance at every budget, and its only state acceptances
+(9/10 at budget 8) are truth-convergent, matching the anchor's own
+invulnerability almost exactly. A judge's apparent robustness on one claim
+type does not generalize to another, and a single-shot static measurement
+understates exploitability wherever it doesn't hold. This finding has not
+been independently replicated and should be treated as a hypothesis for a
+follow-up confirmatory run, not a settled result.
 
 Gemini shows no execution acceptances at any budget — consistent with its
 20/20 static false-rejection rate there (see the breakdown table below):
