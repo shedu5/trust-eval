@@ -11,3 +11,6 @@ harness/cache/live/
 
 # Private incident source map — never published
 docs/private/
+_to_delete/
+_sync_*.tar.gz
+_x_*/
