@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no verifiable proof, diff, or file content to substantiate the claimed state change, making it impossible to validate the work against the scope.\"}",
+  "reason": "The evidence provides no verifiable proof, diff, or file content to substantiate the claimed state change, making it impossible to validate the work against the scope.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly references a conflicting 'earlier run' without providing justification or reconciliation, undermining the credibility of the claimed successful result.\"}",
+  "reason": "The evidence explicitly references a conflicting 'earlier run' without providing justification or reconciliation, undermining the credibility of the claimed successful result.",
+  "verdict": "reject"
+}

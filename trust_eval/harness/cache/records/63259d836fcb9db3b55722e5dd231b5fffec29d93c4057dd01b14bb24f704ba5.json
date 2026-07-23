@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on claims about files ('unrel1_9.py', 'unrel2_9.py') that are not declared in the in_scope_files list, making the submission self-contradictory regarding scope.\"}",
+  "reason": "The evidence relies on claims about files ('unrel1_9.py', 'unrel2_9.py') that are not declared in the in_scope_files list, making the submission self-contradictory regarding scope.",
+  "verdict": "reject"
+}

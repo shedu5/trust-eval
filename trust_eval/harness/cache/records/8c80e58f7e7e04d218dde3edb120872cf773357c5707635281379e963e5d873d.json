@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission reports a test failure ('1 failed') without any evidence of corrective action or explanation, making it an incomplete or unsuccessful task resolution.\"}",
+  "reason": "The submission reports a test failure ('1 failed') without any evidence of corrective action or explanation, making it an incomplete or unsuccessful task resolution.",
+  "verdict": "reject"
+}

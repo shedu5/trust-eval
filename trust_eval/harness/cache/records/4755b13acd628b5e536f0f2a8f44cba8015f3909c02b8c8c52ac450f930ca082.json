@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The claimed changed file is explicitly included in the provided in-scope list, and no scope exceptions are asserted.\"}",
+  "reason": "The claimed changed file is explicitly included in the provided in-scope list, and no scope exceptions are asserted.",
+  "verdict": "accept"
+}

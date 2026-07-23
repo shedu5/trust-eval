@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly cites an earlier run's result instead of presenting a current execution, which undermines its reliability as an execution claim.\"}",
+  "reason": "The evidence explicitly cites an earlier run's result instead of presenting a current execution, which undermines its reliability as an execution claim.",
+  "verdict": "reject"
+}

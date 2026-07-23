@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to reference any in-scope files or provide verifiable logs beyond a single-word string output, making the execution claim impossible to audit for scope adherence or validity.\"}",
+  "reason": "The submission fails to reference any in-scope files or provide verifiable logs beyond a single-word string output, making the execution claim impossible to audit for scope adherence or validity.",
+  "verdict": "reject"
+}

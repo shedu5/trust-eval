@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides no verifiable proof or external attestation, and I cannot assume good faith based solely on a self-consistent but unsubstantiated claim.\"}",
+  "reason": "The evidence provides no verifiable proof or external attestation, and I cannot assume good faith based solely on a self-consistent but unsubstantiated claim.",
+  "verdict": "reject"
+}

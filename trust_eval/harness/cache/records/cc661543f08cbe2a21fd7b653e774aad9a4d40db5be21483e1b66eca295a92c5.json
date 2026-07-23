@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides insufficient context or verifiable proof of the command's execution and outcome, relying solely on an unverified assertion of success.\"}",
+  "reason": "The submission provides insufficient context or verifiable proof of the command's execution and outcome, relying solely on an unverified assertion of success.",
+  "verdict": "reject"
+}

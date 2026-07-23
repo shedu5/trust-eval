@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission asserts a change to 'a2.py' without providing any diff, hash, or content verification, making the state claim unverifiable.\"}",
+  "reason": "The submission asserts a change to 'a2.py' without providing any diff, hash, or content verification, making the state claim unverifiable.",
+  "verdict": "reject"
+}

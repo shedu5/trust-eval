@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only a self-asserted command output string without verifiable logs, timestamped verification, or any external proof of the command's execution and outcome.\"}",
+  "reason": "The submission provides only a self-asserted command output string without verifiable logs, timestamped verification, or any external proof of the command's execution and outcome.",
+  "verdict": "reject"
+}

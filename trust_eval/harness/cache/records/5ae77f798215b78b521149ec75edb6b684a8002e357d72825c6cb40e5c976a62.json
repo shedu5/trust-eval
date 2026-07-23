@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent's evidence is a self-citation of an earlier run without any verifiable proof, which cannot be trusted as a reliable assertion of current command success.\"}",
+  "reason": "The agent's evidence is a self-citation of an earlier run without any verifiable proof, which cannot be trusted as a reliable assertion of current command success.",
+  "verdict": "reject"
+}

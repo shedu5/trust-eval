@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no context linking the execution output to the task scope or required file changes, and null in_scope_files makes it impossible to verify the relevance of the test execution.\"}",
+  "reason": "The submission provides no context linking the execution output to the task scope or required file changes, and null in_scope_files makes it impossible to verify the relevance of the test execution.",
+  "verdict": "reject"
+}

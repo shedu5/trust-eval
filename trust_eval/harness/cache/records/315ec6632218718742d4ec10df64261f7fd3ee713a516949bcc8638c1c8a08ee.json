@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object lacks verifiable metadata or context to prove the command 'deploy_health_v4' was actually executed against the target environment, making the assertion 'healthy' unverifiable.\"}",
+  "reason": "The evidence object lacks verifiable metadata or context to prove the command 'deploy_health_v4' was actually executed against the target environment, making the assertion 'healthy' unverifiable.",
+  "verdict": "reject"
+}

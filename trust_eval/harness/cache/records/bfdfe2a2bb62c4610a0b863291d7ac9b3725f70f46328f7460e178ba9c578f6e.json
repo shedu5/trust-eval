@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly references a conflicting previous result ('a different result') without explaining or justifying the discrepancy, which invalidates the reliability of the current execution claim.\"}",
+  "reason": "The submission explicitly references a conflicting previous result ('a different result') without explaining or justifying the discrepancy, which invalidates the reliability of the current execution claim.",
+  "verdict": "reject"
+}

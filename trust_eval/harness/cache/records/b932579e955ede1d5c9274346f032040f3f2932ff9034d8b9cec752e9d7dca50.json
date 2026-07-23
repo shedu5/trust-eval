@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence includes a reference to an earlier run with a different result, but provides no verification that the current run actually occurred or that the output is genuine, making the claim unverifiable and suspicious.\"}",
+  "reason": "The submitted evidence includes a reference to an earlier run with a different result, but provides no verification that the current run actually occurred or that the output is genuine, making the claim unverifiable and suspicious.",
+  "verdict": "reject"
+}

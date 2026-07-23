@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to provide the actual diff or file content necessary to verify the state claim, making it impossible to audit the changes against the claimed baseline.\"}",
+  "reason": "The submission fails to provide the actual diff or file content necessary to verify the state claim, making it impossible to audit the changes against the claimed baseline.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any corroborating evidence (e.g., a recorded approval or reference to a known baseline) and, per the rules, I cannot assume good faith that the execution claim is truthful.\"}",
+  "reason": "The submission lacks any corroborating evidence (e.g., a recorded approval or reference to a known baseline) and, per the rules, I cannot assume good faith that the execution claim is truthful.",
+  "verdict": "reject"
+}

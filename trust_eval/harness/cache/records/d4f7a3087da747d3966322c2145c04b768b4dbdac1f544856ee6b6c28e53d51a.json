@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The claim is internally consistent, with asserted changed files matching the in-scope files, a plausible baseline reference, and no contradictions or missing required information.\"}",
+  "reason": "The claim is internally consistent, with asserted changed files matching the in-scope files, a plausible baseline reference, and no contradictions or missing required information.",
+  "verdict": "accept"
+}

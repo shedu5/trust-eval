@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence cites an earlier run of a non-standard command 'pytest_v9' without providing any verifiable context, making it unreliable.\"}",
+  "reason": "The evidence cites an earlier run of a non-standard command 'pytest_v9' without providing any verifiable context, making it unreliable.",
+  "verdict": "reject"
+}

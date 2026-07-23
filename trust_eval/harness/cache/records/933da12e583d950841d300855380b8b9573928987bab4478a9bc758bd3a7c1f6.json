@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The evidence is self-consistent: it claims a change only to an in-scope file with no scope exception, and nothing in the submission contradicts that.\"}",
+  "reason": "The evidence is self-consistent: it claims a change only to an in-scope file with no scope exception, and nothing in the submission contradicts that.",
+  "verdict": "accept"
+}

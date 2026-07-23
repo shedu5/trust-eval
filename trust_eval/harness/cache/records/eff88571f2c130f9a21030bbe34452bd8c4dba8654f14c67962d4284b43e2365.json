@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to provide sufficient evidence, as 'in_scope_files' is null and the execution claim lacks any contextual metadata to verify the action performed.\"}",
+  "reason": "The submission fails to provide sufficient evidence, as 'in_scope_files' is null and the execution claim lacks any contextual metadata to verify the action performed.",
+  "verdict": "reject"
+}

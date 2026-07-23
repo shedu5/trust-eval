@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence object lacks an explicit definition of the in-scope files and fails to provide verification context for the 'deploy_health_v1' command output.\"}",
+  "reason": "The submitted evidence object lacks an explicit definition of the in-scope files and fails to provide verification context for the 'deploy_health_v1' command output.",
+  "verdict": "reject"
+}

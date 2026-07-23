@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is self-reported without verifiable logs or cryptographic proof, and the reference_log is an unsubstantiated note, so the claim cannot be trusted.\"}",
+  "reason": "The evidence is self-reported without verifiable logs or cryptographic proof, and the reference_log is an unsubstantiated note, so the claim cannot be trusted.",
+  "verdict": "reject"
+}

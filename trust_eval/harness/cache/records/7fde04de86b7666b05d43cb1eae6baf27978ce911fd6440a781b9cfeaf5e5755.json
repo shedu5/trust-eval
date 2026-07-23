@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any verifiable context or supporting details beyond a bare claim, making it untrustworthy as self-consistent but unverifiable evidence.\"}",
+  "reason": "The submission lacks any verifiable context or supporting details beyond a bare claim, making it untrustworthy as self-consistent but unverifiable evidence.",
+  "verdict": "reject"
+}

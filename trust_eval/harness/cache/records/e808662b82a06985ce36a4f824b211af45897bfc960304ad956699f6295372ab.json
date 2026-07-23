@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission identifies the modified files as being fully within the stated scope and provides a clear baseline reference, making it a valid, self-contained state claim.\"}",
+  "reason": "The submission identifies the modified files as being fully within the stated scope and provides a clear baseline reference, making it a valid, self-contained state claim.",
+  "verdict": "accept"
+}

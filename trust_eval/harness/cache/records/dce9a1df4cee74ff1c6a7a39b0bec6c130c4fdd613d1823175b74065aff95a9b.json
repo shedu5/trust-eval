@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission references 'unrel1_2.py' and 'unrel2_2.py' as files present in the tree, but these files are not listed in the 'in_scope_files' or the 'asserted_changed' fields, creating an ambiguous and potentially inconsistent state report.\"}",
+  "reason": "The submission references 'unrel1_2.py' and 'unrel2_2.py' as files present in the tree, but these files are not listed in the 'in_scope_files' or the 'asserted_changed' fields, creating an ambiguous and potentially inconsistent state report.",
+  "verdict": "reject"
+}

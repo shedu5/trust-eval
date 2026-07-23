@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims to cite an earlier run's result rather than providing a fresh execution output, which cannot be trusted as a current claim.\"}",
+  "reason": "The evidence claims to cite an earlier run's result rather than providing a fresh execution output, which cannot be trusted as a current claim.",
+  "verdict": "reject"
+}
