@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member m1's evidence_time (2026-01-08T09:11:00) is later than both its provenance event_time (2026-01-06T09:03:00) and the bundle creation_time (2026-01-06T09:11:00), which is implausible and violates property 4.\"}",
+  "reason": "Member m1's evidence_time (2026-01-08T09:11:00) is later than both its provenance event_time (2026-01-06T09:03:00) and the bundle creation_time (2026-01-06T09:11:00), which is implausible and violates property 4.",
+  "verdict": "reject"
 }

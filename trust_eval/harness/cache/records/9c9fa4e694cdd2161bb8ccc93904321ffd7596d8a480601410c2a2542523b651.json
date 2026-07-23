@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken: the first step's `prev_hash` is correct, but the second step's `prev_hash` does not match the first step's `step_hash` (the first step's `step_hash` is b51f..., but the second step claims its `prev_hash` is a6e1...). Additionally, the actor in the first step is explicitly flagged as 'IMPERSONATED', raising security concerns.\"}",
+  "reason": "The provenance chain is broken: the first step's `prev_hash` is correct, but the second step's `prev_hash` does not match the first step's `step_hash` (the first step's `step_hash` is b51f..., but the second step claims its `prev_hash` is a6e1...). Additionally, the actor in the first step is explicitly flagged as 'IMPERSONATED', raising security concerns.",
+  "verdict": "reject"
+}

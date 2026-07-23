@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest lists three members (m0, m1, m2) but only two members (m0, m1) are present in the bundle; member m2 is missing.\"}",
+  "reason": "The manifest lists three members (m0, m1, m2) but only two members (m0, m1) are present in the bundle; member m2 is missing.",
+  "verdict": "reject"
 }

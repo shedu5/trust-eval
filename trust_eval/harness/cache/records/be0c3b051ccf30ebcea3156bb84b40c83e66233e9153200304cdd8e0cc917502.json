@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken: the final step's hash does not match the manifest's 'provenance_root' (it actually does match), but upon recalculating the step hashes, step 0 and step 1 do not match the values provided in the provenance log.\"}",
+  "reason": "The provenance chain is broken: the final step's hash does not match the manifest's 'provenance_root' (it actually does match), but upon recalculating the step hashes, step 0 and step 1 do not match the values provided in the provenance log.",
+  "verdict": "reject"
+}

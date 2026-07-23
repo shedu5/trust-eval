@@ -23,7 +23,7 @@ from typing import Callable, Optional, Protocol, runtime_checkable
 # Generous default so reasoning-style judges have room to emit a final answer
 # after their internal deliberation, rather than exhausting the budget mid-think
 # and returning empty content.
-DEFAULT_MAX_TOKENS = 4096
+DEFAULT_MAX_TOKENS = 8192
 
 
 @runtime_checkable
@@ -51,6 +51,7 @@ class OpenAICompatibleProvider:
         base_url: Optional[str] = None,
         max_tokens: int = DEFAULT_MAX_TOKENS,
         retries: int = 2,
+        extra: Optional[dict] = None,
     ):
         if not model:
             raise ValueError(f"{name} provider requires an explicit model id.")
@@ -60,6 +61,8 @@ class OpenAICompatibleProvider:
         self.base_url = base_url
         self.max_tokens = max_tokens
         self.retries = retries
+        # Extra create() kwargs (e.g. reasoning_effort for thinking models).
+        self.extra = extra or {}
 
     def complete(self, prompt: str) -> str:
         from openai import OpenAI  # lazy
@@ -77,6 +80,7 @@ class OpenAICompatibleProvider:
                     model=self.model,
                     max_tokens=self.max_tokens,
                     messages=[{"role": "user", "content": prompt}],
+                    **self.extra,
                 )
                 content = resp.choices[0].message.content or ""
                 if content.strip():
@@ -138,11 +142,15 @@ class ScriptedProvider:
 
 # Base URLs and key env vars for the OpenAI-compatible vendors.
 _OPENAI_COMPAT = {
-    "openai": {"base_url": None, "api_key_env": "OPENAI_API_KEY"},
-    "deepseek": {"base_url": "https://api.deepseek.com", "api_key_env": "DEEPSEEK_API_KEY"},
+    "openai": {"base_url": None, "api_key_env": "OPENAI_API_KEY", "extra": {}},
+    "deepseek": {"base_url": "https://api.deepseek.com", "api_key_env": "DEEPSEEK_API_KEY",
+                 "extra": {}},
     "gemini": {
         "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
         "api_key_env": "GEMINI_API_KEY",
+        # Gemini 3.x are thinking models: cap deliberation so the token budget
+        # isn't consumed before the final verdict is emitted.
+        "extra": {"reasoning_effort": "low"},
     },
 }
 
@@ -157,8 +165,8 @@ def build_provider(spec: str, **kwargs) -> JudgeProvider:
     if provider in _OPENAI_COMPAT:
         cfg = _OPENAI_COMPAT[provider]
         return OpenAICompatibleProvider(
-            name=provider, model=model,
-            api_key_env=cfg["api_key_env"], base_url=cfg["base_url"], **kwargs
+            name=provider, model=model, api_key_env=cfg["api_key_env"],
+            base_url=cfg["base_url"], extra=cfg.get("extra", {}), **kwargs
         )
     if provider == "anthropic":
         return AnthropicProvider(model=model, **kwargs)

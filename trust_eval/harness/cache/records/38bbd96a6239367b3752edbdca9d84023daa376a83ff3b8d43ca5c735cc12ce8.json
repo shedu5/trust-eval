@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member m1's content_hash ('f93c8fec...') does not match the manifest's expected hash ('6c2e1966...'), violating the requirement that every member's hash matches the manifest.\"}",
+  "reason": "Member m1's content_hash ('f93c8fec...') does not match the manifest's expected hash ('6c2e1966...'), violating the requirement that every member's hash matches the manifest.",
+  "verdict": "reject"
+}

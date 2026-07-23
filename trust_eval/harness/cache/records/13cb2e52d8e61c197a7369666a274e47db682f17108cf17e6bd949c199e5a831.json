@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence bundle contains a future-dated artifact (m1) with an evidence_time of 2026-01-11, which post-dates both the event that generated it (2026-01-09) and the bundle creation time (2026-01-09).\"}",
+  "reason": "The evidence bundle contains a future-dated artifact (m1) with an evidence_time of 2026-01-11, which post-dates both the event that generated it (2026-01-09) and the bundle creation time (2026-01-09).",
+  "verdict": "reject"
+}

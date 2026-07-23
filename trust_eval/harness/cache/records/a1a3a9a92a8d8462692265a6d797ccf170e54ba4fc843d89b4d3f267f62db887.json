@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member m1's content_hash ('dfc9e946...') does not match the manifest's expected hash ('111111...'), violating property 1.\"}",
+  "reason": "Member m1's content_hash ('dfc9e946...') does not match the manifest's expected hash ('111111...'), violating property 1.",
+  "verdict": "reject"
 }

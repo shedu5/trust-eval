@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken; the first step's 'prev_hash' is 000...000, but its 'step_hash' does not match the 'prev_hash' of the second step (which expects 89ace... but receives e0248...). Additionally, the first step uses an impersonated actor.\"}",
+  "reason": "The provenance chain is broken; the first step's 'prev_hash' is 000...000, but its 'step_hash' does not match the 'prev_hash' of the second step (which expects 89ace... but receives e0248...). Additionally, the first step uses an impersonated actor.",
+  "verdict": "reject"
+}

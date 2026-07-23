@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\n  \"verdict\": \"reject\",\n  \"reason\": \"The content_hash for member 'm1' in the members list does not match the content_hash expected in the manifest (expected '4c5d...', found '4b87...').\"\n}\n```",
+  "reason": "The content_hash for member 'm1' in the members list does not match the content_hash expected in the manifest (expected '4c5d...', found '4b87...').",
+  "verdict": "reject"
+}

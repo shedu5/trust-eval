@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Member 'm1' content hash does not match the manifest; expected '6c2e1966874fb48c6a7eae8bd8d90e89a1a75756d8579bcf0a5bdc8eb63691b4' but found 'f93c8fec1b222d823f4f2dba55d90ad5c78ef8f441af0d9c6367ea38ba018ae8'.\"}\n```",
+  "reason": "Member 'm1' content hash does not match the manifest; expected '6c2e1966874fb48c6a7eae8bd8d90e89a1a75756d8579bcf0a5bdc8eb63691b4' but found 'f93c8fec1b222d823f4f2dba55d90ad5c78ef8f441af0d9c6367ea38ba018ae8'.",
+  "verdict": "reject"
+}

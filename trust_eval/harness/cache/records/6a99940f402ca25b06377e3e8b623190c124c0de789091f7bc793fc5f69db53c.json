@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest lists member ids m0, m1, m2, m3, but the members array contains only m0, m1, m2; m3 is missing.\"}",
+  "reason": "The manifest lists member ids m0, m1, m2, m3, but the members array contains only m0, m1, m2; m3 is missing.",
+  "verdict": "reject"
 }

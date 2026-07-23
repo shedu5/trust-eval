@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken; the first step's 'prev_hash' (all zeros) does not match the 'prev_hash' value of the second step ('e4d58f83...'), and the first step's 'step_hash' is also inconsistent with the chain linkage.\"}",
+  "reason": "The provenance chain is broken; the first step's 'prev_hash' (all zeros) does not match the 'prev_hash' value of the second step ('e4d58f83...'), and the first step's 'step_hash' is also inconsistent with the chain linkage.",
+  "verdict": "reject"
+}

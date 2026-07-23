@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member 'm1' fails the hash check: the content hash declared in the manifest ('111...') does not match the actual SHA-256 hash of the content provided ('4b87f764bdeab6690434e513f305dfd684cc49bdc9e94bef305b15ac6ac492a2').\"}",
+  "reason": "Member 'm1' fails the hash check: the content hash declared in the manifest ('111...') does not match the actual SHA-256 hash of the content provided ('4b87f764bdeab6690434e513f305dfd684cc49bdc9e94bef305b15ac6ac492a2').",
+  "verdict": "reject"
+}

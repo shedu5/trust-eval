@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence_time for member m1 is 2026-01-15, which is in the future relative to the bundle's creation_at date (2026-01-13) and inconsistent with the provenance timeline.\"}",
+  "reason": "The evidence_time for member m1 is 2026-01-15, which is in the future relative to the bundle's creation_at date (2026-01-13) and inconsistent with the provenance timeline.",
+  "verdict": "reject"
+}

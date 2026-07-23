@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken: the second step's prev_hash (56a7...) does not match the first step's step_hash (1d0e...). Additionally, the actor in the first step is identified as 'deploy-agent-IMPERSONATED', raising a security flag.\"}",
+  "reason": "The provenance chain is broken: the second step's prev_hash (56a7...) does not match the first step's step_hash (1d0e...). Additionally, the actor in the first step is identified as 'deploy-agent-IMPERSONATED', raising a security flag.",
+  "verdict": "reject"
+}

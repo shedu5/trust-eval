@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The bundle claims to contain members 'm0', 'm1', and 'm2' in its manifest, but the 'members' list is missing member 'm2'.\"}",
+  "reason": "The bundle claims to contain members 'm0', 'm1', and 'm2' in its manifest, but the 'members' list is missing member 'm2'.",
+  "verdict": "reject"
+}

@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence_time for member m1 (2026-01-06) is later than the bundle's created_at (2026-01-04) and also later than its provenance event_time (2026-01-04 09:03), violating timeline plausibility.\"}",
+  "reason": "The evidence_time for member m1 (2026-01-06) is later than the bundle's created_at (2026-01-04) and also later than its provenance event_time (2026-01-04 09:03), violating timeline plausibility.",
+  "verdict": "reject"
 }

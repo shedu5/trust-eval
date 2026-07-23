@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest's expected hash for member m1 is all 1s, but the member's actual content_hash is different, violating property 1.\"}",
+  "reason": "The manifest's expected hash for member m1 is all 1s, but the member's actual content_hash is different, violating property 1.",
+  "verdict": "reject"
 }

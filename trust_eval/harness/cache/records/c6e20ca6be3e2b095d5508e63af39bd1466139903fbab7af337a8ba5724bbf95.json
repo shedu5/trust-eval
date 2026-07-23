@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"All member hashes match the manifest, the provenance chain links correctly with non-decreasing event times, and evidence times are plausible relative to the events and bundle creation.\"}",
+  "reason": "All member hashes match the manifest, the provenance chain links correctly with non-decreasing event times, and evidence times are plausible relative to the events and bundle creation.",
+  "verdict": "accept"
 }

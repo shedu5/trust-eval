@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken at the first transition, as step 'bundle-005-s0' has a step_hash that does not match the 'prev_hash' required by the second step ('01642d6f...'). Additionally, the first step lists an 'IMPERSONATED' actor.\"}",
+  "reason": "The provenance chain is broken at the first transition, as step 'bundle-005-s0' has a step_hash that does not match the 'prev_hash' required by the second step ('01642d6f...'). Additionally, the first step lists an 'IMPERSONATED' actor.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\n  \"verdict\": \"reject\",\n  \"reason\": \"The provenance chain is broken at step 1: its `prev_hash` (484019e3...) does not match the `step_hash` of the previous step (67c99172...). Additionally, the actor in step 0 is flagged as 'IMPERSONATED'.\"\n}",
+  "reason": "The provenance chain is broken at step 1: its `prev_hash` (484019e3...) does not match the `step_hash` of the previous step (67c99172...). Additionally, the actor in step 0 is flagged as 'IMPERSONATED'.",
+  "verdict": "reject"
+}

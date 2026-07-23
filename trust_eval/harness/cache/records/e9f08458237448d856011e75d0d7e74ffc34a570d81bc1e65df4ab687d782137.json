@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle's members, provenance chain, and manifest are internally consistent, satisfy all hashing requirements, and the timeline of events is logical and chronological.\"}",
+  "reason": "The bundle's members, provenance chain, and manifest are internally consistent, satisfy all hashing requirements, and the timeline of events is logical and chronological.",
+  "verdict": "accept"
+}

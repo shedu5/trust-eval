@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken: the second step's prev_hash (e1cdda...) does not match the first step's step_hash (127b71...), and the actor identity is inconsistent.\"}",
+  "reason": "The provenance chain is broken: the second step's prev_hash (e1cdda...) does not match the first step's step_hash (127b71...), and the actor identity is inconsistent.",
+  "verdict": "reject"
+}

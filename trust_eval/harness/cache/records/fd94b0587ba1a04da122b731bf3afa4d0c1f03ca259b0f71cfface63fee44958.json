@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The content hash for member m1 (2c39d...) does not match the manifest's expected hash for m1 (279b...).\"}",
+  "reason": "The content hash for member m1 (2c39d...) does not match the manifest's expected hash for m1 (279b...).",
+  "verdict": "reject"
+}

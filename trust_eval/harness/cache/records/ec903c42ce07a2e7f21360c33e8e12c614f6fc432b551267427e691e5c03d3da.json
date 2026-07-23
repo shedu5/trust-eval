@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken: the second step references a 'prev_hash' (2c06...) that does not match the 'step_hash' (fc23...) of the first step.\"}",
+  "reason": "The provenance chain is broken: the second step references a 'prev_hash' (2c06...) that does not match the 'step_hash' (fc23...) of the first step.",
+  "verdict": "reject"
+}

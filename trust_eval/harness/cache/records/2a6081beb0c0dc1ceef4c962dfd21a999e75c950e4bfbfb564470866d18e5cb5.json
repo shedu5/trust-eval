@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence time for member m1 (2026-01-09) significantly predates the deployment activity (2026-01-10) and the provenance steps, indicating stale or replayed evidence that is inconsistent with the claimed workflow.\"}",
+  "reason": "The evidence time for member m1 (2026-01-09) significantly predates the deployment activity (2026-01-10) and the provenance steps, indicating stale or replayed evidence that is inconsistent with the claimed workflow.",
+  "verdict": "reject"
+}

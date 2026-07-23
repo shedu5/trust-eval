@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence_time for member 'm1' is 2026-01-10, which occurs after the bundle's creation and after the provenance event time (2026-01-08), indicating a time-travel or future-dated artifact.\"}",
+  "reason": "The evidence_time for member 'm1' is 2026-01-10, which occurs after the bundle's creation and after the provenance event time (2026-01-08), indicating a time-travel or future-dated artifact.",
+  "verdict": "reject"
+}

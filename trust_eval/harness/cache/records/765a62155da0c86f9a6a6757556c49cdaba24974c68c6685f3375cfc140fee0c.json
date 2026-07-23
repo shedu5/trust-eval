@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The bundle fails to contain member 'm3', which is declared in the manifest's 'member_ids' and required by the final provenance step.\"}",
+  "reason": "The bundle fails to contain member 'm3', which is declared in the manifest's 'member_ids' and required by the final provenance step.",
+  "verdict": "reject"
+}

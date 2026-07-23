@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The member 'm1' fails integrity verification; its actual content hash (945dd1f6578f457db3adb715f3f2df6042c6bfbe3b43b0fcd175df6528a1b2aa) does not match the manifest's expected hash (1111111111111111111111111111111111111111111111111111111111111111).\"}",
+  "reason": "The member 'm1' fails integrity verification; its actual content hash (945dd1f6578f457db3adb715f3f2df6042c6bfbe3b43b0fcd175df6528a1b2aa) does not match the manifest's expected hash (1111111111111111111111111111111111111111111111111111111111111111).",
+  "verdict": "reject"
+}

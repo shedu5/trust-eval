@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest lists member 'm3' as part of the bundle, but 'm3' is missing from the delivered members array.\"}",
+  "reason": "The manifest lists member 'm3' as part of the bundle, but 'm3' is missing from the delivered members array.",
+  "verdict": "reject"
+}

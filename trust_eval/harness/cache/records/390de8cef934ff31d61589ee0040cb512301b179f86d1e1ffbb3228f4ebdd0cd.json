@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken; the first step's `step_hash` does not match the `prev_hash` required by the second step, and the first step's hash itself is inconsistent with the genesis requirements.\"}",
+  "reason": "The provenance chain is broken; the first step's `step_hash` does not match the `prev_hash` required by the second step, and the first step's hash itself is inconsistent with the genesis requirements.",
+  "verdict": "reject"
+}

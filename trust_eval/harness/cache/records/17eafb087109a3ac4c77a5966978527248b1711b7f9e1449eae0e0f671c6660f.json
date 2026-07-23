@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The content hash for member 'm1' in the bundle members list (f64894...) does not match the content hash specified for 'm1' in the manifest (799fd8...).\"}",
+  "reason": "The content hash for member 'm1' in the bundle members list (f64894...) does not match the content hash specified for 'm1' in the manifest (799fd8...).",
+  "verdict": "reject"
+}

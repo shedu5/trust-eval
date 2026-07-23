@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member m1's content_hash does not match the manifest's expected hash; the hash provided in the member (e7e914d65b35bea3a582b6dd50a7167e27b74da35e55dd0b2c246ce66e04edcf) differs from the manifest's claimed hash (023699c4ed9664f9d045069aefe8fc2cdc242255780817c787940641ce695bfb).\"}",
+  "reason": "Member m1's content_hash does not match the manifest's expected hash; the hash provided in the member (e7e914d65b35bea3a582b6dd50a7167e27b74da35e55dd0b2c246ce66e04edcf) differs from the manifest's claimed hash (023699c4ed9664f9d045069aefe8fc2cdc242255780817c787940641ce695bfb).",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence_time for member m1 is 2026-01-03, which is in the future relative to the bundle assembly time (2026-01-01) and follows the action 'ran tests' by two days, rendering the timeline implausible.\"}",
+  "reason": "The evidence_time for member m1 is 2026-01-03, which is in the future relative to the bundle assembly time (2026-01-01) and follows the action 'ran tests' by two days, rendering the timeline implausible.",
+  "verdict": "reject"
+}

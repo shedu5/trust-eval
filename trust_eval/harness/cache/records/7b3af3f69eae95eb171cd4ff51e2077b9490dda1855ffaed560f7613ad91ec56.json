@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\n  \"verdict\": \"reject\",\n  \"reason\": \"The content_hash for member m1 is '1111111111111111111111111111111111111111111111111111111111111111', which is not the SHA-256 hash of its content, violating property 1.\"\n}",
+  "reason": "The content_hash for member m1 is '1111111111111111111111111111111111111111111111111111111111111111', which is not the SHA-256 hash of its content, violating property 1.",
+  "verdict": "reject"
 }

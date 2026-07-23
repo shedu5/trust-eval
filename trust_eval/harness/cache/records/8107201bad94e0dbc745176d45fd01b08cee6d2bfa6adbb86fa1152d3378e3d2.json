@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest claims three members (m0, m1, m2), but the bundle only contains two, making it incomplete.\"}",
+  "reason": "The manifest claims three members (m0, m1, m2), but the bundle only contains two, making it incomplete.",
+  "verdict": "reject"
+}

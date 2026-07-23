@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle is internally consistent, the provenance chain is unbroken and matches the manifest root, and the timeline of evidence captures is chronologically plausible.\"}",
+  "reason": "The bundle is internally consistent, the provenance chain is unbroken and matches the manifest root, and the timeline of evidence captures is chronologically plausible.",
+  "verdict": "accept"
+}

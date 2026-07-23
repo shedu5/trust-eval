@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance step hashes do not match the expected SHA-256 calculation; specifically, step s0 hash calculation (using canonical JSON with keys: prev_hash, actor, action, event_time, member_ref) results in a different value than the provided step_hash.\"}",
+  "reason": "The provenance step hashes do not match the expected SHA-256 calculation; specifically, step s0 hash calculation (using canonical JSON with keys: prev_hash, actor, action, event_time, member_ref) results in a different value than the provided step_hash.",
+  "verdict": "reject"
+}

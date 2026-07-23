@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The manifest claims to contain members m0 through m3, but the bundle is missing member m3; additionally, the provenance refers to m3, violating the completeness requirement.\"}",
+  "reason": "The manifest claims to contain members m0 through m3, but the bundle is missing member m3; additionally, the provenance refers to m3, violating the completeness requirement.",
+  "verdict": "reject"
+}

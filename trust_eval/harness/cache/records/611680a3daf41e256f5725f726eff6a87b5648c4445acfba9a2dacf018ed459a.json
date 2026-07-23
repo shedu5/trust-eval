@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Manifest expects member m1's content_hash to be '1111111111111111111111111111111111111111111111111111111111111111', but the delivered member m1 has content_hash 'f92e943cd7ab29d4cc1356807c988b46859a25e24121de71263c4bcf41c7adf9', violating property 1.\"}",
+  "reason": "Manifest expects member m1's content_hash to be '1111111111111111111111111111111111111111111111111111111111111111', but the delivered member m1 has content_hash 'f92e943cd7ab29d4cc1356807c988b46859a25e24121de71263c4bcf41c7adf9', violating property 1.",
+  "verdict": "reject"
 }

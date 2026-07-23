@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member 'm1' failed integrity validation: the provided content hash ('c3ebfc3178a129541ec7648cbf104930ac3050473900f06c9d7b3a7052da5100') does not match the manifest's declared hash ('1111111111111111111111111111111111111111111111111111111111111111').\"}",
+  "reason": "Member 'm1' failed integrity validation: the provided content hash ('c3ebfc3178a129541ec7648cbf104930ac3050473900f06c9d7b3a7052da5100') does not match the manifest's declared hash ('1111111111111111111111111111111111111111111111111111111111111111').",
+  "verdict": "reject"
+}

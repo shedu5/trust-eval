@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\n  \"verdict\": \"reject\",\n  \"reason\": \"The provenance chain is logically inconsistent because step 's1' (ran migration) claims to have occurred at 2026-01-14T09:03:00, yet the evidence artifact m1 claims an `evidence_time` of 2026-01-13T08:03:00, which is logically impossible for the event it documents.\"\n}\n```",
+  "reason": "The provenance chain is logically inconsistent because step 's1' (ran migration) claims to have occurred at 2026-01-14T09:03:00, yet the evidence artifact m1 claims an `evidence_time` of 2026-01-13T08:03:00, which is logically impossible for the event it documents.",
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence_time for member m1 is 2026-01-01, which is implausibly stale given the provenance event_time of 2026-01-02 for the migration action it claims to document.\"}",
+  "reason": "The evidence_time for member m1 is 2026-01-01, which is implausibly stale given the provenance event_time of 2026-01-02 for the migration action it claims to document.",
+  "verdict": "reject"
+}

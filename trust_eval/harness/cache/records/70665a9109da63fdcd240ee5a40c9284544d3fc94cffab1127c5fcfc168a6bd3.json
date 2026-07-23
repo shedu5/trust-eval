@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle passes all internal consistency checks, including hash integrity, provenance chaining, and chronological validity.\"}",
+  "reason": "The bundle passes all internal consistency checks, including hash integrity, provenance chaining, and chronological validity.",
+  "verdict": "accept"
+}

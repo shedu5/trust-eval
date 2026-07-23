@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle's hashes, provenance chain, and timeline are all internally consistent, and the evidence artifacts align with the manifest.\"}",
+  "reason": "The bundle's hashes, provenance chain, and timeline are all internally consistent, and the evidence artifacts align with the manifest.",
+  "verdict": "accept"
+}

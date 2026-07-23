@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"All conditions satisfied: member hashes match content and manifest, provenance chain links correctly, timeline is plausible, and member set is exact.\"}",
+  "reason": "All conditions satisfied: member hashes match content and manifest, provenance chain links correctly, timeline is plausible, and member set is exact.",
+  "verdict": "accept"
 }

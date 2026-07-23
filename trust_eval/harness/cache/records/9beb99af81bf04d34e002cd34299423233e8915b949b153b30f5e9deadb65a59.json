@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"All integrity checks pass: the member content hashes are correct, the provenance chain is cryptographically linked correctly from the genesis hash to the manifest root, and the timeline is consistent with all evidence times preceding the provenance event times.\"}",
+  "reason": "All integrity checks pass: the member content hashes are correct, the provenance chain is cryptographically linked correctly from the genesis hash to the manifest root, and the timeline is consistent with all evidence times preceding the provenance event times.",
+  "verdict": "accept"
+}

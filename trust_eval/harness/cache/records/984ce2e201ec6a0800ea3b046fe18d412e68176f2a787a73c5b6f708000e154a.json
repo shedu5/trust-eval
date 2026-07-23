@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The content hash for member 'm1' in the manifest ('9a94...') does not match the computed hash of its actual content ('dfc9...'), indicating data tampering or corruption.\"}",
+  "reason": "The content hash for member 'm1' in the manifest ('9a94...') does not match the computed hash of its actual content ('dfc9...'), indicating data tampering or corruption.",
+  "verdict": "reject"
+}

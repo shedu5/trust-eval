@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance timeline is implausible because the migration action (m1) has an evidence_time (2026-01-07) that occurs significantly before the migration event_time (2026-01-08) and the start of the documented task.\"}",
+  "reason": "The provenance timeline is implausible because the migration action (m1) has an evidence_time (2026-01-07) that occurs significantly before the migration event_time (2026-01-08) and the start of the documented task.",
+  "verdict": "reject"
+}

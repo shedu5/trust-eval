@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle's content hashes are verified, the provenance chain is intact with a correct root, and the timeline shows non-decreasing event times that are logically sequential and consistent with the bundle creation time.\"}",
+  "reason": "The bundle's content hashes are verified, the provenance chain is intact with a correct root, and the timeline shows non-decreasing event times that are logically sequential and consistent with the bundle creation time.",
+  "verdict": "accept"
+}

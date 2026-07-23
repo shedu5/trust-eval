@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is broken: step1's prev_hash does not match step0's step_hash, violating hash linking.\"}",
+  "reason": "The provenance chain is broken: step1's prev_hash does not match step0's step_hash, violating hash linking.",
+  "verdict": "reject"
 }

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence_time for member m1 is 2026-01-05, while the provenance step documenting it occurs on 2026-01-06; however, the content of m1 describes a 'summary revision 5' which is inherently logically inconsistent with being captured an entire day before the sequence of events started.\"}",
+  "reason": "The evidence_time for member m1 is 2026-01-05, while the provenance step documenting it occurs on 2026-01-06; however, the content of m1 describes a 'summary revision 5' which is inherently logically inconsistent with being captured an entire day before the sequence of events started.",
+  "verdict": "reject"
+}

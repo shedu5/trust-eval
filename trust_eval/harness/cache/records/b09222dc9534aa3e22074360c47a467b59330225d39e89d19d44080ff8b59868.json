@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The content hash for member m1 (945dd1...) does not match the manifest's expected hash for m1 (d38ddd...); the bundle is internally inconsistent.\"}",
+  "reason": "The content hash for member m1 (945dd1...) does not match the manifest's expected hash for m1 (d38ddd...); the bundle is internally inconsistent.",
+  "verdict": "reject"
+}

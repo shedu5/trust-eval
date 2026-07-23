@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\n  \"verdict\": \"reject\",\n  \"reason\": \"The timeline of evidence is implausible; member 'm1' claims an 'evidence_time' of 2026-01-11, which precedes the bundle's genesis activity and suggests a potential replay of stale or unrelated data.\"\n}\n```",
+  "reason": "The timeline of evidence is implausible; member 'm1' claims an 'evidence_time' of 2026-01-11, which precedes the bundle's genesis activity and suggests a potential replay of stale or unrelated data.",
+  "verdict": "reject"
+}

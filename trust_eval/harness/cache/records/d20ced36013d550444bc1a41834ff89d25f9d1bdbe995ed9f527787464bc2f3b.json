@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain is invalid because step 1's prev_hash (9cb4cc6e3567d440e173a559ef1ab5aae5a63ae56b964b604ca11e7951b0516e) does not equal step 0's step_hash (c7d59aea9970f41dea953124cd5000386bd1f3473d1c717cd70edc2d694c9219).\"}",
+  "reason": "The provenance chain is invalid because step 1's prev_hash (9cb4cc6e3567d440e173a559ef1ab5aae5a63ae56b964b604ca11e7951b0516e) does not equal step 0's step_hash (c7d59aea9970f41dea953124cd5000386bd1f3473d1c717cd70edc2d694c9219).",
+  "verdict": "reject"
 }

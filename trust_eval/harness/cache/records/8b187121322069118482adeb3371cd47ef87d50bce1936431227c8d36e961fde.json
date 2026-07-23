@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The content_hash of member m1 (f64894a696aea2b3696780e4ecc98f08e929af0b473ea184f5e2914814c119e4) does not match the manifest's expected hash for that member (1111111111111111111111111111111111111111111111111111111111111111).\"}",
+  "reason": "The content_hash of member m1 (f64894a696aea2b3696780e4ecc98f08e929af0b473ea184f5e2914814c119e4) does not match the manifest's expected hash for that member (1111111111111111111111111111111111111111111111111111111111111111).",
+  "verdict": "reject"
 }

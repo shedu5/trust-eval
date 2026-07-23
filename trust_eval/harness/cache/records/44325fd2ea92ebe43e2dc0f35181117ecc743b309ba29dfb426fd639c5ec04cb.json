@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance chain timeline is invalid: the action 'ran tests' (member m1) is claimed to happen at 09:03:00, but the evidence artifact (m1) was captured on 2026-01-12, a full day before the rest of the actions.\"}",
+  "reason": "The provenance chain timeline is invalid: the action 'ran tests' (member m1) is claimed to happen at 09:03:00, but the evidence artifact (m1) was captured on 2026-01-12, a full day before the rest of the actions.",
+  "verdict": "reject"
+}

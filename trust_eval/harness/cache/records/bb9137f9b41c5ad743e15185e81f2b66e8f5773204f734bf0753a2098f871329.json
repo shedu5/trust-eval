@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle passes all verification checks: member content hashes are correct, the provenance chain is cryptographically linked to the genesis hash and the manifest root, and the timeline of events is internally consistent and chronological.\"}",
+  "reason": "The bundle passes all verification checks: member content hashes are correct, the provenance chain is cryptographically linked to the genesis hash and the manifest root, and the timeline of events is internally consistent and chronological.",
+  "verdict": "accept"
+}

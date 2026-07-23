@@ -2,7 +2,7 @@
   "model": "deepseek-v4-flash",
   "prompt_version": "trust-eval/judge-prompt/v1",
   "provider": "deepseek",
-  "raw": "",
-  "reason": "(could not parse verdict)",
-  "verdict": "unparseable"
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Member m1 has an evidence_time of 2026-01-06T08:03:00, which is implausibly older than its provenance event_time of 2026-01-07T09:03:00 by over 25 hours, indicating a stale or replayed artifact.\"}",
+  "reason": "Member m1 has an evidence_time of 2026-01-06T08:03:00, which is implausibly older than its provenance event_time of 2026-01-07T09:03:00 by over 25 hours, indicating a stale or replayed artifact.",
+  "verdict": "reject"
 }

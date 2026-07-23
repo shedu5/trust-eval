@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/judge-prompt/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The bundle is internally consistent: all member content hashes match, the provenance chain correctly links to the manifest's root hash, and the timeline is plausible with all events occurring in sequential order.\"}",
+  "reason": "The bundle is internally consistent: all member content hashes match, the provenance chain correctly links to the manifest's root hash, and the timeline is plausible with all events occurring in sequential order.",
+  "verdict": "accept"
+}
