@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:45:50.250924+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Unsubstantiated self-reported execution claim with no corroborating evidence.\"}",
+  "reason": "Unsubstantiated self-reported execution claim with no corroborating evidence.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 275,
+    "output_tokens": 558,
+    "reasoning_tokens": 531
+  },
+  "verdict": "reject"
+}

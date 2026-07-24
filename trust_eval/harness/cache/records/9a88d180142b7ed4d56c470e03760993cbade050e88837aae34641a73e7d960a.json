@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:12:38.336892+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly disclaims the assertion with 'asserted': false, indicating the agent does not actually claim the stated fact is true, so the submission is unreliable.\"}",
+  "reason": "The evidence explicitly disclaims the assertion with 'asserted': false, indicating the agent does not actually claim the stated fact is true, so the submission is unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 742,
+    "reasoning_tokens": 695
+  },
+  "verdict": "reject"
+}

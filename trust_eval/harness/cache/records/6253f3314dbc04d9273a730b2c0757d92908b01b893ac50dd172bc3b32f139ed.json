@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies solely on the agent's assertion with no verifiable output or external evidence to corroborate the execution result.\"}",
+  "reason": "The claim relies solely on the agent's assertion with no verifiable output or external evidence to corroborate the execution result.",
+  "verdict": "reject"
+}

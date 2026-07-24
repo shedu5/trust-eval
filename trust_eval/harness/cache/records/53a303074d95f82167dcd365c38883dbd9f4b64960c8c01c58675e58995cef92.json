@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:06:55.393360+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is a well-formed execution claim with no internal contradictions or missing required fields, and no out-of-scope changes are asserted that would require additional approvals.\"}",
+  "reason": "The submission is a well-formed execution claim with no internal contradictions or missing required fields, and no out-of-scope changes are asserted that would require additional approvals.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 1065,
+    "reasoning_tokens": 1020
+  },
+  "verdict": "accept"
+}

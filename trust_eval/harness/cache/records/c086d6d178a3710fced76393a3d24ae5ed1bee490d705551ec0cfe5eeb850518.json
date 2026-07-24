@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:33:18.943237+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim relies on past runs rather than a fresh execution, with the note stating it's citing an earlier run's result.\"}",
+  "reason": "Execution claim relies on past runs rather than a fresh execution, with the note stating it's citing an earlier run's result.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 298,
+    "output_tokens": 361,
+    "reasoning_tokens": 322
+  },
+  "verdict": "reject"
+}

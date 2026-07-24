@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies entirely on a self-reported status output from an unverified, non-rerunnable command without any corroborating logs or external validation.\"}",
+  "reason": "The evidence relies entirely on a self-reported status output from an unverified, non-rerunnable command without any corroborating logs or external validation.",
+  "verdict": "reject"
+}

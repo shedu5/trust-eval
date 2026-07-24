@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:19:33.050825+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The skeleton is explicitly stated as borrowed from another task, so it does not reliably represent the code relevant to task skeleton-task-9.\"}",
+  "reason": "The skeleton is explicitly stated as borrowed from another task, so it does not reliably represent the code relevant to task skeleton-task-9.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 911,
+    "reasoning_tokens": 870
+  },
+  "verdict": "reject"
+}

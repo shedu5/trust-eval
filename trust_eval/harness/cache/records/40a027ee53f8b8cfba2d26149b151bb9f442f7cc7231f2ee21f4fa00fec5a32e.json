@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:04:11.286913+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The asserted actor includes 'IMPERSONATED', indicating the claimed identity is unreliable.\"}",
+  "reason": "The asserted actor includes 'IMPERSONATED', indicating the claimed identity is unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 368,
+    "output_tokens": 221,
+    "reasoning_tokens": 191
+  },
+  "verdict": "reject"
+}

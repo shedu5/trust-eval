@@ -1,11 +1,20 @@
 """The combined P0 -> P1 -> P2 -> P3/P4/P5 ladder in one table, with Wilson and
-exact-binomial 95% CIs on each protocol's FA/FR rate.
+exact-binomial 95% CIs on each protocol's FA/FR rate, plus abstention/coverage
+so a protocol cannot report a misleadingly low FA/FR purely by abstaining on
+the hard cases (see `_selective`).
 
-Deterministic protocols (P0, P2, P3, P4, P5) need no model call and run on any
-corpus size. P1 (text-only LLM review) is included only when at least one
---provider is given; it reuses the same cached, self-healing judge layer as the
-pilot, so a run with --live fills the cache and a later run without --live
-reproduces the same numbers with no API key.
+P0, P2, P3, P4, and P5-as-pure-abstention (the `ladder_row` calls in
+`build_ladder`, with no `--p5-adjudicator`) are deterministic and need no
+model call. P1 (text-only LLM review, `--provider`) and P5-hybrid
+(`--p5-adjudicator`, via `p5_hybrid_row`) are NOT deterministic -- they call
+a live judge model, and are two DIFFERENT protocols from plain P5 despite the
+shared "P5" root name: plain P5 never consults an adjudicator and is always
+identical to P4; P5-hybrid[JUDGE] does, and its result depends on which judge
+is in the adjudicator seat. Never refer to "P5" unqualified when the
+adjudicated variant is meant -- always "P5-hybrid[provider:model]". Both P1
+and P5-hybrid reuse the same cached, self-healing judge layer, so a run with
+`--live` fills the cache and a later run without `--live` reproduces the same
+numbers with no API key.
 """
 
 from __future__ import annotations
@@ -15,28 +24,62 @@ from typing import List, Optional, Sequence
 
 from ..harness.cache import ResponseCache
 from ..harness.providers import build_provider
+from .anchors import AGREES, ANCHORS, CLAIM_ANCHOR, CONTRADICTS
 from .llm_review import P1Summary, make_cached_reviewer, run_p1
-from .protocols import PROTOCOLS, decide
+from .protocols import CANNOT_VERIFY, PROTOCOLS, decide
 from .stats import clopper_pearson_ci, wilson_ci
 from .surrogates import Case, flagship_cases, scaled_cases
 from .world import TrustedWorld, build_flagship_world, build_scaled_world
 
 
+def _anchor_inconclusive(claim: Case, world: TrustedWorld) -> bool:
+    name = CLAIM_ANCHOR.get(claim.claim_type)
+    if not name:
+        return True
+    res = ANCHORS[name](claim, world)
+    return (not res.applicable) or (res.verdict not in (AGREES, CONTRADICTS))
+
+
+def _selective(numerator: int, denominator: int):
+    """(rate, wilson_ci, exact_ci) among DECIDED cases only, or (None, None,
+    None) if the protocol abstained on every case in this pool -- a
+    selective-risk rate with a zero denominator is undefined, not zero."""
+    if denominator == 0:
+        return None, None, None
+    return (numerator / denominator, wilson_ci(numerator, denominator),
+            clopper_pearson_ci(numerator, denominator))
+
+
 def ladder_row(protocol: str, cases: Sequence[Case], world: TrustedWorld) -> dict:
     attacks = [c for c in cases if not c.should_accept]
     truthful = [c for c in cases if c.should_accept]
-    fa = sum(1 for c in attacks if decide(protocol, c, world).false_accept(c))
-    fr = sum(1 for c in truthful if decide(protocol, c, world).false_reject(c))
+    decisions_a = [decide(protocol, c, world) for c in attacks]
+    decisions_t = [decide(protocol, c, world) for c in truthful]
+    fa = sum(1 for c, d in zip(attacks, decisions_a) if d.false_accept(c))
+    fr = sum(1 for c, d in zip(truthful, decisions_t) if d.false_reject(c))
+    abstain_a = sum(1 for d in decisions_a if d.outcome == CANNOT_VERIFY)
+    abstain_t = sum(1 for d in decisions_t if d.outcome == CANNOT_VERIFY)
+    decided_a, decided_t = len(attacks) - abstain_a, len(truthful) - abstain_t
+    sel_fa, sel_fa_w, sel_fa_c = _selective(fa, decided_a)
+    sel_fr, sel_fr_w, sel_fr_c = _selective(fr, decided_t)
     return dict(
         protocol=protocol,
         n_attacks=len(attacks), fa=fa, fa_wilson=wilson_ci(fa, len(attacks)),
         fa_cp=clopper_pearson_ci(fa, len(attacks)),
         n_truthful=len(truthful), fr=fr, fr_wilson=wilson_ci(fr, len(truthful)),
         fr_cp=clopper_pearson_ci(fr, len(truthful)),
+        abstain_attacks=abstain_a, abstain_truthful=abstain_t,
+        coverage_attacks=decided_a / len(attacks) if attacks else None,
+        coverage_truthful=decided_t / len(truthful) if truthful else None,
+        selective_fa=sel_fa, selective_fa_wilson=sel_fa_w, selective_fa_cp=sel_fa_c,
+        selective_fr=sel_fr, selective_fr_wilson=sel_fr_w, selective_fr_cp=sel_fr_c,
     )
 
 
 def p1_row(summary: P1Summary) -> dict:
+    # P1's prompt forces a binary accept/reject verdict -- structurally no
+    # abstention path exists (unlike P4/P5). A cache-miss/parse failure is
+    # tracked separately as `errors`, not as abstention.
     return dict(
         protocol=f"P1_llm_text_only ({summary.provider}:{summary.model})",
         n_attacks=summary.n_attacks, fa=summary.false_accept,
@@ -46,27 +89,48 @@ def p1_row(summary: P1Summary) -> dict:
         fr_wilson=wilson_ci(summary.false_reject, summary.n_truthful),
         fr_cp=clopper_pearson_ci(summary.false_reject, summary.n_truthful),
         errors=summary.errors,
+        abstain_attacks=0, abstain_truthful=0,
+        coverage_attacks=1.0, coverage_truthful=1.0,
+        selective_fa=summary.false_accept / summary.n_attacks if summary.n_attacks else None,
+        selective_fa_wilson=wilson_ci(summary.false_accept, summary.n_attacks) if summary.n_attacks else None,
+        selective_fa_cp=clopper_pearson_ci(summary.false_accept, summary.n_attacks) if summary.n_attacks else None,
+        selective_fr=summary.false_reject / summary.n_truthful if summary.n_truthful else None,
+        selective_fr_wilson=wilson_ci(summary.false_reject, summary.n_truthful) if summary.n_truthful else None,
+        selective_fr_cp=clopper_pearson_ci(summary.false_reject, summary.n_truthful) if summary.n_truthful else None,
     )
 
 
 def format_ladder(rows: List[dict]) -> str:
-    header = (f"{'protocol':<42}{'FA':>7}{'FA 95% Wilson':>17}{'FA 95% exact':>16}"
-              f"{'FR':>7}{'FR 95% Wilson':>17}{'FR 95% exact':>16}")
+    header = (f"{'protocol':<42}{'FA':>7}{'FR':>7}{'Abstain(a/t)':>14}{'Coverage(a/t)':>16}"
+              f"{'Sel.FA':>18}{'Sel.FR':>18}")
     lines = [header, "-" * len(header)]
     warnings: List[str] = []
     for r in rows:
         fa_s, fr_s = f"{r['fa']}/{r['n_attacks']}", f"{r['fr']}/{r['n_truthful']}"
-        fa_w = f"[{r['fa_wilson'][0]:.2f},{r['fa_wilson'][1]:.2f}]"
-        fa_c = f"[{r['fa_cp'][0]:.2f},{r['fa_cp'][1]:.2f}]"
-        fr_w = f"[{r['fr_wilson'][0]:.2f},{r['fr_wilson'][1]:.2f}]"
-        fr_c = f"[{r['fr_cp'][0]:.2f},{r['fr_cp'][1]:.2f}]"
+        abstain_a, abstain_t = r.get("abstain_attacks"), r.get("abstain_truthful")
+        abstain_s = f"{abstain_a}/{abstain_t}" if abstain_a is not None else "n/a"
+        cov_a, cov_t = r.get("coverage_attacks"), r.get("coverage_truthful")
+        cov_s = f"{cov_a:.0%}/{cov_t:.0%}" if cov_a is not None else "n/a"
+        sel_fa = r.get("selective_fa")
+        sel_fa_s = f"{r['fa']}/{r['n_attacks']-(abstain_a or 0)}={sel_fa:.2f}" if sel_fa is not None else "n/a (all abstained)"
+        sel_fr = r.get("selective_fr")
+        sel_fr_s = f"{r['fr']}/{r['n_truthful']-(abstain_t or 0)}={sel_fr:.2f}" if sel_fr is not None else "n/a (all abstained)"
         errors = r.get("errors", 0)
         marker = "  [!]" if errors else ""
-        lines.append(f"{r['protocol']:<42}{fa_s:>7}{fa_w:>17}{fa_c:>16}{fr_s:>7}{fr_w:>17}{fr_c:>16}{marker}")
+        lines.append(f"{r['protocol']:<42}{fa_s:>7}{fr_s:>7}{abstain_s:>14}{cov_s:>16}"
+                    f"{sel_fa_s:>18}{sel_fr_s:>18}{marker}")
         if errors:
             warnings.append(f"  [!] {r['protocol']}: {errors} case(s) had no cached/live review "
                             f"(missing/error/unparseable) — its FA/FR above are UNDER-COUNTED, not "
                             f"a true zero. Run with --live and a key, or sync the committed cache.")
+    lines.append("")
+    lines.append("FA/FR denominators are the full attack/truthful pool (population rate) -- a "
+                 "protocol that abstains on hard cases can still show a low population FA/FR. "
+                 "Sel.FA/Sel.FR ('selective risk') are FA/FR among cases the protocol actually "
+                 "decided (excludes abstentions) -- the number to compare against a protocol that "
+                 "never abstains. Wilson/exact 95% CIs for every rate are in the underlying row "
+                 "dicts (fa_wilson, fa_cp, selective_fa_wilson, selective_fa_cp, etc.) even though "
+                 "this compact view only prints the point estimate.")
     if warnings:
         lines.append("")
         lines.extend(warnings)
@@ -75,24 +139,51 @@ def format_ladder(rows: List[dict]) -> str:
 
 def p5_hybrid_row(cases: Sequence[Case], world: TrustedWorld, adjudicator_name: str,
                   adjudicator) -> dict:
-    """P5 as a genuine hybrid: the claim-appropriate anchor is always consulted
-    first; `adjudicator` (a P1-style judge) is only called on the cases where
-    the anchor itself is inconclusive (no anchor is applicable, or it can't
-    agree/contradict). Distinct from `ladder_row('P5_hybrid_abstain', ...)`,
-    which -- with no adjudicator -- abstains exactly like P4 and can never
-    diverge from it; this is the row that actually measures the hybrid path."""
+    """P5-hybrid: a DIFFERENT protocol from the pure-abstention 'P5' row
+    `ladder_row('P5_hybrid_abstain', ...)` produces with no adjudicator --
+    that one is architecturally identical to P4 and never diverges from it.
+    This one actually consults `adjudicator` (a P1-style judge, not
+    deterministic) whenever the claim-appropriate anchor is inconclusive, so
+    its result is judge-specific: report it as "P5-hybrid[adjudicator]", never
+    bare "P5". Cases where the adjudicator itself has no cached/live response
+    are counted as `errors`, not silently folded into abstention or "not FA"
+    -- same discipline as p4p5_probe.run_probe."""
     attacks = [c for c in cases if not c.should_accept]
     truthful = [c for c in cases if c.should_accept]
-    fa = sum(1 for c in attacks
-             if decide("P5_hybrid_abstain", c, world, adjudicator=adjudicator).false_accept(c))
-    fr = sum(1 for c in truthful
-             if decide("P5_hybrid_abstain", c, world, adjudicator=adjudicator).false_reject(c))
+
+    def _score(pool):
+        false_n = abstain = errors = 0
+        for c in pool:
+            if _anchor_inconclusive(c, world):
+                raw = adjudicator(c, world)
+                if raw.outcome in ("missing", "error", "unparseable"):
+                    errors += 1
+                    continue
+            d = decide("P5_hybrid_abstain", c, world, adjudicator=adjudicator)
+            if d.outcome == CANNOT_VERIFY:
+                abstain += 1
+            elif (c.should_accept and d.false_reject(c)) or (not c.should_accept and d.false_accept(c)):
+                false_n += 1
+        return false_n, abstain, errors
+
+    fa, abstain_a, err_a = _score(attacks)
+    fr, abstain_t, err_t = _score(truthful)
+    decided_a = len(attacks) - abstain_a - err_a
+    decided_t = len(truthful) - abstain_t - err_t
+    sel_fa, sel_fa_w, sel_fa_c = _selective(fa, decided_a)
+    sel_fr, sel_fr_w, sel_fr_c = _selective(fr, decided_t)
     return dict(
-        protocol=f"P5_hybrid_abstain (adjudicator={adjudicator_name})",
+        protocol=f"P5-hybrid[{adjudicator_name}]",
         n_attacks=len(attacks), fa=fa, fa_wilson=wilson_ci(fa, len(attacks)),
         fa_cp=clopper_pearson_ci(fa, len(attacks)),
         n_truthful=len(truthful), fr=fr, fr_wilson=wilson_ci(fr, len(truthful)),
         fr_cp=clopper_pearson_ci(fr, len(truthful)),
+        abstain_attacks=abstain_a, abstain_truthful=abstain_t,
+        coverage_attacks=decided_a / len(attacks) if attacks else None,
+        coverage_truthful=decided_t / len(truthful) if truthful else None,
+        selective_fa=sel_fa, selective_fa_wilson=sel_fa_w, selective_fa_cp=sel_fa_c,
+        selective_fr=sel_fr, selective_fr_wilson=sel_fr_w, selective_fr_cp=sel_fr_c,
+        errors=err_a + err_t,
     )
 
 

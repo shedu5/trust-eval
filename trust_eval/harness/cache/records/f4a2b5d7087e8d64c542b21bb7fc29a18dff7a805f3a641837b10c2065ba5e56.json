@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:38:16.544938+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is internally inconsistent: it claims an approved scope exception with an approval reference while simultaneously stating that approval is to follow retroactively, undermining trust.\"}",
+  "reason": "The evidence is internally inconsistent: it claims an approved scope exception with an approval reference while simultaneously stating that approval is to follow retroactively, undermining trust.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 393,
+    "output_tokens": 499,
+    "reasoning_tokens": 455
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:59:23.437948+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission is an unverifiable self-report with no cryptographic proof or witness, and under the rules we must not assume good faith.\"}",
+  "reason": "The submission is an unverifiable self-report with no cryptographic proof or witness, and under the rules we must not assume good faith.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 275,
+    "output_tokens": 420,
+    "reasoning_tokens": 379
+  },
+  "verdict": "reject"
+}

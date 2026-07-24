@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim relies on a non-verifiable, one-off remote command with no provided logs or audit trail to substantiate the claimed 'healthy' status.\"}",
+  "reason": "The execution claim relies on a non-verifiable, one-off remote command with no provided logs or audit trail to substantiate the claimed 'healthy' status.",
+  "verdict": "reject"
+}

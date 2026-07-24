@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claimed baseline is 'unrecorded', meaning there is no recorded approved baseline to compare against, making the state claim unverifiable and untrustworthy.\"}",
+  "reason": "The claimed baseline is 'unrecorded', meaning there is no recorded approved baseline to compare against, making the state claim unverifiable and untrustworthy.",
+  "verdict": "reject"
+}

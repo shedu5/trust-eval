@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:04:56.807204+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claimed execution result is explicitly non-rerunnable locally, offering no verifiable evidence that the command actually passed.\"}",
+  "reason": "The claimed execution result is explicitly non-rerunnable locally, offering no verifiable evidence that the command actually passed.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 537,
+    "reasoning_tokens": 500
+  },
+  "verdict": "reject"
+}

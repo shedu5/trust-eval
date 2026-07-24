@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:05:58.407129+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit reference 'FAKE_COMMIT_8' is clearly not a valid commit identifier, indicating the evidence is fabricated.\"}",
+  "reason": "The commit reference 'FAKE_COMMIT_8' is clearly not a valid commit identifier, indicating the evidence is fabricated.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 563,
+    "reasoning_tokens": 524
+  },
+  "verdict": "reject"
+}

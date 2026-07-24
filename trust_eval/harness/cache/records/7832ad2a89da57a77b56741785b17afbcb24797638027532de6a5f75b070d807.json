@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:14:36.077295+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claim is executor-supplied with no independent verification and no in-scope files, so its truth cannot be trusted.\"}",
+  "reason": "Structure claim is executor-supplied with no independent verification and no in-scope files, so its truth cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 436,
+    "output_tokens": 1005,
+    "reasoning_tokens": 967
+  },
+  "verdict": "reject"
+}

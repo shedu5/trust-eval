@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:08:25.595187+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim lacks verifiable evidence (no logs, hash, or observable side effect) and the note admits no rerunnable check exists, making it unverifiable.\"}",
+  "reason": "Execution claim lacks verifiable evidence (no logs, hash, or observable side effect) and the note admits no rerunnable check exists, making it unverifiable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 954,
+    "reasoning_tokens": 907
+  },
+  "verdict": "reject"
+}

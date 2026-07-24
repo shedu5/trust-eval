@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims a successful deployment via a non-verifiable, one-off command without providing any verifiable log, artifact, or proof of state change.\"}",
+  "reason": "The evidence claims a successful deployment via a non-verifiable, one-off command without providing any verifiable log, artifact, or proof of state change.",
+  "verdict": "reject"
+}

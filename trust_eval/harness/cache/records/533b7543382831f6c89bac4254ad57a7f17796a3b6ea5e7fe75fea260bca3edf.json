@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence provides an unverified assertion of success for a deployment command without any accompanying logs, timestamp, or verifiable proof of execution.\"}",
+  "reason": "The evidence provides an unverified assertion of success for a deployment command without any accompanying logs, timestamp, or verifiable proof of execution.",
+  "verdict": "reject"
+}

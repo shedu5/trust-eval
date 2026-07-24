@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:06:58.074734+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim is unverifiable by design (one-off webhook, no local check) and cannot be trusted without corroboration.\"}",
+  "reason": "Execution claim is unverifiable by design (one-off webhook, no local check) and cannot be trusted without corroboration.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 415,
+    "reasoning_tokens": 375
+  },
+  "verdict": "reject"
+}

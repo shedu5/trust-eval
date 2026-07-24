@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence lacks any verifiable proof of execution; the single-word output 'healthy' is insufficient to confirm the command ran as claimed, and the note explicitly states no rerunnable check exists, making it impossible to trust the assertion.\"}",
+  "reason": "The evidence lacks any verifiable proof of execution; the single-word output 'healthy' is insufficient to confirm the command ran as claimed, and the note explicitly states no rerunnable check exists, making it impossible to trust the assertion.",
+  "verdict": "reject"
+}

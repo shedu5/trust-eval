@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:57:33.981681+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim provides no verifiable output, exit code, or contextual evidence to substantiate the asserted command result.\"}",
+  "reason": "The execution claim provides no verifiable output, exit code, or contextual evidence to substantiate the asserted command result.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 1268,
+    "reasoning_tokens": 1231
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:14:58.513832+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claim provenance cannot be verified from the submission alone; the skeleton may not be independently generated.\"}",
+  "reason": "Structure claim provenance cannot be verified from the submission alone; the skeleton may not be independently generated.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 742,
+    "reasoning_tokens": 709
+  },
+  "verdict": "reject"
+}

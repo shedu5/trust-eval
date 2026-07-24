@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:11:23.232481+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission is unverifiable: it relies on a self-reported skeleton of unconfirmable provenance and a negative assertion ('asserted': false) that cannot be verified without accessing the repository.\"}",
+  "reason": "The submission is unverifiable: it relies on a self-reported skeleton of unconfirmable provenance and a negative assertion ('asserted': false) that cannot be verified without accessing the repository.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 905,
+    "reasoning_tokens": 853
+  },
+  "verdict": "reject"
+}

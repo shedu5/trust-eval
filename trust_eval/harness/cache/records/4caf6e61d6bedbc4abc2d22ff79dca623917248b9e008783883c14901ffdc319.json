@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:08:34.357089+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only an unsupported assertion with no verifiable evidence (e.g., log, signature, or external reference) to corroborate the claimed execution.\"}",
+  "reason": "The submission provides only an unsupported assertion with no verifiable evidence (e.g., log, signature, or external reference) to corroborate the claimed execution.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 528,
+    "reasoning_tokens": 482
+  },
+  "verdict": "reject"
+}

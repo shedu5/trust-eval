@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:15:18.512047+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The structure claim relies on a skeleton borrowed from a different task (other-task-5) with no evidence that it applies to the current task, and the assertion is negated, making the claim untrustworthy.\"}",
+  "reason": "The structure claim relies on a skeleton borrowed from a different task (other-task-5) with no evidence that it applies to the current task, and the assertion is negated, making the claim untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 623,
+    "reasoning_tokens": 566
+  },
+  "verdict": "reject"
+}

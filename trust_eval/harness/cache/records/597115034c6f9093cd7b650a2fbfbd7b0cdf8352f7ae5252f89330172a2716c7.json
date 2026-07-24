@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:26:41.580224+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The note 'citing an earlier run's result' contradicts the claim of being the most recent run and suggests the evidence is stale or copied without a current execution.\"}",
+  "reason": "The note 'citing an earlier run's result' contradicts the claim of being the most recent run and suggests the evidence is stale or copied without a current execution.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 293,
+    "output_tokens": 638,
+    "reasoning_tokens": 592
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:10:54.331840+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The structure claim uses a skeleton borrowed from a different task (skeleton-other-0) with empty in-scope files, so it is not reliable evidence about the current task's code.\"}",
+  "reason": "The structure claim uses a skeleton borrowed from a different task (skeleton-other-0) with empty in-scope files, so it is not reliable evidence about the current task's code.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 951,
+    "reasoning_tokens": 898
+  },
+  "verdict": "reject"
+}

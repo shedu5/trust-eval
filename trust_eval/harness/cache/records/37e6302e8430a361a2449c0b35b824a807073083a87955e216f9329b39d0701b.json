@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:05:28.911219+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit_ref 'FAKE_COMMIT_5' explicitly signals that the evidence is not genuine.\"}",
+  "reason": "The commit_ref 'FAKE_COMMIT_5' explicitly signals that the evidence is not genuine.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 412,
+    "reasoning_tokens": 378
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:05:38.510243+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim relies on a one-off deployment webhook with no reproducible or verifiable evidence, making it indistinguishable from a fabricated result.\"}",
+  "reason": "Execution claim relies on a one-off deployment webhook with no reproducible or verifiable evidence, making it indistinguishable from a fabricated result.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 1014,
+    "reasoning_tokens": 974
+  },
+  "verdict": "reject"
+}

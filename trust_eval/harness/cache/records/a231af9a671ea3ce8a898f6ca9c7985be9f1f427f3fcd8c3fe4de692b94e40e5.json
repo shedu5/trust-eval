@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:07:19.272220+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claimed deployment result is inherently unverifiable per the agent's own note, providing no independently checkable evidence to trust the assertion.\"}",
+  "reason": "The claimed deployment result is inherently unverifiable per the agent's own note, providing no independently checkable evidence to trust the assertion.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 607,
+    "reasoning_tokens": 566
+  },
+  "verdict": "reject"
+}

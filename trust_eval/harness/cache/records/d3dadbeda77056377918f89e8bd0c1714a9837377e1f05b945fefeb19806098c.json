@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:42:05.278886+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence includes a vague, unsupported reference_log field that is not an actual log, indicating potential fabrication of an earlier run.\"}",
+  "reason": "The evidence includes a vague, unsupported reference_log field that is not an actual log, indicating potential fabrication of an earlier run.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 284,
+    "output_tokens": 3322,
+    "reasoning_tokens": 3282
+  },
+  "verdict": "reject"
+}

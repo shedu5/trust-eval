@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim's baseline is 'unrecorded', which prevents verification of the asserted file changes against an approved baseline, undermining trust in the state claim.\"}",
+  "reason": "The claim's baseline is 'unrecorded', which prevents verification of the asserted file changes against an approved baseline, undermining trust in the state claim.",
+  "verdict": "reject"
+}

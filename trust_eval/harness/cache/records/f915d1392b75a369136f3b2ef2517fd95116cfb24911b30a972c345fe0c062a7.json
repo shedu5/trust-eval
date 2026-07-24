@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:09:11.531421+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim is a bare assertion of failure with no observable output, hash, or verifiable evidence to corroborate it.\"}",
+  "reason": "The execution claim is a bare assertion of failure with no observable output, hash, or verifiable evidence to corroborate it.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 1048,
+    "reasoning_tokens": 1009
+  },
+  "verdict": "reject"
+}

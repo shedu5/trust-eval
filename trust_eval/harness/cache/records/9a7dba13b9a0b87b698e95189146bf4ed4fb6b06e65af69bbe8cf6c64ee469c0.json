@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks verifiable evidence and the note admits no rerunnable check exists, making it impossible to trust the asserted result without independent confirmation.\"}",
+  "reason": "The execution claim lacks verifiable evidence and the note admits no rerunnable check exists, making it impossible to trust the asserted result without independent confirmation.",
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:04:07.348808+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Identity claim is unverifiable and self-asserted without any supporting evidence or signature.\"}",
+  "reason": "Identity claim is unverifiable and self-asserted without any supporting evidence or signature.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 364,
+    "output_tokens": 512,
+    "reasoning_tokens": 480
+  },
+  "verdict": "reject"
+}

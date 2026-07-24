@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to provide a verifiable baseline or an audit trail, as the 'claimed_baseline' is explicitly 'unrecorded'.\"}",
+  "reason": "The submission fails to provide a verifiable baseline or an audit trail, as the 'claimed_baseline' is explicitly 'unrecorded'.",
+  "verdict": "reject"
+}

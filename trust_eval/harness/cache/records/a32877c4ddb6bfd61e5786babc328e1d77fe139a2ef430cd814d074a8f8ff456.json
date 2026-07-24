@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a non-verifiable execution claim with no accompanying log, proof of authentication, or objective trail to confirm the deployment actually occurred or succeeded.\"}",
+  "reason": "The evidence relies on a non-verifiable execution claim with no accompanying log, proof of authentication, or objective trail to confirm the deployment actually occurred or succeeded.",
+  "verdict": "reject"
+}

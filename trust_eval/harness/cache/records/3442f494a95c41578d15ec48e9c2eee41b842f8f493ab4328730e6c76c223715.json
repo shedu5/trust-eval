@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:21:31.314944+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claim's skeleton provenance is unverifiable from the submission alone; cannot rule out executor-generated or stale data.\"}",
+  "reason": "Structure claim's skeleton provenance is unverifiable from the submission alone; cannot rule out executor-generated or stale data.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 623,
+    "reasoning_tokens": 586
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a non-verifiable, one-off execution claim without any independent corroborating evidence or mechanism for reproducibility.\"}",
+  "reason": "The submission relies on a non-verifiable, one-off execution claim without any independent corroborating evidence or mechanism for reproducibility.",
+  "verdict": "reject"
+}

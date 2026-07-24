@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims a baseline of 'unrecorded', which is unverifiable and insufficient to establish the state of the repository prior to the agent's changes.\"}",
+  "reason": "The evidence claims a baseline of 'unrecorded', which is unverifiable and insufficient to establish the state of the repository prior to the agent's changes.",
+  "verdict": "reject"
+}

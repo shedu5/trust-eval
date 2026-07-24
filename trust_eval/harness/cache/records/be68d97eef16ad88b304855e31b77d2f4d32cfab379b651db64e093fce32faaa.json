@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:27:36.086060+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim provides no verifiable evidence beyond the agent's assertion and is therefore untrustworthy.\"}",
+  "reason": "Execution claim provides no verifiable evidence beyond the agent's assertion and is therefore untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 287,
+    "output_tokens": 804,
+    "reasoning_tokens": 771
+  },
+  "verdict": "reject"
+}

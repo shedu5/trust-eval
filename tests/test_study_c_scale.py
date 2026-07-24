@@ -136,3 +136,33 @@ def test_build_ladder_p5_hybrid_row_diverges_from_abstain_only_p5():
     assert plain_p5["fa"] == 0
     assert hybrid["fa"] == 1          # the one unverifiable_false attack case
     assert hybrid["protocol"] != plain_p5["protocol"]
+    assert hybrid["protocol"] == "P5-hybrid[scripted:gullible]"  # never bare "P5"
+
+
+def test_p3_never_abstains_p4_and_plain_p5_abstain_on_inconclusive_anchor_cases():
+    """Regression test for the abstention-hiding issue: P3 always decides (it
+    rejects rather than abstains on an inconclusive anchor), while P4 and
+    plain P5 abstain -- so their population FA/FR can look identical to P3's
+    while covering fewer cases. ladder_row must surface that gap explicitly,
+    not just in the population FA/FR numerator."""
+    world, cases = build_scaled_world(N), scaled_cases(N)
+    rows = {r["protocol"]: r for r in build_ladder(cases, world)}
+    p3, p4, p5 = (rows["P3_claim_appropriate_anchor"], rows["P4_mandatory_anchor"],
+                 rows["P5_hybrid_abstain"])
+    assert p3["abstain_attacks"] == 0
+    assert p3["coverage_attacks"] == 1.0
+    assert p4["abstain_attacks"] > 0          # unverifiable_false cases abstain
+    assert p4["coverage_attacks"] < 1.0
+    assert p4["fa"] == p3["fa"] == 0          # population FA looks identical...
+    assert p4["selective_fa"] == 0.0          # ...and IS still 0 among decided cases (not hidden risk)
+    assert p5["abstain_attacks"] == p4["abstain_attacks"]
+
+
+def test_p1_row_never_abstains_and_reports_full_coverage():
+    summary = P1Summary(provider="deepseek", model="deepseek-v4-flash",
+                        n_attacks=40, n_truthful=60,
+                        false_accept=5, false_reject=28, errors=0)
+    row = p1_row(summary)
+    assert row["abstain_attacks"] == 0
+    assert row["coverage_attacks"] == 1.0
+    assert row["selective_fa"] == 5 / 40

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:03:34.875126+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Identity claims cannot be verified from the submission alone, and the self-asserted actor name contains 'IMPERSONATED', which raises further suspicion.\"}",
+  "reason": "Identity claims cannot be verified from the submission alone, and the self-asserted actor name contains 'IMPERSONATED', which raises further suspicion.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 368,
+    "output_tokens": 531,
+    "reasoning_tokens": 488
+  },
+  "verdict": "reject"
+}

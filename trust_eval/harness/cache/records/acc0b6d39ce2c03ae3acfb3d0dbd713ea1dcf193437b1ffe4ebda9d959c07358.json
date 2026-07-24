@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:45:16.718904+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence note states it is citing an earlier run's result rather than providing a fresh, direct execution record, making it impossible to trust as a current assertion of command output.\"}",
+  "reason": "The evidence note states it is citing an earlier run's result rather than providing a fresh, direct execution record, making it impossible to trust as a current assertion of command output.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 282,
+    "output_tokens": 845,
+    "reasoning_tokens": 796
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object declares an 'unrecorded' baseline for the state claim, which fails to establish a valid reference point for verifying the integrity of the file changes.\"}",
+  "reason": "The evidence object declares an 'unrecorded' baseline for the state claim, which fails to establish a valid reference point for verifying the integrity of the file changes.",
+  "verdict": "reject"
+}

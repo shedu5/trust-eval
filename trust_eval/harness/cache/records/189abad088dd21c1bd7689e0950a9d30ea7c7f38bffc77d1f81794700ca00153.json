@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:20:54.467539+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claims cannot be verified from the submission alone; the skeleton provenance is asserted but not independently confirmable, making the claim indistinguishable from a fabricated one.\"}",
+  "reason": "Structure claims cannot be verified from the submission alone; the skeleton provenance is asserted but not independently confirmable, making the claim indistinguishable from a fabricated one.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 562,
+    "reasoning_tokens": 518
+  },
+  "verdict": "reject"
+}

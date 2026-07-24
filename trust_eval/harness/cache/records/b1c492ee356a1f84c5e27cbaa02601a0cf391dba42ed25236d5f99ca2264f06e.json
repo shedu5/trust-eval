@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:04:48.155929+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit_ref 'FAKE_COMMIT_0' signals a fabricated, untrustworthy execution record rather than an authentic commit from the repository.\"}",
+  "reason": "The commit_ref 'FAKE_COMMIT_0' signals a fabricated, untrustworthy execution record rather than an authentic commit from the repository.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 405,
+    "reasoning_tokens": 362
+  },
+  "verdict": "reject"
+}

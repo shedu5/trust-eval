@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:04:27.093324+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Bare identity assertion without corroborating evidence; identity claims cannot be verified from the submission alone and are not self-authenticating.\"}",
+  "reason": "Bare identity assertion without corroborating evidence; identity claims cannot be verified from the submission alone and are not self-authenticating.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 364,
+    "output_tokens": 226,
+    "reasoning_tokens": 186
+  },
+  "verdict": "reject"
+}

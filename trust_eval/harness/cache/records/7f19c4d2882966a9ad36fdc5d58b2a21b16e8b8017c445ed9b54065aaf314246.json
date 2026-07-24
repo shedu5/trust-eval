@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:13:35.361441+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence openly states it is borrowed from another task and 'asserted' is false, indicating no positive, trustworthy claim about the current task's structure.\"}",
+  "reason": "The evidence openly states it is borrowed from another task and 'asserted' is false, indicating no positive, trustworthy claim about the current task's structure.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 1235,
+    "reasoning_tokens": 1190
+  },
+  "verdict": "reject"
+}

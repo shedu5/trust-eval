@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:18:16.709919+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Evidence is not from the current task's scope; skeleton is borrowed from another task without verification of relevance or freshness.\"}",
+  "reason": "Evidence is not from the current task's scope; skeleton is borrowed from another task without verification of relevance or freshness.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 1134,
+    "reasoning_tokens": 1097
+  },
+  "verdict": "reject"
+}

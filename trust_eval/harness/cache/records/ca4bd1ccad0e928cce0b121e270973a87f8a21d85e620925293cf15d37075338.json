@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:00:28.994463+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim contains only an unverifiable pass/fail assertion with no output, logs, or artifact to corroborate that the command actually ran and produced that result.\"}",
+  "reason": "Execution claim contains only an unverifiable pass/fail assertion with no output, logs, or artifact to corroborate that the command actually ran and produced that result.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 1270,
+    "reasoning_tokens": 1223
+  },
+  "verdict": "reject"
+}

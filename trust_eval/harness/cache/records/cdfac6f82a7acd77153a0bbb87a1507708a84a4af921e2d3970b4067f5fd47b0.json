@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:07:44.286456+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim provides only an asserted boolean with no verifiable output, error message, exit code, timestamp, or hash, making it impossible to distinguish from an unsupported fabrication.\"}",
+  "reason": "Execution claim provides only an asserted boolean with no verifiable output, error message, exit code, timestamp, or hash, making it impossible to distinguish from an unsupported fabrication.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 2076,
+    "reasoning_tokens": 2027
+  },
+  "verdict": "reject"
+}

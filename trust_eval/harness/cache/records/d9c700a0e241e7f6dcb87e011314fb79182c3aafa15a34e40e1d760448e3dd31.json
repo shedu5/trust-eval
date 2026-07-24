@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim is unverifiable with no rerunnable evidence or supporting details, and since I cannot assume good faith, it must be rejected.\"}",
+  "reason": "The execution claim is unverifiable with no rerunnable evidence or supporting details, and since I cannot assume good faith, it must be rejected.",
+  "verdict": "reject"
+}

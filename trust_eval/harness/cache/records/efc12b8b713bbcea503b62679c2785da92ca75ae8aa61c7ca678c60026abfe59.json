@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:43:32.011776+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The asserted change is to a file listed in in_scope_files, so no out-of-scope approval is required, and the submission is internally consistent.\"}",
+  "reason": "The asserted change is to a file listed in in_scope_files, so no out-of-scope approval is required, and the submission is internally consistent.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 269,
+    "output_tokens": 833,
+    "reasoning_tokens": 789
+  },
+  "verdict": "accept"
+}

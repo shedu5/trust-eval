@@ -20,10 +20,27 @@ import os
 import time
 from typing import Callable, Optional, Protocol, runtime_checkable
 
+from pydantic import BaseModel
+
 # Generous default so reasoning-style judges have room to emit a final answer
 # after their internal deliberation, rather than exhausting the budget mid-think
 # and returning empty content.
 DEFAULT_MAX_TOKENS = 8192
+
+
+class CompletionResult(BaseModel):
+    """A judge response plus the usage it actually cost -- added so cost can
+    be measured exactly (Phase 0's cost probe) rather than estimated.
+    `reasoning_tokens` is None when a provider doesn't report it (only
+    reasoning/thinking-capable models do); when present it is a SUBSET of
+    `output_tokens`, already included in it, not additional -- every
+    provider modeled here bills reasoning tokens at the ordinary output
+    rate, so it is a diagnostic field, not a separate billing line."""
+    text: str
+    input_tokens: Optional[int] = None
+    output_tokens: Optional[int] = None
+    reasoning_tokens: Optional[int] = None
+    cache_hit_input_tokens: Optional[int] = None  # DeepSeek only; None elsewhere
 
 
 @runtime_checkable
@@ -65,6 +82,9 @@ class OpenAICompatibleProvider:
         self.extra = extra or {}
 
     def complete(self, prompt: str) -> str:
+        return self.complete_with_usage(prompt).text
+
+    def complete_with_usage(self, prompt: str) -> CompletionResult:
         from openai import OpenAI  # lazy
 
         key = os.environ.get(self.api_key_env)
@@ -84,7 +104,20 @@ class OpenAICompatibleProvider:
                 )
                 content = resp.choices[0].message.content or ""
                 if content.strip():
-                    return content
+                    usage = getattr(resp, "usage", None)
+                    details = getattr(usage, "completion_tokens_details", None)
+                    # DeepSeek's OpenAI-compatible endpoint reports cache-hit
+                    # input tokens under this field name (mirrors its native
+                    # API); other OpenAI-compatible vendors simply won't set
+                    # it, and getattr(..., None) makes that safe.
+                    prompt_details = getattr(usage, "prompt_tokens_details", None)
+                    return CompletionResult(
+                        text=content,
+                        input_tokens=getattr(usage, "prompt_tokens", None) if usage else None,
+                        output_tokens=getattr(usage, "completion_tokens", None) if usage else None,
+                        reasoning_tokens=getattr(details, "reasoning_tokens", None) if details else None,
+                        cache_hit_input_tokens=getattr(prompt_details, "cached_tokens", None) if prompt_details else None,
+                    )
                 # Empty content (e.g. token budget exhausted): retry once more.
                 last_exc = RuntimeError("empty response content")
             except Exception as e:  # transient network / rate-limit / 5xx
@@ -104,6 +137,9 @@ class AnthropicProvider:
         self.max_tokens = max_tokens
 
     def complete(self, prompt: str) -> str:
+        return self.complete_with_usage(prompt).text
+
+    def complete_with_usage(self, prompt: str) -> CompletionResult:
         import anthropic  # lazy
 
         key = os.environ.get("ANTHROPIC_API_KEY")
@@ -115,8 +151,18 @@ class AnthropicProvider:
             max_tokens=self.max_tokens,
             messages=[{"role": "user", "content": prompt}],
         )
-        return "".join(
+        text = "".join(
             block.text for block in resp.content if getattr(block, "type", None) == "text"
+        )
+        usage = getattr(resp, "usage", None)
+        return CompletionResult(
+            text=text,
+            input_tokens=getattr(usage, "input_tokens", None) if usage else None,
+            output_tokens=getattr(usage, "output_tokens", None) if usage else None,
+            # Anthropic does not report a separate thinking/reasoning token
+            # count as of this writing -- extended-thinking tokens, if any,
+            # are folded into output_tokens with no independent breakdown.
+            reasoning_tokens=None,
         )
 
 
@@ -138,6 +184,16 @@ class ScriptedProvider:
 
     def complete(self, prompt: str) -> str:
         return self._responder(prompt)
+
+    def complete_with_usage(self, prompt: str) -> CompletionResult:
+        # Deterministic stub -- no real usage to report. len()-based token
+        # counts are provided (not None) so cost-probe code paths that sum
+        # usage can be exercised in tests without a live provider; they are
+        # NOT a substitute for a real tokenizer and must never appear in a
+        # reported cost figure.
+        text = self._responder(prompt)
+        return CompletionResult(text=text, input_tokens=len(prompt) // 4,
+                                output_tokens=len(text) // 4, reasoning_tokens=None)
 
 
 # Base URLs and key env vars for the OpenAI-compatible vendors.
@@ -177,6 +233,7 @@ def build_provider(spec: str, **kwargs) -> JudgeProvider:
 
 __all__ = [
     "JudgeProvider",
+    "CompletionResult",
     "OpenAICompatibleProvider",
     "AnthropicProvider",
     "ScriptedProvider",

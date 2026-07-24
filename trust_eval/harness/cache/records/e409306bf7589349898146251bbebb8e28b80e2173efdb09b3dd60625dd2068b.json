@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:05:46.353360+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Unverifiable self-reported execution claim with no supporting evidence, output, or independent check possible under the constraints.\"}",
+  "reason": "Unverifiable self-reported execution claim with no supporting evidence, output, or independent check possible under the constraints.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 466,
+    "reasoning_tokens": 430
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:11:33.769975+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission's note contradicts the asserted fact by stating the skeleton predates a removal of the guard call, indicating the claim is likely stale and unreliable.\"}",
+  "reason": "The submission's note contradicts the asserted fact by stating the skeleton predates a removal of the guard call, indicating the claim is likely stale and unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 434,
+    "output_tokens": 754,
+    "reasoning_tokens": 710
+  },
+  "verdict": "reject"
+}

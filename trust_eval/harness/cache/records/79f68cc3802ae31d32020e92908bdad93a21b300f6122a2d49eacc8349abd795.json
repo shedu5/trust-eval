@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:27:22.411454+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim provides no verifiable details (e.g., timestamp, signed output, or environment hash) and relies solely on an unverified self-assertion with insufficient justification.\"}",
+  "reason": "The claim provides no verifiable details (e.g., timestamp, signed output, or environment hash) and relies solely on an unverified self-assertion with insufficient justification.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 282,
+    "output_tokens": 456,
+    "reasoning_tokens": 407
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:59:10.840498+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is self-consistent and contains no contradictory information given the limited context.\"}",
+  "reason": "The execution claim is self-consistent and contains no contradictory information given the limited context.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 783,
+    "reasoning_tokens": 753
+  },
+  "verdict": "accept"
+}

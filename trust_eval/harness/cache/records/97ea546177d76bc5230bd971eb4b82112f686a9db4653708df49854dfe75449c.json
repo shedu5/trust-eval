@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:58:50.634171+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is internally consistent, no file changes are asserted, and nothing in the provided evidence contradicts the claimed result.\"}",
+  "reason": "The execution claim is internally consistent, no file changes are asserted, and nothing in the provided evidence contradicts the claimed result.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 1076,
+    "reasoning_tokens": 1039
+  },
+  "verdict": "accept"
+}

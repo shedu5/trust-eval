@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:05:34.554710+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit ref 'FAKE_COMMIT_6' indicates the claim is fabricated, and execution claims cannot be verified from the submission alone.\"}",
+  "reason": "The commit ref 'FAKE_COMMIT_6' indicates the claim is fabricated, and execution claims cannot be verified from the submission alone.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 330,
+    "reasoning_tokens": 288
+  },
+  "verdict": "reject"
+}

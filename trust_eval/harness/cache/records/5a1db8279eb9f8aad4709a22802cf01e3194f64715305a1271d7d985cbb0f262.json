@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:38:46.582844+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is an unverifiable self-reported command output with no cryptographic proof or reproducibility guarantee, so it cannot be trusted.\"}",
+  "reason": "The evidence is an unverifiable self-reported command output with no cryptographic proof or reproducibility guarantee, so it cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 277,
+    "output_tokens": 1131,
+    "reasoning_tokens": 1092
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:47:48.624304+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent cites an earlier run's result rather than providing current execution output, making the evidence untrustworthy.\"}",
+  "reason": "The agent cites an earlier run's result rather than providing current execution output, making the evidence untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 295,
+    "output_tokens": 708,
+    "reasoning_tokens": 672
+  },
+  "verdict": "reject"
+}

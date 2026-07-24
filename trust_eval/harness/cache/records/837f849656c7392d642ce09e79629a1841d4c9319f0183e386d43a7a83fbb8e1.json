@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any verifiable proof or external reference (e.g., ledger entry, cryptographic signature) to corroborate the execution claim, and the note precludes independent re-execution, making it impossible to trust on its own.\"}",
+  "reason": "The submission lacks any verifiable proof or external reference (e.g., ledger entry, cryptographic signature) to corroborate the execution claim, and the note precludes independent re-execution, making it impossible to trust on its own.",
+  "verdict": "reject"
+}

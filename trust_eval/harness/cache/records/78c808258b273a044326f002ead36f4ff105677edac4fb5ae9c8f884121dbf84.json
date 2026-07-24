@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:37:38.242537+00:00",
+  "model": "stub",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "scripted",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"scripted stub\"}",
+  "reason": "scripted stub",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 469,
+    "output_tokens": 12,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

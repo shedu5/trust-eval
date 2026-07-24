@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies entirely on a self-reported 'healthy' output from an unverified deployment command without providing any verifiable log, artifact, or cryptographic proof of success.\"}",
+  "reason": "The evidence relies entirely on a self-reported 'healthy' output from an unverified deployment command without providing any verifiable log, artifact, or cryptographic proof of success.",
+  "verdict": "reject"
+}

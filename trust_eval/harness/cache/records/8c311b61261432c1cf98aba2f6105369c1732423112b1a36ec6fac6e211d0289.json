@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:03:04.385930+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Identity claim cannot be verified from the submission alone; no verifiable proof of the asserted actor is provided.\"}",
+  "reason": "Identity claim cannot be verified from the submission alone; no verifiable proof of the asserted actor is provided.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 364,
+    "output_tokens": 299,
+    "reasoning_tokens": 264
+  },
+  "verdict": "reject"
+}

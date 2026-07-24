@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence lacks any verifiable proof or external attestation; as a self-consistent but unverifiable assertion, it cannot be trusted.\"}",
+  "reason": "The evidence lacks any verifiable proof or external attestation; as a self-consistent but unverifiable assertion, it cannot be trusted.",
+  "verdict": "reject"
+}

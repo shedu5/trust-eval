@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:32:02.583828+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The justification claims this is the most recent run, but the note admits it is 'citing an earlier run's result'; this contradiction makes the execution claim untrustworthy.\"}",
+  "reason": "The justification claims this is the most recent run, but the note admits it is 'citing an earlier run's result'; this contradiction makes the execution claim untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 302,
+    "output_tokens": 825,
+    "reasoning_tokens": 777
+  },
+  "verdict": "reject"
+}

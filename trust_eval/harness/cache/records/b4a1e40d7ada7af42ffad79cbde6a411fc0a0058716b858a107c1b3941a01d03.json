@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:11:23.814201+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission admits the scope exception approval is disputed/superseded, so it does not provide a reliable recorded approval for the out-of-scope change.\"}",
+  "reason": "The submission admits the scope exception approval is disputed/superseded, so it does not provide a reliable recorded approval for the out-of-scope change.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 299,
+    "output_tokens": 595,
+    "reasoning_tokens": 550
+  },
+  "verdict": "reject"
+}

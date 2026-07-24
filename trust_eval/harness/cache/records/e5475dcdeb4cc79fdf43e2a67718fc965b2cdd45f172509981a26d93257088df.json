@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:10:06.623389+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks any independently verifiable artifact (e.g., output, hash, or witness signature) and relies solely on the agent's self-report, which cannot be trusted without external confirmation.\"}",
+  "reason": "The execution claim lacks any independently verifiable artifact (e.g., output, hash, or witness signature) and relies solely on the agent's self-report, which cannot be trusted without external confirmation.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 1045,
+    "reasoning_tokens": 992
+  },
+  "verdict": "reject"
+}

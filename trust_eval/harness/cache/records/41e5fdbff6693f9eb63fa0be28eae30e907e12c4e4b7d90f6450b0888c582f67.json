@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:23:55.507553+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim is unverifiable without any external corroboration; self-reported success without proof is insufficient to establish trust.\"}",
+  "reason": "Execution claim is unverifiable without any external corroboration; self-reported success without proof is insufficient to establish trust.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 279,
+    "output_tokens": 333,
+    "reasoning_tokens": 296
+  },
+  "verdict": "reject"
+}

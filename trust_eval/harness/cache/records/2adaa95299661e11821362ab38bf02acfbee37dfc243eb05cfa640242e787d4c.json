@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:10:30.227490+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims a structural fact with unverifiable provenance and an ambiguous 'asserted: false' flag; the skeleton's independence cannot be trusted.\"}",
+  "reason": "The evidence claims a structural fact with unverifiable provenance and an ambiguous 'asserted: false' flag; the skeleton's independence cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 1558,
+    "reasoning_tokens": 1514
+  },
+  "verdict": "reject"
+}

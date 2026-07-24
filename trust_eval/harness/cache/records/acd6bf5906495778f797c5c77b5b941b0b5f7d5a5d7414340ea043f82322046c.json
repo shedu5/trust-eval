@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies entirely on an unverifiable external claim of success ('healthy') for a command with no associated repository state changes or accessible logs to validate the action.\"}",
+  "reason": "The submission relies entirely on an unverifiable external claim of success ('healthy') for a command with no associated repository state changes or accessible logs to validate the action.",
+  "verdict": "reject"
+}

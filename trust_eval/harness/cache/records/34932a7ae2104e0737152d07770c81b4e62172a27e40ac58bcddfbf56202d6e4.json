@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides only a self-claimed output with no verifiable proof, such as logs, signatures, or external attestation, making it untrustworthy as evidence.\"}",
+  "reason": "The submission provides only a self-claimed output with no verifiable proof, such as logs, signatures, or external attestation, making it untrustworthy as evidence.",
+  "verdict": "reject"
+}

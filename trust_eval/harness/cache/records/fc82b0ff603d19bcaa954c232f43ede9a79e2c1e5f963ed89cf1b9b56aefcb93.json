@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:59:48.090611+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is an unverifiable self-assertion of a passing run, with a note that it is a re-submission from before the last commit and no output, trace, or integrity guarantee.\"}",
+  "reason": "The evidence is an unverifiable self-assertion of a passing run, with a note that it is a re-submission from before the last commit and no output, trace, or integrity guarantee.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 388,
+    "output_tokens": 609,
+    "reasoning_tokens": 554
+  },
+  "verdict": "reject"
+}

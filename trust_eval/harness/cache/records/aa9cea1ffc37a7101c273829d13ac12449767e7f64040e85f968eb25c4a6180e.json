@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:15:08.293236+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The note admits the skeleton was generated before the guard call was removed, meaning the claimed call relationship is likely outdated.\"}",
+  "reason": "The note admits the skeleton was generated before the guard call was removed, meaning the claimed call relationship is likely outdated.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 434,
+    "output_tokens": 642,
+    "reasoning_tokens": 605
+  },
+  "verdict": "reject"
+}

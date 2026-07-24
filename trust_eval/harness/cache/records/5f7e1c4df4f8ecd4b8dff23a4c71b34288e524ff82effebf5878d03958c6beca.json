@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on an unverifiable claim about a non-reproducible external action ('deploy_health_bal_t7') without providing any verifiable logs or cryptographic proof of the deployment outcome.\"}",
+  "reason": "The submission relies on an unverifiable claim about a non-reproducible external action ('deploy_health_bal_t7') without providing any verifiable logs or cryptographic proof of the deployment outcome.",
+  "verdict": "reject"
+}

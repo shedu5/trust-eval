@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:16:15.735502+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The state claim uses an unrecorded baseline instead of an approved baseline, so the asserted changes cannot be trusted.\"}",
+  "reason": "The state claim uses an unrecorded baseline instead of an approved baseline, so the asserted changes cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 272,
+    "output_tokens": 373,
+    "reasoning_tokens": 336
+  },
+  "verdict": "reject"
+}

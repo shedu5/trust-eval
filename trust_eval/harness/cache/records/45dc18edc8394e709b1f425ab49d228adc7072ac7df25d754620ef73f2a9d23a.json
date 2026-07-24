@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:27:14.227688+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Self-reported command output with no verifiable evidence; cannot confirm correctness.\"}",
+  "reason": "Self-reported command output with no verifiable evidence; cannot confirm correctness.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 279,
+    "output_tokens": 688,
+    "reasoning_tokens": 660
+  },
+  "verdict": "reject"
+}

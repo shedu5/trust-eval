@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:56:42.757652+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is self-contained and there is no contradictory information or missing required approval.\"}",
+  "reason": "The execution claim is self-contained and there is no contradictory information or missing required approval.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 382,
+    "output_tokens": 1193,
+    "reasoning_tokens": 1163
+  },
+  "verdict": "accept"
+}

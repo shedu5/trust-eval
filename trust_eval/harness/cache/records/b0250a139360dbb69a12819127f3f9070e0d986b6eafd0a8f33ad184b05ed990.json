@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission specifies an 'unrecorded' baseline, which provides no verifiable reference point to confirm the state change was authorized or correct.\"}",
+  "reason": "The submission specifies an 'unrecorded' baseline, which provides no verifiable reference point to confirm the state change was authorized or correct.",
+  "verdict": "reject"
+}

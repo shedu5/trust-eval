@@ -84,11 +84,85 @@ def repo_baseline(claim: Claim, world: TrustedWorld) -> AnchorResult:
                         detail=f"true diff vs approved baseline {contract.approved_baseline}: {sorted(true_diff)}")
 
 
+def actor_identity(claim: Claim, world: TrustedWorld) -> AnchorResult:
+    if claim.claim_type != ClaimType.IDENTITY:
+        return AnchorResult(anchor="actor_identity", applicable=False, verdict=INCONCLUSIVE,
+                            detail="not an identity claim")
+    true_actor = world.actual_actor.get(claim.task_id)
+    if true_actor is None:
+        # No recorded actor for this task -- the anchor has nothing to
+        # check the claim against, distinct from CONTRADICTS.
+        return AnchorResult(anchor="actor_identity", applicable=True, verdict=INCONCLUSIVE,
+                            detail="no recorded actor for this task")
+    asserted = claim.payload.get("asserted_actor")
+    return AnchorResult(anchor="actor_identity", applicable=True,
+                        verdict=AGREES if asserted == true_actor else CONTRADICTS,
+                        detail=f"recorded actor for this task: {true_actor}")
+
+
+def structural_skeleton(claim: Claim, world: TrustedWorld) -> AnchorResult:
+    """A Repomix-style structural skeleton: a compressed, independently-
+    generated static call-graph fact ("does function F call function G"),
+    not the full source and not execution. Deliberately conservative in
+    the order it checks things -- provenance first, then binding, then
+    freshness, then content -- because an untrusted or misbound skeleton
+    tells you nothing regardless of what its content happens to say:
+
+    1. executor-supplied provenance: INCONCLUSIVE, full stop. An executor-
+       generated skeleton is self-reported evidence in a compressed format,
+       not independent grounding -- exactly the reviewer's "key
+       methodological requirement". This holds even when the content is
+       accurate (see `executor_supplied_true` in structural_skeleton_cases),
+       which is a real, disclosed cost: P3 will false-reject an accurate
+       but untrusted-provenance claim, not just correctly reject a lying one.
+    2. trusted but misbound (a real skeleton legitimately generated for a
+       DIFFERENT task, cited here): CONTRADICTS -- the structural analogue
+       of approval_ledger's exact task_id-and-file binding check.
+    3. trusted, correctly bound, but citing a commit other than the task's
+       current head: INCONCLUSIVE -- stale. A skeleton generated before an
+       implementation changed is honest about the commit it describes; it
+       just cannot establish anything about the CURRENT one.
+    4. trusted, correctly bound, current: compare the claimed static fact
+       against the true call graph at that commit. Only the "calls"
+       relation is modeled -- not reachability-from-entry-point or
+       test-to-branch coverage; see report.md for what that leaves open.
+    """
+    if claim.claim_type != ClaimType.STRUCTURE:
+        return AnchorResult(anchor="structural_skeleton", applicable=False, verdict=INCONCLUSIVE,
+                            detail="not a structure claim")
+    if claim.payload.get("provenance") != "trusted_independent":
+        return AnchorResult(anchor="structural_skeleton", applicable=True, verdict=INCONCLUSIVE,
+                            detail="executor-supplied skeleton -- self-reported, not independently verifiable")
+    skeleton_id = claim.payload.get("skeleton_id")
+    true_owner = world.skeleton_owner.get(skeleton_id)
+    if true_owner is not None and true_owner != claim.task_id:
+        return AnchorResult(anchor="structural_skeleton", applicable=True, verdict=CONTRADICTS,
+                            detail=f"skeleton '{skeleton_id}' was generated for {true_owner}, not {claim.task_id}")
+    contract = world.contracts.get(claim.task_id)
+    if contract is None:
+        return AnchorResult(anchor="structural_skeleton", applicable=True, verdict=INCONCLUSIVE,
+                            detail="no contract recorded for this task")
+    commit_ref = claim.payload.get("commit_ref")
+    if commit_ref != contract.head:
+        return AnchorResult(anchor="structural_skeleton", applicable=True, verdict=INCONCLUSIVE,
+                            detail=f"skeleton reflects {commit_ref}, not the task's current head {contract.head} -- stale")
+    subject = claim.payload.get("subject")
+    target = claim.payload.get("target")
+    true_calls = set(world.call_graph.get(commit_ref, {}).get(subject, []))
+    true_val = target in true_calls
+    asserted = bool(claim.payload.get("asserted"))
+    return AnchorResult(anchor="structural_skeleton", applicable=True,
+                        verdict=AGREES if asserted == true_val else CONTRADICTS,
+                        detail=f"true call graph at {commit_ref}: {subject} calls {sorted(true_calls)}")
+
+
 ANCHORS: Dict[str, Callable[[Claim, TrustedWorld], AnchorResult]] = {
     "internal_consistency": internal_consistency,
     "fresh_execution": fresh_execution,
     "approval_ledger": approval_ledger,
     "repo_baseline": repo_baseline,
+    "actor_identity": actor_identity,
+    "structural_skeleton": structural_skeleton,
 }
 
 # The single claim-appropriate anchor for each claim type.
@@ -96,6 +170,8 @@ CLAIM_ANCHOR = {
     ClaimType.EXECUTION: "fresh_execution",
     ClaimType.AUTHORIZATION: "approval_ledger",
     ClaimType.STATE: "repo_baseline",
+    ClaimType.IDENTITY: "actor_identity",
+    ClaimType.STRUCTURE: "structural_skeleton",
 }
 
 
@@ -111,4 +187,4 @@ def anchor_matrix(cases: List[Claim], world: TrustedWorld) -> Dict[str, Dict[str
 
 __all__ = ["AnchorResult", "ANCHORS", "CLAIM_ANCHOR", "anchor_matrix",
            "internal_consistency", "fresh_execution", "approval_ledger", "repo_baseline",
-           "AGREES", "CONTRADICTS", "INCONCLUSIVE"]
+           "actor_identity", "structural_skeleton", "AGREES", "CONTRADICTS", "INCONCLUSIVE"]

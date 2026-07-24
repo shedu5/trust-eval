@@ -2,3 +2,8 @@
 # not import these). Installed in the Docker image so the container can do both.
 anthropic==0.118.0
 openai==2.47.0
+# Gemini's real Batch API (harness/batch.py) is only exposed through the
+# native google-genai client, not the OpenAI-compatible endpoint the
+# synchronous path uses -- needed for the strong-tier panel's batch
+# submission, not for cache-only reproduction.
+google-genai==2.14.0

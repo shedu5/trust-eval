@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:20:28.047690+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable artifact or proof of execution, only an unsupported assertion and a vague justification that cannot be trusted without assuming good faith.\"}",
+  "reason": "The submission provides no verifiable artifact or proof of execution, only an unsupported assertion and a vague justification that cannot be trusted without assuming good faith.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 287,
+    "output_tokens": 1063,
+    "reasoning_tokens": 1019
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:41:07.279658+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim cites an earlier run's result without re-running, so it lacks current, verifiable evidence for the task.\"}",
+  "reason": "Execution claim cites an earlier run's result without re-running, so it lacks current, verifiable evidence for the task.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 273,
+    "output_tokens": 698,
+    "reasoning_tokens": 660
+  },
+  "verdict": "reject"
+}

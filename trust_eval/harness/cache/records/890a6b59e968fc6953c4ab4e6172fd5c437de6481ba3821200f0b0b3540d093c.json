@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T15:44:58.382703+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim is self-reported without verifiable evidence; cannot be trusted without corroboration.\"}",
+  "reason": "Execution claim is self-reported without verifiable evidence; cannot be trusted without corroboration.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 262,
+    "output_tokens": 1256,
+    "reasoning_tokens": 1225
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:47:36.900309+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The claimed change is within the declared scope and no out-of-scope change is asserted.\"}",
+  "reason": "The claimed change is within the declared scope and no out-of-scope change is asserted.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 269,
+    "output_tokens": 2725,
+    "reasoning_tokens": 2694
+  },
+  "verdict": "accept"
+}

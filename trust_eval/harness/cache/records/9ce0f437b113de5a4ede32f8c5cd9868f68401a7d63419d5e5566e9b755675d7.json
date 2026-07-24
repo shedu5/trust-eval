@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:06:27.589887+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Claim is unverifiable and relies solely on agent's word with no corroborating evidence.\"}",
+  "reason": "Claim is unverifiable and relies solely on agent's word with no corroborating evidence.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 1249,
+    "reasoning_tokens": 1217
+  },
+  "verdict": "reject"
+}

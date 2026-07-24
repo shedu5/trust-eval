@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:33:55.162861+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim provides no verifiable proof (e.g., hash, signature, timestamp) to corroborate the asserted success, making it indistinguishable from a fabricated record.\"}",
+  "reason": "The execution claim provides no verifiable proof (e.g., hash, signature, timestamp) to corroborate the asserted success, making it indistinguishable from a fabricated record.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 282,
+    "output_tokens": 931,
+    "reasoning_tokens": 884
+  },
+  "verdict": "reject"
+}

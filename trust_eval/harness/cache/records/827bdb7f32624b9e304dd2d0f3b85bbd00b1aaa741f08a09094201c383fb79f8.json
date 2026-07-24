@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:14:20.018739+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The state claim relies on an unrecorded baseline, making verification impossible and rendering the evidence untrustworthy.\"}",
+  "reason": "The state claim relies on an unrecorded baseline, making verification impossible and rendering the evidence untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 275,
+    "output_tokens": 441,
+    "reasoning_tokens": 405
+  },
+  "verdict": "reject"
+}

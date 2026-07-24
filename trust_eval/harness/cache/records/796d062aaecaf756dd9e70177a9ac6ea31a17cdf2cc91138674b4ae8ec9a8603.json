@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:30:41.999333+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim is purely self-reported with no verifiable output, timestamp, or contextual proof that the command ran on the claimed head; trust must be rejected without independent corroboration.\"}",
+  "reason": "The execution claim is purely self-reported with no verifiable output, timestamp, or contextual proof that the command ran on the claimed head; trust must be rejected without independent corroboration.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 282,
+    "output_tokens": 556,
+    "reasoning_tokens": 506
+  },
+  "verdict": "reject"
+}

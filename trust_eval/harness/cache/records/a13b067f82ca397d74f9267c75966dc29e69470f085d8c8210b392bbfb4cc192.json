@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:16:32.085304+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claim relies on an executor-supplied skeleton without independent verification, which is untrustworthy.\"}",
+  "reason": "Structure claim relies on an executor-supplied skeleton without independent verification, which is untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 436,
+    "output_tokens": 339,
+    "reasoning_tokens": 306
+  },
+  "verdict": "reject"
+}

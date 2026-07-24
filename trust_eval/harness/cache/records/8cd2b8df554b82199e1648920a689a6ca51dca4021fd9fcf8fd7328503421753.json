@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:04:30.220881+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Insufficient verifiable evidence to support the state claim; no digests, signatures, or diffs provided.\"}",
+  "reason": "Insufficient verifiable evidence to support the state claim; no digests, signatures, or diffs provided.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 269,
+    "output_tokens": 2020,
+    "reasoning_tokens": 1983
+  },
+  "verdict": "reject"
+}

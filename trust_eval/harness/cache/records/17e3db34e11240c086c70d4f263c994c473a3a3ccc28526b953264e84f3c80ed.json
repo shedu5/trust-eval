@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any verifiable proof of execution or external validation, and the agent's self-claimed output cannot be trusted without independent confirmation.\"}",
+  "reason": "The submission lacks any verifiable proof of execution or external validation, and the agent's self-claimed output cannot be trusted without independent confirmation.",
+  "verdict": "reject"
+}

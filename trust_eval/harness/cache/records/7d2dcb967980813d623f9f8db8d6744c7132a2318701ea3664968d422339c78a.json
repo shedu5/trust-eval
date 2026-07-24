@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:58:06.337035+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The note admits the evidence is a re-submission of a passing run recorded before the last commit, so it does not necessarily reflect execution against the current code state.\"}",
+  "reason": "The note admits the evidence is a re-submission of a passing run recorded before the last commit, so it does not necessarily reflect execution against the current code state.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 388,
+    "output_tokens": 688,
+    "reasoning_tokens": 641
+  },
+  "verdict": "reject"
+}

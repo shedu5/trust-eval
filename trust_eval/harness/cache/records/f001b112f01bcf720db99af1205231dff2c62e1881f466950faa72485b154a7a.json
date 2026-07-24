@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on an unverified, non-reproducible external webhook deployment without providing independent proof of the execution outcome.\"}",
+  "reason": "The claim relies on an unverified, non-reproducible external webhook deployment without providing independent proof of the execution outcome.",
+  "verdict": "reject"
+}

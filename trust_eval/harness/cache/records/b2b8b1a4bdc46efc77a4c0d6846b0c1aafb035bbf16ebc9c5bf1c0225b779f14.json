@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:13:30.660720+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"State claim has an unrecorded baseline, making it impossible to verify changes relative to an approved baseline.\"}",
+  "reason": "State claim has an unrecorded baseline, making it impossible to verify changes relative to an approved baseline.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 275,
+    "output_tokens": 640,
+    "reasoning_tokens": 605
+  },
+  "verdict": "reject"
+}

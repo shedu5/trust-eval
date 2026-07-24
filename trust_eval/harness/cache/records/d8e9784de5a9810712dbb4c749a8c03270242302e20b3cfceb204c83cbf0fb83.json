@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:52:28.425082+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The note indicates the evidence is from an earlier run, not from the current command execution, making the claim unverifiable and self-undermining.\"}",
+  "reason": "The note indicates the evidence is from an earlier run, not from the current command execution, making the claim unverifiable and self-undermining.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 295,
+    "output_tokens": 621,
+    "reasoning_tokens": 577
+  },
+  "verdict": "reject"
+}

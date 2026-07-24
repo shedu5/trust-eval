@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:14:22.176311+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly disclaims assertion (asserted: false), notes the skeleton is borrowed from a different task, and lists no in-scope files, so it provides no trustworthy claim about the current task.\"}",
+  "reason": "The evidence explicitly disclaims assertion (asserted: false), notes the skeleton is borrowed from a different task, and lists no in-scope files, so it provides no trustworthy claim about the current task.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 891,
+    "reasoning_tokens": 836
+  },
+  "verdict": "reject"
+}

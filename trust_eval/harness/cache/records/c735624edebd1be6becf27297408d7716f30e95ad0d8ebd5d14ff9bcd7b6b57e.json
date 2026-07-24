@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claimed baseline is explicitly labeled as 'unrecorded', making it impossible to verify the state of the changes against an approved baseline.\"}",
+  "reason": "The claimed baseline is explicitly labeled as 'unrecorded', making it impossible to verify the state of the changes against an approved baseline.",
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:17:53.605028+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claims cannot be verified from the submission alone, as the skeleton's independence and staleness are unconfirmable.\"}",
+  "reason": "Structure claims cannot be verified from the submission alone, as the skeleton's independence and staleness are unconfirmable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 780,
+    "reasoning_tokens": 743
+  },
+  "verdict": "reject"
+}

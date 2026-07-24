@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:48:11.063691+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission cites an earlier run's result rather than providing a current execution outcome, making it unreliable hearsay.\"}",
+  "reason": "The submission cites an earlier run's result rather than providing a current execution outcome, making it unreliable hearsay.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 273,
+    "output_tokens": 444,
+    "reasoning_tokens": 408
+  },
+  "verdict": "reject"
+}

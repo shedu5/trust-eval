@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:12:27.522243+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission's note indicates the skeleton predates a removal of the guard call, making the claim likely stale and unreliable for current state, and the provenance assertion is unverifiable.\"}",
+  "reason": "The submission's note indicates the skeleton predates a removal of the guard call, making the claim likely stale and unreliable for current state, and the provenance assertion is unverifiable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 434,
+    "output_tokens": 616,
+    "reasoning_tokens": 566
+  },
+  "verdict": "reject"
+}

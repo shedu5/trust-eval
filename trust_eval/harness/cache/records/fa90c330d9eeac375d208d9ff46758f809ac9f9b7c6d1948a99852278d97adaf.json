@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:06:08.826820+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim asserts a truly unverifiable output with no cryptographic proof or reproducible check; it is indistinguishable from a fabricated result.\"}",
+  "reason": "The execution claim asserts a truly unverifiable output with no cryptographic proof or reproducible check; it is indistinguishable from a fabricated result.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 800,
+    "reasoning_tokens": 760
+  },
+  "verdict": "reject"
+}

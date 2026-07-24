@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a non-verifiable execution claim that cannot be audited or replicated, making it impossible to confirm the agent's assertion of a successful deployment.\"}",
+  "reason": "The submission relies on a non-verifiable execution claim that cannot be audited or replicated, making it impossible to confirm the agent's assertion of a successful deployment.",
+  "verdict": "reject"
+}

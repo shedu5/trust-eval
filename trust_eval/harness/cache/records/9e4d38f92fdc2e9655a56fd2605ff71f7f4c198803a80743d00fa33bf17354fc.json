@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T17:04:22.711117+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The asserted_actor string contains 'IMPERSONATED', signaling that the identity claim is likely fraudulent and cannot be trusted.\"}",
+  "reason": "The asserted_actor string contains 'IMPERSONATED', signaling that the identity claim is likely fraudulent and cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 368,
+    "output_tokens": 389,
+    "reasoning_tokens": 351
+  },
+  "verdict": "reject"
+}

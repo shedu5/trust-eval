@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T16:21:35.542683+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The note contradicts the justification: it claims to be the most recent run on the current head but also states it is citing an earlier run, making the evidence unreliable.\"}",
+  "reason": "The note contradicts the justification: it claims to be the most recent run on the current head but also states it is citing an earlier run, making the evidence unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 302,
+    "output_tokens": 961,
+    "reasoning_tokens": 914
+  },
+  "verdict": "reject"
+}
