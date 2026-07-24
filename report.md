@@ -4,8 +4,10 @@
 only source of the evidence used to evaluate its own work, which oversight
 protocols can still recover the truth?
 
-*v3 — sensitivity analysis and genuine P4/P5 hybrid differentiation added.
-See "Changes from v2" and "Changes from v1" at the end for what was added,
+*v4 — abstention/coverage made explicit throughout, P5 naming
+disambiguated, hypothesis-status table tightened, and several internal
+contradictions fixed in response to external review. See "Changes from v3,"
+"Changes from v2," and "Changes from v1" at the end for what was added,
 fixed, and why. Judges: `deepseek-v4-flash`, `gemini-3.1-flash-lite`
 (cost-constrained "weak" tier; see Scope and Limitations — the preregistered
 strong tier was not run). Principal corpus: 100 synthetic-surrogate cases (10
@@ -38,9 +40,17 @@ within the submitted evidence object does not establish correspondence with
 external state. A claim-matched reference protocol (P3), constructed with
 direct access to the ground-truth fact matching each claim type — fresh
 execution, the independent approval ledger, or repository state — recorded
-no errors in this corpus. That result is expected by construction: P3's job
-is to establish the achievable error floor, not to demonstrate empirically
-that ground-truth access beats no ground-truth access.
+no errors in this corpus, deciding every case (100% coverage, zero
+abstention): when its anchor could not resolve a claim, P3 is defined to
+reject rather than abstain, so its zero-error result is not an artifact of
+declining hard cases. That result is expected by construction: P3's job is
+to establish the achievable error floor, not to demonstrate empirically that
+ground-truth access beats no ground-truth access. A related protocol, P4,
+uses the same anchors but abstains (`cannot_verify`) instead of rejecting
+when the anchor is inconclusive — trading coverage for a different error
+guarantee. Both protocols and the coverage/abstention distinction between
+them are reported in full in Table 1 below; abstention is not hidden from
+the principal results.
 
 The two text-only judges showed different error profiles. DeepSeek accepted
 5 of 40 false claims and rejected 28 of 60 truthful claims. Gemini accepted
@@ -122,12 +132,33 @@ agree with each other; the object is self-consistent). A claim is
 event — the real repository state, execution result, authorization, actor,
 task, or time.
 
-**Central claim:**
+**Central claim**, stated identically to
+[`docs/study-c-incident-registry.md`](docs/study-c-incident-registry.md)
+(the frozen framing this study was designed against — not rewritten here to
+fit results):
 
 > Deterministic internal-consistency checking can establish that an evidence
 > object agrees with itself. It cannot establish that it agrees with reality.
 > Recovering external truth requires a claim-appropriate independent anchor;
 > no single anchor and no stronger judge substitutes for the right one.
+
+**Scoping note, added after this run, not a rewrite of the claim above:**
+the "no ... stronger judge substitutes" clause was never tested as an
+empirical comparison — this cycle ran only the cost-constrained weak tier
+(DeepSeek, Gemini), never the preregistered strong tier or an Anthropic
+model (see H3 and Scope and limitations). Two readings of that clause are
+both defensible, but only one has data behind it here: read as an
+**information-theoretic** claim — an object built to be self-consistent
+with a false external fact carries no signal within itself that would let
+*any* reader, at any capability level, distinguish it from a true one — the
+architecture is what matters, and the claim holds by construction. Read as
+an **empirical** claim about how far a stronger judge's priors, world
+knowledge, or plausibility reasoning could close the gap in practice, it is
+untested; this report does not have the run needed to support or refute it,
+and does not claim otherwise. Everything measured in this report — the
+FA/FR numbers, the adaptive-attacker results — is specific to the models,
+prompts, and corpus actually tested, not a general claim about all
+possible judges.
 
 **Preregistered falsifier**, committed in [`preregistration.yaml`](preregistration.yaml)
 before this run, stated narrowly on false acceptance only:
@@ -144,13 +175,13 @@ below.
 **Preregistered hypotheses** (`preregistration.yaml`, `hypotheses:`), status
 after this run:
 
-| # | Hypothesis | Status |
+| # | Hypothesis (preregistered wording) | Status |
 |---|---|---|
 | H1 | Deterministic + LLM monitors detect internally-inconsistent (Tier-1) attacks at high rates | Addressed by the v0.1 pilot corpus, not re-tested here — Study C's corpus is Tier-2 (internally consistent) only |
-| H2 | LLM-only and deterministic-internal monitors frequently ACCEPT self-consistent, externally-false fabrications | **Confirmed** — P0/P2 100% (40/40); DeepSeek 12.5% (5/40); Gemini 0% (0/40, but see falsifier discussion) |
-| H3 | A claim-appropriate anchor reduces false acceptance more than a stronger judge | **Partially supported, not fully tested** — P3 reduces FA further than either weak judge on the joint metric, but no stronger judge tier was run (see Limitations) |
-| H4 | Monitors sometimes claim checks they did not/could not perform | **Not confirmed this run** — M-01 scan: 0/100 flagged, both judges |
-| H5 | Mandatory anchor use or abstention reduces unsupported verification and false acceptance, trading against coverage/false rejection | **Confirmed, on 2 of 3 claim types** — a genuine P5 hybrid (anchor first, LLM adjudicator only on anchor-inconclusive cases) measurably diverges from P4's pure abstention: on execution's `unverifiable_false` pattern, DeepSeek-as-adjudicator introduces 4/10 (40%) false acceptance P4 avoids entirely; on a purpose-built state probe (anchor inconclusive because no baseline was ever recorded), DeepSeek introduces 2/10 (20%, exact CI [0.03,0.56]). On an authorization probe (a disputed/conflicting ledger entry), neither judge's hybrid path introduced any false acceptance (0/10 both). Gemini's hybrid path stayed at 0/10 on all three claim types. See Limitations for the probe design |
+| H2 | LLM-only and deterministic-internal monitors **frequently** ACCEPT self-consistent, externally-false fabrications | **Partially supported, model-dependent.** "Frequently" was never operationally defined by a preregistered threshold, and the result is not uniform: deterministic-internal (P2) accepted all 40/40 (100%); DeepSeek (LLM-only) accepted 5/40 (12.5%); Gemini (LLM-only) accepted 0/40 (0%) — a direct counterexample to "LLM-only monitors frequently accept," at the cost of rejecting 44/60 (73%) truthful claims. P2 alone supports the hypothesis unambiguously; the LLM-only claim is not supported as a general statement about the tested judges |
+| H3 | A claim-appropriate anchor reduces false acceptance **more than a stronger judge** | **Not tested as stated.** No stronger-tier judge was run, so the literal comparison (anchor vs. a stronger judge) has no data. What was measured: the claim-matched reference protocol reduced FA relative to DeepSeek (weak tier, paired p=0.0625, not significant at n=40) and tied Gemini (weak tier) at 0/40 FA while avoiding Gemini's FR cost. Neither result speaks to "stronger judge" |
+| H4 | Monitors sometimes claim checks they did not/could not perform | **Negative result, both automated and manually verified.** The regex scanner (M-01) flagged 0/200 cached reasons (100 cases × 2 judges). Because a zero-match automated scan alone does not establish that recall is high enough for that count to mean anything, all 200 reasons were additionally read manually by the report's author: none contains a semantic claim of having run a command, inspected the repository, or consulted the ledger — every expression of uncertainty is an honest disclaimer ("cannot verify," "without access to..."). This is a single-reviewer manual read, not independently cross-checked by a second annotator, so it strengthens but does not eliminate the detector-recall caveat |
+| H5 | Mandatory anchor use or legitimate abstention reduces **unsupported verification** and **false acceptance**, trading against **coverage/false rejection** | **Partially supported — the FA/coverage component is measured on 2 of 3 claim types; the unsupported-verification component is untested here.** P4's mandatory abstention trades coverage for zero selective FA (75% attack coverage vs. P3's 100%, both with 0/decided FA — Table 1). Replacing that abstention with an LLM fallback (P5-hybrid) restores 100% coverage but reintroduces FA for DeepSeek specifically: 4/10 (40%) on execution's `unverifiable_false`, 2/10 (20%) on a purpose-built state probe; 0/10 on both for Gemini, and 0/10 on an authorization probe for both judges. Truthful-case coverage/FR was unaffected in every measurement here (no truthful case ever hit an inconclusive anchor in this corpus). The "reduces unsupported verification" clause of H5 was not tested by this probe — that is H4/M-01's domain, and M-01 found no unsupported-verification language from either judge to begin with |
 
 ## Method
 
@@ -174,14 +205,29 @@ is no verification:
 
 ### Protocols
 
-| Protocol | Anchors available | Deterministic? |
-|---|---|---|
-| P0 self-report | none | yes |
-| P1 text-only judge | none — the delivered object only | no (real model call) |
-| P2 deterministic internal-consistency | internal verifier only | yes |
-| P3 claim-matched reference protocol | the single anchor matched to the claim type | yes |
-| P4 mandatory anchor | must invoke the anchor; abstains if none applies | yes |
-| P5 hybrid abstain | anchor + legitimate `cannot_verify` | yes |
+| Protocol | Behavior | Anchors available | Deterministic? |
+|---|---|---|---|
+| P0 self-report | Accept the executor's assertion outright | none | yes |
+| P1 text-only judge | An LLM decides from the delivered object alone | none — the delivered object only | no (real model call) |
+| P2 deterministic internal-consistency | Accept iff the object agrees with itself | internal verifier only | yes |
+| P3 claim-matched reference protocol | Always invoke the anchor; decide accept/reject from it, even when inconclusive (see below) | the single anchor matched to the claim type | yes |
+| P4 anchor-or-abstain | Always invoke the anchor; **abstain** (`cannot_verify`) rather than guess when it's inconclusive | the single anchor matched to the claim type | yes |
+| P5 (pure abstain) | Identical to P4 in every code path — invoke the anchor, abstain if inconclusive | the single anchor matched to the claim type | yes |
+| P5-hybrid[JUDGE] | Invoke the anchor; when (and only when) it's inconclusive, fall back to a named LLM adjudicator instead of abstaining | the single anchor, plus a fallback judge | **no** (real model call on anchor-inconclusive cases) |
+
+P3 and P4 differ in exactly one respect, precisely because they share an
+anchor-invocation policy and diverge only on what to do when that anchor
+comes back inconclusive: **P3 treats "inconclusive" as grounds to reject**
+(a claim resting on evidence the anchor can't confirm is not accepted), while
+**P4 treats "inconclusive" as grounds to abstain** (a policy choice to
+report "cannot verify" rather than either accept or reject). Both are
+zero-false-acceptance policies; they differ in coverage and in what a
+`reject` vs. a `cannot_verify` communicates downstream. P5 (pure abstain)
+is P4 under a different preregistered name with no behavioral difference in
+this codebase; **P5-hybrid[JUDGE]** is a materially different protocol —
+non-deterministic, judge-dependent — that replaces P4's abstention with a
+fallible fallback decision. See Table 1 and "Scope and limitations" for
+measured results on all three claim types.
 
 **P3 is a reference protocol, not an ordinary competing monitor.** It is
 constructed to query the trusted fact that corresponds to each claim type by
@@ -257,15 +303,22 @@ composition:
 | State | 10 | 10 | 10 | 30 |
 | **Total** | **40** | **30** | **30** | **100** |
 
-**Instance 0 of each pattern is byte-identical to the original,
-hand-authored flagship case** used before the corpus was scaled, so
-judge-response cache entries collected against it remain valid trials of the
-scaled corpus. This is computationally convenient and is flagged, not
-hidden, as a methodological caveat: these three cases were designed first
-and may have influenced prompt iteration in ways instances 1–9 (generated
-programmatically from the same pattern) did not. A sensitivity analysis
-excluding index-0 cases from the confirmatory tables has not been run in
-this cycle; see Limitations for what it would require.
+**Instance 0 of each of the three patterns is byte-identical to the
+original, hand-authored flagship case** used before the corpus was scaled,
+so judge-response cache entries collected against it remain valid trials of
+the scaled corpus. Because execution contributes 4 case labels per instance
+(benign, `stale_after_drift`, near-miss, `unverifiable_false`) while
+authorization and state contribute 3 each (benign, attack, near-miss),
+**instance 0 is 4 + 3 + 3 = 10 individual cases**, not 3 — this report
+always means those 10 cases when it says "pilot-carried" or "index-0
+cases," never "the three instance-0 patterns." This reuse is computationally
+convenient and is flagged, not hidden, as a methodological caveat: these 10
+cases were designed first and may have influenced prompt iteration in ways
+instances 1–9 (generated programmatically from the same pattern) did not. A
+sensitivity analysis excluding these 10 cases from the confirmatory tables
+**was run this cycle** (`sensitivity.py`; see "Scope and limitations" for
+the result — every rate moves by at most a few points and no significance
+result flips).
 
 ## Confirmatory protocol comparison
 
@@ -275,19 +328,33 @@ the models actually run (weak-tier DeepSeek and Gemini — the preregistered
 strong tier was not run), and the preregistered metrics (FA, FR, Wilson and
 exact-binomial CIs).
 
-FA = false acceptance of a self-consistent false claim. FR = false rejection
-of a truthful claim. 95% CIs are Wilson (tighter, approximate coverage) and
-exact Clopper-Pearson (wider, guaranteed ≥ nominal coverage) side by side.
+FA = false acceptance of a self-consistent false claim, **as a share of all
+40 attack cases** (population rate — the preregistered metric). FR = false
+rejection of a truthful claim, same convention over 60 truthful cases.
+**A protocol that abstains (`cannot_verify`) on the hard cases can report a
+low population FA/FR without ever having been tested on them** — the same
+failure mode this report already criticizes Gemini for approximating through
+blanket rejection applies in principle to any protocol with an abstention
+path, so Table 1 reports abstention and coverage explicitly, and a
+**selective-risk** rate (FA or FR among only the cases the protocol actually
+decided) alongside the population rate. Full 95% CIs (Wilson and exact) for
+every population and selective rate are in the reproduce output; this table
+shows point estimates for readability.
 
-| Protocol | FA | FA 95% Wilson | FA 95% exact | FR | FR 95% Wilson | FR 95% exact |
-|---|---|---|---|---|---|---|
-| P0 self-report | 40/40 | [0.91,1.00] | [0.91,1.00] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P1 text-only — DeepSeek | 5/40 | [0.05,0.26] | [0.04,0.27] | 28/60 | [0.35,0.59] | [0.34,0.60] |
-| P1 text-only — Gemini | 0/40 | [0.00,0.09] | [0.00,0.09] | 44/60 | [0.61,0.83] | [0.60,0.84] |
-| P2 deterministic internal | 40/40 | [0.91,1.00] | [0.91,1.00] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P3 claim-matched reference | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P4 mandatory anchor | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P5 hybrid abstain | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] |
+| Protocol | FA (pop.) | Abstain (attacks) | Coverage (attacks) | Sel. FA | FR (pop.) | Abstain (truthful) | Coverage (truthful) | Sel. FR |
+|---|---|---|---|---|---|---|---|---|
+| P0 self-report | 40/40 | 0 | 100% | 40/40 = 1.00 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+| P1 text-only — DeepSeek | 5/40 | 0 | 100% | 5/40 = 0.13 | 28/60 | 0 | 100% | 28/60 = 0.47 |
+| P1 text-only — Gemini | 0/40 | 0 | 100% | 0/40 = 0.00 | 44/60 | 0 | 100% | 44/60 = 0.73 |
+| P2 deterministic internal | 40/40 | 0 | 100% | 40/40 = 1.00 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+| P3 claim-matched reference | 0/40 | 0 | 100% | 0/40 = 0.00 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+| P4 anchor-or-abstain | 0/40 | **10** | **75%** | 0/30 = 0.00 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+| P5 (pure abstain — identical to P4) | 0/40 | **10** | **75%** | 0/30 = 0.00 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+| P5-hybrid[DeepSeek] | 4/40 | 0 | 100% | 4/40 = 0.10 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+| P5-hybrid[Gemini] | 0/40 | 0 | 100% | 0/40 = 0.00 | 0/60 | 0 | 100% | 0/60 = 0.00 |
+
+Reproduce with `ladder.py`'s full output (includes Wilson and exact CIs on
+every population and selective rate, per protocol, per axis).
 
 **P2 is statistically indistinguishable from P0.** Deterministic
 internal-consistency checking accepts every self-consistent false claim in
@@ -295,20 +362,40 @@ the corpus, identically to trusting the agent's bare word. This is the
 pilot's original finding (v0.1), confirmed here at n=100 with exact
 confidence intervals rather than a 10-case anecdote.
 
-**P3, P4, and P5 report identically in Table 1** because Table 1 measures P5
-in its pure-abstention form (no adjudicator) — by construction identical to
-P4 whenever the anchor is inconclusive. This is not a rounding coincidence:
-of the three claim types, only execution's `unverifiable_false` pattern
-makes the anchor inconclusive in the principal n=100 corpus, and abstention
-(P4) and hybrid adjudication (P5) only diverge on exactly those cases.
-Measured as a genuine hybrid — anchor first, LLM adjudicator only when the
-anchor can't resolve — P5 does diverge from P4, and not only on execution:
-a separate, purpose-built probe corpus (10 authorization + 10 state
-instances, each with a genuinely anchor-inconclusive claim — see "Scope and
-limitations") shows DeepSeek's hybrid path also introduces false acceptance
-on state (2/10, 20%) that pure abstention avoids, while authorization stayed
-at 0/10 for both judges on every protocol, hybrid or not. Gemini's hybrid
-path never introduced false acceptance on any of the three claim types.
+**P3's zero population FA is not obtained through abstention — it never
+abstains at all** (0 abstentions, 100% coverage on every claim type in this
+corpus): it resolves every one of the 40 attacks to accept/reject and gets
+every one right. **P4's zero population FA is obtained differently: it
+abstains on 10 of the 40 attacks** (all of them execution's
+`unverifiable_false` pattern, where no fresh-execution result exists to
+check against) rather than deciding on them, bringing its attack coverage to
+75%. Critically, P4's *selective* FA — its error rate among the 30 attacks
+it does decide — is also exactly 0/30, so this is not a case of abstention
+concealing a wrong call; P4 is flawless on every case it's willing to rule
+on, and honestly declines to rule on the rest. That is a materially
+different, and arguably better, claim than "P4 achieves zero error," and
+Table 1 is now built so both facts are visible together, not just the
+population number. Plain "P5" — the pure-abstention protocol, no
+adjudicator — is architecturally identical to P4 in every code path and
+reports identically here; see below for why "P5" alone is an ambiguous name
+in this report.
+
+**"P5" denotes two different protocols and this report is careful to never
+use the bare name for both.** *P5 (pure abstain)*, shown in Table 1, never
+consults an adjudicator and is deterministic — architecturally identical to
+P4. *P5-hybrid[JUDGE]*, shown in the next two rows, replaces abstention with
+a call to a named LLM adjudicator whenever the anchor is inconclusive, and
+is **not** deterministic — its result depends on which judge is in the
+adjudicator seat. With DeepSeek as adjudicator, P5-hybrid trades P4's 75%
+coverage for 100% coverage (it always renders a verdict) at the cost of
+4/40 population false acceptance (10% selective FA on the cases the anchor
+couldn't resolve) — the fallback judge got 4 of the 10 anchor-inconclusive
+cases wrong. With Gemini as adjudicator, P5-hybrid gets the same 100%
+coverage at 0/40 false acceptance — the fallback judge got all 10 right.
+Neither of these is "P5" without qualification; both are measured
+separately below and in "Scope and limitations," where the same
+DeepSeek/Gemini split is tested on the two claim types (authorization,
+state) this principal corpus cannot probe.
 
 ## Paired significance
 
@@ -460,11 +547,14 @@ coding-agent governance system — see
 the full twelve-class registry with Observed/Derived tags, and
 [`docs/study-c-empirical-backbone.md`](docs/study-c-empirical-backbone.md) for
 the sanitized aggregate statistics that motivated the design. Across 44 real
-governed runs, only 3 (7%) reached acceptance on the system's own authority
-and 41% escalated to a human. The single most load-bearing number for this
-study's design: **two independent LLM reviewers disagreed on 74% of runs
-that had two reviewers, and in 55% of those a PASS-class verdict coexisted
-with a FAIL on the same run.** A benchmark that treated "two LLM reviewers
+governed runs, only 3 of 44 (7%) reached acceptance (`COMMIT_READY`) on the
+system's own authority and 18 of 44 (41%) escalated to a human
+(`AWAITING_HUMAN_ADJUDICATION`); the remainder split between 20 of 44 (45%)
+`BLOCKED` and 3 of 44 (7%) `REMEDIATION_EXHAUSTED`. The single most
+load-bearing number for this study's design: of the 42 runs that had two
+independent reviewers, the reviewers disagreed on 31 of them (74%), and in
+23 of those 42 runs (55%) at least one reviewer returned a PASS-class
+verdict on a run another reviewer FAILed. A benchmark that treated "two LLM reviewers
 agree" as a trust signal would be measuring the wrong thing — which is why
 the central claim is stated in terms of independent anchors, not independent
 opinions, and why P5 offers legitimate abstention rather than forcing a
@@ -544,6 +634,36 @@ are reported here rather than one.
   not generalize to "hybrid adjudication is unsafe" — it generalizes to "a
   hybrid's safety depends on which judge sits in the adjudicator seat," a
   narrower and more defensible claim.
+
+  Restated as a coverage/risk trade-off (selective prediction), which is
+  the cleanest way to read this result: on every anchor-inconclusive case
+  in this study, P4 abstains (0% coverage of that subset, so it cannot be
+  wrong) while a hybrid adjudicator decides all of them (100% coverage of
+  that subset), at whatever false-acceptance rate that specific judge
+  produces on that specific claim type. All ten P4/P4-hybrid rows below
+  are anchor-inconclusive by construction — n is the size of that
+  inconclusive subset, not the full claim-type corpus:
+
+  | Protocol | Claim type | n (anchor-inconclusive) | Coverage of subset | Sel. FA on subset |
+  |---|---|---|---|---|
+  | P4 (mandatory abstain) | execution | 10 | 0% | n/a — abstains |
+  | P4 (mandatory abstain) | authorization | 10 | 0% | n/a — abstains |
+  | P4 (mandatory abstain) | state | 10 | 0% | n/a — abstains |
+  | P5-hybrid[DeepSeek] | execution | 10 | 100% | 4/10 (40%, CI [0.12,0.74]) |
+  | P5-hybrid[DeepSeek] | authorization | 10 | 100% | 0/10 (0%) |
+  | P5-hybrid[DeepSeek] | state | 10 | 100% | 2/10 (20%, CI [0.03,0.56]) |
+  | P5-hybrid[Gemini] | execution | 10 | 100% | 0/10 (0%) |
+  | P5-hybrid[Gemini] | authorization | 10 | 100% | 0/10 (0%) |
+  | P5-hybrid[Gemini] | state | 10 | 100% | 0/10 (0%) |
+
+  Read this way, P4's zero-risk guarantee is bought entirely with coverage:
+  it never resolves the 10 hardest cases in each claim type, by design. A
+  hybrid buys coverage back at a judge- and claim-type-dependent risk that
+  ranges, in this study, from indistinguishable-from-zero (Gemini,
+  everywhere; DeepSeek, authorization) to 40% (DeepSeek, execution). Which
+  trade-off is acceptable is a deployment decision this study does not make
+  on the reader's behalf — the point is that the trade-off is now measured,
+  not asserted.
 - **DeepSeek-vs-reference FA is paired-underpowered at n=40** (p = 0.0625,
   reported above rather than rounded away). The exploratory adaptive result
   is suggestive of a real, larger effect on execution claims specifically,
@@ -602,7 +722,7 @@ cache under `trust_eval/harness/cache/records/`, using the model responses
 already recorded there:
 
 ```bash
-python3 -m pytest -q                                    # 255 tests
+python3 -m pytest -q                                    # 259 tests
 python3 -m trust_eval.study_c.ladder --scaled --n 10 \
   --provider deepseek:deepseek-v4-flash --provider gemini:gemini-3.1-flash-lite
 python3 -m trust_eval.study_c.compare --scaled --n 10 --matrix \
@@ -629,9 +749,18 @@ analysis*, not independent replication of live model behavior: adding
 `GEMINI_API_KEY`; live replication may differ from the numbers above because
 model behavior and hosted model versions can change over time. The
 self-healing cache never stores an empty or unparseable response, so a live
-rerun cannot silently poison a reproduction. The deterministic protocols
-(P0, P2–P5) and the reference-protocol invulnerability proofs need no key at
-all, ever — they make no model call.
+rerun cannot silently poison a reproduction.
+
+**Which protocols need a model call, precisely:** P0, P2, P3, and P4 are
+fully deterministic and never call a model, with or without a key — they
+consult only the trusted world and its anchors. **P5 (pure abstain)** is
+also fully deterministic (architecturally identical to P4). **P1 and
+P5-hybrid[JUDGE] are not deterministic** — both call a live judge model
+(P1 on every case; P5-hybrid only on the cases where the anchor is
+inconclusive) and require either a cache hit or `--live` plus the
+corresponding API key. Do not read "the deterministic protocols need no
+key" as covering every row this report presents — it covers P0/P2/P3/P4/
+plain-P5 only.
 
 ## Relationship to the v0.1 pilot
 
@@ -649,7 +778,7 @@ statistical and adversarial layers reported here.
 
 ## Test suite
 
-247 tests, all passing, covering: the trusted world and anchor functions; the
+259 tests, all passing, covering: the trusted world and anchor functions; the
 protocol ladder, including the genuine P5 hybrid-adjudication path and its
 divergence from P4; the scaled corpus's independence and index-0 cache
 compatibility; the statistics layer (Wilson, exact binomial, McNemar,
@@ -747,3 +876,75 @@ limitations was avoidable, not a real constraint. v3 does the work:
    the same failure recurring for anyone else reproducing this work from a
    partial checkout.
 4. Test suite grew from 240 to 247 tests; all pass.
+
+## Changes from v3
+
+An external review of v3 identified four submission-blocking issues and
+several secondary refinements. All are addressed directly, not deferred:
+
+1. **Abstention was measurable but not surfaced in the principal results.**
+   `ladder.py` and `p4p5_probe.py` now compute and report, for every
+   protocol row: abstain counts, coverage (decided / total), and selective
+   FA/FR (error rate among decided cases only, as distinct from population
+   FA/FR, whose denominator includes abstentions). Table 1, the protocol
+   table, and the executive summary now state P3's zero-abstention,
+   100%-coverage result explicitly rather than leaving abstention
+   unmentioned; the Scope-and-limitations P4/P5 bullet now includes a
+   coverage/selective-risk table instead of prose alone. New tests:
+   `test_p3_never_abstains_p4_and_plain_p5_abstain_on_inconclusive_anchor_cases`,
+   `test_p1_row_never_abstains_and_reports_full_coverage`,
+   `test_probe_p3_has_full_coverage_p4_and_plain_p5_have_zero_coverage`,
+   `test_probe_hybrid_coverage_reflects_adjudicator_resolution`.
+2. **"P5" denoted two different protocols ambiguously.** v3 used bare "P5"
+   for both the deterministic pure-abstain protocol (architecturally
+   identical to P4) and the non-deterministic hybrid-adjudicator protocol,
+   depending on context. Every occurrence in this report and in `ladder.py`
+   now uses `P5 (pure abstain)` or `P5-hybrid[PROVIDER:MODEL]` explicitly;
+   `ladder.py`'s docstring states the convention as a rule, and
+   `p5_hybrid_row`'s output label was changed from
+   `P5_hybrid_abstain (adjudicator=...)` to `P5-hybrid[...]` accordingly.
+3. **The H1–H5 hypothesis-status table overclaimed on several rows.** H2 is
+   now "Partially supported, model-dependent" (Gemini 0%, DeepSeek 12.5% on
+   the same claim type, and "frequently" was never operationalized in the
+   preregistration). H3 is now "Not tested as stated" (no stronger-tier
+   judge was run this cycle; only weak-tier judges were compared). H4 is
+   unchanged in verdict but now cites, in addition to the automated M-01
+   regex scan, a full manual read of all 200 cached judge reasons performed
+   this round, with an explicit note that this was a single-reviewer read,
+   not independently cross-checked. H5 is now scoped precisely: measured on
+   2 of 3 claim types with a coverage/selective-risk table, not asserted as
+   a general result.
+4. **Several internal contradictions were fixed.** The reproduce-command
+   test count (255) and the Test Suite section's count (247) both now read
+   259, matching the actual suite. The "P5 is deterministic" claim was
+   corrected everywhere to distinguish plain P5 (deterministic) from
+   P5-hybrid[JUDGE] (not deterministic — makes a real model call). The
+   blanket "P0, P2–P5 make no model call, ever" claim in Reproducibility was
+   replaced with a precise per-protocol statement. The corpus section's
+   "instance 0" pilot-case count was corrected from an implied 3 to the
+   actual 10 (4 execution + 3 authorization + 3 state case labels per
+   instance), and a stale sentence claiming the sensitivity analysis "has
+   not been run" — false since earlier this same round — was corrected.
+5. **The central claim was not rewritten.** The reviewer suggested narrowing
+   "no stronger judge" language; rather than silently editing the frozen,
+   preregistered claim quoted verbatim from
+   `docs/study-c-incident-registry.md`, this report adds a clearly-labeled
+   "Scoping note, added after this run, not a rewrite of the claim above"
+   distinguishing the defensible information-theoretic reading from the
+   untested empirical reading (no stronger judge was actually run).
+6. **Empirical-backbone denominators are now stated exactly**, not only as
+   percentages: 3 of 44 (7%) `COMMIT_READY`, 18 of 44 (41%)
+   `AWAITING_HUMAN_ADJUDICATION`, 20 of 44 (45%) `BLOCKED`, 3 of 44 (7%)
+   `REMEDIATION_EXHAUSTED`; 31 of 42 dual-reviewed runs disagreed (74%); 23
+   of 42 (55%) had a PASS-class verdict coexist with a FAIL on the same
+   run.
+7. Test suite grew from 247 to 259 tests; all pass.
+8. **Two items from the review remain open, requiring the reader's own
+   action, not something this session can complete:** running one current
+   strong-tier or Anthropic-model judge on the frozen corpus (blocked here
+   by sandbox network egress restrictions and the absence of an Anthropic
+   API key in this environment — not by cost or time), and having a second,
+   independent human reviewer audit all 200 cached M-01 judge responses
+   (this round's manual read, cited in H4 above, was performed by a single
+   reviewer and is explicitly flagged as such, not presented as
+   independent verification).

@@ -30,21 +30,34 @@ python3 -m trust_eval.study_c.compare --scaled --n 10 --matrix \
   --provider deepseek:deepseek-v4-flash --provider gemini:gemini-3.1-flash-lite
 ```
 
-## Table 1 — the ladder (FA / FR, Wilson + exact 95% CI)
+## Table 1 — the ladder (FA / FR, Wilson + exact 95% CI, abstention/coverage)
 
-| Protocol | FA | FA Wilson | FA exact | FR | FR Wilson | FR exact |
-|---|---|---|---|---|---|---|
-| P0 self-report | 40/40 | [0.91,1.00] | [0.91,1.00] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P1 text-only — DeepSeek | 5/40 | [0.05,0.26] | [0.04,0.27] | 28/60 | [0.35,0.59] | [0.34,0.60] |
-| P1 text-only — Gemini | 0/40 | [0.00,0.09] | [0.00,0.09] | 44/60 | [0.61,0.83] | [0.60,0.84] |
-| P2 deterministic internal | 40/40 | [0.91,1.00] | [0.91,1.00] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P3 claim-appropriate anchor | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P4 mandatory anchor | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] |
-| P5 hybrid abstain | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] |
+| Protocol | FA (pop.) | FA Wilson | FA exact | FR (pop.) | FR Wilson | FR exact | Abstain (a/t) | Coverage (a/t) | Sel. FA | Sel. FR |
+|---|---|---|---|---|---|---|---|---|---|---|
+| P0 self-report | 40/40 | [0.91,1.00] | [0.91,1.00] | 0/60 | [0.00,0.06] | [0.00,0.06] | 0/0 | 100%/100% | 40/40=1.00 | 0/60=0.00 |
+| P1 text-only — DeepSeek | 5/40 | [0.05,0.26] | [0.04,0.27] | 28/60 | [0.35,0.59] | [0.34,0.60] | 0/0 | 100%/100% | 5/40=0.12 | 28/60=0.47 |
+| P1 text-only — Gemini | 0/40 | [0.00,0.09] | [0.00,0.09] | 44/60 | [0.61,0.83] | [0.60,0.84] | 0/0 | 100%/100% | 0/40=0.00 | 44/60=0.73 |
+| P2 deterministic internal | 40/40 | [0.91,1.00] | [0.91,1.00] | 0/60 | [0.00,0.06] | [0.00,0.06] | 0/0 | 100%/100% | 40/40=1.00 | 0/60=0.00 |
+| P3 claim-appropriate anchor | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] | 0/0 | 100%/100% | 0/40=0.00 | 0/60=0.00 |
+| P4 mandatory anchor | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] | 10/0 | 75%/100% | 0/30=0.00 | 0/60=0.00 |
+| P5 (pure abstain) | 0/40 | [0.00,0.09] | [0.00,0.09] | 0/60 | [0.00,0.06] | [0.00,0.06] | 10/0 | 75%/100% | 0/30=0.00 | 0/60=0.00 |
 
-FA = false acceptance of a self-consistent forgery. FR = false rejection of a
-truthful claim. Every rate below is exact counts over its own denominator —
-never reported as "perfect," per the preregistered reporting rule.
+FA/FR (pop.) = population rate: errors over the full attack/truthful pool,
+denominator includes abstentions. Sel. FA/FR = selective rate: errors only
+among cases the protocol actually decided (excludes abstentions) — the
+number to compare against a protocol that never abstains. Coverage =
+decided / total. **P3 never abstains** (it rejects rather than abstains when
+its anchor is inconclusive, so it always has 100% coverage); **P4 and P5
+(pure abstain) abstain on all 10 `unverifiable_false` execution attacks**
+(the only anchor-inconclusive cases in this principal corpus), giving them
+75% coverage on attacks even though their population and selective FA are
+both 0/30 = 0.00 — this is not a case of abstention hiding a wrong call. Bare
+"P5" is never used in this document to mean the hybrid-adjudicator variant;
+see the note below Table 1's limitations bullet and
+[`report.md`](../report.md) for `P5-hybrid[PROVIDER:MODEL]`, which is not
+deterministic and is reported separately. Every rate above is exact counts
+over its own denominator — never reported as "perfect," per the
+preregistered reporting rule.
 
 ## Table 2 — paired exact McNemar comparisons
 
@@ -118,27 +131,31 @@ the confirmatory/exploratory separation and the reference-oracle caveat on P3.
   more execution-class instances specifically, where DeepSeek's false
   accepts concentrated) would be the direct next step for a stronger paired
   result.
-- **P3, P4, and P5 report identically in Table 1** because it measures P5 in
-  its pure-abstention form, which is architecturally identical to P4
-  whenever the claim-appropriate anchor is inconclusive. Measured as a
-  genuine hybrid instead (`ladder.py --p5-adjudicator PROVIDER:MODEL`: the
-  anchor is consulted first, and the named judge is only asked on the cases
-  where the anchor itself can't resolve), P5 does diverge from P4 on
-  execution's `unverifiable_false` pattern, the only anchor-inconclusive
-  case in the principal corpus: with DeepSeek as adjudicator, it accepts
-  4/10 (40%, exact CI [0.12,0.74]) of those cases, none of which P4
-  accepts; Gemini stays at 0/10. Authorization and state have no
-  anchor-inconclusive case in the principal corpus, so this was extended
-  with a separate exploratory probe corpus
+- **P3, P4, and P5 (pure abstain) report identical FA/FR in Table 1**
+  because that form of P5 is architecturally identical to P4 whenever the
+  claim-appropriate anchor is inconclusive — it never actually consults an
+  adjudicator. They are not identical on coverage: P3 always decides (100%
+  coverage, 0 abstention), while P4 and P5 (pure abstain) abstain on all 10
+  `unverifiable_false` execution attacks, the only anchor-inconclusive
+  cases in the principal corpus (75% coverage on attacks). Measured as a
+  genuine hybrid instead — **`P5-hybrid[PROVIDER:MODEL]`**, never bare "P5"
+  (`ladder.py --p5-adjudicator PROVIDER:MODEL`: the anchor is consulted
+  first, and the named judge is only asked on the cases where the anchor
+  itself can't resolve) — it diverges from P4 on those same 10 cases: with
+  DeepSeek as adjudicator, `P5-hybrid[deepseek:deepseek-v4-flash]` accepts
+  4/10 (40%, exact CI [0.12,0.74]) of them, none of which P4 accepts;
+  `P5-hybrid[gemini:gemini-3.1-flash-lite]` stays at 0/10. Authorization and
+  state have no anchor-inconclusive case in the principal corpus, so this
+  was extended with a separate exploratory probe corpus
   (`trust_eval/study_c/p4p5_probe.py`: a disputed ledger entry for
   authorization, an unrecorded baseline for state — 10 instances each, one
-  `--live` run required since these are new payloads). Result: DeepSeek's
+  `--live` run required since these are new payloads). Result: the DeepSeek
   hybrid path again introduces false acceptance on the state probe (2/10,
   20%, exact CI [0.03,0.56]); the authorization probe stayed at 0/10 for
-  both judges regardless of protocol; Gemini's hybrid path never introduced
-  false acceptance on any of the three claim types. See
+  both judges regardless of protocol; the Gemini hybrid path never
+  introduced false acceptance on any of the three claim types. See
   [`report.md`](../report.md), "Scope and limitations," for the full
-  writeup and reproduce commands.
+  writeup, the coverage/selective-risk table, and reproduce commands.
 - A sensitivity analysis excluding the 10 pilot-carried (index-0) cases
   (`python3 -m trust_eval.study_c.sensitivity --n 10 --provider ...`) shows
   every rate above shifts by at most a few percentage points with those
