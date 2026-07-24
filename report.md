@@ -150,7 +150,7 @@ after this run:
 | H2 | LLM-only and deterministic-internal monitors frequently ACCEPT self-consistent, externally-false fabrications | **Confirmed** — P0/P2 100% (40/40); DeepSeek 12.5% (5/40); Gemini 0% (0/40, but see falsifier discussion) |
 | H3 | A claim-appropriate anchor reduces false acceptance more than a stronger judge | **Partially supported, not fully tested** — P3 reduces FA further than either weak judge on the joint metric, but no stronger judge tier was run (see Limitations) |
 | H4 | Monitors sometimes claim checks they did not/could not perform | **Not confirmed this run** — M-01 scan: 0/100 flagged, both judges |
-| H5 | Mandatory anchor use or abstention reduces unsupported verification and false acceptance, trading against coverage/false rejection | **Partially tested, on one claim type** — a genuine P5 hybrid (anchor first, LLM adjudicator only on anchor-inconclusive cases) measurably diverges from P4's pure abstention on execution's `unverifiable_false` pattern: DeepSeek-as-adjudicator introduces 4/10 (40%) false acceptance that P4 avoids entirely. Authorization and state have no anchor-inconclusive case in this corpus and remain untested (see Limitations) |
+| H5 | Mandatory anchor use or abstention reduces unsupported verification and false acceptance, trading against coverage/false rejection | **Confirmed, on 2 of 3 claim types** — a genuine P5 hybrid (anchor first, LLM adjudicator only on anchor-inconclusive cases) measurably diverges from P4's pure abstention: on execution's `unverifiable_false` pattern, DeepSeek-as-adjudicator introduces 4/10 (40%) false acceptance P4 avoids entirely; on a purpose-built state probe (anchor inconclusive because no baseline was ever recorded), DeepSeek introduces 2/10 (20%, exact CI [0.03,0.56]). On an authorization probe (a disputed/conflicting ledger entry), neither judge's hybrid path introduced any false acceptance (0/10 both). Gemini's hybrid path stayed at 0/10 on all three claim types. See Limitations for the probe design |
 
 ## Method
 
@@ -299,14 +299,16 @@ confidence intervals rather than a 10-case anecdote.
 in its pure-abstention form (no adjudicator) — by construction identical to
 P4 whenever the anchor is inconclusive. This is not a rounding coincidence:
 of the three claim types, only execution's `unverifiable_false` pattern
-makes the anchor inconclusive in this corpus, and abstention (P4) and hybrid
-adjudication (P5) only diverge on exactly those cases. Measured as a
-genuine hybrid — anchor first, LLM adjudicator only when the anchor can't
-resolve — P5 does diverge from P4 on that pattern (see "Scope and
-limitations" and `ladder.py --p5-adjudicator`): DeepSeek as adjudicator adds
-4/10 false acceptances P4 does not have. Authorization and state have no
-anchor-inconclusive case in this corpus, so P3/P4/P5 remain identical there
-regardless of adjudicator.
+makes the anchor inconclusive in the principal n=100 corpus, and abstention
+(P4) and hybrid adjudication (P5) only diverge on exactly those cases.
+Measured as a genuine hybrid — anchor first, LLM adjudicator only when the
+anchor can't resolve — P5 does diverge from P4, and not only on execution:
+a separate, purpose-built probe corpus (10 authorization + 10 state
+instances, each with a genuinely anchor-inconclusive claim — see "Scope and
+limitations") shows DeepSeek's hybrid path also introduces false acceptance
+on state (2/10, 20%) that pure abstention avoids, while authorization stayed
+at 0/10 for both judges on every protocol, hybrid or not. Gemini's hybrid
+path never introduced false acceptance on any of the three claim types.
 
 ## Paired significance
 
@@ -505,28 +507,43 @@ are reported here rather than one.
   current strong-tier model plus one Anthropic model, on the same frozen
   corpus and prompts — not a larger synthetic corpus.
 - **P3, P4, and P5, measured as pure anchor-abstention protocols, are
-  behaviorally identical in this corpus** — all three report the same FA/FR
-  because none of the corpus's three claim types has an authorization- or
-  state-anchor-unavailable case; only execution's `unverifiable_false`
-  pattern (10 of 100 cases) makes the anchor inconclusive. This part of the
-  limitation still holds for authorization and state: adding a
-  conflicting-ledger or ambiguous-baseline case would require new corpus
-  cases with fresh live-judge calls, not done this cycle. What *was* done:
-  P5 was implemented as a genuine hybrid — the anchor is consulted first,
-  and a designated LLM adjudicator is only asked on the cases where the
-  anchor itself is inconclusive (`ladder.py --p5-adjudicator PROVIDER:MODEL`,
-  reusing the same committed cache, no new API calls) — and measured against
-  both judges on the one claim type where this corpus can test it. The
-  result is a real divergence, not a null one: with DeepSeek as the
-  adjudicator, P5(hybrid) accepts 4/10 (40%, exact CI [0.12,0.74]) of the
-  `unverifiable_false` cases that P3/P4 correctly abstain or reject on —
-  consulting an imperfect judge when the anchor can't resolve a claim
-  introduced false acceptance that pure abstention (P4) does not have. With
-  Gemini as the adjudicator, P5(hybrid) stays at 0/10, matching P4. On this
-  one claim type, H5 is now tested, not merely asserted: P4's
-  mandatory-abstention design is measurably safer than a hybrid fallback to
-  a weak judge, at least for DeepSeek. Authorization and state remain
-  untested for this specific question.
+  behaviorally identical in the principal n=100 corpus** — all three report
+  the same FA/FR because none of the three claim types has an
+  authorization- or state-anchor-unavailable case there; only execution's
+  `unverifiable_false` pattern (10 of 100 cases) makes the anchor
+  inconclusive. P5 was implemented as a genuine hybrid — the anchor is
+  consulted first, and a designated LLM adjudicator is only asked on the
+  cases where the anchor itself is inconclusive
+  (`trust_eval/study_c/protocols.py`, `ladder.py --p5-adjudicator
+  PROVIDER:MODEL`) — and measured on execution using the principal corpus's
+  existing cache (no new calls): with DeepSeek as adjudicator, P5(hybrid)
+  accepts 4/10 (40%, exact CI [0.12,0.74]) of the `unverifiable_false`
+  cases that P3/P4 correctly abstain or reject on; with Gemini, it stays at
+  0/10, matching P4.
+
+  Authorization and state have no anchor-inconclusive case in the principal
+  corpus, so testing H5 there required a second, separate, exploratory
+  probe corpus (`trust_eval/study_c/p4p5_probe.py`,
+  `build_p4p5_probe_world` — not part of the n=100 confirmatory corpus, no
+  effect on any number reported against it): 10 authorization instances
+  each with a real ledger entry later disputed/superseded (the anchor can
+  neither confirm nor deny it — genuinely `INCONCLUSIVE`, not
+  `CONTRADICTS`), and 10 state instances each with no approved baseline
+  ever recorded for the task. These are new payloads, so a `--live` run was
+  required once; both judges' calls are now in the committed cache. Result:
+  on the **authorization** probe, neither judge's hybrid path introduced
+  any false acceptance (0/10 both) — the ledger-conflict case turned out to
+  be one every judge in this study handled safely, hybrid or not. On the
+  **state** probe, DeepSeek's hybrid path again introduced false
+  acceptance — 2/10 (20%, exact CI [0.03,0.56]) — while Gemini's stayed at
+  0/10. So across all three claim types this study can test, H5 is now
+  measured, not merely asserted: P4's mandatory-abstention design is
+  measurably safer than a hybrid fallback to DeepSeek specifically on
+  execution and state (2 of 3 claim types), and the two designs are
+  indistinguishable on authorization and for Gemini throughout. This does
+  not generalize to "hybrid adjudication is unsafe" — it generalizes to "a
+  hybrid's safety depends on which judge sits in the adjudicator seat," a
+  narrower and more defensible claim.
 - **DeepSeek-vs-reference FA is paired-underpowered at n=40** (p = 0.0625,
   reported above rather than rounded away). The exploratory adaptive result
   is suggestive of a real, larger effect on execution claims specifically,
@@ -585,7 +602,7 @@ cache under `trust_eval/harness/cache/records/`, using the model responses
 already recorded there:
 
 ```bash
-python3 -m pytest -q                                    # 247 tests
+python3 -m pytest -q                                    # 255 tests
 python3 -m trust_eval.study_c.ladder --scaled --n 10 \
   --provider deepseek:deepseek-v4-flash --provider gemini:gemini-3.1-flash-lite
 python3 -m trust_eval.study_c.compare --scaled --n 10 --matrix \
@@ -601,6 +618,8 @@ python3 -m trust_eval.study_c.sensitivity --n 10 \
 python3 -m trust_eval.study_c.ladder --scaled --n 10 \
   --provider deepseek:deepseek-v4-flash --provider gemini:gemini-3.1-flash-lite \
   --p5-adjudicator deepseek:deepseek-v4-flash --p5-adjudicator gemini:gemini-3.1-flash-lite
+python3 -m trust_eval.study_c.p4p5_probe --n 10 \
+  --provider deepseek:deepseek-v4-flash --provider gemini:gemini-3.1-flash-lite
 ```
 
 All reported analyses can be reproduced exactly from these committed model
@@ -687,22 +706,32 @@ limitations was avoidable, not a real constraint. v3 does the work:
    pilot-carried index-0 cases), reusing the committed cache. Every rate
    moves by at most a few points and no significance result flips — see
    "Scope and limitations."
-2. **P5 was made a genuine hybrid, not a P4 alias.** Before this change,
-   `decide("P5_hybrid_abstain", ...)` and `decide("P4_mandatory_anchor", ...)`
-   were byte-identical in every code path — P5 never actually consulted an
-   adjudicator, so the "hybrid" in its name was aspirational. `protocols.py`
-   now accepts an optional `adjudicator` (a P1-style judge, only ever called
-   when the claim-appropriate anchor is inconclusive), and `ladder.py --p5-
-   adjudicator PROVIDER:MODEL` measures it end to end. Result: with DeepSeek
-   as the adjudicator, hybrid P5 accepts 4/10 (40%) of the anchor-
-   inconclusive `unverifiable_false` cases that P4's pure abstention
-   correctly avoids — a real, measured case where "hybrid" is worse than
-   "mandatory anchor, abstain if it can't resolve." This differentiates P4
-   from P5 on the one claim type this corpus can test (execution);
-   authorization and state still cannot be differentiated without new
-   corpus cases requiring fresh live-judge calls — stated as a real,
-   external constraint (no API credentials available in the environment
-   that did this round of work), not deferred as a time-management choice.
+2. **P5 was made a genuine hybrid, not a P4 alias, and tested on all three
+   claim types.** Before this change, `decide("P5_hybrid_abstain", ...)` and
+   `decide("P4_mandatory_anchor", ...)` were byte-identical in every code
+   path — P5 never actually consulted an adjudicator, so the "hybrid" in
+   its name was aspirational. `protocols.py` now accepts an optional
+   `adjudicator` (a P1-style judge, only ever called when the
+   claim-appropriate anchor is inconclusive). On execution
+   (`unverifiable_false`, principal corpus, existing cache), DeepSeek as
+   adjudicator accepts 4/10 (40%) of the cases P4 correctly abstains or
+   rejects on. The principal corpus has no anchor-inconclusive
+   authorization or state case, so a second, separate probe corpus was
+   built (`trust_eval/study_c/p4p5_probe.py`) — a disputed ledger entry for
+   authorization, an unrecorded baseline for state — requiring one new
+   `--live` run (the only live API call made this round; everything else
+   reused the committed cache). That run first surfaced a real environment
+   bug on the reporter's end (DeepSeek's key was set as a shell variable,
+   not exported, so it never reached the Python subprocess — the harness
+   correctly reported this as `errors`, not a false `0/10`, catching the
+   fixed silent-zero bug in the wild on its first opportunity), then
+   produced a clean, complete result after the key was exported: DeepSeek's
+   hybrid path introduces 2/10 (20%) false acceptance on the state probe,
+   matching the execution pattern; authorization stayed at 0/10 for both
+   judges regardless of protocol or adjudicator; Gemini's hybrid path never
+   introduced false acceptance on any of the three claim types. P4 vs. P5
+   is now measured, not merely asserted, on every claim type this study
+   covers.
 3. **A cache-integrity gap was found and fixed while building the above.**
    Recomputing anything from the committed cache in a fresh environment
    requires every relevant record file to actually be present; a partial or

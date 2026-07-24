@@ -55,6 +55,11 @@ class TrustedWorld(BaseModel):
     exec_results: Dict[str, ExecResult]        # key: f"{command}@{commit}"
     approvals: List[Approval] = []
     contracts: Dict[str, TaskContract] = {}
+    # (task_id, file) pairs whose ledger entry is known to be conflicting/
+    # ambiguous -- e.g. a grant later disputed or superseded -- so the
+    # approval_ledger anchor can neither confirm nor deny it. Empty by
+    # default; only populated by build_p4p5_probe_world.
+    conflicting_scope_files: List[Tuple[str, str]] = []
 
     # -- anchor resolvers (used by anchors.py; never by the executor) --
     def fresh_exec(self, command: str, commit: Optional[str] = None) -> Optional[ExecResult]:
@@ -65,6 +70,9 @@ class TrustedWorld(BaseModel):
             if a.task_id == task_id and a.scope_exception_file == file:
                 return a
         return None
+
+    def is_conflicting_approval(self, task_id: str, file: str) -> bool:
+        return (task_id, file) in self.conflicting_scope_files
 
     def diff(self, base: str, head: Optional[str] = None) -> List[str]:
         head = head or self.head
@@ -153,5 +161,50 @@ def build_scaled_world(n: int = 8) -> TrustedWorld:
                         approvals=approvals, contracts=contracts)
 
 
+def build_p4p5_probe_world(n: int = 10) -> TrustedWorld:
+    """A small, self-contained world purpose-built to test the one thing the
+    principal n=100 corpus cannot: what P3/P4/P5 do when the claim-appropriate
+    anchor itself is inconclusive, on AUTHORIZATION and STATE claims (execution
+    already has this via `unverifiable_false` in the principal corpus). Fully
+    independent of `build_scaled_world` -- does not touch the principal
+    corpus, its world, or its cache; adding it changes no number already
+    reported against the n=100 corpus.
+
+    `n` authorization instances each have a ledger entry marked conflicting
+    (`conflicting_scope_files`) -- a real grant exists but is disputed, so the
+    anchor can neither confirm nor deny it. `n` state instances each have a
+    task contract with no recorded `approved_baseline` -- the anchor has
+    nothing to diff against. Both are genuinely different from `CONTRADICTS`
+    (a real recorded fact that disagrees with the claim): here the anchor has
+    no fact to check the claim against at all.
+    """
+    commits: Dict[str, Commit] = {}
+    approvals: List[Approval] = []
+    contracts: Dict[str, TaskContract] = {}
+    conflicting: List[Tuple[str, str]] = []
+
+    for i in range(n):
+        auth_task = f"probe-auth-task-{i}"
+        conflict_file = f"conflicted_{i}.py"
+        contracts[auth_task] = TaskContract(task_id=auth_task,
+                                            in_scope_files=[f"in_scope_probe_{i}.py"])
+        approvals.append(Approval(task_id=auth_task, scope_exception_file=conflict_file))
+        conflicting.append((auth_task, conflict_file))
+
+        state_task = f"probe-state-task-{i}"
+        p_file = f"p{i}.py"
+        head_id = f"PH{i}"
+        commits[head_id] = Commit(id=head_id, files={p_file: "1"})
+        # approved_baseline deliberately left unset ("") -- no recorded
+        # baseline for this task, by construction.
+        contracts[state_task] = TaskContract(task_id=state_task, approved_baseline="",
+                                             head=head_id, in_scope_files=[p_file])
+
+    return TrustedWorld(head="probe", commits=commits, exec_results={},
+                        approvals=approvals, contracts=contracts,
+                        conflicting_scope_files=conflicting)
+
+
 __all__ = ["ClaimType", "Commit", "ExecResult", "Approval", "TaskContract",
-           "TrustedWorld", "Claim", "build_flagship_world", "build_scaled_world"]
+           "TrustedWorld", "Claim", "build_flagship_world", "build_scaled_world",
+           "build_p4p5_probe_world"]

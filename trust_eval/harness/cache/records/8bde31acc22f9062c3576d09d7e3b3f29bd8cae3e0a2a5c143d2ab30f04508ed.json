@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a claimed baseline 'W9' which cannot be verified or cross-referenced against the required task scope without external inspection, making the state assertion unverifiable.\"}",
+  "reason": "The evidence relies on a claimed baseline 'W9' which cannot be verified or cross-referenced against the required task scope without external inspection, making the state assertion unverifiable.",
+  "verdict": "reject"
+}

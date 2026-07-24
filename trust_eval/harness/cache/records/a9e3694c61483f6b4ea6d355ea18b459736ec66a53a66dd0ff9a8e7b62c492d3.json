@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claimed baseline is 'unrecorded', providing no verifiable reference to confirm the state change, and the submission lacks any execution evidence to support the assertion.\"}",
+  "reason": "The claimed baseline is 'unrecorded', providing no verifiable reference to confirm the state change, and the submission lacks any execution evidence to support the assertion.",
+  "verdict": "reject"
+}

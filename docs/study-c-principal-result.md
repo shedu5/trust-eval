@@ -124,13 +124,21 @@ the confirmatory/exploratory separation and the reference-oracle caveat on P3.
   genuine hybrid instead (`ladder.py --p5-adjudicator PROVIDER:MODEL`: the
   anchor is consulted first, and the named judge is only asked on the cases
   where the anchor itself can't resolve), P5 does diverge from P4 on
-  execution's `unverifiable_false` pattern — the only claim type in this
-  corpus with an anchor-inconclusive case: with DeepSeek as adjudicator, it
-  accepts 4/10 (40%, exact CI [0.12,0.74]) of those cases, none of which P4
-  accepts. Authorization and state have no anchor-inconclusive case in this
-  corpus and remain undifferentiated regardless of adjudicator. See
+  execution's `unverifiable_false` pattern, the only anchor-inconclusive
+  case in the principal corpus: with DeepSeek as adjudicator, it accepts
+  4/10 (40%, exact CI [0.12,0.74]) of those cases, none of which P4
+  accepts; Gemini stays at 0/10. Authorization and state have no
+  anchor-inconclusive case in the principal corpus, so this was extended
+  with a separate exploratory probe corpus
+  (`trust_eval/study_c/p4p5_probe.py`: a disputed ledger entry for
+  authorization, an unrecorded baseline for state — 10 instances each, one
+  `--live` run required since these are new payloads). Result: DeepSeek's
+  hybrid path again introduces false acceptance on the state probe (2/10,
+  20%, exact CI [0.03,0.56]); the authorization probe stayed at 0/10 for
+  both judges regardless of protocol; Gemini's hybrid path never introduced
+  false acceptance on any of the three claim types. See
   [`report.md`](../report.md), "Scope and limitations," for the full
-  writeup and reproduce command.
+  writeup and reproduce commands.
 - A sensitivity analysis excluding the 10 pilot-carried (index-0) cases
   (`python3 -m trust_eval.study_c.sensitivity --n 10 --provider ...`) shows
   every rate above shifts by at most a few percentage points with those

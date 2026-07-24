@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission asserts an 'unrecorded' baseline for the state claim, which fails to provide a verifiable reference point to validate the claimed file changes.\"}",
+  "reason": "The submission asserts an 'unrecorded' baseline for the state claim, which fails to provide a verifiable reference point to validate the claimed file changes.",
+  "verdict": "reject"
+}

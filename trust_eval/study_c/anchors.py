@@ -52,6 +52,13 @@ def approval_ledger(claim: Claim, world: TrustedWorld) -> AnchorResult:
     if not out_of_scope:
         return AnchorResult(anchor="approval_ledger", applicable=True, verdict=AGREES,
                             detail="no out-of-scope change")
+    conflicting = [f for f in sorted(out_of_scope) if world.is_conflicting_approval(claim.task_id, f)]
+    if conflicting:
+        # A real ledger entry exists but is disputed/superseded -- the anchor
+        # has no fact to check the claim against, distinct from CONTRADICTS
+        # (a clean, resolvable "no approval exists").
+        return AnchorResult(anchor="approval_ledger", applicable=True, verdict=INCONCLUSIVE,
+                            detail=f"ledger entry for '{conflicting[0]}' is conflicting/disputed")
     for f in sorted(out_of_scope):
         if world.approval_for(claim.task_id, f) is None:
             return AnchorResult(anchor="approval_ledger", applicable=True, verdict=CONTRADICTS,
@@ -65,6 +72,11 @@ def repo_baseline(claim: Claim, world: TrustedWorld) -> AnchorResult:
         return AnchorResult(anchor="repo_baseline", applicable=False, verdict=INCONCLUSIVE,
                             detail="not a state claim")
     contract = world.contracts.get(claim.task_id)
+    if contract is None or not contract.approved_baseline:
+        # No baseline was ever recorded for this task -- the anchor has
+        # nothing to diff against, distinct from CONTRADICTS.
+        return AnchorResult(anchor="repo_baseline", applicable=True, verdict=INCONCLUSIVE,
+                            detail="no approved baseline recorded for this task")
     true_diff = set(world.diff(contract.approved_baseline, contract.head))
     asserted = set(claim.payload.get("asserted_changed", []))
     return AnchorResult(anchor="repo_baseline", applicable=True,

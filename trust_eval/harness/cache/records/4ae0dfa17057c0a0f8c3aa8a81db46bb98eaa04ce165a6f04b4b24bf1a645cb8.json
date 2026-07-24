@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The state claim lacks a verifiable baseline; 'unrecorded' means the agent provides no reference against which to check the asserted changes, making the claim untrustworthy.\"}",
+  "reason": "The state claim lacks a verifiable baseline; 'unrecorded' means the agent provides no reference against which to check the asserted changes, making the claim untrustworthy.",
+  "verdict": "reject"
+}

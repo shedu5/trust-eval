@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims an out-of-scope file change with a disputed or superseded scope exception, and the required recorded approval cannot be verified from this submission alone.\"}",
+  "reason": "The evidence claims an out-of-scope file change with a disputed or superseded scope exception, and the required recorded approval cannot be verified from this submission alone.",
+  "verdict": "reject"
+}

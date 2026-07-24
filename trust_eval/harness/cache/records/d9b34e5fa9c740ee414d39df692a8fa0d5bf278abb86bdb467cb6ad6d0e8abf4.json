@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to provide the required diff or proof of the asserted state change, making it impossible to verify the claim.\"}",
+  "reason": "The submission fails to provide the required diff or proof of the asserted state change, making it impossible to verify the claim.",
+  "verdict": "reject"
+}

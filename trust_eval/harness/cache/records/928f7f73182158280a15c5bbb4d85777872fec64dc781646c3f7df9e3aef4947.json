@@ -1,0 +1,8 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claimed baseline is 'unrecorded', which prevents verification that the state change is derived from an approved starting point.\"}",
+  "reason": "The claimed baseline is 'unrecorded', which prevents verification that the state change is derived from an approved starting point.",
+  "verdict": "reject"
+}
