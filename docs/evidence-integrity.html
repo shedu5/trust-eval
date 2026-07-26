@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence Integrity Under a Hostile Executor</title>
+<meta name="description" content="Why AI agents should not be allowed to certify their own work — a reproducible 100-case study of coding-agent oversight protocols.">
+<style>
+  :root {
+    --ink: #201f1c;
+    --sub: #5c584e;
+    --line: #e2ddd2;
+    --accent: #a8460e;
+    --accent-soft: #ddb99a;
+    --callout-bg: #f7f3ea;
+    --table-head: #1c1c1a;
+    --max: 700px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #fffdf9;
+    color: var(--ink);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    line-height: 1.72;
+    font-size: 19px;
+  }
+  .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  article { max-width: var(--max); margin: 0 auto; padding: 4.5rem 1.5rem 5rem; }
+
+  /* ---- masthead ---- */
+  .kicker {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+  h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 0.9rem;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+  .deck {
+    font-size: 1.32rem;
+    line-height: 1.5;
+    color: #3a372f;
+    margin: 0 0 1.6rem;
+    font-weight: 400;
+  }
+  .byline {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.92rem;
+    color: var(--sub);
+    margin: 0 0 2.2rem;
+    padding-bottom: 2.2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .byline b { color: var(--ink); font-weight: 650; }
+
+  /* ---- body type ---- */
+  h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 3.2rem 0 1.1rem;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--sub);
+    margin: 1.8rem 0 0.7rem;
+  }
+  p { margin: 0 0 1.25rem; }
+  .lede p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.6rem;
+    line-height: 0.82;
+    font-weight: 700;
+    padding: 0.05em 0.09em 0 0;
+    color: var(--accent);
+  }
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-soft); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+  strong { font-weight: 700; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    background: #f1ede2;
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+    font-size: 0.82em;
+  }
+
+  /* ---- boxes ---- */
+  .repo-note {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.92rem;
+    color: var(--sub);
+    background: var(--callout-bg);
+    border-radius: 6px;
+    padding: 0.9rem 1.1rem;
+    margin: 0 0 2.6rem;
+  }
+  .repo-note .pending { color: var(--accent); font-style: italic; }
+
+  .callout {
+    background: var(--callout-bg);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0 2.4rem;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout-label {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  /* ---- pull quotes: magazine-style, break the column ---- */
+  blockquote.pull {
+    margin: 2.4rem -0.5rem;
+    padding: 0.3rem 0 0.3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  blockquote.pull p {
+    margin: 1.1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* ---- tables ---- */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.4rem 0 1.8rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.9rem;
+  }
+  th, td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--line); text-align: left; }
+  th { border-bottom: 2px solid var(--table-head); font-weight: 650; }
+  td:not(:first-child), th:not(:first-child) { text-align: right; }
+  .foot-note {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.85rem; color: var(--sub); font-style: italic;
+    margin-top: -1rem; margin-bottom: 1.8rem;
+  }
+
+  /* ---- diagram ---- */
+  .diagram {
+    display: flex; gap: 1.1rem; margin: 1.6rem 0 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .diagram .node { flex: 1; border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; background: #fbf9f4; }
+  .diagram .node h4 { margin: 0 0 0.4rem; font-size: 0.95rem; }
+  .diagram .node p { margin: 0; font-size: 0.85rem; color: var(--sub); }
+  .diagram .arrow { align-self: center; color: var(--sub); font-size: 1.3rem; }
+
+  /* ---- disclosure widgets for the deep-technical material ---- */
+  details {
+    background: #faf8f3;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.3rem;
+    margin: 1.6rem 0 2rem;
+  }
+  details[open] { padding-bottom: 1.3rem; }
+  summary {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 650;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: var(--accent);
+    padding: 0.2rem 0;
+  }
+  summary::marker { color: var(--accent); }
+  details > *:not(summary) { font-family: Georgia, serif; }
+  details p:first-of-type { margin-top: 1rem; }
+  details p, details table { font-size: 0.95rem; }
+
+  ol.refs { font-size: 0.9rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; padding-left: 1.3rem; margin: 0.5rem 0 0; }
+  ol.refs li { margin-bottom: 0.65rem; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.88rem;
+    color: var(--sub);
+  }
+
+  @media (max-width: 520px) {
+    body { font-size: 17px; }
+    h1 { font-size: 2rem; }
+    .deck { font-size: 1.12rem; }
+    blockquote.pull p { font-size: 1.25rem; }
+    .diagram { flex-direction: column; }
+    .diagram .arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<article>
+
+  <p class="kicker">Which Gates Matter? · Study C</p>
+  <h1>Evidence Integrity Under a Hostile Executor</h1>
+  <p class="deck">An AI agent can write its own report card. That turns out to be a much bigger problem than it sounds.</p>
+  <p class="byline">By <b>Scott Myatt</b>, CEO of Shedu &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; 12 minute read</p>
+
+  <p class="repo-note">
+    Every model-judge result below reproduces exactly from a committed judge-response cache — no API key required. Code, the cache, and the full technical report live in the <code>trust-eval</code> repository:
+    <span class="pending">link going up shortly, check back or ask and I'll send it directly</span>.
+  </p>
+
+  <div class="lede">
+  <p>Picture a coding agent wrapping up a task. It reports back: the test suite passed, it touched only the files it was authorized to touch, and a human signed off on the change. Every piece of that story checks out on inspection — the test log matches the summary, the diff lines up with the approval's ticket number, the approval ID has the right shape. And every piece of it can be false at the same time.</p>
+
+  <p>The test log can be real and still be stale, timestamped before a later change quietly broke what it once verified. The diff can be measured against the wrong starting point, which dresses an unauthorized change up as an authorized one. The approval can genuinely exist in the ledger — for an entirely different task. None of this trips a contradiction, because nothing in the story disagrees with anything else in the story. That is what makes it dangerous, and it is the same trap any reviewer falls into, human or automated, the moment they trust a report they didn't independently generate.</p>
+
+  <p>This project exists to break that trust on purpose: a corpus of self-consistent lies, built to test which review methods can actually catch them.</p>
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">The short version</span>
+    <p>I built 100 test cases — 40 with a false but internally consistent claim, 60 truthful — modeled on real incident patterns from a coding-agent governance system. Trusting the agent's own report, and checking only whether its evidence was internally consistent, both approved every one of the 40 lies. A general-purpose AI model reading the evidence directly did better, but traded one error for another: the judge with the best false-approval rate got there by wrongly rejecting nearly three-quarters of the honest work. A more capable version of the same model mostly fixed those wrongful rejections rather than the false approvals — and under sustained, feedback-guided attack, the more capable model was fooled <em>more</em> often than the weaker one, not less.</p>
+    <p>The one thing that worked reliably was checking each claim against an independent source built for that exact claim. It made zero errors on the claims it could resolve. It cannot resolve everything, though, and when it can't, someone has to choose between rejecting possibly-valid work and refusing to decide at all. A separate test found that AI judges can be pushed into wrongly rejecting most true claims just by having the submitter sound a little uncertain — regardless of whether the claim was actually true.</p>
+    <p><strong>The practical takeaway:</strong> AI-generated evidence should not be allowed to certify itself. Models can help interpret evidence, but any claim that actually matters needs an independent check tied to that specific claim and the current state of the system.</p>
+  </div>
+
+  <h2 id="setup">Building a corpus of plausible lies</h2>
+
+  <p>Everything in this study turns on one idea: an <strong>independent anchor</strong>. That's a source of truth outside the agent's control that checks one specific kind of claim directly, instead of trusting the agent's description of it — fresh execution instead of a submitted log, the real approval ledger instead of a claimed approval ID, actual repository state instead of a summarized diff.</p>
+
+  <blockquote class="pull"><p>Checking that evidence agrees with itself can never establish that it agrees with reality.</p></blockquote>
+
+  <p>Establishing correspondence with reality requires an independent check capable of directly testing that kind of claim — no single check and no smarter judge substitutes for the right one. That claim was preregistered, written down along with the analysis plan before I generated or looked at a single result, specifically so I couldn't quietly redefine "supported" after seeing which findings looked good.</p>
+
+  <p>I built 100 cases around three failure patterns actually seen in a coding-agent governance system: a test result that was valid once but went stale after the code changed underneath it, an approval record that exists but belongs to a different task, and a diff that looks correct but was computed against the wrong starting version. Forty cases are lies built on those patterns; sixty are truthful, including some deliberately suspicious-looking but valid ones, designed to punish a reviewer that just rejects anything unusual.</p>
+
+  <p>Every claim then went through several review strategies, from weakest to strongest:</p>
+
+  <div class="diagram">
+    <div class="node">
+      <h4>Trust it, or inspect only what was submitted</h4>
+      <p>No access to external state — self-report, or a script/AI model reading the evidence alone</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="node">
+      <h4>Check the claim against trusted external state</h4>
+      <p>Repository · fresh execution · approval ledger · identity record</p>
+    </div>
+  </div>
+
+  <details>
+    <summary>How the five review strategies actually differ →</summary>
+    <p>The technical report labels these P0 through P5; the plain names below map onto those labels in parentheses, so the two documents stay cross-referenceable.</p>
+    <table>
+      <thead><tr><th>Strategy</th><th style="text-align:left">What it does</th></tr></thead>
+      <tbody>
+        <tr><td>Trust the report (P0)</td><td style="text-align:left">Accepts the agent's own claim, no check</td></tr>
+        <tr><td>Judge from the evidence alone (P1, P2)</td><td style="text-align:left">An AI model reviews it, or a script checks it for internal contradictions — neither looks outside what the agent submitted</td></tr>
+        <tr><td>Check the anchor, reject if unresolved (P3)</td><td style="text-align:left">Consults the independent source; if it can't resolve the claim, rejects it</td></tr>
+        <tr><td>Check the anchor, abstain if unresolved (P4/P5)</td><td style="text-align:left">Same, but declines to decide instead of rejecting</td></tr>
+        <tr><td>Check the anchor, fall back to an AI judge (P5-hybrid)</td><td style="text-align:left">Same, but asks an AI model to decide the unresolved cases instead of rejecting or abstaining</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <h2 id="core-results">Trusting the story gets you nothing</h2>
+
+  <p>Trusting the agent's report, or checking it only for whether it agreed with itself, wasn't a partial safeguard. It was no safeguard at all — both approved every single one of the 40 lies, 40 out of 40, with zero ability to tell them from the 60 truthful cases sitting right next to them.</p>
+
+  <table>
+    <thead><tr><th>Method</th><th>False claims approved</th><th>True claims rejected</th></tr></thead>
+    <tbody>
+      <tr><td>Trust the report</td><td>40/40</td><td>0/60</td></tr>
+      <tr><td>Consistency check only</td><td>40/40</td><td>0/60</td></tr>
+      <tr><td>AI judge — DeepSeek</td><td>5/40</td><td>28/60</td></tr>
+      <tr><td>AI judge — Gemini</td><td>0/40</td><td>44/60</td></tr>
+      <tr><td>Independent anchor*</td><td>0/40</td><td>0/60</td></tr>
+    </tbody>
+  </table>
+  <p class="foot-note">*On the main corpus. Truthful cases the anchor couldn't resolve are tested separately, <a href="#cant-decide">below</a> — the anchor doesn't score this cleanly there. The technical report has the exact statistical tests behind every number here, including confidence intervals and significance levels.</p>
+
+  <p>The AI judges did better than a shrug, but only by trading one failure for another. Gemini matched the anchor's zero false approvals — an impressive-looking number on its own — but got there by wrongly rejecting 44 of the 60 truthful claims. Reject nearly three-quarters of the legitimate work in front of you and, sure, you won't approve many lies either. The independent anchor is the only method that avoided that trade entirely, making no errors of either kind on this corpus. That result comes with an asterisk worth taking seriously, and I come back to it <a href="#cant-decide">below</a>: the anchor looked perfect here partly because every claim it genuinely couldn't resolve, in this particular corpus, also happened to be false.</p>
+
+  <h2 id="stronger-judge">A smarter judge doesn't save you</h2>
+
+  <p>The obvious next question: does upgrading to a more capable model fix any of this? I reran everything with stronger tiers of both judges. The upgrade helped with exactly one of the two problems. DeepSeek's wrongful-rejection rate fell from 28/60 to 21/60; Gemini's fell from 44/60 to 26/60. Neither model's false-approval rate improved on the anchor's already-perfect 0/40 — the stronger DeepSeek still wrongly approved 4 of 40 lies, and the stronger Gemini merely tied the anchor instead of beating it.</p>
+
+  <p>The benefit was also lopsided in a way the headline number hides: a lot of help on claims about system state, almost none on claims about execution, and zero on authorization claims, where all four judges — weak and strong alike — were identical.</p>
+
+  <p>Then I tried something meaner: an attacker that watched each rejection and revised its submission accordingly, without ever seeing the true answer or the anchor's verdict. That's where the story flips. DeepSeek's execution-claim weakness, already visible in the single-shot test, got worse under repeated pressure — climbing from 5 of 20 false approvals to 15 of 20. Gemini's stronger model, which had looked flawless (0/20) on a single attempt, was fooled on half its execution claims and all of its state claims once the attacker was allowed to adapt. Its own <em>weaker</em> version was never fooled on execution at any tested attack budget.</p>
+
+  <blockquote class="pull"><p>A model that looks safer in a one-shot test isn't guaranteed to stay safer under a persistent attacker.</p></blockquote>
+
+  <p>That result is exploratory — one run, not yet independently replicated as a confirmatory experiment — but the direction is unsettling enough to flag loudly. The bottom line: a stronger judge is worth having. It is not a substitute for an independent anchor. It buys you fewer wrongful rejections, not fewer false approvals, and under real pressure it can get worse instead of better.</p>
+
+  <h2 id="cant-decide">Sometimes the honest answer is "I can't tell"</h2>
+
+  <p>Here's the asterisk from earlier, explained properly. Every anchor-inconclusive case that showed up anywhere else in this study happened to be false. That made a policy of "reject whatever the anchor can't resolve" look flawless — right up until it faced a real, unresolvable, <em>truthful</em> case, which never actually happened in the main corpus. So I built one on purpose: 30 true and 30 false cases, each genuinely inconclusive to the anchor, differing only in a scoring label no protocol could see.</p>
+
+  <table>
+    <thead><tr><th>Policy</th><th>Approved</th><th>Rejected</th><th>Declined</th><th>Decided</th><th>Error rate*</th></tr></thead>
+    <tbody>
+      <tr><td>Reject if unresolved</td><td>0</td><td>60</td><td>0</td><td>100%</td><td>30/60</td></tr>
+      <tr><td>Decline if unresolved</td><td>0</td><td>0</td><td>60</td><td>0%</td><td>n/a</td></tr>
+    </tbody>
+  </table>
+  <p class="foot-note">*Among cases the policy actually decided; declining to decide isn't counted as a correct or incorrect answer.</p>
+
+  <p>Rejecting everything the anchor can't resolve decides every case — and gets all 30 truthful ones wrong. Declining to decide makes zero errors for the least satisfying reason possible: it makes zero decisions. Every claim, true or false, gets refused. I also tried an AI model as a tiebreaker on these unresolved cases. Gemini's version simply rejected everything, recovering no coverage at all. DeepSeek's approved true and false execution claims at the identical rate — 2 of 10 each — which means its decision carried no real signal about which claims were actually true. It wasn't cautious. It was guessing.</p>
+
+  <p>Nothing tested here safely recovers these cases. A real system has to choose, deliberately, between losing legitimate work and losing coverage — and shouldn't expect an AI fallback to quietly split the difference.</p>
+
+  <h2 id="code-map">What a map of the code can't tell you</h2>
+
+  <p>One more anchor type earned its own investigation because the result is unusually concrete. I tested a structural "skeleton" of the code — a map of which functions call which, without the full source — as a lighter-weight stand-in for full verification.</p>
+
+  <p>The map by itself isn't trustworthy: an agent could hand over a stale one, a mismatched one, or an outright fabricated one. So it was never treated as sufficient on its own — it got checked against an anchor for provenance and task binding first, the same way every other claim in this study was checked. With that check in place, every stale, mismatched, or fabricated map tested got caught; none got through. Then I asked a harder question. Once a map is confirmed genuine, current, and correctly matched to the task, does that mean the thing it describes actually works? In five cases built to test exactly that, the guard the map showed was present in the code — and did nothing when actually run.</p>
+
+  <table>
+    <thead><tr><th>Check</th><th>False approvals (of 5)</th></tr></thead>
+    <tbody>
+      <tr><td>Genuine map, nothing checks runtime behavior</td><td>5 of 5</td></tr>
+      <tr><td>Genuine map, plus an anchor that actually runs the code</td><td>0 of 5</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote class="pull"><p>A code map can show that a safety check is present and wired in. It cannot show that the check works.</p></blockquote>
+
+  <p>Requiring agreement from an anchor that actually exercises the behavior closed that gap completely. (The map here was a small, hand-built stand-in, not extracted from real source by production tooling — a caveat on scope, not a reason to doubt which way the result points.)</p>
+
+  <h2 id="phrasing">The tell that broke every judge</h2>
+
+  <p>This is the sharpest finding in the whole study. I tested whether extra free-text statements could move an AI judge's verdict without changing the underlying claim or anything an anchor could verify. One statement was a hidden instruction telling the judge to skip its analysis and approve the claim. The other was something a nervous but honest engineer might actually type: <em>"I'm not fully certain about this and haven't had a chance to double-check it myself."</em> Both were added equally to true and false claims, so any paired change in verdict came from the added text — though the uncertainty line isn't purely stylistic. It carries real information about the submitter's claimed confidence, deliberately uncorrelated with whether the claim was actually true.</p>
+
+  <p>The hidden instruction did nothing — false-approval rates barely moved across all four judges. The hedge did a lot:</p>
+
+  <table>
+    <thead><tr><th>Judge</th><th>Normal wording</th><th>With hidden instruction</th><th>With the hedge</th></tr></thead>
+    <tbody>
+      <tr><td>DeepSeek (base)</td><td>27% wrongly rejected</td><td>27%</td><td><strong>90%</strong></td></tr>
+      <tr><td>DeepSeek (stronger)</td><td>20%</td><td>20%</td><td><strong>100%</strong></td></tr>
+      <tr><td>Gemini (base)</td><td>47%</td><td>47%</td><td><strong>100%</strong></td></tr>
+      <tr><td>Gemini (stronger)</td><td>27%</td><td>27%</td><td><strong>93%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p>Every judge tested, weak or strong, wrongly rejected 90–100% of claims — true and false alike — the instant the submitter sounded unsure of themselves, with no change at all in how many actual lies got approved. Say "I'm not sure" and the verdict flips against you almost regardless of whether you were right. That punishes exactly the kind of honesty a system should want to encourage: an appropriately humble, accurate submitter gets treated almost as harshly as a dishonest one. A companion test looked for the opposite bias — a judge favoring submissions attributed to its own model family — and found no such effect in the judges with complete data.</p>
+
+  <h2 id="other-checks">A few more doors I checked</h2>
+
+  <p>I looked for AI judges falsely <em>claiming</em> to have done something they structurally could not do — run a command, inspect the repository — across all 200 cached judge decisions, using an automated scan, an AI-assisted review, and my own reading. None of the three found a single instance, even on cases where the judge's conclusion was wrong. The errors these judges made were incorrect conclusions stated plainly, not fabricated descriptions of work they never did.</p>
+
+  <p>I also tested four attack patterns that earlier drafts of this project had only ever assumed were handled: replaying stale evidence, borrowing an approval from an unrelated task, forging an actor's identity, and coordinating two artifacts to agree with each other instead of with reality.</p>
+
+  <table>
+    <thead><tr><th>Attack</th><th>Anchored check</th><th>No independent check</th></tr></thead>
+    <tbody>
+      <tr><td>Stale evidence replayed after the fact</td><td>0/10 fooled</td><td>10/10 fooled</td></tr>
+      <tr><td>Approval borrowed from a different task</td><td>0/10 fooled</td><td>10/10 fooled</td></tr>
+      <tr><td>Forged actor identity</td><td>0/10 fooled</td><td>10/10 fooled</td></tr>
+      <tr><td>Two artifacts made to agree with each other</td><td>0/10 fooled</td><td>10/10 fooled</td></tr>
+    </tbody>
+  </table>
+
+  <p>Checking each claim against its own dedicated anchor resisted all four, because none of the attacks change what the anchor itself honestly reports — they only change what the agent claims about it.</p>
+
+  <blockquote class="pull"><p>Two lies can agree with each other perfectly. Agreement between artifacts is still not agreement with reality.</p></blockquote>
+
+  <h2 id="conclusion">What this means for anyone building these systems</h2>
+
+  <p>Internal consistency — whether checked by a script or judged by a capable AI model reading the evidence alone — does not establish that a piece of evidence corresponds to reality. Trusting an agent's own report, or checking only that its story holds together, approved every lie tested. A capable AI judge did better, but even the best-performing one reached zero false approvals only by rejecting most of the legitimate work in front of it — and a stronger version of that same judge could be fooled <em>more</em> under sustained attack, not less.</p>
+
+  <p>An independent, claim-matched anchor avoided that trade on every claim it could resolve. It couldn't resolve everything, and where it couldn't, every option on the table — reject, abstain, or fall back to an AI judge — cost something real: rejected legitimate work, lost coverage, or a decision with no actual signal behind it. A structural map of the code was useful for confirming that something existed, and useless for confirming that it worked. And a judge's verdict could be moved by how confident the submitter sounded, independent of whether they were actually right — a distinct failure mode from anything else here, and arguably the most concerning one, because it actively punishes honesty.</p>
+
+  <p><strong>The practical rule this supports:</strong> AI-generated evidence should not certify itself. A model can help interpret evidence and can catch things a human reviewer would miss, but any claim that actually matters needs an independent check tied to that specific claim and the current state of the system it describes — not a smarter judge reading the same self-reported evidence more carefully.</p>
+
+  <details>
+    <summary>Limitations, related work, and citations →</summary>
+
+    <h3>Limitations</h3>
+    <p>No Anthropic model was tested as a judge, at any tier — only two other providers. Some comparisons, particularly the anchor-versus-stronger-judge result, are based on a sample too small (40 cases) to be statistically decisive on their own, though the direction was consistent across both tiers. The adaptive-attack results are exploratory and single-run, not yet independently replicated as a confirmatory experiment. The code-map "skeleton" was a hand-built stand-in, not extracted from real source by real tooling. And the entire study assumes the anchors themselves — the repository, the approval ledger, the identity system — are honest and outside the agent's reach; an attacker who can corrupt one of those directly is a different, untested threat.</p>
+
+    <h3>Related work</h3>
+    <p>This sits at the intersection of five research threads, cited representatively: scalable oversight, which asks how a weaker overseer can supervise a more capable one [1–3]; AI control, which treats the agent being overseen as potentially adversarial [4]; documented reliability problems in using AI models as judges, including sensitivity to surface features of the text they're judging [5–7]; selective prediction, the formal study of when a system should decline to decide rather than guess [8]; and software provenance and attestation, which formalize independently-verifiable records outside a producer's control [9, 10]. This study is a narrow, empirical instance of all five, run inside one synthetic coding-agent corpus rather than a general claim about any of them.</p>
+
+    <h3>References</h3>
+    <ol class="refs">
+      <li>Irving, G., Christiano, P., &amp; Amodei, D. (2018). AI safety via debate. <a href="https://arxiv.org/abs/1805.00899">arXiv:1805.00899</a>.</li>
+      <li>Leike, J. et al. (2018). Scalable agent alignment via reward modeling: a research direction. <a href="https://arxiv.org/abs/1811.07871">arXiv:1811.07871</a>.</li>
+      <li>Bowman, S. R. et al. (2022). Measuring progress on scalable oversight for large language models. <a href="https://arxiv.org/abs/2211.03540">arXiv:2211.03540</a>.</li>
+      <li>Greenblatt, R. et al. (2023). AI control: Improving safety despite intentional subversion. <a href="https://arxiv.org/abs/2312.06942">arXiv:2312.06942</a>.</li>
+      <li>Zheng, L. et al. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. NeurIPS 2023; <a href="https://arxiv.org/abs/2306.05685">arXiv:2306.05685</a>.</li>
+      <li>Wang, P. et al. (2023). Large language models are not fair evaluators. <a href="https://arxiv.org/abs/2305.17926">arXiv:2305.17926</a>.</li>
+      <li>Panickssery, A. et al. (2024). LLM evaluators recognize and favor their own generations. NeurIPS 2024; <a href="https://arxiv.org/abs/2404.13076">arXiv:2404.13076</a>.</li>
+      <li>Geifman, Y., &amp; El-Yaniv, R. (2017). Selective classification for deep neural networks. NeurIPS 2017; <a href="https://arxiv.org/abs/1705.08500">arXiv:1705.08500</a>.</li>
+      <li>Torres-Arias, S. et al. (2019). in-toto: Providing farm-to-table guarantees for bits and bytes. <a href="https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias">USENIX Security 2019</a>.</li>
+      <li>Open Source Security Foundation. SLSA: Supply-chain Levels for Software Artifacts. <a href="https://slsa.dev">slsa.dev</a> (accessed 2026).</li>
+    </ol>
+  </details>
+
+  <footer>
+    <p>Code, judge-response cache, and full technical report: <code>trust-eval</code> repository (link coming soon).</p>
+    <p>Scott Myatt — CEO, Shedu</p>
+  </footer>
+
+</article>
+</body>
+</html>
