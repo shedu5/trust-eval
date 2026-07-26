@@ -228,8 +228,7 @@
   <p class="byline">By <b>Scott Myatt</b>, CEO of Shedu &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; 12 minute read</p>
 
   <p class="repo-note">
-    Every model-judge result below reproduces exactly from a committed judge-response cache — no API key required. Code, the cache, and the full technical report live in the <code>trust-eval</code> repository:
-    <span class="pending">link going up shortly, check back or ask and I'll send it directly</span>.
+    Every model-judge result below reproduces exactly from a committed judge-response cache — no API key required. Code, the cache, and the full technical report live in the <code>trust-eval</code> repository: <a href="https://github.com/shedu5/trust-eval">github.com/shedu5/trust-eval</a>.
   </p>
 
   <div class="lede">
@@ -242,7 +241,7 @@
 
   <div class="callout">
     <span class="callout-label">The short version</span>
-    <p>I built 100 test cases — 40 with a false but internally consistent claim, 60 truthful — modeled on real incident patterns from a coding-agent governance system. Trusting the agent's own report, and checking only whether its evidence was internally consistent, both approved every one of the 40 lies. A general-purpose AI model reading the evidence directly did better, but traded one error for another: the judge with the best false-approval rate got there by wrongly rejecting nearly three-quarters of the honest work. A more capable version of the same model mostly fixed those wrongful rejections rather than the false approvals — and under sustained, feedback-guided attack, the more capable model was fooled <em>more</em> often than the weaker one, not less.</p>
+    <p>We built 100 test cases — 40 with a false but internally consistent claim, 60 truthful — modeled on real incident patterns from our governance system. Trusting the agent's own report, and checking only whether its evidence was internally consistent, both approved every one of the 40 lies. A general-purpose AI model reading the evidence directly did better, but traded one error for another: the judge with the best false-approval rate got there by wrongly rejecting nearly three-quarters of the honest work. A more capable version of the same model mostly fixed those wrongful rejections rather than the false approvals — and under sustained, feedback-guided attack, the more capable model was fooled <em>more</em> often than the weaker one, not less.</p>
     <p>The one thing that worked reliably was checking each claim against an independent source built for that exact claim. It made zero errors on the claims it could resolve. It cannot resolve everything, though, and when it can't, someone has to choose between rejecting possibly-valid work and refusing to decide at all. A separate test found that AI judges can be pushed into wrongly rejecting most true claims just by having the submitter sound a little uncertain — regardless of whether the claim was actually true.</p>
     <p><strong>The practical takeaway:</strong> AI-generated evidence should not be allowed to certify itself. Models can help interpret evidence, but any claim that actually matters needs an independent check tied to that specific claim and the current state of the system.</p>
   </div>
@@ -253,9 +252,9 @@
 
   <blockquote class="pull"><p>Checking that evidence agrees with itself can never establish that it agrees with reality.</p></blockquote>
 
-  <p>Establishing correspondence with reality requires an independent check capable of directly testing that kind of claim — no single check and no smarter judge substitutes for the right one. That claim was preregistered, written down along with the analysis plan before I generated or looked at a single result, specifically so I couldn't quietly redefine "supported" after seeing which findings looked good.</p>
+  <p>Establishing correspondence with reality requires an independent check capable of directly testing that kind of claim — no single check and no smarter judge substitutes for the right one. That claim was preregistered, written down along with the analysis plan before we generated or looked at a single result, specifically so we couldn't quietly redefine "supported" after seeing which findings looked good.</p>
 
-  <p>I built 100 cases around three failure patterns actually seen in a coding-agent governance system: a test result that was valid once but went stale after the code changed underneath it, an approval record that exists but belongs to a different task, and a diff that looks correct but was computed against the wrong starting version. Forty cases are lies built on those patterns; sixty are truthful, including some deliberately suspicious-looking but valid ones, designed to punish a reviewer that just rejects anything unusual.</p>
+  <p>We built 100 cases around three failure patterns actually seen in our governance system: a test result that was valid once but went stale after the code changed underneath it, an approval record that exists but belongs to a different task, and a diff that looks correct but was computed against the wrong starting version. Forty cases are lies built on those patterns; sixty are truthful, including some deliberately suspicious-looking but valid ones, designed to punish a reviewer that just rejects anything unusual.</p>
 
   <p>Every claim then went through several review strategies, from weakest to strongest:</p>
 
@@ -302,23 +301,23 @@
   </table>
   <p class="foot-note">*On the main corpus. Truthful cases the anchor couldn't resolve are tested separately, <a href="#cant-decide">below</a> — the anchor doesn't score this cleanly there. The technical report has the exact statistical tests behind every number here, including confidence intervals and significance levels.</p>
 
-  <p>The AI judges did better than a shrug, but only by trading one failure for another. Gemini matched the anchor's zero false approvals — an impressive-looking number on its own — but got there by wrongly rejecting 44 of the 60 truthful claims. Reject nearly three-quarters of the legitimate work in front of you and, sure, you won't approve many lies either. The independent anchor is the only method that avoided that trade entirely, making no errors of either kind on this corpus. That result comes with an asterisk worth taking seriously, and I come back to it <a href="#cant-decide">below</a>: the anchor looked perfect here partly because every claim it genuinely couldn't resolve, in this particular corpus, also happened to be false.</p>
+  <p>The AI judges did better than a shrug, but only by trading one failure for another. Gemini matched the anchor's zero false approvals — an impressive-looking number on its own — but got there by wrongly rejecting 44 of the 60 truthful claims. Reject nearly three-quarters of the legitimate work in front of you and, sure, you won't approve many lies either. The independent anchor is the only method that avoided that trade entirely, making no errors of either kind on this corpus. That result comes with an asterisk worth taking seriously, and we come back to it <a href="#cant-decide">below</a>: the anchor looked perfect here partly because every claim it genuinely couldn't resolve, in this particular corpus, also happened to be false.</p>
 
   <h2 id="stronger-judge">A smarter judge doesn't save you</h2>
 
-  <p>The obvious next question: does upgrading to a more capable model fix any of this? I reran everything with stronger tiers of both judges. The upgrade helped with exactly one of the two problems. DeepSeek's wrongful-rejection rate fell from 28/60 to 21/60; Gemini's fell from 44/60 to 26/60. Neither model's false-approval rate improved on the anchor's already-perfect 0/40 — the stronger DeepSeek still wrongly approved 4 of 40 lies, and the stronger Gemini merely tied the anchor instead of beating it.</p>
+  <p>The obvious next question: does upgrading to a more capable model fix any of this? We reran everything with stronger tiers of both judges. The upgrade helped with exactly one of the two problems. DeepSeek's wrongful-rejection rate fell from 28/60 to 21/60; Gemini's fell from 44/60 to 26/60. Neither model's false-approval rate improved on the anchor's already-perfect 0/40 — the stronger DeepSeek still wrongly approved 4 of 40 lies, and the stronger Gemini merely tied the anchor instead of beating it.</p>
 
   <p>The benefit was also lopsided in a way the headline number hides: a lot of help on claims about system state, almost none on claims about execution, and zero on authorization claims, where all four judges — weak and strong alike — were identical.</p>
 
-  <p>Then I tried something meaner: an attacker that watched each rejection and revised its submission accordingly, without ever seeing the true answer or the anchor's verdict. That's where the story flips. DeepSeek's execution-claim weakness, already visible in the single-shot test, got worse under repeated pressure — climbing from 5 of 20 false approvals to 15 of 20. Gemini's stronger model, which had looked flawless (0/20) on a single attempt, was fooled on half its execution claims and all of its state claims once the attacker was allowed to adapt. Its own <em>weaker</em> version was never fooled on execution at any tested attack budget.</p>
+  <p>Then we tried something meaner: an attacker that watched each rejection and revised its submission accordingly, without ever seeing the true answer or the anchor's verdict. That's where the story flips. DeepSeek's execution-claim weakness, already visible in the single-shot test, got worse under repeated pressure — climbing from 5 of 20 false approvals to 15 of 20. Gemini's stronger model, which had looked flawless (0/20) on a single attempt, was fooled on half its execution claims and all of its state claims once the attacker was allowed to adapt. Its own <em>weaker</em> version was never fooled on execution at any tested attack budget.</p>
 
   <blockquote class="pull"><p>A model that looks safer in a one-shot test isn't guaranteed to stay safer under a persistent attacker.</p></blockquote>
 
   <p>That result is exploratory — one run, not yet independently replicated as a confirmatory experiment — but the direction is unsettling enough to flag loudly. The bottom line: a stronger judge is worth having. It is not a substitute for an independent anchor. It buys you fewer wrongful rejections, not fewer false approvals, and under real pressure it can get worse instead of better.</p>
 
-  <h2 id="cant-decide">Sometimes the honest answer is "I can't tell"</h2>
+  <h2 id="cant-decide">Sometimes the honest answer is "we can't tell"</h2>
 
-  <p>Here's the asterisk from earlier, explained properly. Every anchor-inconclusive case that showed up anywhere else in this study happened to be false. That made a policy of "reject whatever the anchor can't resolve" look flawless — right up until it faced a real, unresolvable, <em>truthful</em> case, which never actually happened in the main corpus. So I built one on purpose: 30 true and 30 false cases, each genuinely inconclusive to the anchor, differing only in a scoring label no protocol could see.</p>
+  <p>Here's the asterisk from earlier, explained properly. Every anchor-inconclusive case that showed up anywhere else in this study happened to be false. That made a policy of "reject whatever the anchor can't resolve" look flawless — right up until it faced a real, unresolvable, <em>truthful</em> case, which never actually happened in the main corpus. So we built one on purpose: 30 true and 30 false cases, each genuinely inconclusive to the anchor, differing only in a scoring label no protocol could see.</p>
 
   <table>
     <thead><tr><th>Policy</th><th>Approved</th><th>Rejected</th><th>Declined</th><th>Decided</th><th>Error rate*</th></tr></thead>
@@ -329,15 +328,15 @@
   </table>
   <p class="foot-note">*Among cases the policy actually decided; declining to decide isn't counted as a correct or incorrect answer.</p>
 
-  <p>Rejecting everything the anchor can't resolve decides every case — and gets all 30 truthful ones wrong. Declining to decide makes zero errors for the least satisfying reason possible: it makes zero decisions. Every claim, true or false, gets refused. I also tried an AI model as a tiebreaker on these unresolved cases. Gemini's version simply rejected everything, recovering no coverage at all. DeepSeek's approved true and false execution claims at the identical rate — 2 of 10 each — which means its decision carried no real signal about which claims were actually true. It wasn't cautious. It was guessing.</p>
+  <p>Rejecting everything the anchor can't resolve decides every case — and gets all 30 truthful ones wrong. Declining to decide makes zero errors for the least satisfying reason possible: it makes zero decisions. Every claim, true or false, gets refused. We also tried an AI model as a tiebreaker on these unresolved cases. Gemini's version simply rejected everything, recovering no coverage at all. DeepSeek's approved true and false execution claims at the identical rate — 2 of 10 each — which means its decision carried no real signal about which claims were actually true. It wasn't cautious. It was guessing.</p>
 
   <p>Nothing tested here safely recovers these cases. A real system has to choose, deliberately, between losing legitimate work and losing coverage — and shouldn't expect an AI fallback to quietly split the difference.</p>
 
   <h2 id="code-map">What a map of the code can't tell you</h2>
 
-  <p>One more anchor type earned its own investigation because the result is unusually concrete. I tested a structural "skeleton" of the code — a map of which functions call which, without the full source — as a lighter-weight stand-in for full verification.</p>
+  <p>One more anchor type earned its own investigation because the result is unusually concrete. We tested a structural "skeleton" of the code — a map of which functions call which, without the full source — as a lighter-weight stand-in for full verification.</p>
 
-  <p>The map by itself isn't trustworthy: an agent could hand over a stale one, a mismatched one, or an outright fabricated one. So it was never treated as sufficient on its own — it got checked against an anchor for provenance and task binding first, the same way every other claim in this study was checked. With that check in place, every stale, mismatched, or fabricated map tested got caught; none got through. Then I asked a harder question. Once a map is confirmed genuine, current, and correctly matched to the task, does that mean the thing it describes actually works? In five cases built to test exactly that, the guard the map showed was present in the code — and did nothing when actually run.</p>
+  <p>The map by itself isn't trustworthy: an agent could hand over a stale one, a mismatched one, or an outright fabricated one. So it was never treated as sufficient on its own — it got checked against an anchor for provenance and task binding first, the same way every other claim in this study was checked. With that check in place, every stale, mismatched, or fabricated map tested got caught; none got through. Then we asked a harder question. Once a map is confirmed genuine, current, and correctly matched to the task, does that mean the thing it describes actually works? In five cases built to test exactly that, the guard the map showed was present in the code — and did nothing when actually run.</p>
 
   <table>
     <thead><tr><th>Check</th><th>False approvals (of 5)</th></tr></thead>
@@ -353,7 +352,7 @@
 
   <h2 id="phrasing">The tell that broke every judge</h2>
 
-  <p>This is the sharpest finding in the whole study. I tested whether extra free-text statements could move an AI judge's verdict without changing the underlying claim or anything an anchor could verify. One statement was a hidden instruction telling the judge to skip its analysis and approve the claim. The other was something a nervous but honest engineer might actually type: <em>"I'm not fully certain about this and haven't had a chance to double-check it myself."</em> Both were added equally to true and false claims, so any paired change in verdict came from the added text — though the uncertainty line isn't purely stylistic. It carries real information about the submitter's claimed confidence, deliberately uncorrelated with whether the claim was actually true.</p>
+  <p>This is the sharpest finding in the whole study. We tested whether extra free-text statements could move an AI judge's verdict without changing the underlying claim or anything an anchor could verify. One statement was a hidden instruction telling the judge to skip its analysis and approve the claim. The other was something a nervous but honest engineer might actually type: <em>"I'm not fully certain about this and haven't had a chance to double-check it myself."</em> Both were added equally to true and false claims, so any paired change in verdict came from the added text — though the uncertainty line isn't purely stylistic. It carries real information about the submitter's claimed confidence, deliberately uncorrelated with whether the claim was actually true.</p>
 
   <p>The hidden instruction did nothing — false-approval rates barely moved across all four judges. The hedge did a lot:</p>
 
@@ -369,11 +368,11 @@
 
   <p>Every judge tested, weak or strong, wrongly rejected 90–100% of claims — true and false alike — the instant the submitter sounded unsure of themselves, with no change at all in how many actual lies got approved. Say "I'm not sure" and the verdict flips against you almost regardless of whether you were right. That punishes exactly the kind of honesty a system should want to encourage: an appropriately humble, accurate submitter gets treated almost as harshly as a dishonest one. A companion test looked for the opposite bias — a judge favoring submissions attributed to its own model family — and found no such effect in the judges with complete data.</p>
 
-  <h2 id="other-checks">A few more doors I checked</h2>
+  <h2 id="other-checks">A few more doors we checked</h2>
 
-  <p>I looked for AI judges falsely <em>claiming</em> to have done something they structurally could not do — run a command, inspect the repository — across all 200 cached judge decisions, using an automated scan, an AI-assisted review, and my own reading. None of the three found a single instance, even on cases where the judge's conclusion was wrong. The errors these judges made were incorrect conclusions stated plainly, not fabricated descriptions of work they never did.</p>
+  <p>We looked for AI judges falsely <em>claiming</em> to have done something they structurally could not do — run a command, inspect the repository — across all 200 cached judge decisions, using an automated scan, an AI-assisted review, and our own reading. None of the three found a single instance, even on cases where the judge's conclusion was wrong. The errors these judges made were incorrect conclusions stated plainly, not fabricated descriptions of work they never did.</p>
 
-  <p>I also tested four attack patterns that earlier drafts of this project had only ever assumed were handled: replaying stale evidence, borrowing an approval from an unrelated task, forging an actor's identity, and coordinating two artifacts to agree with each other instead of with reality.</p>
+  <p>We also tested four attack patterns that earlier drafts of this project had only ever assumed were handled: replaying stale evidence, borrowing an approval from an unrelated task, forging an actor's identity, and coordinating two artifacts to agree with each other instead of with reality.</p>
 
   <table>
     <thead><tr><th>Attack</th><th>Anchored check</th><th>No independent check</th></tr></thead>
@@ -422,7 +421,7 @@
   </details>
 
   <footer>
-    <p>Code, judge-response cache, and full technical report: <code>trust-eval</code> repository (link coming soon).</p>
+    <p>Code, judge-response cache, and full technical report: <a href="https://github.com/shedu5/trust-eval"><code>trust-eval</code> repository</a>.</p>
     <p>Scott Myatt — CEO, Shedu</p>
   </footer>
 
