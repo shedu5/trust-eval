@@ -1,7 +1,7 @@
 """Tests for `complete_with_usage` -- the token-usage capture added for
 Phase 0's cost probe. Uses fake SDK client objects (SimpleNamespace) via
 monkeypatch, since this sandbox has no API keys and no network access to
-any of these providers (see docs/full-technical-report.md's Phase 0 section) -- these tests
+any of these providers (see docs/study-c-full-technical-report.md's Phase 0 section) -- these tests
 are the only way this logic gets verified before a real run.
 """
 

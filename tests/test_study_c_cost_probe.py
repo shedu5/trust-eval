@@ -2,7 +2,7 @@
 reads Phase 0's measured numbers back from the cache. Built against a
 temp cache directory with synthetic usage-annotated records, since this
 sandbox cannot produce real ones (no key, no network to any judge
-provider -- see docs/full-technical-report.md's Phase 0 section). `run` itself (which fills
+provider -- see docs/study-c-full-technical-report.md's Phase 0 section). `run` itself (which fills
 the cache live) is intentionally NOT exercised here beyond argument
 wiring -- it needs a real key and is meant to run on the user's machine.
 """

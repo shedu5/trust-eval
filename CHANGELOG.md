@@ -1242,7 +1242,7 @@ or withhold on its own.
 arXiv-ready paper is now `report.md` (previously the full combined
 report); the complete experiment-by-experiment record — every table,
 every statistical test, every reproduction command, and the full version
-history — moved to `docs/full-technical-report.md`. Nothing measured was
+history — moved to `docs/study-c-full-technical-report.md`. Nothing measured was
 cut in the move; only the paper was trimmed, restructured around a
 hypothesis → methods → confirmatory results → exploratory results →
 discussion arc, and had its confirmatory/exploratory tracks labeled
@@ -1296,7 +1296,7 @@ quota reset before the remaining 18 could be run). The resume command for
 the remaining cases is unchanged from what "Closing this leg's remaining
 gaps" already specified.
 
-**3. Both PDFs regenerated** (`report.pdf`, `docs/full-technical-report.pdf`)
+**3. Both PDFs regenerated** (`report.pdf`, `docs/study-c-full-technical-report.pdf`)
 from the restructured Markdown sources via `pandoc --pdf-engine=xelatex`;
 no content beyond the source Markdown changes.
 
@@ -1308,7 +1308,7 @@ reorganization.
 
 **What did not change.** Every FA/FR/coverage figure, every statistical
 test, and every quoted judge response from v19 is unchanged in this
-version's move to `docs/full-technical-report.md` — this version adds one
+version's move to `docs/study-c-full-technical-report.md` — this version adds one
 new section and reorganizes presentation, it does not revise prior
 results. `report.md`'s trimmed content is a condensation of already-
 reported numbers, not a new derivation of them.
@@ -1326,7 +1326,7 @@ remaining open items, the related-work sweep, an Anthropic-model judge at
 any tier, and the one incomplete self-preference cell). None of these is
 claimed as done in this version.
 
-## File rename (post-v20, no content change)
+## File renames (post-v20, no content change)
 
 `report.md` — the condensed, arXiv-ready paper introduced in v20 — is
 renamed to `study-c-evidence-integrity.md`. The generic name worked while
@@ -1336,7 +1336,7 @@ once the project's front matter started describing this as one leg
 a bare `report.md` no longer says which study it is. No number, table,
 quote, or section changed as part of this rename — only the filename and
 the cross-references that point to it, across this file's own
-introduction above, `README.md`, `docs/full-technical-report.md`,
+introduction above, `README.md`, `docs/study-c-full-technical-report.md`,
 `docs/study-c-principal-result.md`, and the source/test docstrings that
 cite it for methodology detail. Historical entries elsewhere in this file
 that refer to `report.md` are left exactly as originally written, per
@@ -1344,3 +1344,13 @@ this file's own stated discipline (see the introduction above) — they
 correctly describe the file by the name it had at the time. `report.pdf`
 is renamed to `study-c-evidence-integrity.pdf` alongside it, regenerated
 from the renamed source with no content change.
+
+The same problem applied to `docs/full-technical-report.md` (and its
+`.pdf`), which is renamed to `docs/study-c-full-technical-report.md` for
+the identical reason — it sat alongside `docs/study-c-principal-result.md`
+and `docs/study-c-incident-registry.md`, both of which already named the
+study, while the full report itself didn't. Same scope as the rename
+above: filename and cross-references only (this file's own introduction,
+`study-c-evidence-integrity.md`'s pointer to it, and the same source/test
+docstrings), no number, table, or quote changed. The PDF is regenerated
+from the renamed source, no content change.

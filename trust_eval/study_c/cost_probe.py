@@ -1,4 +1,4 @@
-"""Isolated single-judge cost probe (see docs/full-technical-report.md and CHANGELOG.md for the
+"""Isolated single-judge cost probe (see docs/study-c-full-technical-report.md and CHANGELOG.md for the
 full directive this responds to). `run` touches exactly ONE provider:model
 -- PHASE0_PROVIDER (deepseek:deepseek-v4-pro) by default, or any other
 FULL_PANEL member via --provider -- live, across every judge-calling
@@ -43,7 +43,7 @@ from ..harness.pricing import CONFIRMED_DATE, PRICING, estimate_cost
 from . import adaptive, coordination_probe, extended_attacks, ladder, p4p5_probe, skeleton_probe
 
 PHASE0_PROVIDER = "deepseek:deepseek-v4-pro"
-BASE_N = 10  # the n already used throughout docs/full-technical-report.md today -- see module docstring
+BASE_N = 10  # the n already used throughout docs/study-c-full-technical-report.md today -- see module docstring
 
 FULL_PANEL = [
     "deepseek:deepseek-v4-flash",
@@ -53,7 +53,7 @@ FULL_PANEL = [
 ]
 # Gemini's Pro-tier slot: gemini-3.1-pro-preview, restored here after a
 # brief detour. Sequence, for the record (full account in
-# docs/full-technical-report.md/CHANGELOG.md): (1) an isolated probe against
+# docs/study-c-full-technical-report.md/CHANGELOG.md): (1) an isolated probe against
 # gemini-3.1-pro-preview hit persistent 429s on a Free-tier account; (2)
 # swapped to gemini-2.5-pro (GA, cheaper) to sidestep preview-tier rate
 # limits; (3) gemini-2.5-pro then 404'd -- turned out to require its own
@@ -97,7 +97,7 @@ def run(argv: Optional[List[str]] = None) -> int:
     provider_model = args.provider
 
     print(f"Phase 0/isolated probe: filling cache for {provider_model} across every judge-calling surface, live.")
-    print(f"n={BASE_N} (the corpus size already used throughout docs/full-technical-report.md -- not yet scaled up).\n")
+    print(f"n={BASE_N} (the corpus size already used throughout docs/study-c-full-technical-report.md -- not yet scaled up).\n")
 
     print("[1/7] confirmatory protocol comparison (ladder --scaled), P1 role")
     ladder.main(["--scaled", "--n", str(BASE_N), "--provider", provider_model, "--live"])
@@ -149,7 +149,7 @@ def report(argv: Optional[List[str]] = None) -> int:
     n_calls = len(records)
 
     print(f"\n=== PHASE 0 -- MEASURED COST PROBE: {args.provider_model} ===")
-    print(f"(pricing confirmed against provider docs on {CONFIRMED_DATE}; see docs/full-technical-report.md's Phase 0 section)\n")
+    print(f"(pricing confirmed against provider docs on {CONFIRMED_DATE}; see docs/study-c-full-technical-report.md's Phase 0 section)\n")
     if n_calls == 0:
         print("No cache records found for this provider:model with usage data.")
         print("Run `python3 -m trust_eval.study_c.cost_probe run` first, live, with DEEPSEEK_API_KEY set.")

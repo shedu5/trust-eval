@@ -20,7 +20,7 @@ protocols can still recover the truth?
 arXiv-ready paper (initially saved as `report.md`, renamed shortly after
 to `study-c-evidence-integrity.md` so the filename identifies it as Study
 C's report within the larger *Which Gates Matter?* program) and moved
-this full record to `docs/full-technical-report.md`, per external
+this full record to `docs/study-c-full-technical-report.md`, per external
 editorial feedback that the project's single combined document read more
 like a large appendix than a research paper. No previously-reported
 number changed in this move or the rename. Added one new section, "Judge

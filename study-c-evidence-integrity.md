@@ -4,7 +4,7 @@
 
 **Scott Myatt** — Independent Researcher\
 Study C of *Which Gates Matter?* · v20, July 2026\
-Code, the judge-response cache, and the full technical report — with every experiment, statistical test, and reproduction command — are in the [`trust-eval`](https://github.com/shedu5/trust-eval) repository. This paper is a condensed, restructured version of that report; the complete experiment-by-experiment record, including sections trimmed here for length, is preserved at [`docs/full-technical-report.md`](docs/full-technical-report.md).
+Code, the judge-response cache, and the full technical report — with every experiment, statistical test, and reproduction command — are in the [`trust-eval`](https://github.com/shedu5/trust-eval) repository. This paper is a condensed, restructured version of that report; the complete experiment-by-experiment record, including sections trimmed here for length, is preserved at [`docs/study-c-full-technical-report.md`](docs/study-c-full-technical-report.md).
 
 ## Abstract
 

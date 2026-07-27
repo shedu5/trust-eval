@@ -3,7 +3,7 @@ clustering by `Case.instance` (the generation index) rather than treating
 every case as an independent trial. Uses scripted providers so these tests
 need no cache/network -- separate from `cluster_report`'s CLI, which is
 exercised manually against the real committed cache (see
-docs/full-technical-report.md, "Changes from v4")."""
+docs/study-c-full-technical-report.md, "Changes from v4")."""
 
 from trust_eval.study_c.stats import clustered_bootstrap_ci, rate_statistic
 from trust_eval.study_c.surrogates import scaled_cases

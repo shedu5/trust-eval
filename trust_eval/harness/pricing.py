@@ -1,7 +1,7 @@
 """Judge-provider pricing, confirmed against each provider's own live docs
 on 2026-07-24 -- not estimated, not carried over from training-data prices
 (every model named here postdates this harness's knowledge cutoff). See
-docs/full-technical-report.md's Phase 0 section for the fetched sources.
+docs/study-c-full-technical-report.md's Phase 0 section for the fetched sources.
 
 Prices are dollars per 1,000,000 tokens. `batch_discount` is the fraction
 off standard price a provider's real batch mechanism gives; `None` means

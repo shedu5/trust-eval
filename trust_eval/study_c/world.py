@@ -74,7 +74,7 @@ class TrustedWorld(BaseModel):
     # full source). Empty by default; only populated by
     # build_structural_skeleton_world. Only the "calls" relation is
     # modeled (not reachability-from-entry-point or test-to-branch
-    # coverage) -- see docs/full-technical-report.md for what that leaves untested.
+    # coverage) -- see docs/study-c-full-technical-report.md for what that leaves untested.
     call_graph: Dict[str, Dict[str, List[str]]] = {}
     # skeleton_id -> the task a given structural skeleton was actually,
     # legitimately generated for -- ground truth for detecting a correct-
@@ -308,7 +308,7 @@ def build_race_condition_world(n: int = 10) -> TrustedWorld:
     anchor code. (The other TOCTOU variant -- no fresh result exists at the
     new head at all -- is mechanically identical to the already-tested
     `unverifiable_false` / balanced-probe execution pattern and is not
-    duplicated here; see docs/full-technical-report.md for that overlap disclosed explicitly.)
+    duplicated here; see docs/study-c-full-technical-report.md for that overlap disclosed explicitly.)
     """
     exec_results: Dict[str, ExecResult] = {}
     head = "race-condition-head"

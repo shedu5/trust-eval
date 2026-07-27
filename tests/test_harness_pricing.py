@@ -1,5 +1,5 @@
 """Tests for harness/pricing.py's cost arithmetic -- confirmed against
-each provider's live docs on 2026-07-24 (see docs/full-technical-report.md's Phase 0 section
+each provider's live docs on 2026-07-24 (see docs/study-c-full-technical-report.md's Phase 0 section
 for sources); these tests check the ARITHMETIC is correct given those
 confirmed numbers, not the numbers themselves (that's a documentation
 fact, re-verify against the docs if it goes stale).
