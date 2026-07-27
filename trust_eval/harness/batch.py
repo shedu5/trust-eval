@@ -11,8 +11,8 @@ which provider it is talking to. Each `_run_*_batch` function accepts an
 optional `client=` for tests to inject a fake SDK client -- this lets the
 submit/poll/parse state machines be exercised without any network access
 or API key, which is the only way this module's logic gets verified from
-this sandbox (it cannot reach any of these APIs directly; see report.md's
-Phase 0 section).
+this sandbox (it cannot reach any of these APIs directly; see
+docs/full-technical-report.md's Phase 0 section).
 
 Real batch SLAs run up to 24 hours (Anthropic, OpenAI) — `timeout` defaults
 generously and `sleep` is injectable so tests never actually wait.
@@ -198,7 +198,7 @@ def _run_gemini_batch(model: str, requests: List[BatchRequest], max_tokens: int,
     (2026-07-24). `usage_metadata.thoughts_token_count` is this module's
     best-effort read of Gemini's thinking-token field; it was not directly
     confirmed against a live response (this sandbox cannot reach the API --
-    see report.md's Phase 0 section), so treat it as unverified until a
+    see docs/full-technical-report.md's Phase 0 section), so treat it as unverified until a
     real run confirms the field name."""
     if client is None:
         from google import genai

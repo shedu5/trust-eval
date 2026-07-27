@@ -1,30 +1,34 @@
-"""Phase 0 -- empirical cost probe (see report.md and CHANGELOG.md for the
-full directive this responds to). Runs ONLY deepseek:deepseek-v4-pro, live,
-across every judge-calling surface a full panel run would touch,
-at the SAME n=10 already used throughout this report -- NOT scaled up
-further; scaling n is a later, separately-gated step (the power
-calculation), which only happens after this probe's cost is measured and
-approved. Reports EXACT measured call counts, token totals, and dollar
-cost, read back from the cache records this run itself writes -- never an
-estimate.
+"""Isolated single-judge cost probe (see docs/full-technical-report.md and CHANGELOG.md for the
+full directive this responds to). `run` touches exactly ONE provider:model
+-- PHASE0_PROVIDER (deepseek:deepseek-v4-pro) by default, or any other
+FULL_PANEL member via --provider -- live, across every judge-calling
+surface a full panel run would touch, at the SAME n=10 already used
+throughout this report -- NOT scaled up further; scaling n is a later,
+separately-gated step (the power calculation), which only happens after
+each probe's cost is measured and approved. Each run stays isolated to
+the single provider:model it was given -- never combined with another
+judge in the same invocation -- so results stay exactly attributable.
+Reports EXACT measured call counts, token totals, and dollar cost, read
+back from the cache records this run itself writes -- never an estimate.
 
 Two subcommands, on purpose, not one:
 
-    python3 -m trust_eval.study_c.cost_probe run       # fills the cache, live, needs a key
-    python3 -m trust_eval.study_c.cost_probe report    # reads the cache, prints exact numbers
+    python3 -m trust_eval.study_c.cost_probe run [--provider P:M]        # fills the cache, live, needs a key
+    python3 -m trust_eval.study_c.cost_probe report --provider-model P:M # reads the cache, prints exact numbers
 
 so a `report` re-run never re-touches the network, matching this whole
 harness's reproduce-from-committed-cache discipline. MUST run `run` from a
-machine with DEEPSEEK_API_KEY set and network access to api.deepseek.com --
-this cloud build session has neither (verified directly: no key present in
-this session's environment, and api.deepseek.com is unreachable from here).
+machine with the relevant provider's API key set and network access to
+that provider's endpoint -- this cloud build session has neither for any
+judge provider (verified directly).
 
 DeepSeek has no confirmed batch/off-peak discount for the v4 generation as
-of 2026-07-24 (see harness/pricing.py) -- `run` therefore calls the
-ordinary synchronous endpoint via the existing `--provider --live`
-mechanism on every surface's own CLI, not `harness/batch.py`'s real batch
-clients (those are for the strong-tier panel, gated behind this probe's
-approval; see item 1 of the post-approval directive).
+of 2026-07-24 (see harness/pricing.py); Gemini, Anthropic, and OpenAI each
+confirm a 50% batch discount, unused here since `run` calls the ordinary
+synchronous endpoint via the existing `--provider --live` mechanism on
+every surface's own CLI, not `harness/batch.py`'s real batch clients
+(those are for a full multi-judge panel run, a separate and larger step
+than these single-judge isolated probes).
 """
 
 from __future__ import annotations
@@ -39,7 +43,7 @@ from ..harness.pricing import CONFIRMED_DATE, PRICING, estimate_cost
 from . import adaptive, coordination_probe, extended_attacks, ladder, p4p5_probe, skeleton_probe
 
 PHASE0_PROVIDER = "deepseek:deepseek-v4-pro"
-BASE_N = 10  # the n already used throughout report.md today -- see module docstring
+BASE_N = 10  # the n already used throughout docs/full-technical-report.md today -- see module docstring
 
 FULL_PANEL = [
     "deepseek:deepseek-v4-flash",
@@ -47,6 +51,23 @@ FULL_PANEL = [
     "gemini:gemini-3.1-flash-lite",
     "gemini:gemini-3.1-pro-preview",
 ]
+# Gemini's Pro-tier slot: gemini-3.1-pro-preview, restored here after a
+# brief detour. Sequence, for the record (full account in
+# docs/full-technical-report.md/CHANGELOG.md): (1) an isolated probe against
+# gemini-3.1-pro-preview hit persistent 429s on a Free-tier account; (2)
+# swapped to gemini-2.5-pro (GA, cheaper) to sidestep preview-tier rate
+# limits; (3) gemini-2.5-pro then 404'd -- turned out to require its own
+# paid-tier gating, unresolved even after confirming the account had
+# billing linked; (4) the account was independently confirmed at rate-
+# limit Tier 1 (billing-linked, not Free), at which point retrying
+# gemini-3.1-pro-preview directly worked cleanly with no further 429s --
+# meaning Tier 1 billing was the actual fix all along, not the model
+# choice. Reverted back to gemini-3.1-pro-preview here since that is what
+# the live run actually completed against; gemini-2.5-pro's pricing stays
+# sourced in harness/pricing.py as real, useful data, just unused by this
+# panel. Its 404 was never root-caused and is not chased further now that
+# the preview model works.
+#
 # Anthropic (claude-sonnet-5) and OpenAI (gpt-5.6-sol) were in the original
 # six-judge panel but were dropped after this Phase 0 probe showed DeepSeek
 # Pro's uncapped reasoning-token volume running well past a naive estimate
@@ -60,41 +81,54 @@ FULL_PANEL = [
 
 
 def run(argv: Optional[List[str]] = None) -> int:
-    """Touches every judge-calling surface with PHASE0_PROVIDER, live,
-    filling the cache with usage-annotated records. Prints progress only --
-    run `report` after this to read exact cost numbers back from the cache."""
-    print(f"Phase 0: filling cache for {PHASE0_PROVIDER} across every judge-calling surface, live.")
-    print(f"n={BASE_N} (the corpus size already used throughout report.md -- not yet scaled up).\n")
+    """Touches every judge-calling surface with a single provider:model, live,
+    filling the cache with usage-annotated records. Defaults to
+    PHASE0_PROVIDER (the original Phase 0 probe subject); pass --provider to
+    run this same isolated, single-model probe against any other judge in
+    FULL_PANEL (e.g. gemini:gemini-3.1-pro-preview) -- each such run touches
+    ONLY the provider:model given, never combined with any other judge in
+    the same call, so results stay attributable to exactly one model.
+    Prints progress only -- run `report --provider-model <same value>` after
+    this to read exact cost numbers back from the cache."""
+    ap = argparse.ArgumentParser(prog="trust-eval-study-c-cost-probe-run")
+    ap.add_argument("--provider", default=PHASE0_PROVIDER,
+                    help="'<provider>:<model>' to run this isolated probe against")
+    args = ap.parse_args(argv)
+    provider_model = args.provider
+
+    print(f"Phase 0/isolated probe: filling cache for {provider_model} across every judge-calling surface, live.")
+    print(f"n={BASE_N} (the corpus size already used throughout docs/full-technical-report.md -- not yet scaled up).\n")
 
     print("[1/7] confirmatory protocol comparison (ladder --scaled), P1 role")
-    ladder.main(["--scaled", "--n", str(BASE_N), "--provider", PHASE0_PROVIDER, "--live"])
+    ladder.main(["--scaled", "--n", str(BASE_N), "--provider", provider_model, "--live"])
 
     print("\n[2/7] confirmatory protocol comparison, P5-hybrid adjudicator role")
-    ladder.main(["--scaled", "--n", str(BASE_N), "--p5-adjudicator", PHASE0_PROVIDER, "--live"])
+    ladder.main(["--scaled", "--n", str(BASE_N), "--p5-adjudicator", provider_model, "--live"])
 
     print("\n[3/7] balanced observational-equivalence probe (p4p5_probe --balanced)")
-    p4p5_probe.main(["--balanced", "--n", str(BASE_N), "--provider", PHASE0_PROVIDER, "--live"])
+    p4p5_probe.main(["--balanced", "--n", str(BASE_N), "--provider", provider_model, "--live"])
 
     print("\n[4/7] p4p5 probe, non-balanced, P5-hybrid adjudicator role")
-    p4p5_probe.main(["--n", str(BASE_N), "--provider", PHASE0_PROVIDER, "--live"])
+    p4p5_probe.main(["--n", str(BASE_N), "--provider", provider_model, "--live"])
 
     print("\n[5/7] adaptive best-of-N attacker")
     adaptive.main(["--scaled", "--n", str(BASE_N), "--budgets", "1", "4", "8",
-                  "--provider", PHASE0_PROVIDER, "--live"])
+                  "--provider", provider_model, "--live"])
 
     print("\n[6/7] extended attack surface (race + binding + identity), P1 + P5-hybrid roles")
     extended_attacks.main(["--n", str(BASE_N), "--which", "all",
-                           "--provider", PHASE0_PROVIDER, "--live",
-                           "--p5-adjudicator", PHASE0_PROVIDER])
+                           "--provider", provider_model, "--live",
+                           "--p5-adjudicator", provider_model])
     print("       coordinated multi-artifact forgery")
-    coordination_probe.main(["--n", str(BASE_N), "--provider", PHASE0_PROVIDER, "--live"])
+    coordination_probe.main(["--n", str(BASE_N), "--provider", provider_model, "--live"])
 
     print("\n[7/7] structural skeleton (single-claim ladder + composite), P1 + P5-hybrid roles")
     skeleton_probe.main(["--n", str(BASE_N), "--which", "all",
-                         "--provider", PHASE0_PROVIDER, "--live",
-                         "--p5-adjudicator", PHASE0_PROVIDER])
+                         "--provider", provider_model, "--live",
+                         "--p5-adjudicator", provider_model])
 
-    print("\nDone. Run `python3 -m trust_eval.study_c.cost_probe report` for exact measured totals.")
+    print(f"\nDone. Run `python3 -m trust_eval.study_c.cost_probe report --provider-model {provider_model}` "
+         "for exact measured totals.")
     return 0
 
 
@@ -115,7 +149,7 @@ def report(argv: Optional[List[str]] = None) -> int:
     n_calls = len(records)
 
     print(f"\n=== PHASE 0 -- MEASURED COST PROBE: {args.provider_model} ===")
-    print(f"(pricing confirmed against provider docs on {CONFIRMED_DATE}; see report.md's Phase 0 section)\n")
+    print(f"(pricing confirmed against provider docs on {CONFIRMED_DATE}; see docs/full-technical-report.md's Phase 0 section)\n")
     if n_calls == 0:
         print("No cache records found for this provider:model with usage data.")
         print("Run `python3 -m trust_eval.study_c.cost_probe run` first, live, with DEEPSEEK_API_KEY set.")

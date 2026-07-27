@@ -1,7 +1,7 @@
 """Tests for `complete_with_usage` -- the token-usage capture added for
 Phase 0's cost probe. Uses fake SDK client objects (SimpleNamespace) via
 monkeypatch, since this sandbox has no API keys and no network access to
-any of these providers (see report.md's Phase 0 section) -- these tests
+any of these providers (see docs/full-technical-report.md's Phase 0 section) -- these tests
 are the only way this logic gets verified before a real run.
 """
 
@@ -121,3 +121,200 @@ def test_no_key_raises_before_any_network_attempt(monkeypatch):
     prov = OpenAICompatibleProvider(name="openai", model="gpt-5.6-sol", api_key_env="OPENAI_API_KEY")
     with pytest.raises(RuntimeError, match="OPENAI_API_KEY"):
         prov.complete_with_usage("prompt")
+
+
+def test_default_timeout_is_finite_and_passed_to_client(monkeypatch):
+    # A live Gemini run sat idle for 30+ minutes on 2026-07-24 with no
+    # explicit timeout set -- the client MUST be constructed with a finite
+    # timeout so a genuinely stalled request fails into the retry loop
+    # instead of hanging indefinitely.
+    captured = {}
+    usage = SimpleNamespace(prompt_tokens=1, completion_tokens=1)
+    resp = SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content="ok"))], usage=usage)
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            return resp
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            captured.update(kwargs)
+            self.chat = FakeChat()
+
+    import openai
+    monkeypatch.setattr(openai, "OpenAI", FakeClient)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    prov = OpenAICompatibleProvider(name="gemini", model="gemini-3.1-pro-preview",
+                                    api_key_env="GEMINI_API_KEY")
+    prov.complete_with_usage("prompt")
+    assert "timeout" in captured
+    assert captured["timeout"] == 60.0  # the default -- finite, not None/unset
+    assert prov.timeout == 60.0
+
+
+def test_explicit_timeout_overrides_default(monkeypatch):
+    captured = {}
+    usage = SimpleNamespace(prompt_tokens=1, completion_tokens=1)
+    resp = SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content="ok"))], usage=usage)
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            return resp
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            captured.update(kwargs)
+            self.chat = FakeChat()
+
+    import openai
+    monkeypatch.setattr(openai, "OpenAI", FakeClient)
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
+
+    prov = OpenAICompatibleProvider(name="deepseek", model="deepseek-v4-pro",
+                                    api_key_env="DEEPSEEK_API_KEY", timeout=15.0)
+    prov.complete_with_usage("prompt")
+    assert captured["timeout"] == 15.0
+
+
+def test_rate_limit_error_gets_long_backoff_not_generic_short_one(monkeypatch):
+    # A 429 was observed live against gemini:gemini-3.1-pro-preview on
+    # 2026-07-24 -- the generic 1-2s backoff is useless against a
+    # per-minute quota and just burns the retry budget instantly. A 429
+    # must sleep much longer (>=15s here; real backoff is 20-63s) than a
+    # same-shaped non-429 error (<=2s), so the two paths must diverge.
+    sleeps = []
+    monkeypatch.setattr("trust_eval.harness.providers.time.sleep", lambda s: sleeps.append(s))
+    monkeypatch.setattr("trust_eval.harness.providers.random.uniform", lambda a, b: 0.0)
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            raise RuntimeError("Error code: 429 - [{'error': {'code': 429, "
+                              "'message': 'You exceeded your current quota'}}]")
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            self.chat = FakeChat()
+
+    import openai
+    monkeypatch.setattr(openai, "OpenAI", FakeClient)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    prov = OpenAICompatibleProvider(name="gemini", model="gemini-3.1-pro-preview",
+                                    api_key_env="GEMINI_API_KEY", retries=2)
+    with pytest.raises(RuntimeError, match="failed after retries"):
+        prov.complete_with_usage("prompt")
+    assert len(sleeps) == 2         # one sleep between each of the 3 attempts
+    assert all(s >= 15.0 for s in sleeps)   # long backoff, not the generic 1-2s
+
+
+def test_non_rate_limit_error_keeps_the_short_generic_backoff(monkeypatch):
+    sleeps = []
+    monkeypatch.setattr("trust_eval.harness.providers.time.sleep", lambda s: sleeps.append(s))
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            raise RuntimeError("connection reset by peer")
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            self.chat = FakeChat()
+
+    import openai
+    monkeypatch.setattr(openai, "OpenAI", FakeClient)
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
+
+    prov = OpenAICompatibleProvider(name="deepseek", model="deepseek-v4-pro",
+                                    api_key_env="DEEPSEEK_API_KEY", retries=2)
+    with pytest.raises(RuntimeError, match="failed after retries"):
+        prov.complete_with_usage("prompt")
+    assert len(sleeps) == 2
+    assert all(s <= 2.0 for s in sleeps)   # unchanged generic backoff for non-429s
+
+
+def test_min_interval_paces_successive_calls(monkeypatch):
+    # A live run against gemini:gemini-3.1-pro-preview hit sustained 429s on
+    # a high-volume surface even on a confirmed Tier 1 account -- the
+    # reactive backoff alone can't stop a burst from outrunning a per-
+    # minute quota before any call has failed. min_interval enforces a
+    # floor between call STARTS, checked before firing, not after failing.
+    times = iter([100.0, 100.4, 103.4])  # call1 start, call2 check, (after sleep) call2 start
+    monkeypatch.setattr("trust_eval.harness.providers.time.time", lambda: next(times))
+    sleeps = []
+    monkeypatch.setattr("trust_eval.harness.providers.time.sleep", lambda s: sleeps.append(s))
+
+    usage = SimpleNamespace(prompt_tokens=1, completion_tokens=1)
+    resp = SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content="ok"))], usage=usage)
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            return resp
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            self.chat = FakeChat()
+
+    import openai
+    monkeypatch.setattr(openai, "OpenAI", FakeClient)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    prov = OpenAICompatibleProvider(name="gemini", model="gemini-3.1-pro-preview",
+                                    api_key_env="GEMINI_API_KEY", min_interval=3.0)
+    prov.complete_with_usage("prompt")   # first call: no prior call, no pacing sleep
+    assert sleeps == []
+    prov.complete_with_usage("prompt")   # second call, only 0.4s after the first: must wait
+    assert len(sleeps) == 1
+    assert 2.5 <= sleeps[0] <= 3.0        # ~2.6s remaining to reach the 3.0s floor
+
+
+def test_min_interval_defaults_to_zero_and_never_sleeps(monkeypatch):
+    sleeps = []
+    monkeypatch.setattr("trust_eval.harness.providers.time.sleep", lambda s: sleeps.append(s))
+    usage = SimpleNamespace(prompt_tokens=1, completion_tokens=1)
+    resp = SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content="ok"))], usage=usage)
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            return resp
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            self.chat = FakeChat()
+
+    import openai
+    monkeypatch.setattr(openai, "OpenAI", FakeClient)
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
+
+    prov = OpenAICompatibleProvider(name="deepseek", model="deepseek-v4-pro",
+                                    api_key_env="DEEPSEEK_API_KEY")
+    prov.complete_with_usage("prompt")
+    prov.complete_with_usage("prompt")
+    assert sleeps == []   # default min_interval=0.0 -- no pacing behavior change
+
+
+def test_build_provider_gives_gemini_a_pacing_floor_but_not_deepseek(monkeypatch):
+    from trust_eval.harness.providers import build_provider
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
+    gem = build_provider("gemini:gemini-3.1-pro-preview")
+    ds = build_provider("deepseek:deepseek-v4-pro")
+    assert gem.min_interval == 3.0
+    assert ds.min_interval == 0.0

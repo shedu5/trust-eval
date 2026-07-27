@@ -2,7 +2,7 @@
 to a third external review's paragraph naming five untested attack classes:
 race conditions (TOCTOU), task-to-anchor binding confusion, coordinated
 multi-artifact forgery, and forged actor/tool identity. (The fifth, poisoned
-approval-ledger content, remains a disclosed limitation -- see report.md.)
+approval-ledger content, remains a disclosed limitation -- see docs/full-technical-report.md.)
 
 All deterministic -- no model call, no cache, no network.
 """

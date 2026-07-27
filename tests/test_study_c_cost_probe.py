@@ -2,7 +2,7 @@
 reads Phase 0's measured numbers back from the cache. Built against a
 temp cache directory with synthetic usage-annotated records, since this
 sandbox cannot produce real ones (no key, no network to any judge
-provider -- see report.md's Phase 0 section). `run` itself (which fills
+provider -- see docs/full-technical-report.md's Phase 0 section). `run` itself (which fills
 the cache live) is intentionally NOT exercised here beyond argument
 wiring -- it needs a real key and is meant to run on the user's machine.
 """
@@ -83,3 +83,31 @@ def test_run_dispatches_via_main_subcommand(monkeypatch):
 def test_main_requires_a_subcommand():
     with pytest.raises(SystemExit):
         cost_probe.main([])
+
+
+def test_run_defaults_to_phase0_provider(monkeypatch):
+    seen = []
+    monkeypatch.setattr(cost_probe.ladder, "main", lambda argv: (seen.append(argv) or 0))
+    for name in ("p4p5_probe", "adaptive", "extended_attacks", "coordination_probe", "skeleton_probe"):
+        monkeypatch.setattr(getattr(cost_probe, name), "main", lambda argv: 0)
+    cost_probe.run([])
+    assert cost_probe.PHASE0_PROVIDER in seen[0]
+
+
+def test_run_isolates_to_the_given_provider_only(monkeypatch):
+    # A --provider run must touch ONLY that provider:model on every surface --
+    # never PHASE0_PROVIDER, never any other FULL_PANEL member -- so results
+    # stay exactly attributable to the single judge requested. Uses
+    # gemini-2.5-pro deliberately (a real, priced, but currently NOT-in-panel
+    # model) so this also covers isolating to a non-panel provider correctly.
+    seen = []
+    for name in ("ladder", "p4p5_probe", "adaptive", "extended_attacks",
+                 "coordination_probe", "skeleton_probe"):
+        mod = getattr(cost_probe, name)
+        monkeypatch.setattr(mod, "main", lambda argv: (seen.append(argv) or 0))
+    cost_probe.run(["--provider", "gemini:gemini-2.5-pro"])
+    for argv in seen:
+        assert "gemini:gemini-2.5-pro" in argv
+        assert cost_probe.PHASE0_PROVIDER not in argv
+        for other in cost_probe.FULL_PANEL:
+            assert other not in argv

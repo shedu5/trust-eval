@@ -125,7 +125,7 @@ def structural_skeleton(claim: Claim, world: TrustedWorld) -> AnchorResult:
     4. trusted, correctly bound, current: compare the claimed static fact
        against the true call graph at that commit. Only the "calls"
        relation is modeled -- not reachability-from-entry-point or
-       test-to-branch coverage; see report.md for what that leaves open.
+       test-to-branch coverage; see docs/full-technical-report.md for what that leaves open.
     """
     if claim.claim_type != ClaimType.STRUCTURE:
         return AnchorResult(anchor="structural_skeleton", applicable=False, verdict=INCONCLUSIVE,

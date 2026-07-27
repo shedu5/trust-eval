@@ -1,14 +1,17 @@
 # Study C — Evidence Integrity Under a Hostile Executor: Changelog
 
-Full revision history for `report.md`, moved out of the main report in v10
-to keep the primary document focused (an external review correctly noted
-that the inline revision history — roughly a third of the document by
-length at the time — made the report harder to read than the underlying
-research warranted). Nothing here is summarized or reworded from what was
-previously in `report.md`; every entry below is unchanged from its
-original wording. `report.md` retains a short pointer plus a one-paragraph
-summary of the most recent round; this file is the complete record, oldest
-first.
+Full revision history for the project's primary paper — `report.md`
+through v20, renamed to `study-c-evidence-integrity.md` shortly after (see
+the dated note at the end of this file) — moved out of the main report in
+v10 to keep the primary document focused (an external review correctly
+noted that the inline revision history — roughly a third of the document
+by length at the time — made the report harder to read than the
+underlying research warranted). Nothing here is summarized or reworded
+from what was previously in the report; every entry below is unchanged
+from its original wording, including references to `report.md` by the
+name it had at the time each entry was written. The current file retains
+a short pointer plus a one-paragraph summary of the most recent round;
+this file is the complete record, oldest first.
 
 ## Changes from v1
 
@@ -842,3 +845,502 @@ calc, cluster-robust stats, corpus card, related-work sweep) stays gated
 behind its approval. No report.md numeric result, protocol, or anchor
 changed this round — this is infrastructure only. Test suite: 304 → 331.
 `pytest -q` passes; forbidden-strings grep clean.
+
+## Changes from v15
+
+**Phase 0 ran, live, on the report author's own machine** —
+`python3 -m pytest -q` (331 passed) then
+`python3 -m trust_eval.study_c.cost_probe run` executed all 7 phases
+against `deepseek:deepseek-v4-pro` at n=10 with zero errors on any
+surface, then `cost_probe report` read the exact result back from the
+cache it filled:
+
+- judge calls made: **544**
+- input tokens (total / mean): **181,824 / 334.2**, of which 68,608 were
+  cache-hit input
+- output tokens (total / mean): **370,125 / 680.4**, of which **347,337**
+  were reasoning tokens (mean 638.5 over the 544 calls reporting it) — a
+  subset of output tokens, already counted, not additional
+- measured cost, standard synchronous rate (no confirmed DeepSeek
+  batch/off-peak discount): **$0.3715**
+
+`git add -A && git commit` followed (commit `5d4cb98`, 713 files changed)
+— the first commit to include `CHANGELOG.pdf`, `report.pdf`, and the
+roughly 500 individual cache-record JSON files under
+`trust_eval/harness/cache/records/` that this Phase 0 run and the
+project's earlier live runs had produced on disk but never previously
+tracked in git.
+
+**Panel narrowed from six judges to four in direct response to this
+measurement**, before Phase 1 begins. DeepSeek Pro's reasoning-token
+volume (94% of its output tokens) ran well past a naive pre-Phase-0
+estimate; rather than carry that cost across a six-judge panel, the
+report's human author chose to keep the strong-tier panel to a clean 2×2
+design — DeepSeek flash/Pro × Gemini flash-lite/Pro — which still
+delivers the within-family flash-vs-Pro contrasts H3 needs, at the cost
+of the four-provider cross-section the original panel would have given.
+`cost_probe.py`'s `FULL_PANEL` was cut from six entries to these four
+(Claude Sonnet 5 and GPT-5.6 removed from the panel and its projection;
+their sourced pricing stays in `harness/pricing.py` — deleting it would
+lose real numbers for no reason); `_print_projection()`'s hardcoded
+"six-judge panel" text became `f"full {len(FULL_PANEL)}-judge panel"` so
+it can't silently drift out of sync with the panel again.
+`test_study_c_cost_probe.py`'s aggregation test updated to assert the
+dropped models are absent from `report`'s output and the new 4-row
+projection table is present. `pytest -q`: 331 passed (no count change —
+this was a narrowing of what's projected, not new test surface).
+
+**Projected cost for the narrowed panel**, from DeepSeek Pro's measured
+per-call profile applied to each judge (an explicitly weak assumption for
+reasoning models whose reasoning-token volume can differ from DeepSeek
+Pro's — not treated as parity):
+
+| judge | projected $ (n=10, this run's n) |
+|---|---|
+| `deepseek:deepseek-v4-flash` | $0.13 |
+| `deepseek:deepseek-v4-pro` | $0.40 |
+| `gemini:gemini-3.1-flash-lite` | $0.30 |
+| `gemini:gemini-3.1-pro-preview` | $2.40 |
+| **full 4-judge panel, n=10** | **$3.23** |
+
+Scaling linearly with n (this harness's cost is linear in n): $6.46
+(n=20), $9.69 (n=30), $16.16 (n=50), $32.31 (n=100).
+
+**Phase 1 has not started.** It remains gated on the report author's
+explicit approval of the projected budget above and a target n — the
+directive's own language: *"Do NOT proceed to the panel or to scaling n
+until I approve the budget."* report.md's "Closing this leg's remaining
+gaps" section rewritten in place to report Phase 0 as measured rather
+than pending, present the narrowed panel and its projection table, and
+restate the Phase 1 gate explicitly; its "Reproducibility" section's
+`cost_probe report` line updated to note the command now reproduces from
+the committed cache directly, without needing a live rerun, since this
+round's cache records are committed to git. report.md version bumped to
+v16; header and revision-history entries updated to match. No protocol,
+anchor, or scored result changed — this round measures and narrows;
+Phase 1 is what will change scored results, once approved.
+
+## Changes from v16
+
+**Gemini's Pro-tier judge swapped from preview to GA, in response to a
+live rate-limit finding, not a preference.** Following v16, an isolated
+single-judge probe (the same `cost_probe run --provider` mechanism the
+DeepSeek Phase 0 probe used, generalized this round for exactly this
+purpose) was run against `gemini:gemini-3.1-pro-preview` on the report
+author's machine. It hung — no visible progress for 30+ minutes with the
+process alive but near-zero CPU, eventually diagnosed as a silent long
+retry/backoff cycle inside the SDK's own default behavior, not a true
+deadlock. After a first fix (an explicit 60s request timeout, so a
+stalled call fails fast into the harness's own retry loop instead of
+hanging indefinitely — `providers.py`'s `OpenAICompatibleProvider` had no
+timeout set at all before this), the real cause surfaced immediately and
+repeatedly: **HTTP 429 `RESOURCE_EXHAUSTED`** on nearly every call.
+
+Checked directly against Google's current docs (ai.google.dev/gemini-api/
+docs/rate-limits, /docs/troubleshooting, /docs/models, /docs/pricing,
+2026-07-24): preview/experimental models carry materially stricter rate
+limits than GA models, independent of account billing tier (Free → Tier
+1 → Tier 2 → Tier 3, unlocked automatically by linked billing account
+spend/age, not a manual request) — `gemini-3.1-pro-preview` is confirmed
+Preview status and is the *only* Pro-tier model in the 3.x generation;
+there is no GA `gemini-3.1-pro`. `gemini-2.5-pro`, by contrast, is
+confirmed **Stable/GA** on its own docs page, and is cheaper on both legs
+($1.25/$10.00 per 1M input/output tokens, ≤200k-token-prompt tier, vs.
+$2.00/$12.00) — a strictly better choice on both cost and reliability
+grounds, not a compromise. `harness/pricing.py` gets a new sourced entry
+for it; `gemini-3.1-pro-preview`'s entry and its 1,870 partial cache
+records collected before the swap both stay in the repo, kept
+specifically as the evidence trail for this finding, not deleted.
+`cost_probe.py`'s `FULL_PANEL` now reads `gemini:gemini-2.5-pro` in the
+Pro slot; its comment block documents why. `test_study_c_cost_probe.py`
+updated to assert the new model name appears in the projection table.
+Projected 4-judge panel cost at n=10: **$2.79** (was $3.23), scaling to
+$5.59 (n=20), $8.38 (n=30), $13.97 (n=50), $27.93 (n=100) (was $6.46/
+$9.69/$16.16/$32.31).
+
+**Two real infrastructure bugs fixed in the same round, both surfaced
+directly by this live run, not found by inspection:**
+
+1. `OpenAICompatibleProvider` (`harness/providers.py`) built its OpenAI
+   SDK client with no explicit `timeout` — the SDK's own generous default
+   governed instead, so a single stalled request could occupy the process
+   for tens of minutes with nothing written to the cache and no error
+   raised, indistinguishable from a true hang without external CPU/
+   network inspection. Fixed: explicit `timeout=60.0` (configurable per
+   provider instance), so a stalled request now fails into the existing
+   retry loop within roughly a minute instead of an unbounded wait.
+2. The retry loop's backoff (`1.0 + attempt` seconds, i.e. ~1-2s) was
+   applied uniformly regardless of failure type — fine for a transient
+   network blip or 5xx, useless against a 429 rate-limit error, where it
+   just re-hits the same quota window instantly and burns the retry
+   budget for no benefit. Fixed: `_is_rate_limit_error()` detects 429/
+   `RESOURCE_EXHAUSTED`/"rate limit" in the exception text and routes to
+   `_rate_limit_backoff()`, an exponential backoff with jitter capped at
+   60s (Google's own troubleshooting docs recommend exactly this pattern
+   and confirm no `Retry-After` value is returned to compute an exact
+   wait from). Non-rate-limit errors keep the original short backoff,
+   verified by a dedicated test asserting the two paths diverge.
+
+Also added: a per-live-call progress line in `llm_review.py`'s
+`make_cached_reviewer` (`  [live] provider:model task=... type=... ...
+ok`), printed only on an actual cache-miss network call (a full
+cache-reproduction run stays silent) — added specifically so a future
+stall or error shows which case was in flight in real time, rather than
+requiring after-the-fact diagnosis the way this round's investigation
+did.
+
+report.md's header and "Closing this leg's remaining gaps" section
+updated in place with the swap, the revised projection table, and the
+two infrastructure fixes; version bumped to v17. Test suite: 331 → 337
+(4 new: default/explicit timeout wiring, rate-limit vs. generic backoff
+divergence). `pytest -q` passes; forbidden-strings grep clean. No
+protocol, anchor, or scored result changed — Phase 1 (the confirmatory
+panel run) still has not started and remains gated on the report
+author's budget approval and target-n choice.
+
+## Changes from v17
+
+**The gemini-2.5-pro swap is reverted; gemini-3.1-pro-preview is back as
+the panel's Gemini-Pro judge.** Full sequence, for the record:
+
+1. v17: an isolated probe against `gemini:gemini-3.1-pro-preview` hit
+   persistent 429s on what was believed to be (but never directly
+   confirmed at the time) a Free-tier account. Swapped to
+   `gemini:gemini-2.5-pro` (GA, cheaper) to sidestep preview-tier rate
+   limits.
+2. `gemini:gemini-2.5-pro` then failed differently: HTTP 404,
+   `'This model models/gemini-2.5-pro...'`. Checked directly against
+   Google's docs: `gemini-2.5-pro` requires a paid/billing-enabled
+   project and 404s (not 403s) for accounts not provisioned for it — a
+   plausible explanation at the time.
+3. The report author confirmed the new project's billing WAS in fact
+   linked. The 404 remained unexplained (never root-caused — possibly a
+   propagation delay, a separate per-model enablement step, or something
+   else entirely).
+4. The report author directly confirmed the account's actual rate-limit
+   tier: **Tier 1** (billing-linked, not Free). At that point, retrying
+   `gemini:gemini-3.1-pro-preview` directly — no code or model change —
+   worked cleanly, live progress lines advancing steadily with no
+   further 429s.
+
+**Conclusion: Tier 1 billing was the actual fix all along.** The
+original 429s were a Free-tier rate-limit symptom, not a preview-model-
+specific defect requiring a model change. `gemini-2.5-pro` was a
+reasonable hypothesis given the evidence available at the time (Google's
+own docs confirming preview models get stricter limits), but the
+simpler, correct fix was the account's billing tier, not the model
+choice. This is left in the record rather than quietly overwritten,
+because it's a real account of how the actual root cause was found —
+including a plausible-but-wrong intermediate hypothesis (v17) that
+looked well-justified from the evidence available at the time and turned
+out not to be the binding constraint.
+
+**What changed back:** `cost_probe.py`'s `FULL_PANEL` reverted to
+`gemini:gemini-3.1-pro-preview`; its comment block now documents the
+full four-step sequence above rather than presenting a single clean
+narrative. `harness/pricing.py`'s `gemini:gemini-2.5-pro` entry stays
+(real, sourced, and still usable via `cost_probe run --provider
+gemini:gemini-2.5-pro` for anyone who wants to dig into its 404
+separately) but is no longer in the panel.
+`test_study_c_cost_probe.py`'s aggregation test reverted to assert
+`gemini-3.1-pro-preview` appears in the projection; the isolation test
+(`test_run_isolates_to_the_given_provider_only`) now deliberately probes
+`gemini:gemini-2.5-pro` instead, since that's the actual non-panel case
+now. Projected 4-judge panel cost at n=10 back to **$3.23** (was $2.79),
+scaling to $32.31 at n=100 (was $27.93) — the v16 figures, unchanged
+from before v17. report.md's header, "Closing this leg's remaining
+gaps," and revision-history sections all updated in place to tell this
+full sequence rather than silently reverting v17's text; version bumped
+to v18. Both infrastructure fixes from v17 (the 60s request timeout and
+the 429-specific 20-63s backoff) are unaffected and remain in place —
+they were real, independently-justified bugs regardless of which model
+ended up in the panel. Test suite: 337 passing (no count change from
+v17 — same tests, one reassigned to the now-correct non-panel model).
+`pytest -q` passes; forbidden-strings grep clean. No protocol, anchor,
+or scored result changed. Phase 1 still has not started and remains
+gated on the report author's budget approval and target-n choice — this
+round was entirely about getting the Phase 0/isolated-probe
+infrastructure to actually run against a working Gemini-Pro judge.
+
+## Changes from v18
+
+**Phase 1's panel run and H3 test are closed. Two new exploratory probes
+were added in direct response to the report author challenging the
+novelty of the H3 result on its own.** This is the largest single-version
+change since the Phase 0/1 split at v15/v16, and unlike every version
+between v15 and v18, it is new empirical data, not infrastructure or a
+model-swap correction.
+
+**1. The full 4-judge panel run, live, on the report author's own
+machine.** With the v16-approved budget ($3.23 projected at n=10) and the
+v18-restored `gemini:gemini-3.1-pro-preview` judge both in place, the
+report author ran the strong tier (`deepseek:deepseek-v4-pro`,
+`gemini:gemini-3.1-pro-preview`) live across the same seven
+judge-calling surfaces the weak tier is scored on: the principal n=100
+ladder, the by-claim-type breakdown, and the bounded adaptive search
+(budgets 1/4/8). This did not happen in one uninterrupted run — DeepSeek
+completed cleanly; Gemini hit 429s partway through more than once across
+the session (see below) and was resumed from cache each time, which the
+harness supports by design (a partial failure only re-attempts what is
+actually missing, never re-does completed cache-hit work). Every number
+reported in this version was independently re-derived from the committed
+cache in a clean environment, not read off the run's own console output,
+consistent with this project's standing verification discipline.
+
+Verified results, reproducing from the committed cache with no key:
+
+- **Principal corpus, P1 FA/FR:** DeepSeek 5/40→4/40 FA, 28/60→21/60 FR;
+  Gemini 0/40→0/40 FA, 44/60→26/60 FR. Checked with the project's own
+  paired McNemar tool (`compare.py`) rather than eyeballed: DeepSeek Pro
+  vs. the anchor on FA is 4 discordant errors against 0, exact two-sided
+  p=0.125 — not significant at n=40. Gemini Pro-preview vs. the anchor is
+  a literal tie, 0 discordant pairs, p=1.0. H3's literal claim ("more than
+  a stronger judge") is therefore **partially supported, provider-
+  dependent** — the anchor is at least as good as both stronger judges,
+  but "more than" is established for neither at this sample size.
+- **By claim type:** the FR improvement is not uniform. State collapses
+  for both providers (DeepSeek 8/20→2/20; Gemini 14/20→0/20 — the only
+  cell in the whole comparison that reaches zero). Execution improves
+  modestly (DeepSeek 10/20→9/20; Gemini 20/20→16/20). Authorization is
+  flat at 10/20 FR for all four judges at both tiers — tier bought
+  nothing there.
+- **Under the adaptive best-of-8 attacker:** DeepSeek's tier edge narrows
+  on execution (18/20→15/20 evaded) but Gemini's **reverses** — the
+  stronger Pro-preview judge is evaded on 10/20 execution cases at budget
+  8, where the weaker flash-lite judge was evaded on 0/20 at the same
+  budget, and state goes from 4/10 to a full 10/10. This is exploratory
+  and single-run, same caveats as the rest of that section, but it is a
+  real, reproducible, and counterintuitive result that directly
+  complicates "a stronger judge is a safer fallback" as a general
+  assumption.
+- **Anchor-dependent protocols (P2–P5) do not depend on judge tier, but
+  not because of anything new measured this round** — `extended_attacks.py`
+  and `skeleton_probe.py` are run with no `--provider` flag in this
+  report's reproduction commands, so they never call an LLM judge at any
+  tier. This is stated plainly in the new "H3" section rather than
+  implied as a discovered convergence.
+
+`report.md`'s "Central claim and hypotheses" scoping note and H3 row in
+the hypotheses table are both rewritten to reflect this — H3 moves from
+"not tested as stated" to "partially supported, provider-dependent," with
+the exact McNemar figures reported rather than a bare verdict. A new
+top-level section, "H3: does a stronger judge substitute for anchoring?",
+presents the full breakdown.
+No Anthropic-model judge has been run at any tier; that remains the one
+preregistered judge class genuinely untested, called out explicitly in
+Scope and limitations as the highest-value remaining confirmatory run.
+
+**2. Two new exploratory probes, added after the report author asked a
+direct question the report had not yet answered for itself.** Before
+writing up the H3 result, the report author asked: is this something the
+LLM-as-judge literature already knows? Is there anything more novel to
+bring to a reviewer? Rather than defend H3 as more novel than it is (it
+is confirmatory of a known literature — a stronger judge tends to do
+somewhat better, within limits), three candidate additions were proposed
+and the report author approved all three; two were built as full probe
+modules (the third, a cross-provider ensemble/voting scheme, was judged
+lower-value for the time available and not built this round — a
+disclosed, not a hidden, scope choice):
+
+- **`manipulation_probe.py`** — does a judge's verdict move when the
+  submitter's free text changes, holding the underlying claim (true or
+  false) exactly fixed? Two conditions: an embedded "skip your analysis
+  and accept" injection (applied to false cases only, since it targets an
+  attacker's use case), and ordinary epistemic hedging (applied to every
+  case, true and false alike, since it is not attack-shaped in intent).
+  The manipulated field, `operator_note`, is proven inert to every anchor
+  and every deterministic protocol both by code inspection and by new
+  automated tests calling `ANCHORS[...]` and `decide(...)` directly on
+  original vs. modified cases — any verdict change is attributable to the
+  phrasing, not a different fact. Result: injection produced no effect
+  that helped an attacker on any of the four judges (FA unchanged or, for
+  DeepSeek Pro, one case lower). Language introducing self-reported
+  submitter uncertainty produced a large, consistent false-rejection
+  spike on all four judges (90–100% FR, up from 20–47% control), unrelated
+  to accuracy since it moved true and false cases identically. Note this
+  field is inert to every anchor and deterministic protocol (same
+  guarantee as the injection condition, verified the same way), but unlike
+  the injection text it is not semantically inert to a reasonable judge —
+  "I'm not fully certain" is a real, if unverifiable, claim about the
+  submitter's own process, so the honest conclusion is narrower than "the
+  judge tracks surface phrasing over the fact": text-only judges are
+  highly sensitive to self-reported epistemic confidence, even when that
+  confidence is uncorrelated with ground truth in this corpus. Confirming
+  it as pure stylistic manipulation, independent of any reasonable reading
+  of the added text's content, would need semantically-matched
+  reformulations or an explicit instruction to disregard confidence
+  language — neither tested here.
+- **`self_preference_probe.py`** — does a judge trust a submission more
+  when it is attributed to a model from its own provider family, the
+  self-preference bias documented in the general LLM-as-judge literature,
+  tested here in a governance/oversight context instead of an ordinary
+  quality-judgment one? A single metadata field, `executor_model`, reads
+  `"Gemini"` or `"DeepSeek"`; the same anchor/protocol-immunity guarantee
+  as `operator_note` is independently re-verified for this field. Result:
+  no self-preference effect in the three judges with complete data — if
+  anything, DeepSeek flash showed *lower* FA when attributed to its own
+  family (0/30) than to Gemini (2/30), the opposite of the predicted
+  direction. The fourth judge's comparison (Gemini Pro-preview ×
+  attributed-to-DeepSeek) is disclosed incomplete: only 4 of 30 cases have
+  cached/live data; the remaining 26 hit a live 429 the night before this
+  version was written. The harness itself flags the affected row as
+  under-counted rather than silently reporting a false 0/30
+  (`[!] ... UNDER-COUNTED, not a true zero`). Per the report author's
+  explicit instruction — "I'll do both. wait until tomorrow to add the
+  final piece of research and write everything else" — this gap is
+  deferred to the next version rather than blocking this one; the exact
+  resume command is in "Closing this leg's remaining gaps."
+
+Both modules ship with fully deterministic regression tests (8 for
+`manipulation_probe`, 6 for `self_preference_probe`; 14 total, all new
+this version) that require no model call and no network: corpus
+construction correctness, field-immunity to every anchor and every
+deterministic protocol, cross-probe corpus consistency, and that each
+`main()` runs architecture-only with no provider configured.
+
+**3. Two small, un-versioned fixes folded in from the same working
+session, neither large enough for its own version bump:** a proactive
+`min_interval` pacing floor (3.0s between Gemini calls) added while
+debugging this round's 429s, reducing but not eliminating the chance of
+re-triggering a rate limit on a live run; and two stray `.git/index.lock`
+files, left behind by `git status` calls made through a sandboxed shell
+that cannot delete files, relocated rather than deleted (moved to
+`_to_delete/`, not silently left in place).
+
+**What did not change.** No previously-reported number in this report was
+revised — every FA/FR/coverage figure from the weak-tier principal corpus,
+extended attacks, and structural skeleton sections is untouched; v19 adds
+new data, it does not correct old data. Test suite: 354 passing, all
+green (14 new for the two probe modules; no regressions on the existing
+340). `pytest -q` passes; the forbidden-strings scan remains clean.
+
+**What remains open, disclosed rather than hidden, and carried into the
+next version:** a power-calculated n for the strong-tier comparison (the
+existing n=40/60 corpus was reused, not rescaled, so the DeepSeek-vs-
+reference paired FA test is still underpowered at both tiers); a
+cluster-robust re-analysis of the strong-tier numbers; rerunning the
+adaptive execution-claim finding — including the new Gemini tier-reversal
+result — as a preregistered confirmatory arm rather than an exploratory
+one; the corpus card's remaining open items; a proper related-work sweep
+against the scalable-oversight, LLM-as-judge, and provenance/attestation
+literatures; an Anthropic-model judge at any tier; and the one incomplete
+self-preference cell described above. None of these is claimed as done in
+this version.
+
+## Changes from v19
+
+**v20 is a restructuring and a new exploratory probe, not a correction —
+no previously-reported number changed.** Two things prompted it: external
+editorial feedback (ahead of an arXiv submission) that the project's single
+combined document read more like a large appendix than a paper, and the
+report author directly pressing on whether M-01's "judges never volunteer
+a false verification claim" finding would hold up if a judge were actually
+asked about its own verdict a second time, rather than left to volunteer
+or withhold on its own.
+
+**1. The project's primary document was split in two.** The condensed,
+arXiv-ready paper is now `report.md` (previously the full combined
+report); the complete experiment-by-experiment record — every table,
+every statistical test, every reproduction command, and the full version
+history — moved to `docs/full-technical-report.md`. Nothing measured was
+cut in the move; only the paper was trimmed, restructured around a
+hypothesis → methods → confirmatory results → exploratory results →
+discussion arc, and had its confirmatory/exploratory tracks labeled
+consistently throughout rather than scattered. The standalone short paper
+draft, `study-c-paper.md` (and its rendered `study-c-paper.pdf`), is
+retired into this restructure — its content is now `report.md` — and
+moved to `_to_delete/` rather than deleted outright, consistent with this
+project's convention for files a sandboxed shell cannot remove.
+
+**2. New section: "Judge interrogation probe: does a verdict survive
+being challenged?"** (`judge_interrogation_probe.py`, new this version).
+M-01 found that no judge, across 200 cached decisions, ever *volunteers*
+a claim of independent verification it structurally could not have
+performed. That is a narrower result than it sounds — a model that won't
+volunteer a lie can still tell one the moment it is asked directly, and
+nothing in the principal corpus, the adaptive attack, or the manipulation
+probe ever asks a judge a second question about its own first answer.
+This probe adds that second turn: for every case a judge originally got
+wrong, and (for Gemini only, both tiers) a sample of cases it got right,
+three independent follow-ups
+(each branching fresh off the same first-turn transcript, not stacked on
+one another) ask the judge's stated confidence and whether it verified the
+fact independently or inferred it from an absence of contradiction; show
+it the real anchor's finding and ask if its verdict changes; and ask the
+strongest reason it might be wrong.
+
+Result, across 241 interrogations (DeepSeek and Gemini, both tiers, single
+run each): zero instances of a judge claiming `verified_independently:
+true` — a provably false statement about its own process, given every
+judge's own system prompt states it cannot run a command, inspect a
+repository, or consult a ledger. DeepSeek's wrong verdicts read as honest,
+information-starved beliefs — shown the missing fact, it corrected almost
+every time, and its stated confidence tracked case difficulty. Gemini
+reversed less reliably and its confidence barely moved with difficulty.
+On cases Gemini had already gotten *right* (DeepSeek's already-correct
+cases were not run under this scope), Gemini's base tier flipped
+three correct verdicts into incorrect ones after being shown accurate,
+confirming information — the same blind spot as the manipulation probe's
+hedging result, from the opposite direction. Gemini's stronger tier didn't
+reproduce that flip in the 56 of 74 correct-verdict cases this run
+completed before hitting a daily quota limit, but on 4 of its 26 wrong
+cases it was shown proof its rejection was mistaken, said so explicitly in
+its own free-text response, and then kept the original, now-contradicted
+verdict anyway.
+
+This is disclosed as exploratory, single-run, and not yet independently
+replicated — flagged as a strong lead, not a confirmed result, everywhere
+it appears in both documents. The Gemini stronger-tier correct-verdict
+comparison is additionally partial (56 of 74 planned cases; the daily
+quota reset before the remaining 18 could be run). The resume command for
+the remaining cases is unchanged from what "Closing this leg's remaining
+gaps" already specified.
+
+**3. Both PDFs regenerated** (`report.pdf`, `docs/full-technical-report.pdf`)
+from the restructured Markdown sources via `pandoc --pdf-engine=xelatex`;
+no content beyond the source Markdown changes.
+
+**4. Repo cleanup: local build junk only.** Removed gitignored artifacts
+(`__pycache__`, `.pytest_cache`, stale snapshot/sync tarballs) left over
+from local iteration. No folder or navigation restructuring — the report
+author asked specifically to keep this pass to junk removal, not a deeper
+reorganization.
+
+**What did not change.** Every FA/FR/coverage figure, every statistical
+test, and every quoted judge response from v19 is unchanged in this
+version's move to `docs/full-technical-report.md` — this version adds one
+new section and reorganizes presentation, it does not revise prior
+results. `report.md`'s trimmed content is a condensation of already-
+reported numbers, not a new derivation of them.
+
+**What remains open, carried into the next version:** the 18 remaining
+Gemini stronger-tier correct-verdict interrogations blocked by the daily
+quota; DeepSeek's already-correct verdicts under `--scope correct`, not
+yet run at either tier, so whether DeepSeek shares Gemini's already-
+correct-case failure mode is unknown rather than ruled out; independent
+replication of the judge-interrogation probe as a second run; everything
+already disclosed as open as of v19 (the
+power-calculated strong-tier n, the cluster-robust re-analysis, the
+adaptive execution-claim finding as a confirmatory arm, the corpus card's
+remaining open items, the related-work sweep, an Anthropic-model judge at
+any tier, and the one incomplete self-preference cell). None of these is
+claimed as done in this version.
+
+## File rename (post-v20, no content change)
+
+`report.md` — the condensed, arXiv-ready paper introduced in v20 — is
+renamed to `study-c-evidence-integrity.md`. The generic name worked while
+this was the repository's only paper-length document; it stopped working
+once the project's front matter started describing this as one leg
+(Study C) of a larger, multi-study program (*Which Gates Matter?*), where
+a bare `report.md` no longer says which study it is. No number, table,
+quote, or section changed as part of this rename — only the filename and
+the cross-references that point to it, across this file's own
+introduction above, `README.md`, `docs/full-technical-report.md`,
+`docs/study-c-principal-result.md`, and the source/test docstrings that
+cite it for methodology detail. Historical entries elsewhere in this file
+that refer to `report.md` are left exactly as originally written, per
+this file's own stated discipline (see the introduction above) — they
+correctly describe the file by the name it had at the time. `report.pdf`
+is renamed to `study-c-evidence-integrity.pdf` alongside it, regenerated
+from the renamed source with no content change.

@@ -2,8 +2,8 @@
 harness/batch.py, using injected fake SDK clients -- this sandbox has no
 key and no network access to Anthropic/OpenAI/Gemini's batch endpoints
 (only api.deepseek.com-style direct calls were even checked reachable,
-and this sandbox has no key for any of them either; see report.md's
-Phase 0 section). These tests are the only verification this logic gets
+and this sandbox has no key for any of them either; see
+docs/full-technical-report.md's Phase 0 section). These tests are the only verification this logic gets
 before a real run on the user's machine. `sleep=` is stubbed to a no-op
 recorder so polling loops are exercised without any real wait.
 """

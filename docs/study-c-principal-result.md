@@ -54,7 +54,7 @@ its anchor is inconclusive, so it always has 100% coverage); **P4 and P5
 both 0/30 = 0.00 — this is not a case of abstention hiding a wrong call. Bare
 "P5" is never used in this document to mean the hybrid-adjudicator variant;
 see the note below Table 1's limitations bullet and
-[`report.md`](../report.md) for `P5-hybrid[PROVIDER:MODEL]`, which is not
+[`study-c-evidence-integrity.md`](../study-c-evidence-integrity.md) for `P5-hybrid[PROVIDER:MODEL]`, which is not
 deterministic and is reported separately. Every rate above is exact counts
 over its own denominator — never reported as "perfect," per the
 preregistered reporting rule.
@@ -120,7 +120,7 @@ Summary: understood as a claim about *joint* discrimination rather than FA in
 isolation, the central claim (H3) is not falsified by this run. Understood as
 the narrow FA-only sentence actually written in the preregistration, it is
 falsified by Gemini and not by DeepSeek — both facts are reported here rather
-than one. See [`report.md`](../report.md) for the full discussion including
+than one. See [`study-c-evidence-integrity.md`](../study-c-evidence-integrity.md) for the full discussion including
 the confirmatory/exploratory separation and the reference-oracle caveat on P3.
 
 ## Known limitations
@@ -154,10 +154,10 @@ the confirmatory/exploratory separation and the reference-oracle caveat on P3.
   20%, exact CI [0.03,0.56]); the authorization probe stayed at 0/10 for
   both judges regardless of protocol; the Gemini hybrid path never
   introduced false acceptance on any of the three claim types. See
-  [`report.md`](../report.md), "Scope and limitations," for the full
+  [`study-c-evidence-integrity.md`](../study-c-evidence-integrity.md), "Scope and limitations," for the full
   writeup, the coverage/selective-risk table, and reproduce commands.
 - A sensitivity analysis excluding the 10 pilot-carried (index-0) cases
   (`python3 -m trust_eval.study_c.sensitivity --n 10 --provider ...`) shows
   every rate above shifts by at most a few percentage points with those
-  cases removed, and no significance result flips — see `report.md` for the
+  cases removed, and no significance result flips — see `study-c-evidence-integrity.md` for the
   exact numbers.

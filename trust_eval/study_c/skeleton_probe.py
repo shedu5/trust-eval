@@ -20,7 +20,7 @@ This module has two parts:
    evidence alone suffice, or is there real information in also requiring
    the parts of the claim a runtime anchor CAN check to independently hold?
 
-Deliberately NOT covered (see report.md for the explicit disclosure):
+Deliberately NOT covered (see docs/full-technical-report.md for the explicit disclosure):
 reachability-from-entry-point ("wired but dead code" beyond a false
 `calls` fact), test-to-branch coverage ("a test exists but doesn't
 exercise the claimed branch"), and interface-declares-no-implementation.

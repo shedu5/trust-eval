@@ -6,7 +6,7 @@ stays valid) followed by `n-1` further independent instances. That reuse is a
 legitimate cache-cost optimization, but it means those 10 cases are *not*
 independent draws from the same generative process as the other 90 -- they
 were authored earlier, by hand, before the scaled corpus existed, and every
-downstream table (`study-c-principal-result.md`, `report.md`) has so far
+downstream table (`study-c-principal-result.md`, `study-c-evidence-integrity.md`) has so far
 reported statistics over all 100 cases without checking whether those 10
 carried cases are quietly driving the result.
 

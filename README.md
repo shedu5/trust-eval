@@ -81,7 +81,7 @@ reproduce the exact per-class tables; live runs write new responses into it.
 Two judges, 90 cases each, zero errors. Both caught all four conspicuous attacks
 perfectly; the shared blind spot is **stale replay** (freshness reasoning). Full
 analysis, the judges' own reasoning, and the honest limitations are in
-[`report.md`](report.md); the figure is `reports/figure_per_class.png`.
+[`study-c-evidence-integrity.md`](study-c-evidence-integrity.md); the figure is `reports/figure_per_class.png`.
 
 | attack class | metric | DeepSeek v4-flash | Gemini 3.1-flash-lite |
 |---|---|---:|---:|

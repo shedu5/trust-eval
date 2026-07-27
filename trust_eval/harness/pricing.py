@@ -1,7 +1,7 @@
 """Judge-provider pricing, confirmed against each provider's own live docs
 on 2026-07-24 -- not estimated, not carried over from training-data prices
 (every model named here postdates this harness's knowledge cutoff). See
-report.md's Phase 0 section for the fetched sources.
+docs/full-technical-report.md's Phase 0 section for the fetched sources.
 
 Prices are dollars per 1,000,000 tokens. `batch_discount` is the fraction
 off standard price a provider's real batch mechanism gives; `None` means
@@ -40,6 +40,25 @@ PRICING = {
     },
     "gemini:gemini-3.1-pro-preview": {
         "input": 2.00, "cache_hit_input": None, "output": 12.00, "batch_discount": 0.5,
+    },
+    # GA (Stable), NOT preview -- confirmed on its dedicated docs page
+    # (ai.google.dev/gemini-api/docs/models/gemini-2.5-pro: "Stable:
+    # gemini-2.5-pro"), 2026-07-24. Rate here is the <=200k-token-prompt
+    # tier ($1.25 in / $10.00 out); a >200k tier ($2.50 in / $15.00 out)
+    # also exists but every call in this harness's corpus is far under that
+    # threshold, so only the lower tier is modeled -- this is NOT a general
+    # long-context pricing table. NOT currently used in FULL_PANEL: briefly
+    # substituted for gemini-3.1-pro-preview after the preview model 429'd
+    # on a Free-tier account, then reverted after (a) gemini-2.5-pro itself
+    # 404'd for reasons never root-caused, and (b) the account turned out
+    # to already be rate-limit Tier 1 (billing-linked), at which point
+    # gemini-3.1-pro-preview worked cleanly -- Tier 1 was the actual fix,
+    # not the model. Kept here as real, sourced, usable pricing data (and
+    # still reachable via `cost_probe run --provider gemini:gemini-2.5-pro`
+    # for an isolated probe) even though it isn't the panel default. See
+    # CHANGELOG.md's "Changes from v17" for the full sequence.
+    "gemini:gemini-2.5-pro": {
+        "input": 1.25, "cache_hit_input": None, "output": 10.00, "batch_discount": 0.5,
     },
     "anthropic:claude-sonnet-5": {
         "input": 2.00, "cache_hit_input": None, "output": 10.00, "batch_discount": 0.5,
