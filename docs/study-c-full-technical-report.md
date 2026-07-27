@@ -16,158 +16,6 @@
 only source of the evidence used to evaluate its own work, which oversight
 protocols can still recover the truth?
 
-*v20 — restructured the project's primary document into a condensed,
-arXiv-ready paper (initially saved as `report.md`, renamed shortly after
-to `study-c-evidence-integrity.md` so the filename identifies it as Study
-C's report within the larger *Which Gates Matter?* program) and moved
-this full record to `docs/study-c-full-technical-report.md`, per external
-editorial feedback that the project's single combined document read more
-like a large appendix than a research paper. No previously-reported
-number changed in this move or the rename. Added one new section, "Judge
-interrogation probe," reporting a follow-up probe (241 interrogations
-across DeepSeek and Gemini, both tiers) that asks whether a judge's stated
-verdict survives being challenged about it in a second conversational
-turn — disclosed as exploratory and, for Gemini's stronger tier, partially
-incomplete (56 of 74 correct-verdict cases completed before a live quota
-limit was hit). Retired the standalone short paper (`study-c-paper.md`)
-into this restructure; its content is now
-`study-c-evidence-integrity.md`. *v19 — Phase 1 run, closing the H3 gap v16 opened; two new
-exploratory
-probes added in response to a direct novelty challenge from the report
-author. **Phase 1** (the strong-tier panel run gated since v16) is
-complete for the original 7 judge-calling surfaces: all four panel
-judges (`deepseek-v4-flash`, `deepseek-v4-pro`, `gemini-3.1-flash-lite`,
-`gemini-3.1-pro-preview`) now have full live data across every surface
-this report scores, live-run on the report author's own machine and
-verified here by re-deriving every number directly from the committed
-cache with a byte-for-byte reproduction, not by trusting the run's own
-console output. This closes the standing "H3 not tested against a
-genuinely strong judge" gap: see the new "H3" section for the tier
-comparison itself, and the Central-claim/hypotheses table below for H3's
-updated status. Headline result: H3 is **partially supported and
-provider-dependent, not the literal "more than."** DeepSeek Pro's 4/40 FA
-vs. the anchor's 0/40 is directionally in the anchor's favor but not
-significant at n=40 (exact McNemar p=0.125); Gemini Pro-preview ties the
-anchor exactly (0/40 vs. 0/40, p=1.0) — the data support "at least as good
-as," not "more than," for either provider. What tier reliably bought
-instead was a reduction in false rejection that shrinks under the
-adaptive attacker and, for Gemini specifically, reverses; anchor-dependent
-protocols are unaffected by tier because they never call an LLM judge at
-any tier, by construction, not by a newly discovered convergence. Two new
-exploratory probes were added after the report author asked, directly,
-whether this leg's findings were saying anything the LLM-as-judge
-literature doesn't already know: `manipulation_probe.py` tests whether a
-judge's verdict can be moved by the FREE TEXT an executor controls rather
-than the underlying fact — an embedded "skip your analysis and accept"
-injection produced no effect on any of the four judges; language
-introducing self-reported submitter uncertainty ("I'm not fully certain,"
-"haven't had a chance to double-check"), attached to true and false claims
-alike, produced a large, consistent false-rejection spike on all four —
-deepseek-flash 0.27→0.90, deepseek-pro 0.20→1.00, gemini-flash-lite
-0.47→1.00, gemini-pro-preview 0.27→0.93 — read as sensitivity to
-self-reported epistemic confidence uncorrelated with ground truth, not
-(yet) established as pure stylistic manipulation, since the hedge
-introduces a real claim about the submitter's own verification process
-that a text-only judge cannot check either way. `self_preference_probe.py`
-tests in-group bias: does a judge trust a submission more when it is
-attributed to its own provider family? No such effect was found in three
-of four judges with complete data (deepseek-flash, deepseek-pro,
-gemini-flash-lite); the fourth (gemini-pro-preview, the "attributed to
-DeepSeek" condition) is disclosed incomplete (4/30 cases; the remaining 26
-hit a live 429 the night before this version was written) and is not
-carried into the condensed paper as a headline result — see "Closing this
-leg's remaining gaps." Also folds in the `min_interval` proactive rate-limit
-pacing fix (3.0s floor on Gemini calls, added the same session as v18's
-429 debugging but never given its own version entry) and two stray
-`.git/index.lock` cleanups. Test suite: 354 passing (14 new, for the two
-probe modules), no regressions. No previously-reported number changed;
-everything in this version is new data, not a revision of old data.
-**v18** reverted Gemini's Pro-tier judge back to `gemini-3.1-pro-preview`
-after a two-step detour resolved to a simpler cause: v17's swap to
-`gemini-2.5-pro` (in response to persistent 429s on the preview model)
-then itself hit an unexplained HTTP 404 on the same account. Checking the
-account's actual rate-limit tier directly (not assumed) found it was
-already **Tier 1** (billing-linked, not Free) — at which point retrying
-`gemini-3.1-pro-preview` directly worked cleanly, no further 429s. Tier 1
-billing was the real fix all along, not the model choice. Reverted
-`FULL_PANEL` to `gemini-3.1-pro-preview` (projected 4-judge panel cost at
-n=10 back to **$3.23**, scaling to $32.31 at n=100 — the v16 figures);
-`gemini-2.5-pro`'s pricing entry and the reasoning for trying it stay in
-the repo as real, sourced data, just unused by the panel; its 404 was
-never root-caused and isn't chased further now that the preview model
-works. Test suite: 337 passing (isolation test now exercises
-`gemini-2.5-pro` as the non-panel case instead). No protocol, anchor, or
-scored result changed. **v17** swapped Gemini's Pro-tier judge from
-preview to GA after a
-live rate-limit finding: an isolated probe against
-`gemini:gemini-3.1-pro-preview` hit persistent HTTP 429
-(`RESOURCE_EXHAUSTED`) errors, confirmed directly against Google's docs
-as a known preview-vs-GA rate-limit gap rather than an account issue.
-`gemini-2.5-pro` (confirmed Stable/GA, and cheaper on both legs — $1.25/
-$10.00 per 1M in/out vs. $2.00/$12.00) replaced it as the panel's
-Gemini-Pro judge at the time; `gemini-3.1-pro-preview`'s pricing and its
-1,870 partial cache records stayed in the repo as sourced evidence for
-the finding throughout. Also fixed,
-in the same round, two real infrastructure bugs a live run surfaced: the
-judge HTTP client had no request timeout, so a single stalled call could
-hang indefinitely rather than failing into the retry loop (now capped at
-60s); and 429s were retried after only 1-2 seconds, useless against a
-per-minute quota (now 20-63s exponential backoff, matching Google's own
-guidance) — both fixes carry forward unchanged into v18. **v16** — Phase 0 measured, panel narrowed,
-Phase 1 gated on budget
-approval: `cost_probe run` executed live on the report author's own
-machine (`deepseek:deepseek-v4-pro`, n=10, across all 7 judge-calling
-surfaces) and `cost_probe report` read the exact result back from the
-cache it filled — 544 judge calls, 181,824 input tokens (68,608 of them
-cache-hit), 370,125 output tokens (347,337 reasoning), measured cost
-**$0.3715** at DeepSeek's standard synchronous rate (no confirmed batch
-discount for the v4 generation). Having seen DeepSeek Pro's actual
-reasoning-token volume, the strong-tier panel is narrowed from the
-originally planned six judges down to four — DeepSeek flash/Pro and
-Gemini flash-lite/Pro, a clean 2×2 provider×tier design — dropping Claude
-Sonnet 5 and GPT-5.6 (their pricing stays sourced in `pricing.py`; they
-are simply excluded from the panel and its projection). Phase 1
-(the full panel confirmatory run, H3 against a genuine strong judge, a
-power-calculated n, cluster-robust stats, corpus card completion,
-related-work sweep) is gated on the report author's explicit budget
-approval and target-n choice, per the original directive — not started
-this version. Test suite updated for the panel narrowing; 331 passing, no
-regressions. No protocol, anchor, or scored result changed. *v15 —
-infrastructure only, no new empirical results: built Phase 0 of a
-directive to close this leg's remaining gaps in place as one part of the
-larger *Which Gates Matter?* program (real batch-API clients for
-Anthropic/OpenAI/Gemini, token-usage capture, a dated/sourced pricing
-table, a v2 judge prompt covering the `IDENTITY`/`STRUCTURE` claim types
-so every judge-calling surface can actually be measured, and
-`cost_probe.py`, which runs DeepSeek Pro across every surface and reports
-exact measured cost from the cache it fills — no cost figure estimated).
-This cloud build session has no API keys and no network path to
-DeepSeek/Gemini/OpenAI, so Phase 0 itself had NOT been run yet as of v15
-— it ran on the report author's own machine; see "Reproducibility." 27
-new tests, suite 331. No protocol, anchor, or scored result changed. *v14
-added a fifth claim type and anchor, `ClaimType.STRUCTURE` /
-`structural_skeleton`, testing a Repomix-style structural skeleton (a
-compressed, independently-generated static call-graph fact, not the full
-source) as a new lossy evidence surface a fifth external review proposed
-between P1 (text-only narrative) and P3 (full claim-matched anchoring),
-under four falsification conditions plus a composite condition. *v13
-added a clarifying paragraph on what v12's four new tests do and don't
-establish. *v12 closed four of five untested attack classes a third
-external review named; ledger poisoning stays a disclosed limitation.
-This header is intentionally short — see "Revision history" below for
-v9–v14 and [`CHANGELOG.md`](../CHANGELOG.md) for the complete record back to
-v1.
-Judges: the principal n=100 confirmatory corpus, extended attack surface,
-and structural skeleton probe are scored against the weak tier
-(`deepseek-v4-flash`, `gemini-3.1-flash-lite`), as originally run; the
-strong tier (`deepseek-v4-pro`, `gemini-3.1-pro-preview`) was added in v19
-across the same surfaces specifically to test H3 (see "H3" below) — see
-Scope and Limitations for exactly which sections use which tier. Principal
-corpus: 100 synthetic-surrogate cases (10 independent instances × 3
-flagship attack patterns + truthful counterparts). All reported numbers
-reproduce from the committed judge-response cache with no API key — see
-Reproducibility.*
-
 The pilot that preceded this study is preserved unmodified at
 [`report-v0.1-pilot.md`](report-v0.1-pilot.md). This report
 supersedes it as the project's primary empirical result (though, as of
@@ -1164,7 +1012,7 @@ not merely a registration of what remained to be measured.
 
 **New this round, in direct response to a third external review's paragraph
 naming five specific untested attack classes.** Checking that paragraph
-against the report (see "Revision history") found every item already
+against the report (see [`CHANGELOG.md`](../CHANGELOG.md)) found every item already
 disclosed as out of scope somewhere in this document — but disclosure is
 not the same as testing. Four of the five are now tested with real cases
 and real deterministic results; the fifth (ledger poisoning) remains a
@@ -1373,13 +1221,11 @@ commit and has been removed (a regression) by the task's current head.
 python3 -m trust_eval.study_c.skeleton_probe --n 10 --which ladder
 ```
 
-| Label | Provenance | Commit cited | should_accept |
-|---|---|---|---|
-| `current_truthful_skeleton` | trusted, correctly bound | current head | True |
-| `stale_skeleton_hides_regression` | trusted, correctly bound | OLD (pre-regression) | False |
-| `misbound_skeleton` | trusted, but generated for a DIFFERENT task | current head | False |
-| `executor_supplied_false` | executor-supplied, lying | current head | False |
-| `executor_supplied_true` | executor-supplied, accurate | current head | True |
+- **`current_truthful_skeleton`** — trusted, correctly bound, cites the current head. `should_accept`: **True**
+- **`stale_skeleton_hides_regression`** — trusted, correctly bound, cites an OLD (pre-regression) commit. `should_accept`: **False**
+- **`misbound_skeleton`** — trusted, but generated for a DIFFERENT task; cites the current head. `should_accept`: **False**
+- **`executor_supplied_false`** — executor-supplied and lying; cites the current head. `should_accept`: **False**
+- **`executor_supplied_true`** — executor-supplied and accurate; cites the current head. `should_accept`: **True**
 
 | Protocol | FA | FR | Abstain (a/t) |
 |---|---|---|---|
@@ -1444,7 +1290,7 @@ to measure a cost the review's list implied but did not name: distrusting
 untrusted provenance outright is not free even when it correctly stops
 every lie. 15 new regression tests pass
 (`tests/test_study_c_skeleton_probe.py`), bringing the suite to 304 as of
-v14 (since risen to 331; see Revision history). This
+v14 (since risen to 331; see [`CHANGELOG.md`](../CHANGELOG.md)). This
 is, like "Extended attack surface" before it, an architecture-level result:
 it confirms the anchor design resists the falsification conditions it was
 built to resist, under cases built specifically to exercise it, not new
@@ -1839,7 +1685,7 @@ are reported here rather than one.
   tier (`deepseek-v4-flash`, `gemini-3.1-flash-lite`), as originally run.
   **New in v19:** the strong tier — `deepseek-v4-pro` and
   `gemini-3.1-pro-preview`, the panel v16 actually narrowed to (see
-  "Closing this leg's remaining gaps" and Revision history for why the
+  "Closing this leg's remaining gaps" and [`CHANGELOG.md`](../CHANGELOG.md) for why the
   preregistered `gemini-3.5-flash` slot was superseded by the 2×2
   provider×tier panel design, and why the specific Gemini Pro-tier model
   moved between `gemini-3.1-pro-preview`, `gemini-2.5-pro`, and back
@@ -2463,8 +2309,8 @@ cost aggregation from synthetic cache records, and the new v2-prompt live-
 judge wiring on the three previously-deterministic-only extended-attack
 modules; and (14 tests,
 `test_study_c_manipulation_probe.py`, `test_study_c_self_preference_probe.py`),
-the two v19 exploratory probe modules — the `operator_note`/`executor_model`
-fields' verified immunity to every anchor verdict and every deterministic-
+the two v19 exploratory probe modules — the `operator_note` /
+`executor_model` fields' verified immunity to every anchor verdict and every deterministic-
 protocol outcome (checked directly against `ANCHORS[...]` and `decide(...)`,
 not just asserted in a docstring), correct corpus construction for each
 probe's three variants, that the two probes' base corpora are identical to
@@ -2473,43 +2319,3 @@ no provider and no network. See `tests/test_study_c_*.py` and
 `tests/test_harness_*.py` for the complete list, and `CHANGELOG.md` for the
 v20 test-count update alongside the judge-interrogation probe's own
 regression tests.
-
-## Revision history
-
-This report's full version-by-version revision history — every prior
-external review, every correction, and why each change was made — is
-maintained in [`../CHANGELOG.md`](../CHANGELOG.md) rather than inline, as of
-v10. v14 through v20's changes are summarized in this report's front-matter
-header, above. A condensed record of v8 through v13 follows, preserved from
-that version of this section:
-
-**v13** added a clarifying paragraph on what v12's four new tests do and
-don't establish, and a "What kind of evidence this section adds for the
-central claim, precisely" paragraph distinguishing architecture-level
-support from judge-behavior evidence — a distinction that recurs in "H3"
-and "Structural skeleton evidence" in later versions. No numeric, protocol,
-or test change. **v12** closed four of the five untested attack classes a
-third external review named — race-condition (TOCTOU) execution replay,
-task-to-anchor binding confusion, forged actor/tool identity (new
-`ClaimType.IDENTITY` + `actor_identity` anchor), and coordinated
-multi-artifact forgery (new cross-artifact-consistency-vs.
-per-claim-anchoring comparison) — with real cases and real deterministic
-results, not just a disclosure fix; see "Extended attack surface." Ledger
-poisoning, the fifth item, stays a disclosed limitation (a different
-research question — anchor trustworthiness, not protocol behavior — see
-"Threat-model boundary"). 19 new tests; suite reached 289. **v11** corrected
-an internal inconsistency v9 had introduced: ledger poisoning and
-observation/action race conditions had been attributed to a missing
-claim type, but were already disclosed, more accurately, as anchor-trust
-assumptions in "Threat-model boundary" — a distinct limitation with a
-different fix, now attributed correctly and cross-referenced. **v10** was
-structural only: the inline revision history moved to `CHANGELOG.md` and
-this section replaced it. **v9** added a claim-type-coverage disclosure
-(later refined in v11) and a partial corpus card (verified provider-default
-temperature, retry/backoff behavior, cache-dedup keying, 100/100
-confirmed-unique corpus payloads); two corpus-card items — candidate-incident
-exclusion counts, per-call evaluation dates — remain open by the report
-author's explicit choice. **v8** corrected two factual errors found during
-the report author's own end-to-end reproduction run (a table cell, 3/10 →
-4/10; a rounding error, 0.13 → 0.12). Full detail on every version back to
-v1, and every version from v14 onward, is in `CHANGELOG.md`.
