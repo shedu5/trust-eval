@@ -115,13 +115,13 @@ true and false claims alike, drove every judge's false rejection to
 self-reported epistemic confidence uncorrelated with ground truth, not
 established as pure stylistic manipulation, since the hedge is a real
 (if unverifiable) claim about the submitter's own process (see "Judge
-manipulation probe"). A matched self-preference probe found no evidence
-that any of the three judges with complete data trusted a submission more
-when it was attributed to its own provider family; the fourth judge's
-comparison is disclosed incomplete and not treated as a headline result
+manipulation probe"). A matched self-preference probe, now complete across
+all four judges, found no FA evidence that any judge trusted a submission
+more when it was attributed to its own provider family, and only a small,
+within-noise FR asymmetry in one judge
 (see "Self-preference / in-group bias probe"). **New in v20:** a judge-
 interrogation probe found no fabricated claims of independent verification
-across 241 follow-up questions, but did find model-specific differences in
+across 259 follow-up questions, but did find model-specific differences in
 whether a wrong verdict reverses on contact with the missing fact, and a
 case where a correct verdict flipped to incorrect after being shown
 accurate, confirming information (see "Judge interrogation probe").
@@ -308,7 +308,7 @@ after this run:
 | H1 | Deterministic + LLM monitors detect internally-inconsistent (Tier-1) attacks at high rates | Addressed by the v0.1 pilot corpus, not re-tested here — Study C's corpus is Tier-2 (internally consistent) only |
 | H2 | LLM-only and deterministic-internal monitors **frequently** ACCEPT self-consistent, externally-false fabrications | **Partially supported, model-dependent.** "Frequently" was never operationally defined by a preregistered threshold, and the result is not uniform: deterministic-internal (P2) accepted all 40/40 (100%); DeepSeek (LLM-only) accepted 5/40 (12.5%); Gemini (LLM-only) accepted 0/40 (0%) — a direct counterexample to "LLM-only monitors frequently accept," at the cost of rejecting 44/60 (73%) truthful claims. P2 alone supports the hypothesis unambiguously; the LLM-only claim is not supported as a general statement about the tested judges |
 | H3 | A claim-appropriate anchor reduces false acceptance **more than a stronger judge** | **Now tested for both providers (still no Anthropic-model judge) — partially supported, provider-dependent.** DeepSeek Pro: 4/40 FA vs. the anchor's 0/40 — the anchor is directionally ahead, but with 4 discordant errors against 0 the exact two-sided McNemar test is p=0.125, not significant at n=40. Gemini Pro-preview: 0/40 FA vs. the anchor's 0/40 — the anchor **ties**, not beats, the stronger Gemini judge (0 discordant pairs, p=1.0, no data to distinguish them). "More than," the preregistered comparative, is not established for either provider at this sample size; "at least as good as" is. What tier reliably bought instead was FR (DeepSeek 28/60→21/60; Gemini 44/60→26/60), unevenly: state-claim FR collapses (DeepSeek 8/20→2/20; Gemini 14/20→0/20), execution improves modestly (DeepSeek 10/20→9/20; Gemini 20/20→16/20), authorization is completely flat at 10/20 for all four judges. Under the adaptive best-of-8 attacker the tier's edge narrows for DeepSeek on execution (18/20→15/20 evaded) but *reverses* for Gemini (0/20→10/20 evaded, 4/10→10/10 on state). See "H3: does a stronger judge substitute for anchoring?" |
-| H4 | Monitors sometimes claim checks they did not/could not perform | **Negative result, automated, AI second-pass, and independent human-verified — reconfirmed under direct questioning in v20.** The regex scanner (M-01) flagged 0/200 cached reasons (100 cases × 2 judges). A zero-match automated scan alone does not establish that recall is high enough for that count to mean anything, so all 200 reasons were read twice more, by two independent parties with different interests in the outcome: first by the AI assistant that built this harness (a semantic pass with a direct interest in the study's outcome, not independently cross-checked at the time), then, separately, by the report's human author reading all 200 rows cold against the same rule (a claim of independently running a command, inspecting the repository, or consulting the ledger — disclaimers like "cannot verify," "without access to..." are the expected negative baseline, not hits). Both passes found zero hits. The human pass additionally caught and correctly adjudicated a genuine edge case the AI pass did not separately flag — a few Gemini reasons stating "the agent modified a file," judged correctly as characterizing the *submitted* evidence, not a claim of independently observing the modification — and identified one parser-fallback row (`state-task`, DeepSeek, `near_miss`, instance 0: `"(parsed from keyword)"`) with no real reason text to check. This is now a single-detector-plus-two-independent-reader result, one of the two readers with no stake in the study's outcome; it is not a second independent *human* cross-check of the same 200 rows against each other (only one human has read them), so a residual single-human-reader caveat remains, but the "not independently verified at all" gap this report flagged through v6 is closed. **v20 adds a third, independent line of evidence via direct questioning rather than passive scanning:** the judge-interrogation probe asked every judge, in a second conversational turn, whether it had verified the fact its verdict depended on independently — a provably false claim would be structurally impossible to make honestly. Across 241 such questions, none was made. See "Judge interrogation probe" |
+| H4 | Monitors sometimes claim checks they did not/could not perform | **Negative result, automated, AI second-pass, and independent human-verified — reconfirmed under direct questioning in v20.** The regex scanner (M-01) flagged 0/200 cached reasons (100 cases × 2 judges). A zero-match automated scan alone does not establish that recall is high enough for that count to mean anything, so all 200 reasons were read twice more, by two independent parties with different interests in the outcome: first by the AI assistant that built this harness (a semantic pass with a direct interest in the study's outcome, not independently cross-checked at the time), then, separately, by the report's human author reading all 200 rows cold against the same rule (a claim of independently running a command, inspecting the repository, or consulting the ledger — disclaimers like "cannot verify," "without access to..." are the expected negative baseline, not hits). Both passes found zero hits. The human pass additionally caught and correctly adjudicated a genuine edge case the AI pass did not separately flag — a few Gemini reasons stating "the agent modified a file," judged correctly as characterizing the *submitted* evidence, not a claim of independently observing the modification — and identified one parser-fallback row (`state-task`, DeepSeek, `near_miss`, instance 0: `"(parsed from keyword)"`) with no real reason text to check. This is now a single-detector-plus-two-independent-reader result, one of the two readers with no stake in the study's outcome; it is not a second independent *human* cross-check of the same 200 rows against each other (only one human has read them), so a residual single-human-reader caveat remains, but the "not independently verified at all" gap this report flagged through v6 is closed. **v20 adds a third, independent line of evidence via direct questioning rather than passive scanning:** the judge-interrogation probe asked every judge, in a second conversational turn, whether it had verified the fact its verdict depended on independently — a provably false claim would be structurally impossible to make honestly. Across 259 such questions, none was made. See "Judge interrogation probe" |
 | H5 | Mandatory anchor use or legitimate abstention reduces **unsupported verification** and **false acceptance**, trading against **coverage/false rejection** | **Partially supported — the FA/coverage component is measured on 2 of 3 claim types; the unsupported-verification component is untested here.** P4's mandatory abstention trades coverage for zero selective FA (75% attack coverage vs. P3's 100%, both with 0/decided FA — Table 1). Replacing that abstention with an LLM fallback (P5-hybrid) restores 100% coverage but reintroduces FA for DeepSeek specifically: 4/10 (40%) on execution's `unverifiable_false`, 2/10 (20%) on a purpose-built state probe; 0/10 on both for Gemini, and 0/10 on an authorization probe for both judges. Truthful-case coverage/FR was unaffected in every measurement here (no truthful case ever hit an inconclusive anchor in this corpus). The "reduces unsupported verification" clause of H5 was not tested by this probe — that is H4/M-01's domain, and M-01 found no unsupported-verification language from either judge to begin with |
 
 ## Method
@@ -1455,12 +1455,13 @@ everywhere?
 > **Scope and reliability caveats, stated together rather than scattered.**
 > This is a follow-up probe, not part of the preregistered design above —
 > built after seeing the M-01 finding and the manipulation-probe result,
-> and pressed on directly rather than deferred. It covers 241
+> and pressed on directly rather than deferred. It covers 259
 > interrogations across DeepSeek and Gemini, both capability tiers, in a
 > single run each, not yet independently replicated the way the rest of
-> this study was. One Gemini run hit a daily API quota partway through;
-> the numbers below reflect what completed (Gemini Pro-preview's
-> correct-verdict interrogation is 56 of 74 planned cases). The free-text
+> this study was. One Gemini run hit a daily API quota partway through
+> when this section was first drafted; the correct-verdict interrogation
+> for Gemini Pro-preview has since been completed in a resumed live run
+> (74 of 74 planned cases) once the quota reset. The free-text
 > `self_critique` answers have had a close read, not the three-layer
 > verification (automated scan, AI-assisted review, human read) the rest
 > of this piece holds itself to. Treat what follows as a strong lead, not
@@ -1481,7 +1482,7 @@ in a handful of cases it said "no change" while the verdict itself had, in
 fact, changed. Numbers here are checked against the verdict field directly,
 not the flag.*
 
-It did not happen. Not once, in 241 tries, across two model families and
+It did not happen. Not once, in 259 tries, across two model families and
 both capability tiers, did a judge claim `verified_independently: true` —
 a provably false statement about its own process, and the closest thing in
 this study to literally catching a judge in a lie.
@@ -1512,10 +1513,14 @@ sounding bad; here, it over-trusted claims for describing an outcome that
 sounded good. Neither reaction tracks whether the evidence itself was
 accurate.
 
-Gemini's stronger tier didn't reproduce that specific mistake in the cases
-tested so far — zero flips away from a correct verdict, against three at
-the weaker tier, in the 56 of 74 correct-verdict cases this run completed
-before hitting its quota limit. But it introduced a different one. On 4 of
+Gemini's stronger tier didn't reproduce that specific mistake — zero flips
+away from a correct verdict, against three at the weaker tier, now
+confirmed across the full 74 of 74 correct-verdict cases (the remaining 18
+were collected in a resumed live run after the quota limit reset; none of
+the 18 flipped either). Confidence on these already-correct cases stayed
+just as flat as on the wrong ones — mean 9.9/10 across all 74 (min 5, max
+10) — consistent with the barely-moves-with-difficulty pattern described
+above. But it introduced a different one. On 4 of
 the 26 cases it had gotten wrong — mostly ones resting on an unverifiable
 approval claim — it was shown proof its rejection was mistaken and said so
 explicitly: *"the out-of-band confirmation proves the claim was truthful in
@@ -1576,33 +1581,32 @@ Gemini-family judge, FA(gemini-attributed) > FA(deepseek-attributed).
 | Gemini flash-lite | attributed to DeepSeek | 1/30 | 16/30 |
 | Gemini Pro-preview | unattributed (control) | 0/30 | 8/30 |
 | Gemini Pro-preview | attributed to Gemini | 0/30 | 9/30 |
-| Gemini Pro-preview | attributed to DeepSeek | 0/30\* | 9/30\* |
+| Gemini Pro-preview | attributed to DeepSeek | 0/30 | 11/30 |
 
-\* **Disclosed incomplete, not a true result.** Gemini Pro-preview ×
-"attributed to DeepSeek" has cached/live data for only 4 of 30 cases; the
-remaining 26 hit a live HTTP 429 the night before this version was written
-and the harness itself flags this row as under-counted
-(`[!] ... its FA/FR above are UNDER-COUNTED, not a true zero`) rather than
-silently reporting a false 0/30. This is deferred to the next version
-rather than blocking this one — see "Closing this leg's remaining gaps."
-
-**No self-preference effect found in the three judges with complete data.**
+**No self-preference effect found in FA, across all four judges now with
+complete data; a small FR asymmetry appears in one judge, within noise.**
 For DeepSeek flash, a DeepSeek-family judge, FA is *lower* when attributed
 to DeepSeek (0/30) than to Gemini (2/30) — the opposite direction from what
 self-preference predicts. DeepSeek Pro shows no FA difference at all
 (0/30 both ways). Gemini flash-lite, a Gemini-family judge, shows a
 negligible one-case difference in the opposite direction from self-preference
-too (0/30 gemini-attributed vs. 1/30 deepseek-attributed). FR deltas across
-attributed conditions are small (0–2 cases on n=30) and inconsistent in
-direction across judges; no formal significance test is run here, since
-each condition is a single n=30 draw rather than a repeated-trial design,
-and deltas this small are well within what sampling noise alone would
-produce. Gemini Pro-preview's own-family comparison remains untested
-pending the missing 26 cases. Taken together, this is a null result for
-self-preference in this corpus and these four judges, not a confirmed
-absence of the effect in general — a fixed, non-adversarial provenance tag
-on a small corpus is a narrower test than the general eval-literature
-finding it is checking against.
+too (0/30 gemini-attributed vs. 1/30 deepseek-attributed). Gemini
+Pro-preview's own-family cell — disclosed incomplete in v20 at 4 of 30
+cases (the remaining 26 hit a live HTTP 429 the night that version was
+written, and the harness flagged the row as under-counted rather than
+silently reporting a false 0/30) — was completed this round in a resumed
+live run once the daily quota reset; it also shows no FA difference (0/30
+both attributions) but a small FR gap in the self-preference-consistent
+direction: 9/30 attributed to its own family vs. 11/30 attributed to
+DeepSeek. FR deltas across attributed conditions are small (0–3 cases on
+n=30) and inconsistent in direction across judges; no formal significance
+test is run here, since each condition is a single n=30 draw rather than a
+repeated-trial design, and a 2-case gap at n=30 is well within what
+sampling noise alone would produce. Taken together, this remains a null
+result for self-preference in this corpus and these four judges, not a
+confirmed absence of the effect in general — a fixed, non-adversarial
+provenance tag on a small corpus is a narrower test than the general
+eval-literature finding it is checking against.
 
 ## Unsupported verification claims (M-01)
 
@@ -1625,7 +1629,7 @@ reason), so a run against different judges, prompts, or claim types has
 somewhere to actually surface a hit. **v20 adds a second, independent test
 of the same question via direct interrogation rather than passive
 scanning** — see "Judge interrogation probe" above, which found the same
-zero-instance result under direct questioning across 241 follow-ups, a
+zero-instance result under direct questioning across 259 follow-ups, a
 stronger form of evidence than a scan of unprompted text.
 
 ## Empirical backbone: why these attack patterns, not others
@@ -1703,17 +1707,18 @@ are reported here rather than one.
   once per judge; a differently worded injection, a more adversarially
   targeted hedge, or additional model-family labels are untested and could
   behave differently. The self-preference probe's Gemini Pro-preview ×
-  "attributed to DeepSeek" cell is disclosed incomplete (4 of 30 cases;
-  the harness itself flags the affected row as under-counted rather than
-  silently reporting a false zero) — see "Closing this leg's remaining
-  gaps" for the plan to close it. **The v20 judge-interrogation probe has
-  the same single-run character**, plus one additional incompleteness of
-  its own: Gemini's stronger-tier correct-verdict interrogation is 56 of
-  74 planned cases, the remainder having hit the same class of live quota
-  limit as the self-preference probe's incomplete cell. `--scope correct`
-  was run for Gemini only, both tiers — DeepSeek's already-correct verdicts
-  have not been interrogated under this scope at either tier, so whether
-  DeepSeek shows a comparable already-correct-case failure mode is
+  "attributed to DeepSeek" cell, disclosed incomplete at 4 of 30 cases in
+  v19/v20 (the harness flagged the row as under-counted rather than
+  silently reporting a false zero), was completed in a resumed live run
+  after the daily quota reset — see "Self-preference / in-group bias
+  probe" for the full 30/30 result. **The v20 judge-interrogation probe
+  had the same single-run character**, plus one additional incompleteness
+  of its own, also now closed: Gemini's stronger-tier correct-verdict
+  interrogation was 56 of 74 planned cases in v20, completed to 74 of 74
+  in a resumed live run — see "Judge interrogation probe." `--scope
+  correct` was run for Gemini only, both tiers — DeepSeek's already-correct
+  verdicts have not been interrogated under this scope at either tier, so
+  whether DeepSeek shows a comparable already-correct-case failure mode is
   currently unknown rather than ruled out; see "Closing this leg's
   remaining gaps" for the resume commands.
 - **P3, P4, and P5, measured as pure anchor-abstention protocols, are
@@ -1920,7 +1925,7 @@ are reported here rather than one.
   `study-c-incident-registry.md` and `private/incident-source-map.md`
   (private).
 - **Case counts remain modest by ML-benchmark standards** (40 attacks / 60
-  truthful in the principal corpus; 241 interrogations in the v20 probe).
+  truthful in the principal corpus; 259 interrogations in the v20 probe).
   Exact and Wilson intervals are reported specifically so a reader can see
   where that matters (the DeepSeek FA interval is [0.04, 0.27] — informative
   but wide) rather than papering over it with a point estimate.
@@ -1939,11 +1944,12 @@ panel run — is now closed as of v19 for the panel-run and H3 portions of
 its original scope**; the power-calculated n, cluster-robust re-analysis,
 corpus card completion, and related-work sweep it also named remain open
 and are carried forward below as disclosed, not-yet-done items, not
-claimed as finished. **v20 adds one further open item**, in the same
-disclosed-not-hidden spirit: the judge-interrogation probe's Gemini
-stronger-tier correct-verdict cell is 56 of 74 planned cases, the exact
-resume command for which is below, alongside the still-open self-preference
-cell from v19.
+claimed as finished. **v20 added one further open item, since closed**:
+the judge-interrogation probe's Gemini stronger-tier correct-verdict cell
+was 56 of 74 planned cases; it and the self-preference probe's incomplete
+cell from v19 were both completed in resumed live runs once the daily
+quota reset (see "Self-preference / in-group bias probe" and "Judge
+interrogation probe" for the full results).
 
 **Phase 0 — cost probe, measured (v16).** Before scaling to a strong-tier
 panel at a larger, power-calculated n, cost was bounded empirically
@@ -2046,37 +2052,24 @@ open item, not claimed as done:**
   related-work paragraph, but neither is
   a substitute for a full, dated citation sweep against this report
   specifically.
-- **The self-preference probe's one incomplete cell** (Gemini Pro-preview ×
-  "attributed to DeepSeek," 4 of 30 cases; the remaining 26 hit a live
-  HTTP 429 the night before this version was written) — deferred to the
-  next version rather than blocking this one, per the report author's
-  explicit instruction to write up everything else now and add this one
-  piece tomorrow. The command to close it, unchanged from what already
-  exists in the cache-resuming harness:
+- **Two cells closed this round.** The self-preference probe's Gemini
+  Pro-preview × "attributed to DeepSeek" cell (4 of 30 cases as of v20)
+  and the v20 judge-interrogation probe's Gemini stronger-tier
+  correct-verdict cell (56 of 74 planned cases as of v20) were both
+  completed in resumed live runs once the Gemini daily quota reset — each
+  now reports its full n (30/30 and 74/74 respectively). See
+  "Self-preference / in-group bias probe" and "Judge interrogation probe"
+  for the completed results. The commands that closed them, unchanged
+  from what already existed in the cache-resuming harness:
 
   ```bash
   GEMINI_API_KEY="<key>" python3 -m trust_eval.study_c.self_preference_probe \
     --n 10 --live \
     --provider gemini:gemini-3.1-flash-lite --provider gemini:gemini-3.1-pro-preview
-  ```
-
-  This resumes from the existing cache — it only re-attempts the 26
-  missing cases, not the 4 already recorded or any DeepSeek row.
-
-- **The v20 judge-interrogation probe's one incomplete cell** (Gemini
-  Pro-preview's correct-verdict interrogation, 56 of 74 planned cases; the
-  remaining 18 hit the same class of live daily-quota limit as the
-  self-preference cell above) — the resume command, following the same
-  cache-resuming convention:
-
-  ```bash
   GEMINI_API_KEY="<key>" python3 -m trust_eval.study_c.judge_interrogation_probe \
     --n 10 --live --scope correct \
     --provider gemini:gemini-3.1-pro-preview
   ```
-
-  This resumes from the existing cache — it only re-attempts the 18
-  missing cases.
 
 - **DeepSeek's `--scope correct` cell — not started at either tier.**
   Unlike Gemini, DeepSeek's already-correct verdicts have never been run
@@ -2197,8 +2190,9 @@ python3 -m trust_eval.study_c.cost_probe report                      # Phase 0 c
 **From v19 — strong-tier judges and the two v19 exploratory probes.**
 All of these reproduce from the committed cache with no key; add `--live`
 plus `DEEPSEEK_API_KEY`/`GEMINI_API_KEY` only to refill a cache miss (the
-one known gap is the self-preference probe's Gemini Pro-preview ×
-"attributed to DeepSeek" row — see "Closing this leg's remaining gaps"):
+self-preference probe's Gemini Pro-preview × "attributed to DeepSeek" row,
+previously the one known gap, was closed in a resumed live run — see
+"Closing this leg's remaining gaps"):
 
 ```bash
 python3 -m trust_eval.study_c.ladder --scaled --n 10 \
@@ -2229,12 +2223,13 @@ python3 -m trust_eval.study_c.judge_interrogation_probe --n 10 --scope correct \
   --provider deepseek:deepseek-v4-pro --provider gemini:gemini-3.1-pro-preview
 ```
 
-The last of these prints an under-counted marker on the one incomplete row
-(Gemini Pro-preview, `--scope correct`, 56 of 74 cases) rather than
-silently reporting a partial result as final — that marker is expected
-until the deferred 18 cases are filled in (see "Closing this leg's
-remaining gaps" for the exact resume command). The v19 self-preference
-command above prints the equivalent marker on its own one incomplete row.
+The last of these previously printed an under-counted marker on one
+incomplete row (Gemini Pro-preview, `--scope correct`, 56 of 74 cases)
+rather than silently reporting a partial result as final; that gap was
+closed in a resumed live run and the command now reproduces the full 74
+of 74 from the committed cache with no key (see "Closing this leg's
+remaining gaps"). The v19 self-preference command above previously printed
+the equivalent marker on its own one incomplete row, closed the same way.
 
 The balanced probe's hybrid (LLM-adjudicated) rows need a `--live` run once
 against new payloads before they reproduce from the cache — see "Anchor-

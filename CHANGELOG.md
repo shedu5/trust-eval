@@ -1354,3 +1354,80 @@ above: filename and cross-references only (this file's own introduction,
 `study-c-evidence-integrity.md`'s pointer to it, and the same source/test
 docstrings), no number, table, or quote changed. The PDF is regenerated
 from the renamed source, no content change.
+
+## Changes from v20
+
+**Both open Gemini gaps from v20 — the self-preference probe's incomplete
+cell and the judge-interrogation probe's incomplete cell — closed this
+round in resumed live runs, no other change.** The report author reported
+Gemini's daily API quota had reset and ran both previously-blocked
+commands on their own machine, unchanged from what v19/v20 already
+documented as the exact resume commands:
+
+```bash
+GEMINI_API_KEY="<key>" python3 -m trust_eval.study_c.self_preference_probe \
+  --n 10 --live \
+  --provider gemini:gemini-3.1-flash-lite --provider gemini:gemini-3.1-pro-preview
+GEMINI_API_KEY="<key>" python3 -m trust_eval.study_c.judge_interrogation_probe \
+  --n 10 --live --scope correct \
+  --provider gemini:gemini-3.1-pro-preview
+```
+
+Console output for both was pasted into the build session; per this
+project's standing verification discipline, no number below was taken
+from that console output directly. The freshly-written cache
+(`trust_eval/harness/cache/records/`, 4,087 files, synced from the report
+author's machine into a clean build environment) was used to re-run both
+commands cache-only (no key, no `--live`) and independently reproduce the
+same figures before any report text was touched; `pytest -q` (354 passed)
+confirmed no regression.
+
+**1. Self-preference probe: Gemini Pro-preview × "attributed to DeepSeek"
+is now 30 of 30 cases** (previously 4 of 30, disclosed incomplete since
+v19). Result: FA 0/30 (unchanged direction — no self-preference effect on
+false acceptance, matching the other three judges); FR 11/30, against
+9/30 for the same judge attributed to its own family (Gemini) and 8/30
+unattributed control. That is a 2-case FR gap in the self-preference-
+consistent direction (lower FR for own-family attribution) — reported
+honestly as within sampling noise at n=30, not as a confirmed effect; no
+formal significance test changes this round's framing.
+`docs/study-c-full-technical-report.md`'s "Self-preference / in-group
+bias probe" section is rewritten to state the complete four-judge result
+instead of three-complete-plus-one-disclosed-incomplete; the under-counted
+harness marker no longer fires on this row. `study-c-evidence-integrity.md`
+updated the same way.
+
+**2. Judge-interrogation probe: Gemini Pro-preview's `--scope correct`
+cell is now 74 of 74 cases** (previously 56 of 74). Result: 0/74 claimed
+impossible verification (unchanged — still zero across every
+interrogation, now 259 total rather than 241), 0/74 verdict reversals
+after being shown the true anchor finding (the same zero found in the
+56-case partial run holds across the complete 74), mean stated confidence
+9.9/10 (min 5, max 10) — a new figure, not reported at 56/74. "Judge
+interrogation probe" rewritten accordingly in both documents; every place
+in this project's two documents that cited the old totals (241
+interrogations, 56 of 74 cases) is updated to the new ones (259
+interrogations, 74 of 74 cases).
+
+**What did not change.** No number from the principal corpus, the
+extended attacks, the structural-skeleton probe, the H3 strong-tier
+panel, or the manipulation probe changed this round — this is exclusively
+the two disclosed-incomplete Gemini cells named in v19/v20, both now
+complete. No new probe, section, or test was added. Both PDFs
+(`docs/study-c-full-technical-report.pdf`, `study-c-evidence-integrity.pdf`)
+regenerated from the updated Markdown sources; the marketing site's
+`evidence-integrity.pdf` mirror — a literal copy of the full technical
+report, per the report author's standing instruction — needs the same
+regenerated file republished. Test suite: 354 passing, unchanged (no new
+tests; both probes' existing regression tests exercise architecture, not
+live data, and were unaffected by data completion).
+
+**What remains open, carried forward:** DeepSeek's `--scope correct` cell
+— not started at either tier, so whether DeepSeek shares Gemini's
+already-correct-case failure mode remains unknown, not ruled out;
+independent replication of the judge-interrogation probe as a second run;
+and everything already disclosed as open as of v19/v20 (the
+power-calculated strong-tier n, the cluster-robust re-analysis, the
+adaptive execution-claim finding as a confirmatory arm, the corpus card's
+remaining open items, the related-work sweep, and an Anthropic-model
+judge at any tier).
