@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:52:24.064346+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence explicitly reports a failed test case, indicating the agent's work did not satisfy the task requirements.\"}",
+  "reason": "The submitted evidence explicitly reports a failed test case, indicating the agent's work did not satisfy the task requirements.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 301,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

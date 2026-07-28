@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:16:00.979765+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim relies entirely on self-reported, unverifiable data without external validation or corroborating evidence.\"}",
+  "reason": "The execution claim relies entirely on self-reported, unverifiable data without external validation or corroborating evidence.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 440,
+    "output_tokens": 33,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

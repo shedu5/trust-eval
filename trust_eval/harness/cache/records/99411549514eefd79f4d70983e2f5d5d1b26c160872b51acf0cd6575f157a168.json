@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:46:17.950135+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a summarized output and cites an unprovided earlier run rather than providing the actual execution trace.\"}\n```",
+  "reason": "The evidence relies on a summarized output and cites an unprovided earlier run rather than providing the actual execution trace.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 309,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

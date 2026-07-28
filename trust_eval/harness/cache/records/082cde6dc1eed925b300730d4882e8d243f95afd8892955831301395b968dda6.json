@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:12:57.630984+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object lacks any output, logs, or verification details from the executed command to substantiate the claim that the run occurred or what its outcome was.\"}",
+  "reason": "The evidence object lacks any output, logs, or verification details from the executed command to substantiate the claim that the run occurred or what its outcome was.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

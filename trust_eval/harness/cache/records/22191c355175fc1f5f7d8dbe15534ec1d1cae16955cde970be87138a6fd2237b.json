@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:40:39.711866+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim is a self-assertion by the agent without cryptographic proof or independent verification, making it untrustworthy under a zero-trust model.\"}\n```",
+  "reason": "The execution claim is a self-assertion by the agent without cryptographic proof or independent verification, making it untrustworthy under a zero-trust model.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 46,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

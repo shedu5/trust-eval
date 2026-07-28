@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:19:24.971681+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"A structure claim cannot be independently verified or trusted when asserted by the executor itself, as it relies on a provenance claim that I am unable to validate.\"}",
+  "reason": "A structure claim cannot be independently verified or trusted when asserted by the executor itself, as it relies on a provenance claim that I am unable to validate.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 467,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

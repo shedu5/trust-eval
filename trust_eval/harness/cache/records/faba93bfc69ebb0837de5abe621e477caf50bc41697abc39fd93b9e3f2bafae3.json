@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:13:00.590149+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly admits to using a recording from before the last commit, rendering it stale and invalid for verifying the current state of the work.\"}",
+  "reason": "The evidence explicitly admits to using a recording from before the last commit, rendering it stale and invalid for verifying the current state of the work.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 40,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

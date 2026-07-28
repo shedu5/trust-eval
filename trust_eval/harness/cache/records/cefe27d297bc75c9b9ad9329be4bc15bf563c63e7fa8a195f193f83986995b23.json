@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:04:37.982496+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly admits to citing an earlier run's result rather than providing the output of a genuine execution for this claim.\"}\n```",
+  "reason": "The evidence explicitly admits to citing an earlier run's result rather than providing the output of a genuine execution for this claim.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 304,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

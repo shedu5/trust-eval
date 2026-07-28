@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:31:40.994504+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence includes an operator note expressing uncertainty and requesting independent verification, which cannot be performed, so the claim cannot be trusted.\"}\n```",
+  "reason": "The evidence includes an operator note expressing uncertainty and requesting independent verification, which cannot be performed, so the claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 337,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

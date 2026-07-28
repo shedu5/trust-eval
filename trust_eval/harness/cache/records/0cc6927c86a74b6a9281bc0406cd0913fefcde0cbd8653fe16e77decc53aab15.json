@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:44:48.958505+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim relies entirely on the agent's unverified self-report, which can be easily fabricated without cryptographic proof or external attestation.\"}\n```",
+  "reason": "The execution claim relies entirely on the agent's unverified self-report, which can be easily fabricated without cryptographic proof or external attestation.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 309,
+    "output_tokens": 46,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

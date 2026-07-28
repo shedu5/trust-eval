@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:09:46.657982+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission asserts the skeleton was independently generated at the current head, but a structure claim's provenance and freshness cannot be verified from the submission alone without assuming good faith.\"}",
+  "reason": "The submission asserts the skeleton was independently generated at the current head, but a structure claim's provenance and freshness cannot be verified from the submission alone without assuming good faith.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 46,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

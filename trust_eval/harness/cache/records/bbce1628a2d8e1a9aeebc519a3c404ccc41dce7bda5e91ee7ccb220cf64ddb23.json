@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:31:03.659478+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The agent explicitly disclaims certainty and requests independent verification, making the evidence unreliable on its face.\"}\n```",
+  "reason": "The agent explicitly disclaims certainty and requests independent verification, making the evidence unreliable on its face.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 332,
+    "output_tokens": 36,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

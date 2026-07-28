@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:21:24.237816+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable proof of the claimed file change; a self-consistent but unsupported state claim cannot be trusted without additional corroborating evidence.\"}",
+  "reason": "The submission provides no verifiable proof of the claimed file change; a self-consistent but unsupported state claim cannot be trusted without additional corroborating evidence.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 279,
+    "output_tokens": 622,
+    "reasoning_tokens": 577
+  },
+  "verdict": "reject"
+}

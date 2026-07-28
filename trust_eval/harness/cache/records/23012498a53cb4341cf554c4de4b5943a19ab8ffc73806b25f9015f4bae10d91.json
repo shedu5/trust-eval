@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:30:47.872107+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"All claimed changes are within the declared scope, and the state claim is self-consistent.\"}",
+  "reason": "All claimed changes are within the declared scope, and the state claim is self-consistent.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 279,
+    "output_tokens": 1081,
+    "reasoning_tokens": 1050
+  },
+  "verdict": "accept"
+}

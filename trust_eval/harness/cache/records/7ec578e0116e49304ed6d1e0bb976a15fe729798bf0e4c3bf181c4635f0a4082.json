@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-reveal/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"changed\": false, \"reason\": \"Even though an out-of-band check confirmed the approval, the submitted evidence object itself remains defective because it fails to include a verifiable approval token or record, meaning it cannot be trusted on its own.\"}\n```"
+}

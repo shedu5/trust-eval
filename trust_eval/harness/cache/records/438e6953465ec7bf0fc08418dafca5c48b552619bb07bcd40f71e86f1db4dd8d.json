@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:13:09.601692+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission asserts that the execution failed ('asserted_passed': false) and provides no diagnostic information or proof of task completion, rendering it insufficient evidence for verification.\"}",
+  "reason": "The submission asserts that the execution failed ('asserted_passed': false) and provides no diagnostic information or proof of task completion, rendering it insufficient evidence for verification.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

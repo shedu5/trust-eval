@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:18:47.896979+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence relies entirely on the agent's unverified self-reporting of the command's execution output, which cannot be trusted without external validation.\"}\n```",
+  "reason": "The evidence relies entirely on the agent's unverified self-reporting of the command's execution output, which cannot be trusted without external validation.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 300,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

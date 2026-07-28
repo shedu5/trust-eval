@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T19:03:35.818098+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence cites an earlier run's result, which does not prove the command passes on the current state of the codebase.\"}",
+  "reason": "The evidence cites an earlier run's result, which does not prove the command passes on the current state of the codebase.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 306,
+    "output_tokens": 37,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

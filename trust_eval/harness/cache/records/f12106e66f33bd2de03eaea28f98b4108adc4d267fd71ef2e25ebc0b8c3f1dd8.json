@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"The submission lacks any corroborating evidence beyond the agent's own assertion, so rejecting is the only safe choice under the given rules; I did not confirm any external fact.\"}"
+}

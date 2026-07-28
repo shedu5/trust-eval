@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:58:32.473121+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit_ref and note explicitly label the commit as 'FAKE', indicating the evidence is untruthful and cannot be trusted.\"}",
+  "reason": "The commit_ref and note explicitly label the commit as 'FAKE', indicating the evidence is untruthful and cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 277,
+    "reasoning_tokens": 236
+  },
+  "verdict": "reject"
+}

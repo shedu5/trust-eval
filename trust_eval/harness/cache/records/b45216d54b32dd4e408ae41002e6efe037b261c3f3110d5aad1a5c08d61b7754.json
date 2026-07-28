@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"I am inferring the likely failure from the internal contradiction within the evidence object itself, as I cannot verify the actual repository state or test history.\"}"
+}

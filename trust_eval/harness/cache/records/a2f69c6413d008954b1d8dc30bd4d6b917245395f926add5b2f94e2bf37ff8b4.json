@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:59.915943+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks external verification\u2014the skeleton's provenance is unverifiable and cannot be independently confirmed, so the claim of a call from approveTask to verifyAuthorization may be fabricated.\"}",
+  "reason": "The submission lacks external verification\u2014the skeleton's provenance is unverifiable and cannot be independently confirmed, so the claim of a call from approveTask to verifyAuthorization may be fabricated.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 268,
+    "reasoning_tokens": 218
+  },
+  "verdict": "reject"
+}

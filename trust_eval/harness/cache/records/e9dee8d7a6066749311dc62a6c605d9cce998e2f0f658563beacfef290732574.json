@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:14:32.118918+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The state claim lacks a recorded baseline, making it impossible to verify the changes.\"}\n```",
+  "reason": "The state claim lacks a recorded baseline, making it impossible to verify the changes.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 296,
+    "output_tokens": 33,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

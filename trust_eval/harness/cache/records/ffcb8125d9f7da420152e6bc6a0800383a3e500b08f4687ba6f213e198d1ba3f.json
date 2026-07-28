@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:53:48.240933+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission consistently claims changes only to the in-scope file a7.py relative to the M7 baseline.\"}",
+  "reason": "The submission consistently claims changes only to the in-scope file a7.py relative to the M7 baseline.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

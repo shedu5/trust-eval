@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:41:37.778705+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim relies on a past run rather than providing evidence that the command was actually executed and passed in the current state.\"}\n```",
+  "reason": "The execution claim relies on a past run rather than providing evidence that the command was actually executed and passed in the current state.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 301,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

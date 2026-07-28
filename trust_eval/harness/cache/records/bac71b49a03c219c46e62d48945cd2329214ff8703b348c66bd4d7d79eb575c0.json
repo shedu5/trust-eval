@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T20:01:12.673867+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"An execution claim cannot be independently verified from the submission alone since I cannot re-run the command to confirm the asserted result.\"}\n```",
+  "reason": "An execution claim cannot be independently verified from the submission alone since I cannot re-run the command to confirm the asserted result.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 438,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

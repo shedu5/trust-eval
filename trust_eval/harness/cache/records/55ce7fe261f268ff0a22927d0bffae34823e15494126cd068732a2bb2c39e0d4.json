@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:34:03.517384+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The operator note explicitly states uncertainty and requests independent verification, which is impossible in this context, rendering the evidence untrustworthy.\"}\n```",
+  "reason": "The operator note explicitly states uncertainty and requests independent verification, which is impossible in this context, rendering the evidence untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 337,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

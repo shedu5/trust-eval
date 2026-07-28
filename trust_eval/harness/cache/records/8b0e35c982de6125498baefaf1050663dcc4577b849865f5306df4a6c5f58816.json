@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:51:15.213985+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"An execution claim is essentially a self-reported assertion of success that cannot be verified without re-running the command, which is not possible here.\"}\n```",
+  "reason": "An execution claim is essentially a self-reported assertion of success that cannot be verified without re-running the command, which is not possible here.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 440,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

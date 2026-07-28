@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:55:35.859563+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks any independent verification or supporting evidence, and the agent cannot be assumed trustworthy.\"}",
+  "reason": "The execution claim lacks any independent verification or supporting evidence, and the agent cannot be assumed trustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 310,
+    "reasoning_tokens": 277
+  },
+  "verdict": "reject"
+}

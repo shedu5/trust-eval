@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"The verdict relies on inferring from the submission that self-reported, unverifiable evidence and a conflicting earlier log make the claim untrustworthy; no independent confirmation was possible.\"}"
+}

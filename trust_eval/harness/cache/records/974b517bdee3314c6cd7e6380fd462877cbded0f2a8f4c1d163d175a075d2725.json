@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:51:42.078556+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission fails to provide any actual file content, diff, or proof of the asserted changes, making it impossible to verify the claim.\"}",
+  "reason": "The submission fails to provide any actual file content, diff, or proof of the asserted changes, making it impossible to verify the claim.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 300,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

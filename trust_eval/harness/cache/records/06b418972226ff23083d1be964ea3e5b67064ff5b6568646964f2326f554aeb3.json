@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\n  \"self_critique\": \"By rejecting purely on the absence of a cryptographic signature, I am applying a standard not defined in the provided rules or schema, which would result in rejecting all execution claims regardless of their internal consistency.\",\n  \"would_revise_if\": \"The system rules explicitly stated that structurally complete execution claims are considered trustworthy by default, or if the evidence object included an unforgeable attestation from a trusted external execution environment like a CI pipeline.\"\n}\n```"
+}

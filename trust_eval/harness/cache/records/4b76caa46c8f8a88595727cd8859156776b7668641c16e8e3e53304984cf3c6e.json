@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:02:11.843790+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The operator's own note disclaims certainty and advises independent verification, making the evidence unreliable.\"}",
+  "reason": "The operator's own note disclaims certainty and advises independent verification, making the evidence unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 307,
+    "output_tokens": 498,
+    "reasoning_tokens": 466
+  },
+  "verdict": "reject"
+}

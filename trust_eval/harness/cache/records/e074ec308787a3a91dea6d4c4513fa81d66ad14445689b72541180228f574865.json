@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:04:32.128893+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission includes a note expressing uncertainty and lack of verification, undermining its reliability.\"}",
+  "reason": "The submission includes a note expressing uncertainty and lack of verification, undermining its reliability.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 388,
+    "output_tokens": 743,
+    "reasoning_tokens": 713
+  },
+  "verdict": "reject"
+}

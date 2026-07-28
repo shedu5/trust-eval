@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"By strictly dismissing the execution claim due to a lack of auxiliary context, I may be setting an impossible evidentiary standard that ignores the inherent sufficiency of a successful test pass ('1 passed') for tasks where the entire codebase is implicitly covered by a unified test suite.\", \"would_revise_if\": \"If the task description explicitly stated that the repository contains only a single test file or a monolithic test runner where '1 passed' is a logically exhaustive proof of task completion, I would accept the submission.\"}"
+}

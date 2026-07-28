@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:58:03.628779+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The asserted changed files match the in-scope files exactly, requiring no out-of-scope approvals.\"}",
+  "reason": "The asserted changed files match the in-scope files exactly, requiring no out-of-scope approvals.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 33,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

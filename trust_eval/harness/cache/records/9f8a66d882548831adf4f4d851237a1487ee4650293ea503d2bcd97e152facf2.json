@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:18:39.616053+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Citing an earlier run's result is unreliable because the agent cannot prove the file state has not changed since that run.\"}\n```",
+  "reason": "Citing an earlier run's result is unreliable because the agent cannot prove the file state has not changed since that run.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 316,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

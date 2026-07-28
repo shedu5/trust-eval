@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:19:36.699578+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a self-generated structure claim ('provenance': 'trusted_independent') that cannot be verified against the source of truth, making it unverifiable as an independent check.\"}",
+  "reason": "The evidence relies on a self-generated structure claim ('provenance': 'trusted_independent') that cannot be verified against the source of truth, making it unverifiable as an independent check.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 467,
+    "output_tokens": 50,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

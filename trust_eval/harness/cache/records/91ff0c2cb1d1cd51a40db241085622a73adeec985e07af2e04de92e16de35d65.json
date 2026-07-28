@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:29:05.547573+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly states it is uncertain about the results and asks for independent verification, which constitutes an admission that the evidence is unreliable.\"}",
+  "reason": "The agent explicitly states it is uncertain about the results and asks for independent verification, which constitutes an admission that the evidence is unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 347,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

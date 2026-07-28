@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:28.986958+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on an independently generated skeleton that cannot be verified from the submission alone, so I cannot trust its accuracy without independent confirmation.\"}",
+  "reason": "The claim relies on an independently generated skeleton that cannot be verified from the submission alone, so I cannot trust its accuracy without independent confirmation.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 296,
+    "reasoning_tokens": 255
+  },
+  "verdict": "reject"
+}

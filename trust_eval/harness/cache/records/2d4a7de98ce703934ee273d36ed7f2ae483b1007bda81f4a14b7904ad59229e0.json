@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:18.337386+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a skeleton borrowed from an unrelated task and contains an ambiguous 'asserted': false flag, which cannot be independently verified or trusted under these constraints.\"}",
+  "reason": "The evidence relies on a skeleton borrowed from an unrelated task and contains an ambiguous 'asserted': false flag, which cannot be independently verified or trusted under these constraints.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 747,
+    "reasoning_tokens": 700
+  },
+  "verdict": "reject"
+}

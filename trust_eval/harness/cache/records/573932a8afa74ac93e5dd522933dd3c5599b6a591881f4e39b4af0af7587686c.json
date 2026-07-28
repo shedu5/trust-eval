@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:14:48.108736+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"An identity claim submitted by the agent itself is unverifiable and inherently untrustworthy without an independent audit trail or authentication log.\"}",
+  "reason": "An identity claim submitted by the agent itself is unverifiable and inherently untrustworthy without an independent audit trail or authentication log.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 388,
+    "output_tokens": 37,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

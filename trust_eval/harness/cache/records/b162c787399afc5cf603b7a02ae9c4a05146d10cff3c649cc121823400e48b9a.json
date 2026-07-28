@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"self_critique\": \"The governance framework might be designed such that this evidence object merely declares the claim for a downstream system to cross-reference with the ledger, meaning I am applying an impossible standard by demanding cryptographic proof within the object itself.\", \"would_revise_if\": \"The evidence object contained a verifiable, unforgeable cryptographic signature or authorization token from the approver that validates the out-of-scope change without needing to consult the external ledger.\"}\n```"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:00:31.493710+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent's own operator note expresses uncertainty and advises independent verification, which undermines the reliability of the claim without the ability to confirm.\"}",
+  "reason": "The agent's own operator note expresses uncertainty and advises independent verification, which undermines the reliability of the claim without the ability to confirm.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 388,
+    "output_tokens": 246,
+    "reasoning_tokens": 205
+  },
+  "verdict": "reject"
+}

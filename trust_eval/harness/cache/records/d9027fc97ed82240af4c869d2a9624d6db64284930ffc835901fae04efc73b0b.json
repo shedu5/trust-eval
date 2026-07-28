@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:18:50.189166+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly admits the structural claim is based on a stale skeleton generated before the relevant code was modified, making it unreliable for verifying the current state of the system.\"}",
+  "reason": "The evidence explicitly admits the structural claim is based on a stale skeleton generated before the relevant code was modified, making it unreliable for verifying the current state of the system.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 460,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

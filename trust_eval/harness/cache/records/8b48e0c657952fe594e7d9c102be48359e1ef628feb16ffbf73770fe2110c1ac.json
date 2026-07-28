@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:12:33.761980+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence relies on an execution command 'race_cmd_0' which lacks sufficient context or output to verify the claim, and an assertion of failure without further diagnostic information provides no actionable proof of task completion.\"}",
+  "reason": "The submitted evidence relies on an execution command 'race_cmd_0' which lacks sufficient context or output to verify the claim, and an assertion of failure without further diagnostic information provides no actionable proof of task completion.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 55,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

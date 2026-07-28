@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"self_critique\": \"Rejecting the claim simply because it is self-reported makes the entire 'execution' claim type functionally useless, implying the system's design inherently requires trusting the assertion of the command's output unless contradictory evidence exists.\", \"would_revise_if\": \"The governance framework explicitly defined execution claims as acceptable on their face (since they cannot be re-run), or if the evidence included a verifiable cryptographic signature from a Trusted Execution Environment (TEE) attesting to the command output.\"}\n```"
+}

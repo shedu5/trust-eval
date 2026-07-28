@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:33:22.090980+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly states it is uncertain about the claim and requests independent verification, which cannot be performed.\"}",
+  "reason": "The agent explicitly states it is uncertain about the claim and requests independent verification, which cannot be performed.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 337,
+    "output_tokens": 32,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

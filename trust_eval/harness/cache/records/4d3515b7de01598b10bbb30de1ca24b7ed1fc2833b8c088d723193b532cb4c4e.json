@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:59.911028+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance claim of independent generation cannot be verified from the submission alone, and we are explicitly told not to rely on such labels, so the structural fact is not trustworthy.\"}",
+  "reason": "The provenance claim of independent generation cannot be verified from the submission alone, and we are explicitly told not to rely on such labels, so the structural fact is not trustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 772,
+    "reasoning_tokens": 724
+  },
+  "verdict": "reject"
+}

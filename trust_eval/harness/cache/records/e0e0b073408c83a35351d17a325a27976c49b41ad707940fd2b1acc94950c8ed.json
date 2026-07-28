@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:53:54.253623+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence relies on an unverifiable and non-standard command 'pytest_v8' that lacks sufficient context or output details to establish credibility.\"}",
+  "reason": "The submitted evidence relies on an unverifiable and non-standard command 'pytest_v8' that lacks sufficient context or output details to establish credibility.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

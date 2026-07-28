@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:57:12.630961+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"accept\", \"reason\": \"The submitted evidence only modifies a file that is explicitly listed within the approved scope, requiring no additional exceptions or approvals.\"}\n```",
+  "reason": "The submitted evidence only modifies a file that is explicitly listed within the approved scope, requiring no additional exceptions or approvals.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 404,
+    "output_tokens": 40,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

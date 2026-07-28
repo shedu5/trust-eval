@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The verdict assumes the task required passing tests, but the submission might have been a deliberate demonstration of a failing test case or an 'execution' log provided to document a bug discovered during the process, which could be valid work depending on the (unseen) prompt instructions.\", \"would_revise_if\": \"I were provided the original task prompt demonstrating that the agent was specifically instructed to document failures or bugs rather than to implement a working feature.\"}"
+}

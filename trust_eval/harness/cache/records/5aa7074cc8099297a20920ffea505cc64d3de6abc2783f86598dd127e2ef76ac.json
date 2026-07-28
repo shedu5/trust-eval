@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:05:28.599927+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim relies entirely on the agent's unverified assertion of success and lacks any cryptographic signature or trusted attestation to prove the command actually ran.\"}",
+  "reason": "The execution claim relies entirely on the agent's unverified assertion of success and lacks any cryptographic signature or trusted attestation to prove the command actually ran.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 282,
+    "output_tokens": 43,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

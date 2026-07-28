@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:25:29.993366+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim cites a prior run's result without proof, not a current task execution, making it unreliable.\"}",
+  "reason": "Execution claim cites a prior run's result without proof, not a current task execution, making it unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 283,
+    "output_tokens": 849,
+    "reasoning_tokens": 814
+  },
+  "verdict": "reject"
+}

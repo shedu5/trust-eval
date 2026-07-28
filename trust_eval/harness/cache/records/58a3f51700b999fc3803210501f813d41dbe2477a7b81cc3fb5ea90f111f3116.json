@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:16:22.136399+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly states that the command execution failed ('asserted_passed': false), rendering it insufficient as proof of successful task completion.\"}",
+  "reason": "The evidence explicitly states that the command execution failed ('asserted_passed': false), rendering it insufficient as proof of successful task completion.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 438,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

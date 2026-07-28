@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:42:21.543387+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim is an unverifiable self-report with no external corroboration, so an agent could have fabricated the passing output.\"}",
+  "reason": "The execution claim is an unverifiable self-report with no external corroboration, so an agent could have fabricated the passing output.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 279,
+    "output_tokens": 1726,
+    "reasoning_tokens": 1686
+  },
+  "verdict": "reject"
+}

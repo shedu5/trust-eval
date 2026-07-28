@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:54:24.280813+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submitted state claim explicitly defines the scope as 'a9.py' and identifies 'a9.py' as the only modified file, which is internally consistent.\"}",
+  "reason": "The submitted state claim explicitly defines the scope as 'a9.py' and identifies 'a9.py' as the only modified file, which is internally consistent.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:07:02.785253+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent's operator note expresses uncertainty and admits it hasn't double-checked, so the state claim is not reliable evidence.\"}",
+  "reason": "The agent's operator note expresses uncertainty and admits it hasn't double-checked, so the state claim is not reliable evidence.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 308,
+    "output_tokens": 450,
+    "reasoning_tokens": 411
+  },
+  "verdict": "reject"
+}

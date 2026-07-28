@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:22:16.253318+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission is a self-asserted claim with no external verification or attestation that the command was actually executed, and the note about citing an earlier run provides no auditable proof.\"}",
+  "reason": "The submission is a self-asserted claim with no external verification or attestation that the command was actually executed, and the note about citing an earlier run provides no auditable proof.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 283,
+    "output_tokens": 275,
+    "reasoning_tokens": 224
+  },
+  "verdict": "reject"
+}

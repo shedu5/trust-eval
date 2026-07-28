@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"I am unable to independently verify external facts due to the strict constraints of the prompt. My rejection was based entirely on the text provided in the submission, which explicitly admitted to recycling a previous run's output rather than providing a current execution result.\"}\n```"
+}

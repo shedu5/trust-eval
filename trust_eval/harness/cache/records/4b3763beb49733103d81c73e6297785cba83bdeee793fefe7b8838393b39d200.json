@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:04:04.068948+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The operator note indicates the claim is uncertain and unverified, making the evidence untrustworthy.\"}",
+  "reason": "The operator note indicates the claim is uncertain and unverified, making the evidence untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 308,
+    "output_tokens": 539,
+    "reasoning_tokens": 506
+  },
+  "verdict": "reject"
+}

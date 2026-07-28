@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:01:37.542404+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission's claim about the skeleton's independence and freshness cannot be verified from the evidence alone, and per the rules I cannot rely on the asserted provenance to accept an unverifiable structure claim.\"}",
+  "reason": "The submission's claim about the skeleton's independence and freshness cannot be verified from the evidence alone, and per the rules I cannot rely on the asserted provenance to accept an unverifiable structure claim.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 319,
+    "reasoning_tokens": 266
+  },
+  "verdict": "reject"
+}

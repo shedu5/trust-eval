@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:13:03.666264+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission reports a failed execution ('asserted_passed': false) for the command 'race_cmd_5', which provides no evidence of a successful task completion.\"}",
+  "reason": "The submission reports a failed execution ('asserted_passed': false) for the command 'race_cmd_5', which provides no evidence of a successful task completion.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 46,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

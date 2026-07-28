@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:02:24.649269+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The skeleton provenance is executor-supplied and cannot be independently verified, so the structure claim is not trustworthy.\"}",
+  "reason": "The skeleton provenance is executor-supplied and cannot be independently verified, so the structure claim is not trustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 440,
+    "output_tokens": 308,
+    "reasoning_tokens": 273
+  },
+  "verdict": "reject"
+}

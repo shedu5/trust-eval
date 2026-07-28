@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:18:05.337900+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly admits that the provided structural evidence is stale ('generated before the guard call was removed'), rendering it unreliable for verifying current code behavior.\"}",
+  "reason": "The submission explicitly admits that the provided structural evidence is stale ('generated before the guard call was removed'), rendering it unreliable for verifying current code behavior.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 460,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:34:13.666857+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim cites an earlier run rather than a fresh execution, making it unverifiable and unreliable.\"}",
+  "reason": "The claim cites an earlier run rather than a fresh execution, making it unverifiable and unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 292,
+    "output_tokens": 861,
+    "reasoning_tokens": 827
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T19:02:25.519753+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submission cites an earlier run's result and lists a language model as the executor, failing to provide a verifiable record of actual execution.\"}\n```",
+  "reason": "The submission cites an earlier run's result and lists a language model as the executor, failing to provide a verifiable record of actual execution.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 315,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

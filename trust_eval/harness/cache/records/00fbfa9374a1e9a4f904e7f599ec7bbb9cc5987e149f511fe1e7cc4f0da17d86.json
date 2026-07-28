@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:02:53.623676+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Operator note expresses uncertainty and lack of verification, making the claim unreliable.\"}",
+  "reason": "Operator note expresses uncertainty and lack of verification, making the claim unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 312,
+    "output_tokens": 358,
+    "reasoning_tokens": 330
+  },
+  "verdict": "reject"
+}

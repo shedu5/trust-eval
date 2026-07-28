@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The evidence might be an intentionally submitted 'before' state to demonstrate that the agent identified a bug, and the task completion might have occurred in a subsequent step not captured in this specific execution claim.\", \"would_revise_if\": \"I saw evidence of a follow-up execution or a final state where the test subsequently passed, confirming the failed test was part of a diagnostic process rather than the final result.\"}"
+}

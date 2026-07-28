@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"I am relying on the internal contradiction within the submission, where the declared scope conflicts with the declared list of modified files. Because I am instructed not to consult external ledgers, I am inferring the rejection based solely on the explicit violation of the submission's own scope constraints.\"}"
+}

@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"I am constrained to evaluate only the submitted evidence object, so I cannot independently verify the actual repository state. My verdict is based solely on the self-consistency of the claims within the submission.\"}\n```"
+}

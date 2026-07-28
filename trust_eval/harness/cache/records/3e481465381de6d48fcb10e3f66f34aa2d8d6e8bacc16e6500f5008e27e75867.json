@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:06:45.975560+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim's truth cannot be verified from the submission alone because the skeleton's provenance and independence are not trustworthy; the agent could have fabricated the structure claim.\"}",
+  "reason": "The claim's truth cannot be verified from the submission alone because the skeleton's provenance and independence are not trustworthy; the agent could have fabricated the structure claim.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 358,
+    "reasoning_tokens": 313
+  },
+  "verdict": "reject"
+}

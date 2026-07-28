@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"I am inferring from the submission alone that a failing test result indicates a failed task, as I cannot verify the actual repository state or test expectations. The high confidence stems from the explicit admission of a test failure within the provided execution logs.\"}"
+}

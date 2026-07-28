@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:33.821139+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim asserts a call that existed in an older skeleton but may have been removed, and the submission explicitly notes it was generated before a change, making it unreliable as evidence of the current structure.\"}",
+  "reason": "The claim asserts a call that existed in an older skeleton but may have been removed, and the submission explicitly notes it was generated before a change, making it unreliable as evidence of the current structure.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 434,
+    "output_tokens": 353,
+    "reasoning_tokens": 300
+  },
+  "verdict": "reject"
+}

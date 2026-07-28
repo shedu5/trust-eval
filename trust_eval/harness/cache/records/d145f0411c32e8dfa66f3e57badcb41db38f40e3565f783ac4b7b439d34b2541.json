@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:12:48.712633+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly admits to being a stale record from a previous state, which undermines its reliability as proof of the current task's success.\"}",
+  "reason": "The evidence explicitly admits to being a stale record from a previous state, which undermines its reliability as proof of the current task's success.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 40,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

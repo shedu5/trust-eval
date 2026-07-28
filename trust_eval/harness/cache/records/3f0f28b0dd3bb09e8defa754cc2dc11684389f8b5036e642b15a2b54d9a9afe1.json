@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:58:36.071043+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit reference is explicitly named 'FAKE_COMMIT_4', indicating the evidence is fabricated and cannot be trusted.\"}",
+  "reason": "The commit reference is explicitly named 'FAKE_COMMIT_4', indicating the evidence is fabricated and cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 225,
+    "reasoning_tokens": 187
+  },
+  "verdict": "reject"
+}

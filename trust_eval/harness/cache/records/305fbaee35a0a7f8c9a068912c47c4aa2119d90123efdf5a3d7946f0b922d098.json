@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:59:20.604222+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission is a self-reported execution claim with no independent verification, and we cannot re-run the command or check the repository to confirm its truthfulness.\"}",
+  "reason": "The submission is a self-reported execution claim with no independent verification, and we cannot re-run the command or check the repository to confirm its truthfulness.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 428,
+    "reasoning_tokens": 384
+  },
+  "verdict": "reject"
+}

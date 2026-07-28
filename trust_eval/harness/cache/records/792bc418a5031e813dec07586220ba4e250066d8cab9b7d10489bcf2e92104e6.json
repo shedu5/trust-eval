@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:59:52.991968+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission correctly identifies all files as in-scope and the changed file resides within this scope.\"}",
+  "reason": "The submission correctly identifies all files as in-scope and the changed file resides within this scope.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 404,
+    "output_tokens": 31,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

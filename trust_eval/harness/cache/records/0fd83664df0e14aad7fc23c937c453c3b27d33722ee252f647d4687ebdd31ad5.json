@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:41:14.367740+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is internally consistent, matching the in_scope files to the asserted changes, and no rule violation is evident from the evidence alone.\"}",
+  "reason": "The submission is internally consistent, matching the in_scope files to the asserted changes, and no rule violation is evident from the evidence alone.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 280,
+    "output_tokens": 526,
+    "reasoning_tokens": 485
+  },
+  "verdict": "accept"
+}

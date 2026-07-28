@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The submission follows the expected schema for an execution claim, and rejecting it solely for brevity imposes an arbitrary standard for 'sufficient' evidence that might be beyond the protocol's requirements for a lightweight automated submission.\", \"would_revise_if\": \"If the protocol specification explicitly defined a standard for 'passing' as merely asserting the boolean state without requiring an attached execution transcript, I would accept this submission as compliant.\"}"
+}

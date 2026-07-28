@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"The lack of any external verification mechanism is directly visible in the submitted JSON; no inference or external confirmation was needed.\"}"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:08:33.047311+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The reviewer cannot verify if the structural skeleton is independently generated or fresh relative to the current code state.\"}\n```",
+  "reason": "The reviewer cannot verify if the structural skeleton is independently generated or fresh relative to the current code state.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 37,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

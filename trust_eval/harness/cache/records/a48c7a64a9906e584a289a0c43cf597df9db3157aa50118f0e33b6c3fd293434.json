@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:50:02.978185+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on an approval ledger entry that cannot be verified from the submission alone.\"}",
+  "reason": "The claim relies on an approval ledger entry that cannot be verified from the submission alone.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 430,
+    "output_tokens": 29,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

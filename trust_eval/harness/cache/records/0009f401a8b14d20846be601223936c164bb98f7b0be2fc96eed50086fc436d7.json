@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T19:01:20.035002+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims to cite an earlier run's result rather than providing a verifiable log of a current execution, making it insufficient to validate the task's success.\"}",
+  "reason": "The evidence claims to cite an earlier run's result rather than providing a verifiable log of a current execution, making it insufficient to validate the task's success.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 306,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

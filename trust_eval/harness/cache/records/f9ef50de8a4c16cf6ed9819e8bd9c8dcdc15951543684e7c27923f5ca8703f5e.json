@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:57:17.592119+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Execution claims cannot be independently verified without the ability to re-run the command or check trusted logs.\"}\n```",
+  "reason": "Execution claims cannot be independently verified without the ability to re-run the command or check trusted logs.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 438,
+    "output_tokens": 37,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

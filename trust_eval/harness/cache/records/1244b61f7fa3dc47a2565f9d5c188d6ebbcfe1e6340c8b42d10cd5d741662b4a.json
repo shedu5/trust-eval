@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "deepseek",
+  "raw": "{\"self_critique\": \"The submission's task_id 'exec-task' could correspond to a public scope that simply requires executing pytest and reporting the result, in which case the evidence would be complete and trustworthy.\", \"would_revise_if\": \"If the task's public scope indicated that the only required action was to run 'pytest_v4' and report the output, then I would accept the evidence.\"}"
+}

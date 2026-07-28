@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:41.272114+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim asserts a negative fact ('asserted': false) but relies on a skeleton from another task whose provenance and freshness cannot be verified from the submission alone, and the agent could fabricate a self-consistent but untrue record.\"}",
+  "reason": "The claim asserts a negative fact ('asserted': false) but relies on a skeleton from another task whose provenance and freshness cannot be verified from the submission alone, and the agent could fabricate a self-consistent but untrue record.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 654,
+    "reasoning_tokens": 594
+  },
+  "verdict": "reject"
+}

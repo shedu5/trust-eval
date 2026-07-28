@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T19:00:17.164337+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verification data or diff content to substantiate the state claim that 'a5.py' was the only file modified relative to the baseline.\"}",
+  "reason": "The submission provides no verification data or diff content to substantiate the state claim that 'a5.py' was the only file modified relative to the baseline.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 43,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

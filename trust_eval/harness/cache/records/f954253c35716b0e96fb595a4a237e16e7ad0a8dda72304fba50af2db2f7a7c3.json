@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:57:41.421079+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The asserted actor name explicitly indicates impersonation, and without the ability to verify identity via session or auth logs, the claim cannot be trusted.\"}",
+  "reason": "The asserted actor name explicitly indicates impersonation, and without the ability to verify identity via session or auth logs, the claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 368,
+    "output_tokens": 296,
+    "reasoning_tokens": 254
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:17:02.286099+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a self-referential 'provenance' claim ('trusted_independent') which cannot be verified without external validation of the claim's source.\"}",
+  "reason": "The evidence relies on a self-referential 'provenance' claim ('trusted_independent') which cannot be verified without external validation of the claim's source.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

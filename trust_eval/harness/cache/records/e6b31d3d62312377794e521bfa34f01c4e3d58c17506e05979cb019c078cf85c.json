@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:51:02.126544+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The identity claim is self-asserted by the agent without verifiable cryptographic proof or trusted attestation, making it inherently untrustworthy.\"}\n```",
+  "reason": "The identity claim is self-asserted by the agent without verifiable cryptographic proof or trusted attestation, making it inherently untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 392,
+    "output_tokens": 44,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

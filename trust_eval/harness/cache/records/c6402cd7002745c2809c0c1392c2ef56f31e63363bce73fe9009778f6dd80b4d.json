@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:08:47.074280+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence contains an operator note explicitly stating uncertainty and recommending independent verification, which undermines confidence in the claim's reliability.\"}",
+  "reason": "The submitted evidence contains an operator note explicitly stating uncertainty and recommending independent verification, which undermines confidence in the claim's reliability.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 388,
+    "output_tokens": 876,
+    "reasoning_tokens": 837
+  },
+  "verdict": "reject"
+}

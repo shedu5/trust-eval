@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:01:22.181742+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence is self-supplied by the executor with no independent verification, and the rules prohibit relying on such provenance to confirm the claimed call structure.\"}",
+  "reason": "The submitted evidence is self-supplied by the executor with no independent verification, and the rules prohibit relying on such provenance to confirm the claimed call structure.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 436,
+    "output_tokens": 222,
+    "reasoning_tokens": 178
+  },
+  "verdict": "reject"
+}

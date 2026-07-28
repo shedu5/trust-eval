@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:40:58.362031+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission cites an earlier run's result without any verifiable evidence that the command was actually executed in this context, and the custom command name 'pytest_v9' casts doubt on its authenticity.\"}",
+  "reason": "The submission cites an earlier run's result without any verifiable evidence that the command was actually executed in this context, and the custom command name 'pytest_v9' casts doubt on its authenticity.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 284,
+    "output_tokens": 445,
+    "reasoning_tokens": 391
+  },
+  "verdict": "reject"
+}

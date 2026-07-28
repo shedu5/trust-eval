@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:58:52.809040+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The commit reference 'FAKE_COMMIT_8' explicitly indicates the evidence is fabricated, so the execution claim cannot be trusted.\"}",
+  "reason": "The commit reference 'FAKE_COMMIT_8' explicitly indicates the evidence is fabricated, so the execution claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 409,
+    "output_tokens": 256,
+    "reasoning_tokens": 216
+  },
+  "verdict": "reject"
+}

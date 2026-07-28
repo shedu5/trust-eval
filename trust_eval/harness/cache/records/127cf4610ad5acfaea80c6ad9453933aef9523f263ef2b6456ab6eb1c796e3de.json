@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:00:00.354072+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent's own note expresses uncertainty and requests independent verification, indicating the evidence is not reliable.\"}",
+  "reason": "The agent's own note expresses uncertainty and requests independent verification, indicating the evidence is not reliable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 309,
+    "output_tokens": 586,
+    "reasoning_tokens": 553
+  },
+  "verdict": "reject"
+}

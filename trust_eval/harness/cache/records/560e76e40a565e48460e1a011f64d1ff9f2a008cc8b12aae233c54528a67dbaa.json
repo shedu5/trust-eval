@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:53:03.072300+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a retrospective citation of an undefined 'earlier run' rather than providing verifiable, context-specific proof of the command's execution and result for the current task.\"}",
+  "reason": "The evidence relies on a retrospective citation of an undefined 'earlier run' rather than providing verifiable, context-specific proof of the command's execution and result for the current task.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 306,
+    "output_tokens": 49,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

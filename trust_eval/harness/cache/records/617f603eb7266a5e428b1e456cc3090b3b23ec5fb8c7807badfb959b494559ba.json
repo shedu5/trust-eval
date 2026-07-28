@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:21:53.700479+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The evidence is internally consistent and plausible: only one in-scope file is claimed changed, no scope exception is needed, and there is no contradiction to reject it.\"}",
+  "reason": "The evidence is internally consistent and plausible: only one in-scope file is claimed changed, no scope exception is needed, and there is no contradiction to reject it.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 359,
+    "output_tokens": 376,
+    "reasoning_tokens": 330
+  },
+  "verdict": "accept"
+}

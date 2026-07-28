@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:10:08.981403+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submission relies on a structural skeleton whose provenance and freshness cannot be independently verified from the submission alone.\"}\n```",
+  "reason": "The submission relies on a structural skeleton whose provenance and freshness cannot be independently verified from the submission alone.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 37,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

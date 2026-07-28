@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:18:53.165267+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly admits the structural skeleton was borrowed from a different task ('other-task-8'), making its validity for the current task contextually untrustworthy and unverified.\"}",
+  "reason": "The evidence explicitly admits the structural skeleton was borrowed from a different task ('other-task-8'), making its validity for the current task contextually untrustworthy and unverified.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

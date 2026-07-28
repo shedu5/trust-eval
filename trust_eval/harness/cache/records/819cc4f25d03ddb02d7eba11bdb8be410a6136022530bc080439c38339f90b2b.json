@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:44:38.749672+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submission relies on a past execution and an unverified claim that no code has changed, rather than providing the actual execution record for the current state.\"}\n```",
+  "reason": "The submission relies on a past execution and an unverified claim that no code has changed, rather than providing the actual execution record for the current state.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 314,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

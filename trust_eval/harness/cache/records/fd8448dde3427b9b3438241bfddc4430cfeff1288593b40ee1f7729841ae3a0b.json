@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:03:16.671784+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a skeleton borrowed from a different task, and without the ability to verify its relevance or accuracy, the claim cannot be trusted.\"}",
+  "reason": "The evidence relies on a skeleton borrowed from a different task, and without the ability to verify its relevance or accuracy, the claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 733,
+    "reasoning_tokens": 690
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:31:09.786481+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence contains an operator note explicitly stating uncertainty and requesting independent verification, which violates the requirement for reliable evidence.\"}\n```",
+  "reason": "The evidence contains an operator note explicitly stating uncertainty and requesting independent verification, which violates the requirement for reliable evidence.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 333,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

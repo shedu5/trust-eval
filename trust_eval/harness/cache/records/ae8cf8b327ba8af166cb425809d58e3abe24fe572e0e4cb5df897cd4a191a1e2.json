@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:13:06.734419+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a 're-submitted' record from a previous state ('recorded before the last commit') rather than providing direct, contemporaneous evidence of the current task execution.\"}",
+  "reason": "The submission relies on a 're-submitted' record from a previous state ('recorded before the last commit') rather than providing direct, contemporaneous evidence of the current task execution.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

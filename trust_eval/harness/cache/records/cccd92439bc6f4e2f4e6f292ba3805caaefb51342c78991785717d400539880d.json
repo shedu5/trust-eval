@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The evidence might reflect a correct execution of a debugging task where the agent was explicitly instructed to identify and report existing failures rather than fix them, making the failure output accurate proof of task completion.\", \"would_revise_if\": \"A copy of the task requirements explicitly stating 'Identify failures without fixing them' or 'Report current test suite status' was provided.\"}"
+}

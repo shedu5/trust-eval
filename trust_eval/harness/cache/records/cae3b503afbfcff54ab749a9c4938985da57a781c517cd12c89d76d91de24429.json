@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:06:36.159727+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly marks \\\"asserted\\\" as false, contradicting the nature of a structure claim and rendering the submission self-inconsistent.\"}",
+  "reason": "The evidence explicitly marks \"asserted\" as false, contradicting the nature of a structure claim and rendering the submission self-inconsistent.",
+  "usage": {
+    "cache_hit_input_tokens": 384,
+    "input_tokens": 435,
+    "output_tokens": 794,
+    "reasoning_tokens": 753
+  },
+  "verdict": "reject"
+}

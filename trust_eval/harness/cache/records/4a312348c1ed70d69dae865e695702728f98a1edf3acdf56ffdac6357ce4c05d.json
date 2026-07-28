@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:10:15.724489+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The structural claim relies on a skeleton whose independence and accuracy cannot be verified from the submission alone, especially since it was supplied by the executor itself.\"}\n```",
+  "reason": "The structural claim relies on a skeleton whose independence and accuracy cannot be verified from the submission alone, especially since it was supplied by the executor itself.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 465,
+    "output_tokens": 46,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

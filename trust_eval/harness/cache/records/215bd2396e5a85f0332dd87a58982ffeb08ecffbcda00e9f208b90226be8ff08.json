@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:19:39.754353+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a self-referential provenance claim ('trusted_independent') that cannot be verified without external audit of the skeleton generation process, making it insufficient grounds for trust.\"}",
+  "reason": "The evidence relies on a self-referential provenance claim ('trusted_independent') that cannot be verified without external audit of the skeleton generation process, making it insufficient grounds for trust.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 467,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

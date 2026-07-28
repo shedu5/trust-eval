@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:55:26.447239+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is internally consistent and contains no contradictions or missing required fields that would indicate unreliability.\"}",
+  "reason": "The submission is internally consistent and contains no contradictions or missing required fields that would indicate unreliability.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 783,
+    "reasoning_tokens": 750
+  },
+  "verdict": "accept"
+}

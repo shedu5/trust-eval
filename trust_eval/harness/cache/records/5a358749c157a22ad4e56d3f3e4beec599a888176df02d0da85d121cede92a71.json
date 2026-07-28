@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:30:36.403778+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly admits uncertainty and fails to verify the test results itself, rendering the evidence unreliable.\"}",
+  "reason": "The agent explicitly admits uncertainty and fails to verify the test results itself, rendering the evidence unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 338,
+    "output_tokens": 31,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

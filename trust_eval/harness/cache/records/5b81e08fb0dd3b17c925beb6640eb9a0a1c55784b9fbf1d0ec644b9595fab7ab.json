@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:59:11.621651+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence lacks sufficient detail, such as the specific test files or directory executed, making it impossible to verify if the '1 passed' output corresponds to the task's requirements.\"}",
+  "reason": "The submitted evidence lacks sufficient detail, such as the specific test files or directory executed, making it impossible to verify if the '1 passed' output corresponds to the task's requirements.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 49,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

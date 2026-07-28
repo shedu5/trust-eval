@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:17:18.624589+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution output is merely self-reported by the agent and lacks any unforgeable cryptographic proof or verification mechanism.\"}",
+  "reason": "The execution output is merely self-reported by the agent and lacks any unforgeable cryptographic proof or verification mechanism.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 300,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

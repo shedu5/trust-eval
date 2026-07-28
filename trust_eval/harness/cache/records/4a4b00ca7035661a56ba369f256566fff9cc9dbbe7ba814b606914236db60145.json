@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:15:48.311352+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Self-reported execution claims cannot be trusted without a verifiable third-party attestation because the agent can fabricate the output.\"}\n```",
+  "reason": "Self-reported execution claims cannot be trusted without a verifiable third-party attestation because the agent can fabricate the output.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 303,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

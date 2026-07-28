@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:22:51.675315+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable evidence (e.g., cryptographic proof, external reference) that the command actually executed and passed, making it impossible to trust its truthfulness.\"}",
+  "reason": "The submission provides no verifiable evidence (e.g., cryptographic proof, external reference) that the command actually executed and passed, making it impossible to trust its truthfulness.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 271,
+    "output_tokens": 609,
+    "reasoning_tokens": 561
+  },
+  "verdict": "reject"
+}

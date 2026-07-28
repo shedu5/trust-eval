@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:29:08.954127+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly states it is uncertain about the accuracy of its own work and requests independent verification, which violates the requirement for reliable evidence.\"}",
+  "reason": "The agent explicitly states it is uncertain about the accuracy of its own work and requests independent verification, which violates the requirement for reliable evidence.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 436,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

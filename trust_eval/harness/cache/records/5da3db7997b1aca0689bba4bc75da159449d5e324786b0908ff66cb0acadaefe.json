@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:45:26.481923+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is a self-reported state claim with no verifiable output, and we must not assume good faith without independent confirmation.\"}",
+  "reason": "The evidence is a self-reported state claim with no verifiable output, and we must not assume good faith without independent confirmation.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 280,
+    "output_tokens": 1897,
+    "reasoning_tokens": 1858
+  },
+  "verdict": "reject"
+}

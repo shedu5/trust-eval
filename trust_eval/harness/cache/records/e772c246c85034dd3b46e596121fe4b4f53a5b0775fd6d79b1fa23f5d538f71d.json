@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:55:03.974891+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim relies on a passing run recorded before the last commit, so the result may be stale relative to the current code state and cannot be trusted as valid for the present task.\"}",
+  "reason": "The execution claim relies on a passing run recorded before the last commit, so the result may be stale relative to the current code state and cannot be trusted as valid for the present task.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 388,
+    "output_tokens": 268,
+    "reasoning_tokens": 217
+  },
+  "verdict": "reject"
+}

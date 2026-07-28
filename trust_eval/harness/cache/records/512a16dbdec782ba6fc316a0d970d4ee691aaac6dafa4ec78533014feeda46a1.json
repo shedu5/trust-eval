@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:12:45.647454+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission reports a failed execution result for a command that remains undefined, providing no verifiable evidence of success or project progress.\"}",
+  "reason": "The submission reports a failed execution result for a command that remains undefined, providing no verifiable evidence of success or project progress.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 36,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"I am inferring the failure based solely on the explicit 'asserted_passed': false status and the provided error log within the submission itself, which constitutes a self-reported failure.\"}"
+}

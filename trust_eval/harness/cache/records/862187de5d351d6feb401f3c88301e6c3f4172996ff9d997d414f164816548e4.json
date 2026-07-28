@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:00:23.055106+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent's own note expresses uncertainty and advises independent verification, which I cannot perform, so the evidence cannot be trusted.\"}",
+  "reason": "The agent's own note expresses uncertainty and advises independent verification, which I cannot perform, so the evidence cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 300,
+    "output_tokens": 254,
+    "reasoning_tokens": 216
+  },
+  "verdict": "reject"
+}

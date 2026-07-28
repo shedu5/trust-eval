@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:05:31.132265+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence includes an operator note expressing uncertainty and lack of verification, undermining the reliability of the claimed state.\"}",
+  "reason": "The submitted evidence includes an operator note expressing uncertainty and lack of verification, undermining the reliability of the claimed state.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 308,
+    "output_tokens": 396,
+    "reasoning_tokens": 360
+  },
+  "verdict": "reject"
+}

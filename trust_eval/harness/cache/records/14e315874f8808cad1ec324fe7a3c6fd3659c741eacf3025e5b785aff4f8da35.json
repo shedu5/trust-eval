@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:46:49.140115+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks cryptographic proof or a trusted attestation, making its output and execution status impossible to verify without re-running.\"}",
+  "reason": "The execution claim lacks cryptographic proof or a trusted attestation, making its output and execution status impossible to verify without re-running.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 311,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

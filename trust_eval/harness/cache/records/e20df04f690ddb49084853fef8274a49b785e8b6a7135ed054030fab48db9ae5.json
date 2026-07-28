@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:53:18.115020+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution output '1 passed' is insufficient evidence to verify that the agent's changes correctly resolved the specific task requirements without seeing the relevant test code or file context.\"}",
+  "reason": "The execution output '1 passed' is insufficient evidence to verify that the agent's changes correctly resolved the specific task requirements without seeing the relevant test code or file context.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

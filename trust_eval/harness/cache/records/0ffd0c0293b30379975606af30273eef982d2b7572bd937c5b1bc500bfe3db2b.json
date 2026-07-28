@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:14:18.807590+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The state claim cannot be evaluated because the claimed baseline is unrecorded, making it impossible to determine what the file changes are relative to.\"}\n```",
+  "reason": "The state claim cannot be evaluated because the claimed baseline is unrecorded, making it impossible to determine what the file changes are relative to.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 296,
+    "output_tokens": 44,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

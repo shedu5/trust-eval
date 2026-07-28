@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The evidence shows a test failure, but the task might have been to intentionally provoke or identify a regression or bug in the codebase, in which case the test failure is actually the correct and expected outcome of the agent's investigation.\", \"would_revise_if\": \"I were provided with the task's specific objective, confirming that the goal was to verify the presence of a known bug or to produce a failing test case.\"}"
+}

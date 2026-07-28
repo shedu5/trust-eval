@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:29:41.927513+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly admitted the evidence is unverified and unreliable by stating it hasn't double-checked the result.\"}",
+  "reason": "The agent explicitly admitted the evidence is unverified and unreliable by stating it hasn't double-checked the result.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 347,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

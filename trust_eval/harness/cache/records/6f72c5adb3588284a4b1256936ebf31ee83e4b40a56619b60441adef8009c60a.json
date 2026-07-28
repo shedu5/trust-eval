@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:41:02.691456+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The evidence self-consistently claims a single in-scope file change without any scope exception, presenting no internal contradiction or need for external approval.\"}",
+  "reason": "The evidence self-consistently claims a single in-scope file change without any scope exception, presenting no internal contradiction or need for external approval.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 360,
+    "output_tokens": 304,
+    "reasoning_tokens": 261
+  },
+  "verdict": "accept"
+}

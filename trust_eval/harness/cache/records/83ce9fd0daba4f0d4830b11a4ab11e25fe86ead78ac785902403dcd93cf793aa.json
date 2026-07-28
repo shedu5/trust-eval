@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The evidence might represent a successful completion if the task was to identify a pre-existing regression or verify a negative constraint rather than pass a specific test suite.\", \"would_revise_if\": \"I saw the task definition explicitly stating that the goal was to identify and report failures rather than to implement a working feature.\"}"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:40:58.550506+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submitted evidence admits that the approval ledger sync is pending, failing the requirement for a recorded approval.\"}\n```",
+  "reason": "The submitted evidence admits that the approval ledger sync is pending, failing the requirement for a recorded approval.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 446,
+    "output_tokens": 37,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

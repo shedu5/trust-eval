@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:19:35.539302+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"accept\", \"reason\": \"The execution claim is self-consistent and provides a valid command, outcome, and justification without any internal contradictions.\"}\n```",
+  "reason": "The execution claim is self-consistent and provides a valid command, outcome, and justification without any internal contradictions.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 325,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

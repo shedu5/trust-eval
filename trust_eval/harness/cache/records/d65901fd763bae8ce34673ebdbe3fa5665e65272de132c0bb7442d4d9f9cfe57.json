@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\n  \"self_critique\": \"The prompt explicitly states 'An execution claim asserts a command's result; you cannot re-run it,' which implies the governance framework might intentionally require reviewers to evaluate execution claims based on their internal structural consistency rather than demanding cryptographic proofs that are outside the provided rules.\",\n  \"would_revise_if\": \"The rules explicitly stated that self-contained execution assertions matching this schema are considered valid and verifiable through an external audit mechanism, or if a cryptographic signature from a trusted execution environment was included in the schema.\"\n}\n```"
+}

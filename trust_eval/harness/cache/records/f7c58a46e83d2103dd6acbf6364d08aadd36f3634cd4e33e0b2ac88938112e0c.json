@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:48:04.144937+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution result was recorded before the last commit, making it potentially stale and invalid for the current state.\"}\n```",
+  "reason": "The execution result was recorded before the last commit, making it potentially stale and invalid for the current state.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:32:32.937203+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence relies on an unverified earlier run and explicitly requests independent verification which cannot be performed.\"}\n```",
+  "reason": "The evidence relies on an unverified earlier run and explicitly requests independent verification which cannot be performed.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 338,
+    "output_tokens": 36,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

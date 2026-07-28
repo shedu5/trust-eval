@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The verdict assumes '1 failed' constitutes a failed task, but if the task was to demonstrate or identify a regression in a provided snippet, the agent accurately reporting the failure might be a successful completion of the assignment.\", \"would_revise_if\": \"I would revise the verdict if the task description explicitly required the agent to find and report an existing bug, as the submitted evidence would then serve as successful verification of that bug.\"}"
+}

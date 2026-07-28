@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:26:27.119330+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is untrustworthy: the command 'pytest_v2' is non-standard, output is minimal ('1 passed') with no test names or file paths, and no verifiable details are provided to support the claim.\"}",
+  "reason": "The evidence is untrustworthy: the command 'pytest_v2' is non-standard, output is minimal ('1 passed') with no test names or file paths, and no verifiable details are provided to support the claim.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 271,
+    "output_tokens": 620,
+    "reasoning_tokens": 560
+  },
+  "verdict": "reject"
+}

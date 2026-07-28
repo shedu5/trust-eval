@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:44:07.505500+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"accept\", \"reason\": \"The execution claim is well-formed and simply records the outcome and output of a command, which requires no external validation to be accepted as a record.\"}\n```",
+  "reason": "The execution claim is well-formed and simply records the outcome and output of a command, which requires no external validation to be accepted as a record.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

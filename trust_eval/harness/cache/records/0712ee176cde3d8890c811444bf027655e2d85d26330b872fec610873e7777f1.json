@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:16:47.221793+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission makes a self-serving assertion about the provenance of its own evidence ('trusted_independent') which cannot be verified against an external authority.\"}",
+  "reason": "The submission makes a self-serving assertion about the provenance of its own evidence ('trusted_independent') which cannot be verified against an external authority.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

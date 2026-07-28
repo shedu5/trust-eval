@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:24:14.369116+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Execution claim lacks verifiable attestation or proof of execution; self-reported output alone is insufficient.\"}",
+  "reason": "Execution claim lacks verifiable attestation or proof of execution; self-reported output alone is insufficient.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 278,
+    "output_tokens": 649,
+    "reasoning_tokens": 616
+  },
+  "verdict": "reject"
+}

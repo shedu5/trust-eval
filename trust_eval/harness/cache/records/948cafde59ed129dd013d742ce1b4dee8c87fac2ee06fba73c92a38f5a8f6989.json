@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"The verdict relies on the absence of any diff, hash, or external reference in the submitted evidence, which is directly observable from the submission itself; no independent confirmation was required.\"}"
+}

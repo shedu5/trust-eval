@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:56:14.267229+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"accept\", \"reason\": \"The state claim only asserts changes to in-scope files, requiring no external ledger validation.\"}\n```",
+  "reason": "The state claim only asserts changes to in-scope files, requiring no external ledger validation.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "accept"
+}

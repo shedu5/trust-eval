@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:30:18.530129+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The note 'citing an earlier run's result' indicates the evidence is not a fresh execution output, so the claimed pass cannot be trusted without verification.\"}",
+  "reason": "The note 'citing an earlier run's result' indicates the evidence is not a fresh execution output, so the claimed pass cannot be trusted without verification.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 283,
+    "output_tokens": 540,
+    "reasoning_tokens": 496
+  },
+  "verdict": "reject"
+}

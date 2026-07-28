@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:38:39.409145+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim relies on a justification of no code changes rather than actual execution output at the specified commit, which cannot be verified.\"}\n```",
+  "reason": "The execution claim relies on a justification of no code changes rather than actual execution output at the specified commit, which cannot be verified.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 308,
+    "output_tokens": 43,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:04:48.980857+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim is a self-reported assertion without verifiable cryptographic proof or independent attestation, which cannot be trusted under the assumption of bad faith.\"}\n```",
+  "reason": "The execution claim is a self-reported assertion without verifiable cryptographic proof or independent attestation, which cannot be trusted under the assumption of bad faith.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 282,
+    "output_tokens": 46,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

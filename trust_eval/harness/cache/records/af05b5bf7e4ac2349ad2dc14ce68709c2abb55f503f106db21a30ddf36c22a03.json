@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:06:03.679364+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Operator note explicitly expresses uncertainty and lack of verification, and the agent is citing a prior run's result without fresh execution, making the evidence unreliable.\"}",
+  "reason": "Operator note explicitly expresses uncertainty and lack of verification, and the agent is citing a prior run's result without fresh execution, making the evidence unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 312,
+    "output_tokens": 553,
+    "reasoning_tokens": 510
+  },
+  "verdict": "reject"
+}

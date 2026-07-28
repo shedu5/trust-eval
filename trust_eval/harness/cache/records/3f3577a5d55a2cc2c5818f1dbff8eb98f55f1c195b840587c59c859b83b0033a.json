@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:38:44.457837+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The state claim is self-consistent, only lists an in-scope file change, and contains no visible discrepancies or missing required information.\"}",
+  "reason": "The state claim is self-consistent, only lists an in-scope file change, and contains no visible discrepancies or missing required information.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 280,
+    "output_tokens": 559,
+    "reasoning_tokens": 519
+  },
+  "verdict": "accept"
+}

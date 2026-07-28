@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:16:10.238122+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence relies on an unverifiable 'FAKE_COMMIT_7' reference and lacks independent validation of the command's execution output, making it impossible to confirm the claim's integrity.\"}",
+  "reason": "The submitted evidence relies on an unverifiable 'FAKE_COMMIT_7' reference and lacks independent validation of the command's execution output, making it impossible to confirm the claim's integrity.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 440,
+    "output_tokens": 51,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

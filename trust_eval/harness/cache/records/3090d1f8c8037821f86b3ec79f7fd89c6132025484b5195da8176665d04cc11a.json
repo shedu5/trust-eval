@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:11:33.286874+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claims cannot be verified from the submission alone because the reviewer cannot confirm if the skeleton was independently generated, accurate, or current.\"}",
+  "reason": "Structure claims cannot be verified from the submission alone because the reviewer cannot confirm if the skeleton was independently generated, accurate, or current.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 467,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

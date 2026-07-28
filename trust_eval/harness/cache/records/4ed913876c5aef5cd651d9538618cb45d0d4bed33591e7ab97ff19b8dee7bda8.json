@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:15:41.914553+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on self-reported identity data without any cryptographic proof, authentication context, or verifiable external validation, making it inherently untrustworthy.\"}",
+  "reason": "The claim relies on self-reported identity data without any cryptographic proof, authentication context, or verifiable external validation, making it inherently untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 388,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

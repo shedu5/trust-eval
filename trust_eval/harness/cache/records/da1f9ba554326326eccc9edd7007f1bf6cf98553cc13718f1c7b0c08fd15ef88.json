@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:29:14.595451+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The operator note explicitly expresses a lack of confidence and failure to verify the work, making it unsafe to trust the accuracy of the state claim.\"}",
+  "reason": "The operator note explicitly expresses a lack of confidence and failure to verify the work, making it unsafe to trust the accuracy of the state claim.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 337,
+    "output_tokens": 40,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

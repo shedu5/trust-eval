@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:57:27.631389+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim relies entirely on the agent's self-reported output without any cryptographic attestation or independent verification mechanism to prove the command was actually run.\"}\n```",
+  "reason": "The execution claim relies entirely on the agent's self-reported output without any cryptographic attestation or independent verification mechanism to prove the command was actually run.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 301,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

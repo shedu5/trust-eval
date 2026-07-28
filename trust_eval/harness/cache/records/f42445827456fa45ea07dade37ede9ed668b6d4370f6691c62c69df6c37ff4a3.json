@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:47.831997+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance label 'trusted_independent' is self-asserted and cannot be verified from the submission alone, making the structure claim untrustworthy.\"}",
+  "reason": "The provenance label 'trusted_independent' is self-asserted and cannot be verified from the submission alone, making the structure claim untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 263,
+    "reasoning_tokens": 218
+  },
+  "verdict": "reject"
+}

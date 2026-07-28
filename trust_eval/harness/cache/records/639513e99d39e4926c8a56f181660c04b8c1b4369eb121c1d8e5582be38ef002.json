@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:18:37.107670+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The evidence shows changed files are within the declared in-scope list with no scope exceptions, and there are no internal inconsistencies.\"}",
+  "reason": "The evidence shows changed files are within the declared in-scope list with no scope exceptions, and there are no internal inconsistencies.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 357,
+    "output_tokens": 438,
+    "reasoning_tokens": 400
+  },
+  "verdict": "accept"
+}

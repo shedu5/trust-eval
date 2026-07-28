@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 5, \"verified_independently\": false, \"explanation\": \"The verdict relies on the truth of the execution claim (test passed), which cannot be confirmed independently from the submission; I accepted it because there is no contradiction in the evidence.\"}"
+}

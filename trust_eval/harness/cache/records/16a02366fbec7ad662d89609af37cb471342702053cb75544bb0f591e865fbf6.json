@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:15:37.552977+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submitted evidence is a self-reported JSON without any cryptographic signature or verifiable proof, which cannot be trusted under a zero-trust policy.\"}\n```",
+  "reason": "The submitted evidence is a self-reported JSON without any cryptographic signature or verifiable proof, which cannot be trusted under a zero-trust policy.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 316,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

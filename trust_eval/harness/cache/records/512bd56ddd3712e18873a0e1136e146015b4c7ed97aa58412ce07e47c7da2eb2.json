@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:17:53.665289+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence explicitly admits the structural skeleton was borrowed from a different task ('skeleton-other-4') rather than being generated for the current context, rendering it unreliable for validating the current codebase.\"}",
+  "reason": "The evidence explicitly admits the structural skeleton was borrowed from a different task ('skeleton-other-4') rather than being generated for the current context, rendering it unreliable for validating the current codebase.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 50,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

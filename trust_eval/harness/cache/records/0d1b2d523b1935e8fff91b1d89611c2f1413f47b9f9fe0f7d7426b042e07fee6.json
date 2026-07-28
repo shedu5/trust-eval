@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:51:08.865770+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"An execution claim is entirely self-reported and cannot be verified without re-running the command or having a securely attested execution log, which are not available.\"}\n```",
+  "reason": "An execution claim is entirely self-reported and cannot be verified without re-running the command or having a securely attested execution log, which are not available.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 440,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

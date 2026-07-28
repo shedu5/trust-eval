@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:18:17.421304+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim relies on a self-referential 'trusted_independent' label that cannot be verified without independent access to the repository or generation process, making it unverifiable as an autonomous claim.\"}",
+  "reason": "The claim relies on a self-referential 'trusted_independent' label that cannot be verified without independent access to the repository or generation process, making it unverifiable as an autonomous claim.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 50,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

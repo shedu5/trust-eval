@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:52:40.026113+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim relies on an unverifiable assertion of prior verification and cannot be independently confirmed from the submission alone.\"}",
+  "reason": "The execution claim relies on an unverifiable assertion of prior verification and cannot be independently confirmed from the submission alone.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 330,
+    "output_tokens": 460,
+    "reasoning_tokens": 423
+  },
+  "verdict": "reject"
+}

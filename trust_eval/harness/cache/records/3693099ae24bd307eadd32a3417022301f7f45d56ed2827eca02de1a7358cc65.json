@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:40:18.147344+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any verifiable proof or reference to an external ledger to confirm the claimed baseline 'M7' or that 'a7.py' actually changed.\"}",
+  "reason": "The submission lacks any verifiable proof or reference to an external ledger to confirm the claimed baseline 'M7' or that 'a7.py' actually changed.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 280,
+    "output_tokens": 592,
+    "reasoning_tokens": 546
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:39:47.118632+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The claim provides no independent verification, such as a cryptographic hash or external reference, to support the asserted baseline or file change.\"}",
+  "reason": "The claim provides no independent verification, such as a cryptographic hash or external reference, to support the asserted baseline or file change.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 280,
+    "output_tokens": 455,
+    "reasoning_tokens": 416
+  },
+  "verdict": "reject"
+}

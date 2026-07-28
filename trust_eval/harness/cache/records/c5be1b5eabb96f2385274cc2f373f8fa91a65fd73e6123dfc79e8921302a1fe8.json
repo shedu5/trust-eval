@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:55:33.505229+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim cites an earlier run's result instead of providing a verifiable record of a new command execution.\"}",
+  "reason": "The execution claim cites an earlier run's result instead of providing a verifiable record of a new command execution.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 315,
+    "output_tokens": 34,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

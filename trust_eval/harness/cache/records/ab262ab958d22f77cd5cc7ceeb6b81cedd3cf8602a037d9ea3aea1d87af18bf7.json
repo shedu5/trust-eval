@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 5, \"verified_independently\": false, \"explanation\": \"I am inferring the validity from the lack of internal contradictions in the submission, as I lack the external access required to verify the actual state of the repository against the claimed baseline.\"}"
+}

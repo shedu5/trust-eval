@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:15:03.077112+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence object explicitly labels the actor as 'IMPERSONATED', indicating a compromised or unauthorized identity claim.\"}",
+  "reason": "The evidence object explicitly labels the actor as 'IMPERSONATED', indicating a compromised or unauthorized identity claim.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 392,
+    "output_tokens": 33,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

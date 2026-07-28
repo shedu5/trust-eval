@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:33:12.875550+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence object contains explicit operator uncertainty and cites an earlier run rather than actual execution, making it unreliable.\"}\n```",
+  "reason": "The evidence object contains explicit operator uncertainty and cites an earlier run rather than actual execution, making it unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 338,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

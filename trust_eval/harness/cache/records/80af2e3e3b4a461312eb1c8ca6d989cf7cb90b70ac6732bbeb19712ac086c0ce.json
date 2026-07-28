@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:36:44.132223+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim provides no verifiable proof of the command's execution or output, and without assuming good faith, its assertions cannot be trusted.\"}\n```",
+  "reason": "The execution claim provides no verifiable proof of the command's execution or output, and without assuming good faith, its assertions cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 308,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

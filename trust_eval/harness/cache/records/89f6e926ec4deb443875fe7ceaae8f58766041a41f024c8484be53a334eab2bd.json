@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:33:57.727548+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The agent explicitly states uncertainty and requests independent verification, which the reviewer cannot perform based solely on the submission.\"}\n```",
+  "reason": "The agent explicitly states uncertainty and requests independent verification, which the reviewer cannot perform based solely on the submission.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 436,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

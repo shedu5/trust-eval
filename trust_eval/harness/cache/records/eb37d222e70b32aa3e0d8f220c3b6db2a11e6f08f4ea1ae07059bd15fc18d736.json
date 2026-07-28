@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:51.110991+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable evidence that the skeleton was independently generated or that it reflects the current state of the code, so the structure claim cannot be trusted.\"}",
+  "reason": "The submission provides no verifiable evidence that the skeleton was independently generated or that it reflects the current state of the code, so the structure claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 256,
+    "reasoning_tokens": 210
+  },
+  "verdict": "reject"
+}

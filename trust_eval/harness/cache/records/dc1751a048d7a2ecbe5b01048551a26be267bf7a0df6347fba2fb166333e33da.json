@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:14:54.047789+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides an unsupported identity claim without any cryptographically verifiable evidence or linked provenance logs to authenticate the asserted actor.\"}",
+  "reason": "The submission provides an unsupported identity claim without any cryptographically verifiable evidence or linked provenance logs to authenticate the asserted actor.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 388,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

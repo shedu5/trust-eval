@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:41:33.776474+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The evidence relies entirely on the agent's self-attestation without providing any external proof or cryptographic verification of the execution.\"}\n```",
+  "reason": "The evidence relies entirely on the agent's self-attestation without providing any external proof or cryptographic verification of the execution.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 296,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

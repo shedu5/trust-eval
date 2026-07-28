@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/interrogation-reveal/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"changed\": false, \"reason\": \"The out-of-band confirmation proves the claim was truthful in this instance, but it does not change the fact that the submitted evidence object itself lacks intrinsic, verifiable proof and cannot be trusted on its own merits.\"}\n```"
+}

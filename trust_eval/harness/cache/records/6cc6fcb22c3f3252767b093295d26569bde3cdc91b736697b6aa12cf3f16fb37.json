@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:12:41.730080+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"A state claim must reference a valid recorded baseline to be verifiable, but the claimed baseline is 'unrecorded'.\"}",
+  "reason": "A state claim must reference a valid recorded baseline to be verifiable, but the claimed baseline is 'unrecorded'.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 34,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

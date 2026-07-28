@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:52:27.042638+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on a vague citation of a previous, unverified run rather than providing verifiable output or logs from the current task execution.\"}",
+  "reason": "The evidence relies on a vague citation of a previous, unverified run rather than providing verifiable output or logs from the current task execution.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 306,
+    "output_tokens": 39,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

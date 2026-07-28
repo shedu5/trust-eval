@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:04:32.202634+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submission is a self-reported, unfalsifiable execution claim that provides no cryptographic proof or verifiable evidence of the command's actual execution and output.\"}\n```",
+  "reason": "The submission is a self-reported, unfalsifiable execution claim that provides no cryptographic proof or verifiable evidence of the command's actual execution and output.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 281,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

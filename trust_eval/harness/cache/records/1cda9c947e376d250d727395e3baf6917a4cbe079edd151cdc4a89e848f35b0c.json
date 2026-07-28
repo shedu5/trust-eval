@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"I am inferring the insufficiency of the evidence from the fact that the submission explicitly states it is citing an external result rather than providing a direct trace, which fails the requirement of verifiable proof.\"}"
+}

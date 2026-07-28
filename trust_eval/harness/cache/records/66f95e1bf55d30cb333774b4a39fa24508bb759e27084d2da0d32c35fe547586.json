@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:17:08.394429+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly admits the structure claim is borrowed from a different task ('skeleton-other-1'), rendering it untrustworthy for validating the current task's specific code state.\"}",
+  "reason": "The submission explicitly admits the structure claim is borrowed from a different task ('skeleton-other-1'), rendering it untrustworthy for validating the current task's specific code state.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

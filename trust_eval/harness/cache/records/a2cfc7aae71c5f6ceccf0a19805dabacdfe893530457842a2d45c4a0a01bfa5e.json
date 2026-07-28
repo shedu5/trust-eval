@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:30:09.114553+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly expressed uncertainty and lack of verification for its own submission, which undermines the reliability of the state claim.\"}",
+  "reason": "The agent explicitly expressed uncertainty and lack of verification for its own submission, which undermines the reliability of the state claim.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 337,
+    "output_tokens": 35,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

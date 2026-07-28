@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T19:00:23.098697+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The command 'pytest_v6' appears to be a hallucinated or non-standard test runner, casting doubt on the validity of the execution evidence.\"}",
+  "reason": "The command 'pytest_v6' appears to be a hallucinated or non-standard test runner, casting doubt on the validity of the execution evidence.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 43,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

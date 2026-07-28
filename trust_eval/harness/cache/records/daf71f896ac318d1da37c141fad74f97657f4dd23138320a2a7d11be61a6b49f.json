@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:13:24.772833+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies on a 're-submitting' claim of past performance rather than providing verifiable evidence of the current task execution, which makes it unverifiable and potentially stale.\"}",
+  "reason": "The submission relies on a 're-submitting' claim of past performance rather than providing verifiable evidence of the current task execution, which makes it unverifiable and potentially stale.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

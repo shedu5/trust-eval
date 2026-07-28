@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:55:30.228909+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim states the command was executed by an LLM ('Gemini') rather than a real environment, meaning the output was hallucinated rather than actually run.\"}\n```",
+  "reason": "The execution claim states the command was executed by an LLM ('Gemini') rather than a real environment, meaning the output was hallucinated rather than actually run.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 292,
+    "output_tokens": 50,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

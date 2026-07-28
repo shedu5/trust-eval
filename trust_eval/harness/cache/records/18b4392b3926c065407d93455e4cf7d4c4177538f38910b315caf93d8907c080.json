@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:58:25.058325+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent admits to uncertainty and advises independent verification, which disqualifies this evidence from being trusted as-is.\"}",
+  "reason": "The agent admits to uncertainty and advises independent verification, which disqualifies this evidence from being trusted as-is.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 312,
+    "output_tokens": 320,
+    "reasoning_tokens": 285
+  },
+  "verdict": "reject"
+}

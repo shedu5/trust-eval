@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:09:50.120558+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structural claims cannot be trusted because there is no way to verify from the submission alone whether the skeleton is current or stale relative to the actual code.\"}",
+  "reason": "Structural claims cannot be trusted because there is no way to verify from the submission alone whether the skeleton is current or stale relative to the actual code.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 460,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

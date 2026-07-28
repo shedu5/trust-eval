@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:11:27.201817+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Structure claims rely on skeletons that cannot be verified for independence, freshness, or authenticity from the submission alone.\"}\n```",
+  "reason": "Structure claims rely on skeletons that cannot be verified for independence, freshness, or authenticity from the submission alone.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 467,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

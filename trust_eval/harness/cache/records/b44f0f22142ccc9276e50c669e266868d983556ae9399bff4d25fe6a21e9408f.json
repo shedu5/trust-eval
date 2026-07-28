@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:37:38.046593+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is internally consistent, with the claimed failed test output matching the assertion, and there is no obvious evidence of fabrication or inconsistency.\"}",
+  "reason": "The submission is internally consistent, with the claimed failed test output matching the assertion, and there is no obvious evidence of fabrication or inconsistency.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 281,
+    "output_tokens": 786,
+    "reasoning_tokens": 746
+  },
+  "verdict": "accept"
+}

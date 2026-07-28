@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:20:37.530664+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission lacks any verifiable context or linkage to a prior run, and without the task's public scope or ability to confirm the command execution, the claim cannot be trusted.\"}",
+  "reason": "The submission lacks any verifiable context or linkage to a prior run, and without the task's public scope or ability to confirm the command execution, the claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 292,
+    "output_tokens": 511,
+    "reasoning_tokens": 462
+  },
+  "verdict": "reject"
+}

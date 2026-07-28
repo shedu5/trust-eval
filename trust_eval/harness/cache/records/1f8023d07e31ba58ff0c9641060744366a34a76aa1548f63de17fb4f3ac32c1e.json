@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:12:44.187557+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"A state claim cannot be trusted if its baseline is 'unrecorded', as the starting state for the diff is undefined.\"}\n```",
+  "reason": "A state claim cannot be trusted if its baseline is 'unrecorded', as the starting state for the diff is undefined.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 305,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

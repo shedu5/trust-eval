@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 7, \"verified_independently\": false, \"explanation\": \"I am inferring validity because the submission contains no internal contradictions or overt policy violations regarding scope, which is the standard protocol when direct verification is impossible.\"}"
+}

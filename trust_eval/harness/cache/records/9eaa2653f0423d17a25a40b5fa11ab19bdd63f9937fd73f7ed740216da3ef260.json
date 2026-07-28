@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:13:27.831169+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The execution claim asserts a failure (asserted_passed: false) without providing any diagnostic output, logs, or verification details, rendering the evidence insufficient to validate the agent's work.\"}",
+  "reason": "The execution claim asserts a failure (asserted_passed: false) without providing any diagnostic output, logs, or verification details, rendering the evidence insufficient to validate the agent's work.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 49,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

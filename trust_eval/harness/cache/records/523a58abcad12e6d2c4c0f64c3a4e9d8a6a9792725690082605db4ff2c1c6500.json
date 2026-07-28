@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:00:36.919891+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission's own note admits the skeleton is stale because the guard call was removed after generation, so the asserted call relationship may no longer exist.\"}",
+  "reason": "The submission's own note admits the skeleton is stale because the guard call was removed after generation, so the asserted call relationship may no longer exist.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 434,
+    "output_tokens": 203,
+    "reasoning_tokens": 160
+  },
+  "verdict": "reject"
+}

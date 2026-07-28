@@ -115,6 +115,14 @@ def make_cached_reviewer(provider: JudgeProvider, cache: ResponseCache, live: bo
         if not live:
             return Decision(protocol="P1_llm_text_only", outcome="missing",
                             detail="no cached review; run with --live")
+        # Printed ONLY on an actual cache-miss live call (never on a cache hit,
+        # so a full-reproduction run stays silent) -- so if a run stalls, the
+        # terminal shows exactly which case was in flight rather than leaving
+        # a bare, unexplained pause. Added after a live Gemini run sat idle
+        # for 30+ minutes on 2026-07-24 with no way to tell which call it was
+        # stuck on from the output alone.
+        print(f"  [live] {provider.name}:{provider.model} task={claim.task_id} "
+             f"type={claim.claim_type.value} ...", end="", flush=True)
         try:
             complete_with_usage = getattr(provider, "complete_with_usage", None)
             if complete_with_usage is not None:
@@ -126,7 +134,9 @@ def make_cached_reviewer(provider: JudgeProvider, cache: ResponseCache, live: bo
             else:
                 raw, usage = provider.complete(prompt), None
         except Exception as e:
+            print(" ERROR:", str(e)[:120], flush=True)
             return Decision(protocol="P1_llm_text_only", outcome="error", detail=str(e)[:200])
+        print(" ok", flush=True)
         v = parse_verdict(raw)
         if v.verdict in ("accept", "reject"):
             record = {"provider": provider.name, "model": provider.model,

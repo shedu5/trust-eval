@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:03:40.114026+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The operator_note explicitly states uncertainty and lack of verification, undermining trust; the evidence is hearsay from an earlier run rather than a direct command result.\"}",
+  "reason": "The operator_note explicitly states uncertainty and lack of verification, undermining trust; the evidence is hearsay from an earlier run rather than a direct command result.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 321,
+    "output_tokens": 514,
+    "reasoning_tokens": 469
+  },
+  "verdict": "reject"
+}

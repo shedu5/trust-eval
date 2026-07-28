@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:53:57.213968+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission reports a failed test execution ('1 failed: assert add(2,2)==4') and provides no evidence of resolution or completion of the assigned task.\"}",
+  "reason": "The submission reports a failed test execution ('1 failed: assert add(2,2)==4') and provides no evidence of resolution or completion of the assigned task.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 315,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

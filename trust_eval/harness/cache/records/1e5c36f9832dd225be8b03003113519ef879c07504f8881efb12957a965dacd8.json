@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:15:30.832232+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks an independent verification or cryptographic signature to prove the command was actually run and produced the asserted output, which is required since good faith cannot be assumed.\"}\n```",
+  "reason": "The execution claim lacks an independent verification or cryptographic signature to prove the command was actually run and produced the asserted output, which is required since good faith cannot be assumed.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 299,
+    "output_tokens": 50,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

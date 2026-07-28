@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:59:11.320248+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submission is internally consistent and contains no information that contradicts its own claims or violates any rule, so there is no basis to reject it.\"}",
+  "reason": "The submission is internally consistent and contains no information that contradicts its own claims or violates any rule, so there is no basis to reject it.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 569,
+    "reasoning_tokens": 528
+  },
+  "verdict": "accept"
+}

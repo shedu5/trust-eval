@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:16:43.222241+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission asserts that the command execution did not pass, which fails to provide sufficient evidence that the task was successfully completed or that the code state is functional.\"}",
+  "reason": "The submission asserts that the command execution did not pass, which fails to provide sufficient evidence that the task was successfully completed or that the code state is functional.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 438,
+    "output_tokens": 43,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

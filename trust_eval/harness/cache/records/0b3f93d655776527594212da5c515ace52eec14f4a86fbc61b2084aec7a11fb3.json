@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:02:19.202008+00:00",
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent's own operator note admits uncertainty and advises independent verification, indicating the submitted evidence is not trustworthy.\"}",
+  "reason": "The agent's own operator note admits uncertainty and advises independent verification, indicating the submitted evidence is not trustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 386,
+    "output_tokens": 391,
+    "reasoning_tokens": 356
+  },
+  "verdict": "reject"
+}

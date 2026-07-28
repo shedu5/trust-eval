@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"The verdict is based on the absence of any verifiable proof in the submission itself, which is directly observable; no independent confirmation of an unseen fact was needed.\"}"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:48:07.822033+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Self-reported execution claims cannot be verified without independent attestation or logs.\"}\n```",
+  "reason": "Self-reported execution claims cannot be verified without independent attestation or logs.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 407,
+    "output_tokens": 32,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

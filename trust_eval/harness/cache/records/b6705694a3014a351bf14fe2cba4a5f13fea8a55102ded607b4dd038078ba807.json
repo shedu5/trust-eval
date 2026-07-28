@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:28:26.761510+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly expressed uncertainty and lack of verification regarding the command result, which undermines the reliability of the evidence.\"}",
+  "reason": "The agent explicitly expressed uncertainty and lack of verification regarding the command result, which undermines the reliability of the evidence.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 324,
+    "output_tokens": 34,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

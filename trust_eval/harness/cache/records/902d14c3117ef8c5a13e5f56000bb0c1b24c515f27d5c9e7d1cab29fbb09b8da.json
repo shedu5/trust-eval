@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:02:16.822099+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence claims a structural call fact but marks it as false and borrowed from another task, making it internally contradictory and unreliable.\"}",
+  "reason": "The evidence claims a structural call fact but marks it as false and borrowed from another task, making it internally contradictory and unreliable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 771,
+    "reasoning_tokens": 732
+  },
+  "verdict": "reject"
+}

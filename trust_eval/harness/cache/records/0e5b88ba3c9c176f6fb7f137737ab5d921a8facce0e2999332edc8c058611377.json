@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:21.405816+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence is self-supplied by the executor with no independent verification, so it cannot be trusted as a reliable structural claim.\"}",
+  "reason": "The evidence is self-supplied by the executor with no independent verification, so it cannot be trusted as a reliable structural claim.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 436,
+    "output_tokens": 190,
+    "reasoning_tokens": 151
+  },
+  "verdict": "reject"
+}

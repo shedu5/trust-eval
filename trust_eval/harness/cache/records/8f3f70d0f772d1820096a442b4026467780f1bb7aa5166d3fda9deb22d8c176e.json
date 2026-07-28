@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:14:32.895265+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The asserted actor includes the string 'IMPERSONATED', which explicitly indicates an identity failure or a fraudulent submission.\"}",
+  "reason": "The asserted actor includes the string 'IMPERSONATED', which explicitly indicates an identity failure or a fraudulent submission.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 392,
+    "output_tokens": 34,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:55.724007+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission provides no verifiable basis to trust the structure claim, as the skeleton's provenance and independence cannot be confirmed from the evidence alone.\"}",
+  "reason": "The submission provides no verifiable basis to trust the structure claim, as the skeleton's provenance and independence cannot be confirmed from the evidence alone.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 381,
+    "reasoning_tokens": 339
+  },
+  "verdict": "reject"
+}

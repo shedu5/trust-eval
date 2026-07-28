@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:14:30.045126+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission relies entirely on a self-reported identity claim without any verifiable cryptographic proof, external attestation, or cross-referenceable log data to confirm the agent's identity.\"}",
+  "reason": "The submission relies entirely on a self-reported identity claim without any verifiable cryptographic proof, external attestation, or cross-referenceable log data to confirm the agent's identity.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 388,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

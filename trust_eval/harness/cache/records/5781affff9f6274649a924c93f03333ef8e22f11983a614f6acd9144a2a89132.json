@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:57:54.946823+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The agent explicitly states uncertainty and expresses lack of independent verification, so the evidence cannot be trusted as reliable.\"}",
+  "reason": "The agent explicitly states uncertainty and expresses lack of independent verification, so the evidence cannot be trusted as reliable.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 316,
+    "output_tokens": 311,
+    "reasoning_tokens": 276
+  },
+  "verdict": "reject"
+}

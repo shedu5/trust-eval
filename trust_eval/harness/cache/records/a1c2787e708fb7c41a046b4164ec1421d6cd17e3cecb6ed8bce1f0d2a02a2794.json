@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "gemini",
+  "raw": "{\"self_critique\": \"The submission follows the schema for a state claim, and expecting a full diff or file contents within the evidence object may be an overreach given that 'state' claims are typically metadata assertions about a diff rather than the diff itself.\", \"would_revise_if\": \"I would revise my verdict to ACCEPT if the protocol definition for 'state' claims explicitly clarifies that the agent is only required to declare the delta relative to the baseline, rather than providing the file contents themselves.\"}"
+}

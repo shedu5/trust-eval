@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:35:44.222106+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is self-consistent and plausible with no indication of falsification within the submitted evidence.\"}",
+  "reason": "The execution claim is self-consistent and plausible with no indication of falsification within the submitted evidence.",
+  "usage": {
+    "cache_hit_input_tokens": 0,
+    "input_tokens": 288,
+    "output_tokens": 391,
+    "reasoning_tokens": 358
+  },
+  "verdict": "accept"
+}

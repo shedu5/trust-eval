@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-pro",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 9, \"verified_independently\": false, \"explanation\": \"The verdict rests on the submission lacking verifiable proof, which is directly visible in the JSON's structure\u2014there is no cryptographic signature, hash link, or tamper-evident log reference, so the fact is inferred from the submitted evidence itself rather than independently confirmed.\"}"
+}

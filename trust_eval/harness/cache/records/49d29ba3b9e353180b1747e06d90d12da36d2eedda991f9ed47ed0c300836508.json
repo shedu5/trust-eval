@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:59:40.738200+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The submitted evidence is internally consistent and contains no contradictions or violations of the rules, so it is accepted at face value.\"}",
+  "reason": "The submitted evidence is internally consistent and contains no contradictions or violations of the rules, so it is accepted at face value.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 406,
+    "output_tokens": 758,
+    "reasoning_tokens": 721
+  },
+  "verdict": "accept"
+}

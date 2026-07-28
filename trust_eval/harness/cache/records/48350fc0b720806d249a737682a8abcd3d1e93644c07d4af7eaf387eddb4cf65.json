@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T00:54:10.655633+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"accept\", \"reason\": \"The execution claim is self-consistent with no external contradictions or missing required approvals evident from the submission alone.\"}",
+  "reason": "The execution claim is self-consistent with no external contradictions or missing required approvals evident from the submission alone.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 382,
+    "output_tokens": 277,
+    "reasoning_tokens": 243
+  },
+  "verdict": "accept"
+}

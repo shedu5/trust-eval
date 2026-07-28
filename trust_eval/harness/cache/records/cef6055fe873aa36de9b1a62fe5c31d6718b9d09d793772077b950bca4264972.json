@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:05.035871+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence relies on an old skeleton that the note itself says was generated before the guard call was removed, making the structure claim potentially stale, and the provenance cannot be independently verified.\"}",
+  "reason": "The evidence relies on an old skeleton that the note itself says was generated before the guard call was removed, making the structure claim potentially stale, and the provenance cannot be independently verified.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 434,
+    "output_tokens": 357,
+    "reasoning_tokens": 307
+  },
+  "verdict": "reject"
+}

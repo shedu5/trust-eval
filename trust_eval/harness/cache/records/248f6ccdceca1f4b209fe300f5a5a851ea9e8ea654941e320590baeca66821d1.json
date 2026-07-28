@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "deepseek",
+  "raw": "{\"confidence\": 8, \"verified_independently\": false, \"explanation\": \"The verdict relies on the submitted evidence itself showing a reference to an earlier conflicting result without explanation, and I did not independently verify any external fact.\"}"
+}

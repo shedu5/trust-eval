@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:42:17.855975+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim cannot be trusted because it cites an unrecorded earlier run and asks the reviewer to trust an independent verification rather than providing the actual execution trace.\"}\n```",
+  "reason": "The execution claim cannot be trusted because it cites an unrecorded earlier run and asks the reviewer to trust an independent verification rather than providing the actual execution trace.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 318,
+    "output_tokens": 48,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:50:44.102885+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Self-reported identity claims cannot be verified without access to external session or auth logs, which are unavailable to the reviewer.\"}",
+  "reason": "Self-reported identity claims cannot be verified without access to external session or auth logs, which are unavailable to the reviewer.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 392,
+    "output_tokens": 36,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

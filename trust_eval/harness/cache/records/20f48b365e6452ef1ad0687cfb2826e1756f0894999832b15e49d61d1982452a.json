@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:01:18.699653+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The skeleton used as evidence was borrowed from a different task (other-task-1) and there is no indication it reflects the current state of the code, so the claim cannot be trusted.\"}",
+  "reason": "The skeleton used as evidence was borrowed from a different task (other-task-1) and there is no indication it reflects the current state of the code, so the claim cannot be trusted.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 643,
+    "reasoning_tokens": 591
+  },
+  "verdict": "reject"
+}

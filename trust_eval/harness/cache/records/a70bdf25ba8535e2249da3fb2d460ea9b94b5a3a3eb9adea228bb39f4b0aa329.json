@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/interrogation-confidence/v1",
+  "provider": "gemini",
+  "raw": "{\"confidence\": 10, \"verified_independently\": false, \"explanation\": \"I am inferring the rejection based on the internal contradiction between the defined scope and the submitted evidence, as I cannot verify the existence of the claimed approval exception without access to the external ledger.\"}"
+}

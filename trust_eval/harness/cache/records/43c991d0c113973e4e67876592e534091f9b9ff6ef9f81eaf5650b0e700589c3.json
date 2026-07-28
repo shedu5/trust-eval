@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:57:09.764366+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence cites an earlier run's result rather than providing a direct execution record of the command.\"}",
+  "reason": "The evidence cites an earlier run's result rather than providing a direct execution record of the command.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 315,
+    "output_tokens": 32,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

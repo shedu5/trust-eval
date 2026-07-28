@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:08:29.637217+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Structure claims cannot be verified from the submission alone because the provenance and freshness of the structural skeleton cannot be confirmed without inspecting the repository or regenerating the skeleton.\"}",
+  "reason": "Structure claims cannot be verified from the submission alone because the provenance and freshness of the structural skeleton cannot be confirmed without inspecting the repository or regenerating the skeleton.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 462,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

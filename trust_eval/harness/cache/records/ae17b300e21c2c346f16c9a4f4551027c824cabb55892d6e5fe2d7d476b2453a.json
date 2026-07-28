@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:47:29.111897+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution evidence is from a previous state before the last commit and thus does not prove the current code passes the test.\"}\n```",
+  "reason": "The execution evidence is from a previous state before the last commit and thus does not prove the current code passes the test.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 41,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

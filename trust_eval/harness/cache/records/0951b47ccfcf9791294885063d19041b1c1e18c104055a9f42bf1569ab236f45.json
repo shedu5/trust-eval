@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:07:03.176333+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission's claim of trusted independent provenance for the structural skeleton cannot be verified, and the rules prohibit confirming its generation or staleness.\"}",
+  "reason": "The submission's claim of trusted independent provenance for the structural skeleton cannot be verified, and the rules prohibit confirming its generation or staleness.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 459,
+    "reasoning_tokens": 418
+  },
+  "verdict": "reject"
+}

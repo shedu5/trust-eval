@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:44.555646+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"Cannot verify the skeleton's independence or freshness from the submission alone, so the structural claim is unverifiable.\"}",
+  "reason": "Cannot verify the skeleton's independence or freshness from the submission alone, so the structural claim is unverifiable.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 302,
+    "reasoning_tokens": 266
+  },
+  "verdict": "reject"
+}

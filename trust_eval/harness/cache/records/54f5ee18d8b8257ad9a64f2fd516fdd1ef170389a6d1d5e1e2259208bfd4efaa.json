@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:31:47.940353+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The agent explicitly disclaims certainty and verification of the submitted evidence, rendering the execution claim untrustworthy.\"}\n```",
+  "reason": "The agent explicitly disclaims certainty and verification of the submitted evidence, rendering the execution claim untrustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 333,
+    "output_tokens": 38,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

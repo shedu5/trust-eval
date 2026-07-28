@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:12:30.908041+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submission explicitly admits the evidence is re-used from a prior state rather than being an execution result of the current work, rendering it unverifiable and potentially stale.\"}",
+  "reason": "The submission explicitly admits the evidence is re-used from a prior state rather than being an execution result of the current work, rendering it unverifiable and potentially stale.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 414,
+    "output_tokens": 45,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/interrogation-critique/v1",
+  "provider": "deepseek",
+  "raw": "{\"self_critique\": \"The execution claim only states '1 passed' without showing the full test output, so the agent could have run a single trivial test or omitted failures, making the evidence insufficient to prove the task requirements were met.\", \"would_revise_if\": \"Independent evidence showing that the actual test suite for exec-task has multiple tests and that the true result included failures or that the command's output was different from what was submitted.\"}"
+}

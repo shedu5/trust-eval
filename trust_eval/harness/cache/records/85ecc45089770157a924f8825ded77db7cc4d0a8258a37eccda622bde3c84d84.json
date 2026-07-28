@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T17:10:05.688317+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"Structure claims cannot be trusted because there is no way to verify from the submission alone whether the underlying skeleton is independent, authentic, or up-to-date.\"}\n```",
+  "reason": "Structure claims cannot be trusted because there is no way to verify from the submission alone whether the underlying skeleton is independent, authentic, or up-to-date.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 460,
+    "output_tokens": 49,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

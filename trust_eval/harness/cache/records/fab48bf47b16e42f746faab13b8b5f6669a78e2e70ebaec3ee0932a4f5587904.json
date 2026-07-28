@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:02:04.772016+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The provenance is self-reported as 'trusted_independent' but cannot be verified, and the negative structure claim about a missing call cannot be corroborated without inspecting the actual skeleton or repository, so it is not trustworthy.\"}",
+  "reason": "The provenance is self-reported as 'trusted_independent' but cannot be verified, and the negative structure claim about a missing call cannot be corroborated without inspecting the actual skeleton or repository, so it is not trustworthy.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 627,
+    "reasoning_tokens": 569
+  },
+  "verdict": "reject"
+}

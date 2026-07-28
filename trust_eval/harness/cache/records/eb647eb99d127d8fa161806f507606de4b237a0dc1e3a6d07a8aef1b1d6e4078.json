@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:51:30.421951+00:00",
+  "model": "gemini-3.1-flash-lite",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The submitted evidence explicitly reports a failing test result ('1 failed: assert add(2,2)==4'), indicating the agent's work did not achieve the required objective.\"}",
+  "reason": "The submitted evidence explicitly reports a failing test result ('1 failed: assert add(2,2)==4'), indicating the agent's work did not achieve the required objective.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 308,
+    "output_tokens": 47,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

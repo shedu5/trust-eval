@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:00:48.446986+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The evidence's provenance is unverifiable because the skeleton was borrowed from another task and its independence cannot be confirmed, plus the 'asserted: false' field contradicts the claim's truth.\"}",
+  "reason": "The evidence's provenance is unverifiable because the skeleton was borrowed from another task and its independence cannot be confirmed, plus the 'asserted: false' field contradicts the claim's truth.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 435,
+    "output_tokens": 982,
+    "reasoning_tokens": 930
+  },
+  "verdict": "reject"
+}

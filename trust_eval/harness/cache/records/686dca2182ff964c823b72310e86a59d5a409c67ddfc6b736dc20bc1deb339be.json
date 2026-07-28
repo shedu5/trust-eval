@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T18:17:27.840064+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The submission relies entirely on the agent's unforgeable self-assertion of a command's execution and output, providing no verifiable proof or external attestation.\"}\n```",
+  "reason": "The submission relies entirely on the agent's unforgeable self-assertion of a command's execution and output, providing no verifiable proof or external attestation.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 309,
+    "output_tokens": 50,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

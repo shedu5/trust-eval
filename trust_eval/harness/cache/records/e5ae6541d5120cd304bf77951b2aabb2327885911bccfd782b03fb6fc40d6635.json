@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T18:33:53.877115+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The agent explicitly states it has not verified the evidence and asks for independent verification, which is impossible for the reviewer to perform.\"}\n```",
+  "reason": "The agent explicitly states it has not verified the evidence and asks for independent verification, which is impossible for the reviewer to perform.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 338,
+    "output_tokens": 42,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

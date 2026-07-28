@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-24T19:36:57.042438+00:00",
+  "model": "gemini-3.1-pro-preview",
+  "prompt_version": "trust-eval/study-c/p1-review/v1",
+  "provider": "gemini",
+  "raw": "```json\n{\"verdict\": \"reject\", \"reason\": \"The execution claim lacks verifiable proof such as a cryptographic signature or trusted attestation, which is required since good faith cannot be assumed and the record could be forged.\"}\n```",
+  "reason": "The execution claim lacks verifiable proof such as a cryptographic signature or trusted attestation, which is required since good faith cannot be assumed and the record could be forged.",
+  "usage": {
+    "cache_hit_input_tokens": null,
+    "input_tokens": 300,
+    "output_tokens": 49,
+    "reasoning_tokens": null
+  },
+  "verdict": "reject"
+}

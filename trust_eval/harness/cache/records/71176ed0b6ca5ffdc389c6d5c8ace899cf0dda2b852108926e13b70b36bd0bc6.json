@@ -1,0 +1,15 @@
+{
+  "evaluated_at": "2026-07-25T01:08:37.182988+00:00",
+  "model": "deepseek-v4-flash",
+  "prompt_version": "trust-eval/study-c/p1-review/v2",
+  "provider": "deepseek",
+  "raw": "{\"verdict\": \"reject\", \"reason\": \"The structure claim cannot be independently verified from the submission alone, and the provenance assertion is not trustworthy without the ability to confirm the skeleton's independence or freshness.\"}",
+  "reason": "The structure claim cannot be independently verified from the submission alone, and the provenance assertion is not trustworthy without the ability to confirm the skeleton's independence or freshness.",
+  "usage": {
+    "cache_hit_input_tokens": 256,
+    "input_tokens": 441,
+    "output_tokens": 308,
+    "reasoning_tokens": 263
+  },
+  "verdict": "reject"
+}
